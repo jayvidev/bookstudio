@@ -1,9 +1,9 @@
 import { z } from 'zod'
 
-import { filterOptionsArraySchema } from '@/lib/schemas/common/filter-option.schema'
+import { optionsArraySchema } from '@/lib/schemas/common/option.schema'
 
 export const reservationFilterOptionsSchema = z.object({
-  readers: filterOptionsArraySchema,
+  readers: optionsArraySchema,
 })
 
 export type ReservationFilterOptions = z.infer<typeof reservationFilterOptionsSchema>
