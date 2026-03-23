@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./apps/web/public/images/assets/readme.jpg" alt="Bookstudio Preview">
+  <img src="./assets/readme.jpg" alt="Bookstudio Preview">
 </div>
 
 <div align="center">
