@@ -24,7 +24,7 @@ bookstudio/
 ├── apps/
 │   ├── api/                        REST API — Spring Boot 4, Java 17, Maven
 │   └── web/                        Frontend — Next.js 16, TypeScript, Tailwind CSS, pnpm
-├── apps/api/database/              SQL scripts (schema, functions, triggers, data)
+├── database/                       SQL scripts (schema, functions, triggers, data)
 ├── package.json                    Root orchestration (concurrently)
 ├── docker-compose.yml              Base services (postgres + api)
 ├── docker-compose.override.yml     Dev — web with next dev + hot reload (auto-loaded)
@@ -69,7 +69,7 @@ pnpm docker:up:prod   # prod mode — web built with next build
 
 Ports are configurable in `.env` via `DB_PORT`, `API_PORT`, `WEB_PORT`.
 
-> **Note:** Scripts in `apps/api/database/` run automatically the first time the PostgreSQL volume is created. To reset the database from scratch: `pnpm docker:down -- -v && pnpm docker:up`.
+> **Note:** Scripts in `database/` run automatically the first time the PostgreSQL volume is created. To reset the database from scratch: `pnpm docker:down -- -v && pnpm docker:up`.
 >
 > **Port conflicts:** If any default port is already in use, override it in `.env` — e.g. `DB_PORT=5433`, `API_PORT=8081`, `WEB_PORT=3001`. Internal container communication is unaffected.
 
@@ -79,10 +79,10 @@ Ports are configurable in `.env` via `DB_PORT`, `API_PORT`, `WEB_PORT`.
 
 ```bash
 psql -U postgres -c "CREATE DATABASE bookstudio;"
-psql -U postgres -d bookstudio -f apps/api/database/01-schema.sql
-psql -U postgres -d bookstudio -f apps/api/database/02-functions.sql
-psql -U postgres -d bookstudio -f apps/api/database/03-triggers.sql
-psql -U postgres -d bookstudio -f apps/api/database/04-data.sql
+psql -U postgres -d bookstudio -f database/01-schema.sql
+psql -U postgres -d bookstudio -f database/02-functions.sql
+psql -U postgres -d bookstudio -f database/03-triggers.sql
+psql -U postgres -d bookstudio -f database/04-data.sql
 ```
 
 ### Start both services
