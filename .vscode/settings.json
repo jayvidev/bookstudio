@@ -1,11 +1,42 @@
 {
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "files.exclude": {
+    "**/.idea": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/target": true,
+    "**/.mvn": true,
+    "**/mvnw": true,
+    "**/mvnw.cmd": true,
+    "**/src/test": true,
+    "**/dist": true,
+    "**/.next": true,
+    "**/out": true,
+    "**/node_modules": true,
+    "**/apps/web/.pnpm-store": true,
+    "**/apps/web/.pnpm": true,
+    "**/apps/web/pnpm-store": true
+  },
+  "search.exclude": {
+    "**/dist": true,
+    "**/.next": true,
+    "**/out": true,
+    "**/node_modules": true,
+    "**/apps/web/.pnpm-store": true,
+    "**/apps/web/.pnpm": true,
+    "**/apps/web/pnpm-store": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "editor.formatOnSave": true,
-
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-
+  "[java]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.java"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.insertSpaces": true,
@@ -36,16 +67,12 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
-  "files.exclude": {
-    "**/dist": true,
-    "**/.next": true,
-    "**/out": true,
-    "**/node_modules": true
-  },
-  "search.exclude": {
-    "**/dist": true,
-    "**/.next": true,
-    "**/out": true,
-    "**/node_modules": true
-  }
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

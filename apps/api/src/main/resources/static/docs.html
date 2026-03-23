@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>API Reference - BookStudio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --scrollbar-thumb-color: hsl(240, 3.7%, 15.9%);
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border-radius: 5px;
+    }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--scrollbar-thumb-color) transparent;
+    }
+</style>
+
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
+    <script>
+        Scalar.createApiReference('#app', {
+            theme: 'default',
+            layout: "classic",
+            expandAllResponses: true,
+            hideClientButton: true,
+            url: '/v3/api-docs',
+            slug: 'bookstudio-api',
+        })
+    </script>
+</body>
+
+</html>

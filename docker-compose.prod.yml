@@ -1,0 +1,22 @@
+# Prod mode — run with: pnpm docker:up:prod
+# Web is built with Next.js production build using the Dockerfile.
+services:
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:${API_PORT:-8080}
+        NEXT_PUBLIC_SITE_URL: http://localhost:${WEB_PORT:-3000}
+    container_name: bookstudio-web
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:${API_PORT:-8080}
+      NEXT_PUBLIC_SITE_URL: http://localhost:${WEB_PORT:-3000}
+      API_INTERNAL_URL: http://bookstudio-api:8080
+    ports:
+      - "${WEB_PORT:-3000}:3000"

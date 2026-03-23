@@ -1,0 +1,62 @@
+# ─── Build output ─────────────────────────────
+/target/
+build/
+
+# ─── Spring Boot local config ─────────────────
+/src/main/resources/application-local.properties
+/src/main/resources/firebase-service-account.json
+
+# ─── Logs ─────────────────────────────────────
+*.log
+
+# ─── Compiled class files ─────────────────────
+*.class
+
+# ─── System files ─────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Editor/IDE files ─────────────────────────
+
+## IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+## Eclipse
+.settings/
+.classpath
+.project
+
+## STS (Spring Tool Suite)
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache
+
+## NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+## VS Code
+.vscode/*
+!.vscode/settings.json
+
+# ─── Swap/temporary files ─────────────────────
+*.swp
+*.swo
+
+# ─── Maven wrapper ────────────────────────────
+.mvn/wrapper/maven-wrapper.jar
+
+# ─── Node/npm (si frontend va en monorepo) ────
+/node_modules/
+
+# ─── Dotenv files ─────────────────────────────
+.env
+
+.claude

@@ -1,0 +1,11 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/bookstudio
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+spring.web.error.whitelabel.enabled=false
+spring.servlet.multipart.enabled=true
