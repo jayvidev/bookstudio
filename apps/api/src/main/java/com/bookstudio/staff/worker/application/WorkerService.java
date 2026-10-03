@@ -1,10 +1,15 @@
 package com.bookstudio.staff.worker.application;
 
-import com.bookstudio.staff.role.RoleApi;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.exception.BusinessRuleException;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
+import com.bookstudio.staff.role.RoleApi;
 import com.bookstudio.staff.worker.application.dto.request.CreateWorkerRequest;
 import com.bookstudio.staff.worker.application.dto.request.UpdateWorkerRequest;
+import com.bookstudio.staff.worker.application.dto.request.WorkerFilter;
 import com.bookstudio.staff.worker.application.dto.response.WorkerDetailResponse;
 import com.bookstudio.staff.worker.application.dto.response.WorkerFilterOptionsResponse;
 import com.bookstudio.staff.worker.application.dto.response.WorkerListResponse;
@@ -14,6 +19,8 @@ import com.bookstudio.staff.worker.infrastructure.repository.WorkerRepository;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,12 +33,31 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Validated
 public class WorkerService {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "username", "lastName");
+
     private final WorkerRepository workerRepository;
     private final RoleApi roleApi;
     private final PasswordEncoder passwordEncoder;
 
-    public List<WorkerListResponse> getList(Long loggedId) {
-        return workerRepository.findList(loggedId);
+    /**
+     * @param excludedId the caller, who manages their own account elsewhere
+     */
+    public PageResponse<WorkerListResponse> getPage(WorkerFilter filter, Pageable pageable, Long excludedId) {
+        Specification<Worker> spec = Specification.allOf(
+                filter.search() == null || filter.search().isBlank()
+                        ? Specification.unrestricted()
+                        : Specification.anyOf(
+                                Specs.containsIgnoreCase(filter.search(), "username", "email"),
+                                Specs.fullNameContains(filter.search(), "firstName", "lastName")),
+                Specs.equal("roleId", filter.roleId()),
+                Specs.equal("status", filter.status()),
+                Specs.notEqual("id", excludedId));
+
+        return PageProjection.of(
+                workerRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Worker::getId,
+                workerRepository::findListByIds,
+                WorkerListResponse::id);
     }
 
     public WorkerFilterOptionsResponse getFilterOptions() {

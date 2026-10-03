@@ -1,6 +1,7 @@
 package com.bookstudio.catalog.author.presentation;
 
 import com.bookstudio.catalog.author.application.AuthorService;
+import com.bookstudio.catalog.author.application.dto.request.AuthorFilter;
 import com.bookstudio.catalog.author.application.dto.request.CreateAuthorRequest;
 import com.bookstudio.catalog.author.application.dto.request.UpdateAuthorRequest;
 import com.bookstudio.catalog.author.application.dto.response.AuthorDetailResponse;
@@ -9,6 +10,7 @@ import com.bookstudio.catalog.author.application.dto.response.AuthorListResponse
 import com.bookstudio.catalog.author.application.dto.response.AuthorSelectOptionsResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,7 +23,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +41,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/authors")
@@ -44,20 +51,20 @@ public class AuthorController {
     private final AuthorService authorService;
 
     @GetMapping
-    @Operation(summary = "List all authors")
+    @Operation(summary = "List authors (paginated, filterable)",
+            description = "Sortable by birthDate, id, name, e.g. sort=name,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Authors listed successfully"),
-            @ApiResponse(responseCode = "204", description = "No authors found"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/authors\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of authors (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<AuthorListResponse>>> list() {
-        List<AuthorListResponse> authors = authorService.getList();
-        ApiSuccess<List<AuthorListResponse>> response = new ApiSuccess<>(
-                authors.isEmpty() ? "No authors found" : "Authors listed successfully",
-                authors);
-
-        HttpStatus status = authors.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK;
-        return ResponseEntity.status(status).body(response);
+    public ResponseEntity<ApiSuccess<PageResponse<AuthorListResponse>>> list(
+            @ParameterObject @Valid AuthorFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<AuthorListResponse> page = authorService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No authors found" : "Authors listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

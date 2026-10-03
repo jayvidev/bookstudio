@@ -1,7 +1,8 @@
 package com.bookstudio.catalog.book.application;
 
-import com.bookstudio.catalog.author.AuthorApi;
 import com.bookstudio.catalog.BookApi;
+import com.bookstudio.catalog.author.AuthorApi;
+import com.bookstudio.catalog.book.application.dto.request.BookFilter;
 import com.bookstudio.catalog.book.application.dto.request.CreateBookRequest;
 import com.bookstudio.catalog.book.application.dto.request.UpdateBookRequest;
 import com.bookstudio.catalog.book.application.dto.response.BookDetailResponse;
@@ -14,12 +15,18 @@ import com.bookstudio.catalog.category.CategoryApi;
 import com.bookstudio.catalog.genre.GenreApi;
 import com.bookstudio.catalog.language.LanguageApi;
 import com.bookstudio.catalog.publisher.PublisherApi;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
 import com.bookstudio.shared.response.OptionResponse;
 import com.bookstudio.shared.type.Status;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -31,6 +38,8 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Validated
 public class BookService implements BookApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "title", "releaseDate");
+
     private final BookRepository bookRepository;
 
     private final LanguageApi languageApi;
@@ -51,8 +60,19 @@ public class BookService implements BookApi {
         return bookRepository.findForOptions();
     }
 
-    public List<BookListResponse> getList() {
-        return bookRepository.findList();
+    public PageResponse<BookListResponse> getPage(BookFilter filter, Pageable pageable) {
+        Specification<Book> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "title", "isbn"),
+                Specs.equal("categoryId", filter.categoryId()),
+                Specs.equal("publisherId", filter.publisherId()),
+                Specs.equal("languageId", filter.languageId()),
+                Specs.equal("status", filter.status()));
+
+        return PageProjection.of(
+                bookRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Book::getId,
+                bookRepository::findListByIds,
+                BookListResponse::id);
     }
 
     public BookFilterOptionsResponse getFilterOptions() {

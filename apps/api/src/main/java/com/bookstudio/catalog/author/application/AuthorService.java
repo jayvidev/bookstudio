@@ -1,6 +1,7 @@
 package com.bookstudio.catalog.author.application;
 
 import com.bookstudio.catalog.author.AuthorApi;
+import com.bookstudio.catalog.author.application.dto.request.AuthorFilter;
 import com.bookstudio.catalog.author.application.dto.request.CreateAuthorRequest;
 import com.bookstudio.catalog.author.application.dto.request.UpdateAuthorRequest;
 import com.bookstudio.catalog.author.application.dto.response.AuthorDetailResponse;
@@ -10,11 +11,17 @@ import com.bookstudio.catalog.author.application.dto.response.AuthorSelectOption
 import com.bookstudio.catalog.author.domain.model.Author;
 import com.bookstudio.catalog.author.infrastructure.repository.AuthorRepository;
 import com.bookstudio.catalog.nationality.NationalityApi;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
 import com.bookstudio.shared.type.Status;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +36,8 @@ import java.util.Set;
 @Transactional(readOnly = true)
 @Validated
 public class AuthorService implements AuthorApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "name", "birthDate");
+
     private final AuthorRepository authorRepository;
     private final NationalityApi nationalityApi;
 
@@ -45,8 +54,17 @@ public class AuthorService implements AuthorApi {
                 });
     }
 
-    public List<AuthorListResponse> getList() {
-        return authorRepository.findList();
+    public PageResponse<AuthorListResponse> getPage(AuthorFilter filter, Pageable pageable) {
+        Specification<Author> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "name"),
+                Specs.equal("nationalityId", filter.nationalityId()),
+                Specs.equal("status", filter.status()));
+
+        return PageProjection.of(
+                authorRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Author::getId,
+                authorRepository::findListByIds,
+                AuthorListResponse::id);
     }
 
     public AuthorFilterOptionsResponse getFilterOptions() {

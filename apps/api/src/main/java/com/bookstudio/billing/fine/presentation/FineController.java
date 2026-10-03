@@ -2,12 +2,14 @@ package com.bookstudio.billing.fine.presentation;
 
 import com.bookstudio.billing.fine.application.FineService;
 import com.bookstudio.billing.fine.application.dto.request.CreateFineRequest;
+import com.bookstudio.billing.fine.application.dto.request.FineFilter;
 import com.bookstudio.billing.fine.application.dto.request.UpdateFineRequest;
 import com.bookstudio.billing.fine.application.dto.response.FineDetailResponse;
 import com.bookstudio.billing.fine.application.dto.response.FineFilterOptionsResponse;
 import com.bookstudio.billing.fine.application.dto.response.FineListResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,10 +22,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +40,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/fines")
@@ -43,18 +50,20 @@ public class FineController {
     private final FineService fineService;
 
     @GetMapping
-    @Operation(summary = "List all fines")
+    @Operation(summary = "List fines (paginated, filterable)",
+            description = "Sortable by amount, code, id, issuedAt, e.g. sort=code,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Fines listed successfully (or empty list if no fines found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/fines\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of fines (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<FineListResponse>>> list() {
-        List<FineListResponse> fines = fineService.getList();
-        ApiSuccess<List<FineListResponse>> response = new ApiSuccess<>(
-                fines.isEmpty() ? "No fines found" : "Fines listed successfully",
-                fines);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<FineListResponse>>> list(
+            @ParameterObject @Valid FineFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<FineListResponse> page = fineService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No fines found" : "Fines listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

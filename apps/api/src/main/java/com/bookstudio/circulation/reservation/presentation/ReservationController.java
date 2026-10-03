@@ -2,12 +2,14 @@ package com.bookstudio.circulation.reservation.presentation;
 
 import com.bookstudio.circulation.reservation.application.ReservationService;
 import com.bookstudio.circulation.reservation.application.dto.request.CreateReservationRequest;
+import com.bookstudio.circulation.reservation.application.dto.request.ReservationFilter;
 import com.bookstudio.circulation.reservation.application.dto.request.UpdateReservationRequest;
 import com.bookstudio.circulation.reservation.application.dto.response.ReservationDetailResponse;
 import com.bookstudio.circulation.reservation.application.dto.response.ReservationFilterOptionsResponse;
 import com.bookstudio.circulation.reservation.application.dto.response.ReservationListResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,10 +22,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +40,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/reservations")
@@ -43,18 +50,20 @@ public class ReservationController {
     private final ReservationService reservationService;
 
     @GetMapping
-    @Operation(summary = "List all reservations")
+    @Operation(summary = "List reservations (paginated, filterable)",
+            description = "Sortable by code, id, reservationDate, e.g. sort=code,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Reservations listed successfully (or empty list if no reservations found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/reservations\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of reservations (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<ReservationListResponse>>> list() {
-        List<ReservationListResponse> reservations = reservationService.getList();
-        ApiSuccess<List<ReservationListResponse>> response = new ApiSuccess<>(
-                reservations.isEmpty() ? "No reservations found" : "Reservations listed successfully",
-                reservations);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<ReservationListResponse>>> list(
+            @ParameterObject @Valid ReservationFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<ReservationListResponse> page = reservationService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No reservations found" : "Reservations listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

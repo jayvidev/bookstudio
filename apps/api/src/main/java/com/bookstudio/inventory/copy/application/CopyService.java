@@ -3,6 +3,7 @@ package com.bookstudio.inventory.copy.application;
 import com.bookstudio.catalog.BookApi;
 import com.bookstudio.inventory.CopyApi;
 import com.bookstudio.inventory.CopyStatus;
+import com.bookstudio.inventory.copy.application.dto.request.CopyFilter;
 import com.bookstudio.inventory.copy.application.dto.request.CreateCopyRequest;
 import com.bookstudio.inventory.copy.application.dto.request.UpdateCopyRequest;
 import com.bookstudio.inventory.copy.application.dto.response.CopyDetailResponse;
@@ -13,12 +14,18 @@ import com.bookstudio.inventory.copy.domain.model.Copy;
 import com.bookstudio.inventory.copy.domain.model.type.CopyCondition;
 import com.bookstudio.inventory.copy.infrastructure.repository.CopyRepository;
 import com.bookstudio.inventory.location.LocationApi;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
 import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -36,6 +43,8 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 @Validated
 public class CopyService implements CopyApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "code");
+
     private final CodeGenerator codeGenerator;
 
     private final CopyRepository copyRepository;
@@ -82,8 +91,19 @@ public class CopyService implements CopyApi {
                 .toList();
     }
 
-    public List<CopyListResponse> getList() {
-        return copyRepository.findList();
+    public PageResponse<CopyListResponse> getPage(CopyFilter filter, Pageable pageable) {
+        Specification<Copy> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "code", "barcode"),
+                Specs.equal("bookId", filter.bookId()),
+                Specs.equal("shelfId", filter.shelfId()),
+                Specs.equal("status", filter.status()),
+                Specs.equal("condition", filter.condition()));
+
+        return PageProjection.of(
+                copyRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Copy::getId,
+                copyRepository::findListByIds,
+                CopyListResponse::id);
     }
 
     public CopyFilterOptionsResponse getFilterOptions() {

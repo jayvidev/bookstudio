@@ -2,12 +2,14 @@ package com.bookstudio.billing.payment.presentation;
 
 import com.bookstudio.billing.payment.application.PaymentService;
 import com.bookstudio.billing.payment.application.dto.request.CreatePaymentRequest;
+import com.bookstudio.billing.payment.application.dto.request.PaymentFilter;
 import com.bookstudio.billing.payment.application.dto.request.UpdatePaymentRequest;
 import com.bookstudio.billing.payment.application.dto.response.PaymentDetailResponse;
 import com.bookstudio.billing.payment.application.dto.response.PaymentFilterOptionsResponse;
 import com.bookstudio.billing.payment.application.dto.response.PaymentListResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,10 +22,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +40,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/payments")
@@ -43,18 +50,20 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @GetMapping
-    @Operation(summary = "List all payments")
+    @Operation(summary = "List payments (paginated, filterable)",
+            description = "Sortable by amount, code, id, paymentDate, e.g. sort=code,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Payments listed successfully (or empty list if no payments found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/payments\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of payments (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<PaymentListResponse>>> list() {
-        List<PaymentListResponse> payments = paymentService.getList();
-        ApiSuccess<List<PaymentListResponse>> response = new ApiSuccess<>(
-                payments.isEmpty() ? "No payments found" : "Payments listed successfully",
-                payments);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<PaymentListResponse>>> list(
+            @ParameterObject @Valid PaymentFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<PaymentListResponse> page = paymentService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No payments found" : "Payments listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

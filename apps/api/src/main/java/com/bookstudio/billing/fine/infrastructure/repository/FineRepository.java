@@ -1,17 +1,19 @@
 package com.bookstudio.billing.fine.infrastructure.repository;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.billing.fine.application.dto.response.FineDetailResponse;
 import com.bookstudio.billing.fine.application.dto.response.FineListResponse;
 import com.bookstudio.billing.fine.domain.model.Fine;
 import com.bookstudio.shared.response.OptionResponse;
 
-public interface FineRepository extends JpaRepository<Fine, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+public interface FineRepository extends JpaRepository<Fine, Long>, JpaSpecificationExecutor<Fine> {
     String LIST_SELECT = """
         SELECT 
             f.id AS id,
@@ -32,8 +34,8 @@ public interface FineRepository extends JpaRepository<Fine, Long> {
         JOIN Copy c ON c.id = f.copyId
         """;
 
-    @Query(LIST_SELECT + "ORDER BY f.id DESC")
-    List<FineListResponse> findList();
+    @Query(LIST_SELECT + "WHERE f.id IN :ids ")
+    List<FineListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE f.id = :id")
     Optional<FineListResponse> findListItemById(Long id);

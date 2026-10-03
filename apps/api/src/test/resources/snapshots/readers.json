@@ -1,393 +1,192 @@
 {
-  "data": [
-    {
-      "code": "LEC-YYYY-00043",
-      "phone": "910321654",
-      "fullName": "Roxana Elizabeth Mendoza Cruz",
-      "id": 43,
-      "type": "EXTERNO",
-      "email": "roxana.mendoza@email.com",
-      "status": "ELIMINADO"
-    },
-    {
-      "code": "LEC-YYYY-00042",
-      "phone": "921654987",
-      "fullName": "Fernando José Cárdenas Luna",
-      "id": 42,
-      "type": "ADMINISTRATIVO",
-      "email": "fernando.cardenas@email.com",
-      "status": "ELIMINADO"
-    },
-    {
-      "code": "LEC-YYYY-00041",
-      "phone": "932456789",
-      "fullName": "Patricia Mercedes Alarcón Vega",
-      "id": 41,
-      "type": "DOCENTE",
-      "email": "patricia.alarcon@email.com",
-      "status": "ELIMINADO"
-    },
-    {
-      "code": "LEC-YYYY-00040",
-      "phone": "943789456",
-      "fullName": "Erick Rolando Huayhua Ccallo",
-      "id": 40,
-      "type": "ESTUDIANTE",
-      "email": "erick.huayhua@email.com",
-      "status": "ELIMINADO"
-    },
-    {
-      "code": "LEC-YYYY-00039",
-      "phone": "954123789",
-      "fullName": "Melissa Fiorella Cáceres Jiménez",
-      "id": 39,
-      "type": "ESTUDIANTE",
-      "email": "melissa.caceres@email.com",
-      "status": "ELIMINADO"
-    },
-    {
-      "code": "LEC-YYYY-00038",
-      "phone": "965987321",
-      "fullName": "Ángel Gabriel Romero Huanca",
-      "id": 38,
-      "type": "ESTUDIANTE",
-      "email": "angel.romero@email.com",
-      "status": "ELIMINADO"
-    },
-    {
-      "code": "LEC-YYYY-00037",
-      "phone": "976654123",
-      "fullName": "Guadalupe Esperanza Silva Paredes",
-      "id": 37,
-      "type": "DOCENTE",
-      "email": "guadalupe.silva@email.com",
-      "status": "BLOQUEADO"
-    },
-    {
-      "code": "LEC-YYYY-00036",
-      "phone": "987321654",
-      "fullName": "Víctor Hugo Delgado Ríos",
-      "id": 36,
-      "type": "ADMINISTRATIVO",
-      "email": "victor.delgado@email.com",
-      "status": "BLOQUEADO"
-    },
-    {
-      "code": "LEC-YYYY-00035",
-      "phone": "998765432",
-      "fullName": "Natalia Rocío Bustamante Aguilar",
-      "id": 35,
-      "type": "ESTUDIANTE",
-      "email": "natalia.bustamante@email.com",
-      "status": "BLOQUEADO"
-    },
-    {
-      "code": "LEC-YYYY-00034",
-      "phone": "910852963",
-      "fullName": "Omar Jesús Chávez Cordero",
-      "id": 34,
-      "type": "ESTUDIANTE",
-      "email": "omar.chavez@email.com",
-      "status": "BLOQUEADO"
-    },
-    {
-      "code": "LEC-YYYY-00033",
-      "phone": "921753684",
-      "fullName": "Carla Beatriz Salinas Montenegro",
-      "id": 33,
-      "type": "ESTUDIANTE",
-      "email": "carla.salinas@email.com",
-      "status": "BLOQUEADO"
-    },
-    {
-      "code": "LEC-YYYY-00032",
-      "phone": "932654987",
-      "fullName": "Raúl Enrique Pacheco Villar",
-      "id": 32,
-      "type": "EXTERNO",
-      "email": "raul.pacheco@email.com",
-      "status": "SUSPENDIDO"
-    },
-    {
-      "code": "LEC-YYYY-00031",
-      "phone": "943741852",
-      "fullName": "Elena Victoria Castillo Núñez",
-      "id": 31,
-      "type": "DOCENTE",
-      "email": "elena.castillo@email.com",
-      "status": "SUSPENDIDO"
-    },
-    {
-      "code": "LEC-YYYY-00030",
-      "phone": "954852741",
-      "fullName": "Franco Alexander Inca Mamani",
-      "id": 30,
-      "type": "ESTUDIANTE",
-      "email": "franco.inca@email.com",
-      "status": "SUSPENDIDO"
-    },
-    {
-      "code": "LEC-YYYY-00029",
-      "phone": "965159753",
-      "fullName": "Daniela Esperanza Campos Rojas",
-      "id": 29,
-      "type": "ESTUDIANTE",
-      "email": "daniela.campos@email.com",
-      "status": "SUSPENDIDO"
-    },
-    {
-      "code": "LEC-YYYY-00028",
-      "phone": "976321654",
-      "fullName": "Miguel Ángel Peña Carrión",
-      "id": 28,
-      "type": "ESTUDIANTE",
-      "email": "miguel.pena@email.com",
-      "status": "SUSPENDIDO"
-    },
-    {
-      "code": "LEC-YYYY-00027",
-      "phone": "987456123",
-      "fullName": "Andrea Carolina Vásquez Herrera",
-      "id": 27,
-      "type": "ESTUDIANTE",
-      "email": "andrea.vasquez@email.com",
-      "status": "SUSPENDIDO"
-    },
-    {
-      "code": "LEC-YYYY-00026",
-      "phone": "921098765",
-      "fullName": "Eduardo César Espinoza Luna",
-      "id": 26,
-      "type": "EXTERNO",
-      "email": "eduardo.espinoza@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00025",
-      "phone": "932109876",
-      "fullName": "Pilar Roxana Alvarez Tejada",
-      "id": 25,
-      "type": "EXTERNO",
-      "email": "pilar.alvarez@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00024",
-      "phone": "910987654",
-      "fullName": "Manuel Antonio Sánchez Vega",
-      "id": 24,
-      "type": "EXTERNO",
-      "email": "manuel.sanchez@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00023",
-      "phone": "943210987",
-      "fullName": "Ricardo Manuel Morales Díaz",
-      "id": 23,
-      "type": "ADMINISTRATIVO",
-      "email": "ricardo.morales@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00022",
-      "phone": "954321098",
-      "fullName": "Sandra Patricia López Vargas",
-      "id": 22,
-      "type": "ADMINISTRATIVO",
-      "email": "sandra.lopez@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00021",
-      "phone": "954321098",
-      "fullName": "José Luis Fernández Huamán",
-      "id": 21,
-      "type": "ADMINISTRATIVO",
-      "email": "jose.fernandez@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00020",
-      "phone": "965432109",
-      "fullName": "Jorge Enrique Medina Castro",
-      "id": 20,
-      "type": "DOCENTE",
-      "email": "jorge.medina@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00019",
-      "phone": "976543210",
-      "fullName": "Rosa María Guerrero Silva",
-      "id": 19,
-      "type": "DOCENTE",
-      "email": "rosa.guerrero@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00018",
-      "phone": "987654321",
-      "fullName": "Luis Alberto Vega Sánchez",
-      "id": 18,
-      "type": "DOCENTE",
-      "email": "luis.vega@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00017",
-      "phone": "921098765",
-      "fullName": "Carmen Luz Herrera Morales",
-      "id": 17,
-      "type": "DOCENTE",
-      "email": "carmen.herrera@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00016",
-      "phone": "965432109",
-      "fullName": "María Elena Rodríguez Torres",
-      "id": 16,
-      "type": "DOCENTE",
-      "email": "maria.rodriguez@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00015",
-      "phone": "909901234",
-      "fullName": "Fernanda Alejandra Mamani Quispe",
-      "id": 15,
-      "type": "ESTUDIANTE",
-      "email": "fernanda.mamani@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00014",
-      "phone": "910890123",
-      "fullName": "Adrián Gabriel Choque Apaza",
-      "id": 14,
-      "type": "ESTUDIANTE",
-      "email": "adrian.choque@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00013",
-      "phone": "921789012",
-      "fullName": "Isabella Nicole Nina Calla",
-      "id": 13,
-      "type": "ESTUDIANTE",
-      "email": "isabella.nina@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00012",
-      "phone": "932678901",
-      "fullName": "Sebastián Alonso Poma Hancco",
-      "id": 12,
-      "type": "ESTUDIANTE",
-      "email": "sebastian.poma@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00011",
-      "phone": "943567890",
-      "fullName": "Valeria Milagros Ramos Ccahuana",
-      "id": 11,
-      "type": "ESTUDIANTE",
-      "email": "valeria.ramos@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00010",
-      "phone": "954456789",
-      "fullName": "Mateo José Condori Apaza",
-      "id": 10,
-      "type": "ESTUDIANTE",
-      "email": "mateo.condori@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00009",
-      "phone": "965345678",
-      "fullName": "Camila Andrea Torres Vilca",
-      "id": 9,
-      "type": "ESTUDIANTE",
-      "email": "camila.torres@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00008",
-      "phone": "976234567",
-      "fullName": "Javier Fernando Huamán Flores",
-      "id": 8,
-      "type": "ESTUDIANTE",
-      "email": "javier.huaman@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00007",
-      "phone": "987123456",
-      "fullName": "Sofía Elena Quispe Mamani",
-      "id": 7,
-      "type": "ESTUDIANTE",
-      "email": "sofia.quispe@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00006",
-      "phone": "890765432",
-      "fullName": "Diego Alejandro Moreno Ramos",
-      "id": 6,
-      "type": "ESTUDIANTE",
-      "email": "diego.moreno@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00005",
-      "phone": "901876543",
-      "fullName": "Lucía Isabel Paredes Gutiérrez",
-      "id": 5,
-      "type": "ESTUDIANTE",
-      "email": "lucia.paredes@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00004",
-      "phone": "932109876",
-      "fullName": "Roberto Miguel Castro Quispe",
-      "id": 4,
-      "type": "ESTUDIANTE",
-      "email": "roberto.castro@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00003",
-      "phone": "943210987",
-      "fullName": "Patricia Rosa Vargas Chávez",
-      "id": 3,
-      "type": "ESTUDIANTE",
-      "email": "patricia.vargas@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00002",
-      "phone": "976543210",
-      "fullName": "Carlos Andrés Mendoza Silva",
-      "id": 2,
-      "type": "ESTUDIANTE",
-      "email": "carlos.mendoza@email.com",
-      "status": "ACTIVO"
-    },
-    {
-      "code": "LEC-YYYY-00001",
-      "phone": "987654321",
-      "fullName": "Ana María García López",
-      "id": 1,
-      "type": "ESTUDIANTE",
-      "email": "ana.garcia@email.com",
-      "status": "ACTIVO"
-    }
-  ],
+  "data": {
+    "size": 20,
+    "totalPages": 3,
+    "page": 0,
+    "content": [
+      {
+        "code": "LEC-YYYY-00043",
+        "phone": "910321654",
+        "fullName": "Roxana Elizabeth Mendoza Cruz",
+        "id": 43,
+        "type": "EXTERNO",
+        "email": "roxana.mendoza@email.com",
+        "status": "ELIMINADO"
+      },
+      {
+        "code": "LEC-YYYY-00042",
+        "phone": "921654987",
+        "fullName": "Fernando José Cárdenas Luna",
+        "id": 42,
+        "type": "ADMINISTRATIVO",
+        "email": "fernando.cardenas@email.com",
+        "status": "ELIMINADO"
+      },
+      {
+        "code": "LEC-YYYY-00041",
+        "phone": "932456789",
+        "fullName": "Patricia Mercedes Alarcón Vega",
+        "id": 41,
+        "type": "DOCENTE",
+        "email": "patricia.alarcon@email.com",
+        "status": "ELIMINADO"
+      },
+      {
+        "code": "LEC-YYYY-00040",
+        "phone": "943789456",
+        "fullName": "Erick Rolando Huayhua Ccallo",
+        "id": 40,
+        "type": "ESTUDIANTE",
+        "email": "erick.huayhua@email.com",
+        "status": "ELIMINADO"
+      },
+      {
+        "code": "LEC-YYYY-00039",
+        "phone": "954123789",
+        "fullName": "Melissa Fiorella Cáceres Jiménez",
+        "id": 39,
+        "type": "ESTUDIANTE",
+        "email": "melissa.caceres@email.com",
+        "status": "ELIMINADO"
+      },
+      {
+        "code": "LEC-YYYY-00038",
+        "phone": "965987321",
+        "fullName": "Ángel Gabriel Romero Huanca",
+        "id": 38,
+        "type": "ESTUDIANTE",
+        "email": "angel.romero@email.com",
+        "status": "ELIMINADO"
+      },
+      {
+        "code": "LEC-YYYY-00037",
+        "phone": "976654123",
+        "fullName": "Guadalupe Esperanza Silva Paredes",
+        "id": 37,
+        "type": "DOCENTE",
+        "email": "guadalupe.silva@email.com",
+        "status": "BLOQUEADO"
+      },
+      {
+        "code": "LEC-YYYY-00036",
+        "phone": "987321654",
+        "fullName": "Víctor Hugo Delgado Ríos",
+        "id": 36,
+        "type": "ADMINISTRATIVO",
+        "email": "victor.delgado@email.com",
+        "status": "BLOQUEADO"
+      },
+      {
+        "code": "LEC-YYYY-00035",
+        "phone": "998765432",
+        "fullName": "Natalia Rocío Bustamante Aguilar",
+        "id": 35,
+        "type": "ESTUDIANTE",
+        "email": "natalia.bustamante@email.com",
+        "status": "BLOQUEADO"
+      },
+      {
+        "code": "LEC-YYYY-00034",
+        "phone": "910852963",
+        "fullName": "Omar Jesús Chávez Cordero",
+        "id": 34,
+        "type": "ESTUDIANTE",
+        "email": "omar.chavez@email.com",
+        "status": "BLOQUEADO"
+      },
+      {
+        "code": "LEC-YYYY-00033",
+        "phone": "921753684",
+        "fullName": "Carla Beatriz Salinas Montenegro",
+        "id": 33,
+        "type": "ESTUDIANTE",
+        "email": "carla.salinas@email.com",
+        "status": "BLOQUEADO"
+      },
+      {
+        "code": "LEC-YYYY-00032",
+        "phone": "932654987",
+        "fullName": "Raúl Enrique Pacheco Villar",
+        "id": 32,
+        "type": "EXTERNO",
+        "email": "raul.pacheco@email.com",
+        "status": "SUSPENDIDO"
+      },
+      {
+        "code": "LEC-YYYY-00031",
+        "phone": "943741852",
+        "fullName": "Elena Victoria Castillo Núñez",
+        "id": 31,
+        "type": "DOCENTE",
+        "email": "elena.castillo@email.com",
+        "status": "SUSPENDIDO"
+      },
+      {
+        "code": "LEC-YYYY-00030",
+        "phone": "954852741",
+        "fullName": "Franco Alexander Inca Mamani",
+        "id": 30,
+        "type": "ESTUDIANTE",
+        "email": "franco.inca@email.com",
+        "status": "SUSPENDIDO"
+      },
+      {
+        "code": "LEC-YYYY-00029",
+        "phone": "965159753",
+        "fullName": "Daniela Esperanza Campos Rojas",
+        "id": 29,
+        "type": "ESTUDIANTE",
+        "email": "daniela.campos@email.com",
+        "status": "SUSPENDIDO"
+      },
+      {
+        "code": "LEC-YYYY-00028",
+        "phone": "976321654",
+        "fullName": "Miguel Ángel Peña Carrión",
+        "id": 28,
+        "type": "ESTUDIANTE",
+        "email": "miguel.pena@email.com",
+        "status": "SUSPENDIDO"
+      },
+      {
+        "code": "LEC-YYYY-00027",
+        "phone": "987456123",
+        "fullName": "Andrea Carolina Vásquez Herrera",
+        "id": 27,
+        "type": "ESTUDIANTE",
+        "email": "andrea.vasquez@email.com",
+        "status": "SUSPENDIDO"
+      },
+      {
+        "code": "LEC-YYYY-00026",
+        "phone": "921098765",
+        "fullName": "Eduardo César Espinoza Luna",
+        "id": 26,
+        "type": "EXTERNO",
+        "email": "eduardo.espinoza@email.com",
+        "status": "ACTIVO"
+      },
+      {
+        "code": "LEC-YYYY-00025",
+        "phone": "932109876",
+        "fullName": "Pilar Roxana Alvarez Tejada",
+        "id": 25,
+        "type": "EXTERNO",
+        "email": "pilar.alvarez@email.com",
+        "status": "ACTIVO"
+      },
+      {
+        "code": "LEC-YYYY-00024",
+        "phone": "910987654",
+        "fullName": "Manuel Antonio Sánchez Vega",
+        "id": 24,
+        "type": "EXTERNO",
+        "email": "manuel.sanchez@email.com",
+        "status": "ACTIVO"
+      }
+    ],
+    "totalElements": 43
+  },
   "success": true,
   "message": "Readers listed successfully"
 }

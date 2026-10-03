@@ -1,24 +1,30 @@
 {
-  "data": [
-    {
-      "name": "Asistente",
-      "description": "Apoyo en tareas básicas de biblioteca y atención al público",
-      "id": 3,
-      "permissionCount": 5
-    },
-    {
-      "name": "Bibliotecario",
-      "description": "Gestión de préstamos, devoluciones, multas y catalogación de libros",
-      "id": 2,
-      "permissionCount": 12
-    },
-    {
-      "name": "Administrador",
-      "description": "Acceso completo al sistema, gestión de usuarios y configuración",
-      "id": 1,
-      "permissionCount": 17
-    }
-  ],
+  "data": {
+    "size": 20,
+    "totalPages": 1,
+    "page": 0,
+    "content": [
+      {
+        "name": "Asistente",
+        "description": "Apoyo en tareas básicas de biblioteca y atención al público",
+        "id": 3,
+        "permissionCount": 5
+      },
+      {
+        "name": "Bibliotecario",
+        "description": "Gestión de préstamos, devoluciones, multas y catalogación de libros",
+        "id": 2,
+        "permissionCount": 12
+      },
+      {
+        "name": "Administrador",
+        "description": "Acceso completo al sistema, gestión de usuarios y configuración",
+        "id": 1,
+        "permissionCount": 17
+      }
+    ],
+    "totalElements": 3
+  },
   "success": true,
   "message": "Roles listed successfully"
 }

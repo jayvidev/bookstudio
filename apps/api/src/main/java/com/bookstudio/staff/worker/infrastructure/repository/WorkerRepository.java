@@ -1,16 +1,18 @@
 package com.bookstudio.staff.worker.infrastructure.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.staff.worker.application.dto.response.WorkerDetailResponse;
 import com.bookstudio.staff.worker.application.dto.response.WorkerListResponse;
 import com.bookstudio.staff.worker.domain.model.Worker;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface WorkerRepository extends JpaRepository<Worker, Long> {
+public interface WorkerRepository extends JpaRepository<Worker, Long>, JpaSpecificationExecutor<Worker> {
     String LIST_SELECT = """
         SELECT
             w.id AS id,
@@ -27,8 +29,8 @@ public interface WorkerRepository extends JpaRepository<Worker, Long> {
         JOIN Role r ON r.id = w.roleId
         """;
 
-    @Query(LIST_SELECT + "WHERE w.id <> :loggedId ORDER BY w.id DESC")
-    List<WorkerListResponse> findList(Long loggedId);
+    @Query(LIST_SELECT + "WHERE w.id IN :ids ")
+    List<WorkerListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE w.id = :id")
     Optional<WorkerListResponse> findListItemById(Long id);

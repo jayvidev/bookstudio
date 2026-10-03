@@ -1,16 +1,18 @@
 package com.bookstudio.circulation.reservation.infrastructure.repository;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.circulation.reservation.application.dto.response.ReservationDetailResponse;
 import com.bookstudio.circulation.reservation.application.dto.response.ReservationListResponse;
 import com.bookstudio.circulation.reservation.domain.model.Reservation;
 
-public interface ReservationRepository extends JpaRepository<Reservation, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+public interface ReservationRepository extends JpaRepository<Reservation, Long>, JpaSpecificationExecutor<Reservation> {
     String LIST_SELECT = """
         SELECT 
             r.id AS id,
@@ -29,8 +31,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
         JOIN Copy c ON c.id = r.copyId
         """;
 
-    @Query(LIST_SELECT + "ORDER BY r.id DESC")
-    List<ReservationListResponse> findList();
+    @Query(LIST_SELECT + "WHERE r.id IN :ids ")
+    List<ReservationListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE r.id = :id")
     Optional<ReservationListResponse> findListItemById(Long id);

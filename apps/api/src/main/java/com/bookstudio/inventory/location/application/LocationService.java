@@ -3,6 +3,7 @@ package com.bookstudio.inventory.location.application;
 import com.bookstudio.inventory.location.LocationApi;
 import com.bookstudio.inventory.location.application.dto.request.CreateLocationRequest;
 import com.bookstudio.inventory.location.application.dto.request.CreateShelfRequest;
+import com.bookstudio.inventory.location.application.dto.request.LocationFilter;
 import com.bookstudio.inventory.location.application.dto.request.UpdateLocationRequest;
 import com.bookstudio.inventory.location.application.dto.request.UpdateShelfRequest;
 import com.bookstudio.inventory.location.application.dto.response.LocationDetailResponse;
@@ -11,11 +12,17 @@ import com.bookstudio.inventory.location.domain.model.Location;
 import com.bookstudio.inventory.location.domain.model.Shelf;
 import com.bookstudio.inventory.location.infrastructure.repository.LocationRepository;
 import com.bookstudio.inventory.location.infrastructure.repository.ShelfRepository;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
 import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -27,6 +34,8 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Validated
 public class LocationService implements LocationApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "name");
+
     private final LocationRepository locationRepository;
     private final ShelfRepository shelfRepository;
 
@@ -42,8 +51,15 @@ public class LocationService implements LocationApi {
         return shelfRepository.findForOptions();
     }
 
-    public List<LocationListResponse> getList() {
-        return locationRepository.findList();
+    public PageResponse<LocationListResponse> getPage(LocationFilter filter, Pageable pageable) {
+        Specification<Location> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "name"));
+
+        return PageProjection.of(
+                locationRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Location::getId,
+                locationRepository::findListByIds,
+                LocationListResponse::id);
     }
 
     public LocationDetailResponse getDetailById(Long id) {

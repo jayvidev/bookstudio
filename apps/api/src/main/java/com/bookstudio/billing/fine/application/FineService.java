@@ -1,9 +1,9 @@
 package com.bookstudio.billing.fine.application;
 
-import com.bookstudio.inventory.CopyApi;
 import com.bookstudio.billing.fine.FineApi;
 import com.bookstudio.billing.fine.FineStatus;
 import com.bookstudio.billing.fine.application.dto.request.CreateFineRequest;
+import com.bookstudio.billing.fine.application.dto.request.FineFilter;
 import com.bookstudio.billing.fine.application.dto.request.UpdateFineRequest;
 import com.bookstudio.billing.fine.application.dto.response.FineDetailResponse;
 import com.bookstudio.billing.fine.application.dto.response.FineFilterOptionsResponse;
@@ -11,11 +11,18 @@ import com.bookstudio.billing.fine.application.dto.response.FineListResponse;
 import com.bookstudio.billing.fine.domain.model.Fine;
 import com.bookstudio.billing.fine.infrastructure.repository.FineRepository;
 import com.bookstudio.circulation.LoanApi;
+import com.bookstudio.inventory.CopyApi;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -31,6 +38,8 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 @Validated
 public class FineService implements FineApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "code", "issuedAt", "amount");
+
     private final CodeGenerator codeGenerator;
 
     private final FineRepository fineRepository;
@@ -52,8 +61,19 @@ public class FineService implements FineApi {
         }
     }
 
-    public List<FineListResponse> getList() {
-        return fineRepository.findList();
+    public PageResponse<FineListResponse> getPage(FineFilter filter, Pageable pageable) {
+        Specification<Fine> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "code"),
+                Specs.equal("loanId", filter.loanId()),
+                Specs.equal("status", filter.status()),
+                Specs.onOrAfter("issuedAt", filter.from()),
+                Specs.onOrBefore("issuedAt", filter.to()));
+
+        return PageProjection.of(
+                fineRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Fine::getId,
+                fineRepository::findListByIds,
+                FineListResponse::id);
     }
 
     public FineFilterOptionsResponse getFilterOptions() {

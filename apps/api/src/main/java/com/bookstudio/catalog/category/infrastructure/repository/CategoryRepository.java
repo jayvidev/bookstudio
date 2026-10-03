@@ -1,18 +1,20 @@
 package com.bookstudio.catalog.category.infrastructure.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.catalog.category.application.dto.response.CategoryDetailResponse;
 import com.bookstudio.catalog.category.application.dto.response.CategoryListResponse;
 import com.bookstudio.catalog.category.domain.model.Category;
 import com.bookstudio.shared.response.OptionResponse;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface CategoryRepository extends JpaRepository<Category, Long> {
-    @Query("""
+public interface CategoryRepository extends JpaRepository<Category, Long>, JpaSpecificationExecutor<Category> {
+    String LIST_SELECT = """
         SELECT 
             c.id AS id,
             c.name AS name,
@@ -20,9 +22,10 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
             c.description AS description,
             c.status AS status
         FROM Category c
-        ORDER BY c.id DESC
-    """)
-    List<CategoryListResponse> findList();
+        """;
+
+    @Query(LIST_SELECT + "WHERE c.id IN :ids ")
+    List<CategoryListResponse> findListByIds(Collection<Long> ids);
 
     @Query("""
         SELECT 

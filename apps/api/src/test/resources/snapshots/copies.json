@@ -1,1770 +1,372 @@
 {
-  "data": [
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00098",
-      "book": {
-        "coverUrl": "https:\/\/letras.rae.es\/128-thickbox_default\/diccionario-de-la-lengua-espanola-23-edicion.jpg",
-        "id": 50,
-        "title": "Diccionario de la Real Academia Española"
-      },
-      "location": {
-        "name": "Sala de Referencia"
-      },
-      "id": 98,
-      "shelf": {
-        "code": "E01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00097",
-      "book": {
-        "coverUrl": "https:\/\/letras.rae.es\/128-thickbox_default\/diccionario-de-la-lengua-espanola-23-edicion.jpg",
-        "id": 50,
-        "title": "Diccionario de la Real Academia Española"
-      },
-      "location": {
-        "name": "Sala de Referencia"
-      },
-      "id": 97,
-      "shelf": {
-        "code": "E01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00096",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
-        "id": 41,
-        "title": "Psicología del Desarrollo"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 96,
-      "shelf": {
-        "code": "C07",
-        "floor": "Primer Piso"
-      },
-      "status": "EXTRAVIADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00095",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
-        "id": 41,
-        "title": "Psicología del Desarrollo"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 95,
-      "shelf": {
-        "code": "C07",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00094",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
-        "id": 41,
-        "title": "Psicología del Desarrollo"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 94,
-      "shelf": {
-        "code": "C07",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00093",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/45\/d2\/45d28890f2d269be7a105e4697931eb7.jpg",
-        "id": 37,
-        "title": "Biología Molecular"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 93,
-      "shelf": {
-        "code": "C02",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00092",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/45\/d2\/45d28890f2d269be7a105e4697931eb7.jpg",
-        "id": 37,
-        "title": "Biología Molecular"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 92,
-      "shelf": {
-        "code": "C02",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00091",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRQ23tn2gq2hBnxcbTrFbytZp15_5V6iJ4w2w&s",
-        "id": 20,
-        "title": "Platero y yo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 91,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00090",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRQ23tn2gq2hBnxcbTrFbytZp15_5V6iJ4w2w&s",
-        "id": 20,
-        "title": "Platero y yo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 90,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00089",
-      "book": {
-        "coverUrl": "https:\/\/www.elvirrey.com\/imagenes\/9789972\/978997233296.GIF",
-        "id": 5,
-        "title": "Tradiciones Peruanas"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 89,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00088",
-      "book": {
-        "coverUrl": "https:\/\/www.elvirrey.com\/imagenes\/9789972\/978997233296.GIF",
-        "id": 5,
-        "title": "Tradiciones Peruanas"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 88,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "MANTENIMIENTO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00087",
-      "book": {
-        "coverUrl": "https:\/\/www.elvirrey.com\/imagenes\/9789972\/978997233296.GIF",
-        "id": 5,
-        "title": "Tradiciones Peruanas"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 87,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00086",
-      "book": {
-        "coverUrl": "https:\/\/pendulo.com\/imagenes_grandes\/9788494\/978849441163.GIF",
-        "id": 29,
-        "title": "Orgullo y prejuicio"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 86,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00085",
-      "book": {
-        "coverUrl": "https:\/\/pendulo.com\/imagenes_grandes\/9788494\/978849441163.GIF",
-        "id": 29,
-        "title": "Orgullo y prejuicio"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 85,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00084",
-      "book": {
-        "coverUrl": "https:\/\/pendulo.com\/imagenes_grandes\/9788494\/978849441163.GIF",
-        "id": 29,
-        "title": "Orgullo y prejuicio"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 84,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00083",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/90\/53\/905322d10841b36aa311dbd5c90d92ed.jpg",
-        "id": 13,
-        "title": "Rayuela"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 83,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "RESERVADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00082",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/90\/53\/905322d10841b36aa311dbd5c90d92ed.jpg",
-        "id": 13,
-        "title": "Rayuela"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 82,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00081",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
-        "id": 44,
-        "title": "Matilda"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 81,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00080",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
-        "id": 44,
-        "title": "Matilda"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 80,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "EXTRAVIADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00079",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
-        "id": 44,
-        "title": "Matilda"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 79,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00078",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
-        "id": 44,
-        "title": "Matilda"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 78,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00077",
-      "book": {
-        "coverUrl": null,
-        "id": 38,
-        "title": "Anatomía Humana"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 77,
-      "shelf": {
-        "code": "C04",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00076",
-      "book": {
-        "coverUrl": null,
-        "id": 38,
-        "title": "Anatomía Humana"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 76,
-      "shelf": {
-        "code": "C04",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "MALO",
-      "code": "EJE-YYYY-00075",
-      "book": {
-        "coverUrl": null,
-        "id": 36,
-        "title": "Química Orgánica"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 75,
-      "shelf": {
-        "code": "C02",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00074",
-      "book": {
-        "coverUrl": null,
-        "id": 36,
-        "title": "Química Orgánica"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 74,
-      "shelf": {
-        "code": "C02",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00073",
-      "book": {
-        "coverUrl": null,
-        "id": 36,
-        "title": "Química Orgánica"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 73,
-      "shelf": {
-        "code": "C02",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00072",
-      "book": {
-        "coverUrl": null,
-        "id": 25,
-        "title": "It"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 72,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "MANTENIMIENTO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00071",
-      "book": {
-        "coverUrl": null,
-        "id": 25,
-        "title": "It"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 71,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00070",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/b0\/39\/b039af065268818b7bd3b0e016f8db65.jpg",
-        "id": 28,
-        "title": "1984"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 70,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00069",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/b0\/39\/b039af065268818b7bd3b0e016f8db65.jpg",
-        "id": 28,
-        "title": "1984"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 69,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "RESERVADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00068",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/b0\/39\/b039af065268818b7bd3b0e016f8db65.jpg",
-        "id": 28,
-        "title": "1984"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 68,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00067",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/b0\/39\/b039af065268818b7bd3b0e016f8db65.jpg",
-        "id": 28,
-        "title": "1984"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 67,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00066",
-      "book": {
-        "coverUrl": null,
-        "id": 11,
-        "title": "La casa de los espíritus"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 66,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00065",
-      "book": {
-        "coverUrl": null,
-        "id": 11,
-        "title": "La casa de los espíritus"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 65,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00064",
-      "book": {
-        "coverUrl": null,
-        "id": 11,
-        "title": "La casa de los espíritus"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 64,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00063",
-      "book": {
-        "coverUrl": null,
-        "id": 10,
-        "title": "Ficciones"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 63,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00062",
-      "book": {
-        "coverUrl": null,
-        "id": 10,
-        "title": "Ficciones"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 62,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "EXTRAVIADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00061",
-      "book": {
-        "coverUrl": null,
-        "id": 10,
-        "title": "Ficciones"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 61,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "DETERIORADO",
-      "code": "EJE-YYYY-00060",
-      "book": {
-        "coverUrl": "https:\/\/biblioteca.asamblea.gob.sv\/backendsiab\/images\/portadas\/Enciclopedia%20Juvenil%20Oceano.jpg",
-        "id": 48,
-        "title": "Enciclopedia Juvenil Oceano"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 60,
-      "shelf": {
-        "code": "D05",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00059",
-      "book": {
-        "coverUrl": "https:\/\/biblioteca.asamblea.gob.sv\/backendsiab\/images\/portadas\/Enciclopedia%20Juvenil%20Oceano.jpg",
-        "id": 48,
-        "title": "Enciclopedia Juvenil Oceano"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 59,
-      "shelf": {
-        "code": "D05",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00058",
-      "book": {
-        "coverUrl": "https:\/\/biblioteca.asamblea.gob.sv\/backendsiab\/images\/portadas\/Enciclopedia%20Juvenil%20Oceano.jpg",
-        "id": 48,
-        "title": "Enciclopedia Juvenil Oceano"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 58,
-      "shelf": {
-        "code": "D05",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00057",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 57,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00056",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 56,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00055",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 55,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00054",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 54,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00053",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 53,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00052",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 52,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00051",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 51,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00050",
-      "book": {
-        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-        "id": 43,
-        "title": "El Principito"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 50,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00049",
-      "book": {
-        "coverUrl": null,
-        "id": 35,
-        "title": "Física General"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 49,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00048",
-      "book": {
-        "coverUrl": null,
-        "id": 35,
-        "title": "Física General"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 48,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "RESERVADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00047",
-      "book": {
-        "coverUrl": null,
-        "id": 35,
-        "title": "Física General"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 47,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00046",
-      "book": {
-        "coverUrl": null,
-        "id": 35,
-        "title": "Física General"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 46,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00045",
-      "book": {
-        "coverUrl": null,
-        "id": 34,
-        "title": "Matemáticas 4to Secundaria"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 45,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00044",
-      "book": {
-        "coverUrl": null,
-        "id": 34,
-        "title": "Matemáticas 4to Secundaria"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 44,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00043",
-      "book": {
-        "coverUrl": null,
-        "id": 34,
-        "title": "Matemáticas 4to Secundaria"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 43,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00042",
-      "book": {
-        "coverUrl": null,
-        "id": 34,
-        "title": "Matemáticas 4to Secundaria"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 42,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00041",
-      "book": {
-        "coverUrl": null,
-        "id": 34,
-        "title": "Matemáticas 4to Secundaria"
-      },
-      "location": {
-        "name": "Sala de Estudio"
-      },
-      "id": 41,
-      "shelf": {
-        "code": "C01",
-        "floor": "Primer Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "DETERIORADO",
-      "code": "EJE-YYYY-00040",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTE7JKNvHH9z1dXPXQ1giHsfknDNlNoncsniA&s",
-        "id": 33,
-        "title": "Historia del Perú Contemporáneo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 40,
-      "shelf": {
-        "code": "B01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00039",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTE7JKNvHH9z1dXPXQ1giHsfknDNlNoncsniA&s",
-        "id": 33,
-        "title": "Historia del Perú Contemporáneo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 39,
-      "shelf": {
-        "code": "B01",
-        "floor": "Planta Baja"
-      },
-      "status": "MANTENIMIENTO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00038",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTE7JKNvHH9z1dXPXQ1giHsfknDNlNoncsniA&s",
-        "id": 33,
-        "title": "Historia del Perú Contemporáneo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 38,
-      "shelf": {
-        "code": "B01",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00037",
-      "book": {
-        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTE7JKNvHH9z1dXPXQ1giHsfknDNlNoncsniA&s",
-        "id": 33,
-        "title": "Historia del Perú Contemporáneo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 37,
-      "shelf": {
-        "code": "B01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00036",
-      "book": {
-        "coverUrl": null,
-        "id": 27,
-        "title": "Asesinato en el Orient Express"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 36,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00035",
-      "book": {
-        "coverUrl": null,
-        "id": 27,
-        "title": "Asesinato en el Orient Express"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 35,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00034",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
-        "id": 26,
-        "title": "Harry Potter y la piedra filosofal"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 34,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00033",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
-        "id": 26,
-        "title": "Harry Potter y la piedra filosofal"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 33,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00032",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
-        "id": 26,
-        "title": "Harry Potter y la piedra filosofal"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 32,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00031",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
-        "id": 26,
-        "title": "Harry Potter y la piedra filosofal"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 31,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00030",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
-        "id": 26,
-        "title": "Harry Potter y la piedra filosofal"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 30,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00029",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
-        "id": 26,
-        "title": "Harry Potter y la piedra filosofal"
-      },
-      "location": {
-        "name": "Sala Infantil"
-      },
-      "id": 29,
-      "shelf": {
-        "code": "D01",
-        "floor": "Segundo Piso"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00028",
-      "book": {
-        "coverUrl": null,
-        "id": 24,
-        "title": "El viejo y el mar"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 28,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00027",
-      "book": {
-        "coverUrl": null,
-        "id": 24,
-        "title": "El viejo y el mar"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 27,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "RESERVADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00026",
-      "book": {
-        "coverUrl": null,
-        "id": 24,
-        "title": "El viejo y el mar"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 26,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00025",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn2.buscalibre.com\/fit-in\/360x360\/1b\/3d\/1b3d13ee1322464e244fbb0b23dc11db.jpg",
-        "id": 23,
-        "title": "Romeo y Julieta"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 25,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00024",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn2.buscalibre.com\/fit-in\/360x360\/1b\/3d\/1b3d13ee1322464e244fbb0b23dc11db.jpg",
-        "id": 23,
-        "title": "Romeo y Julieta"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 24,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00023",
-      "book": {
-        "coverUrl": "https:\/\/images.cdn2.buscalibre.com\/fit-in\/360x360\/1b\/3d\/1b3d13ee1322464e244fbb0b23dc11db.jpg",
-        "id": 23,
-        "title": "Romeo y Julieta"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 23,
-      "shelf": {
-        "code": "A04",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00022",
-      "book": {
-        "coverUrl": null,
-        "id": 17,
-        "title": "Don Quijote de la Mancha"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 22,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00021",
-      "book": {
-        "coverUrl": null,
-        "id": 17,
-        "title": "Don Quijote de la Mancha"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 21,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00020",
-      "book": {
-        "coverUrl": null,
-        "id": 17,
-        "title": "Don Quijote de la Mancha"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 20,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00019",
-      "book": {
-        "coverUrl": null,
-        "id": 17,
-        "title": "Don Quijote de la Mancha"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 19,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "MANTENIMIENTO"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00018",
-      "book": {
-        "coverUrl": null,
-        "id": 17,
-        "title": "Don Quijote de la Mancha"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 18,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00017",
-      "book": {
-        "coverUrl": null,
-        "id": 17,
-        "title": "Don Quijote de la Mancha"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 17,
-      "shelf": {
-        "code": "A03",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00016",
-      "book": {
-        "coverUrl": null,
-        "id": 4,
-        "title": "Trilce"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 16,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00015",
-      "book": {
-        "coverUrl": null,
-        "id": 4,
-        "title": "Trilce"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 15,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00014",
-      "book": {
-        "coverUrl": null,
-        "id": 3,
-        "title": "La palabra del mudo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 14,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00013",
-      "book": {
-        "coverUrl": null,
-        "id": 3,
-        "title": "La palabra del mudo"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 13,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00012",
-      "book": {
-        "coverUrl": null,
-        "id": 2,
-        "title": "Los ríos profundos"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 12,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00011",
-      "book": {
-        "coverUrl": null,
-        "id": 2,
-        "title": "Los ríos profundos"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 11,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00010",
-      "book": {
-        "coverUrl": null,
-        "id": 2,
-        "title": "Los ríos profundos"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 10,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "MALO",
-      "code": "EJE-YYYY-00009",
-      "book": {
-        "coverUrl": null,
-        "id": 9,
-        "title": "Cien años de soledad"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 9,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00008",
-      "book": {
-        "coverUrl": null,
-        "id": 9,
-        "title": "Cien años de soledad"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 8,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "RESERVADO"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00007",
-      "book": {
-        "coverUrl": null,
-        "id": 9,
-        "title": "Cien años de soledad"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 7,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "PRESTADO"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00006",
-      "book": {
-        "coverUrl": null,
-        "id": 9,
-        "title": "Cien años de soledad"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 6,
-      "shelf": {
-        "code": "A02",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00005",
-      "book": {
-        "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
-        "id": 1,
-        "title": "La ciudad y los perros"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 5,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "NUEVO",
-      "code": "EJE-YYYY-00004",
-      "book": {
-        "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
-        "id": 1,
-        "title": "La ciudad y los perros"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 4,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "REGULAR",
-      "code": "EJE-YYYY-00003",
-      "book": {
-        "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
-        "id": 1,
-        "title": "La ciudad y los perros"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 3,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00002",
-      "book": {
-        "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
-        "id": 1,
-        "title": "La ciudad y los perros"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 2,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    },
-    {
-      "condition": "BUENO",
-      "code": "EJE-YYYY-00001",
-      "book": {
-        "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
-        "id": 1,
-        "title": "La ciudad y los perros"
-      },
-      "location": {
-        "name": "Sala General"
-      },
-      "id": 1,
-      "shelf": {
-        "code": "A01",
-        "floor": "Planta Baja"
-      },
-      "status": "DISPONIBLE"
-    }
-  ],
+  "data": {
+    "size": 20,
+    "totalPages": 5,
+    "page": 0,
+    "content": [
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00098",
+        "book": {
+          "coverUrl": "https:\/\/letras.rae.es\/128-thickbox_default\/diccionario-de-la-lengua-espanola-23-edicion.jpg",
+          "id": 50,
+          "title": "Diccionario de la Real Academia Española"
+        },
+        "location": {
+          "name": "Sala de Referencia"
+        },
+        "id": 98,
+        "shelf": {
+          "code": "E01",
+          "floor": "Segundo Piso"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "NUEVO",
+        "code": "EJE-YYYY-00097",
+        "book": {
+          "coverUrl": "https:\/\/letras.rae.es\/128-thickbox_default\/diccionario-de-la-lengua-espanola-23-edicion.jpg",
+          "id": 50,
+          "title": "Diccionario de la Real Academia Española"
+        },
+        "location": {
+          "name": "Sala de Referencia"
+        },
+        "id": 97,
+        "shelf": {
+          "code": "E01",
+          "floor": "Segundo Piso"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "REGULAR",
+        "code": "EJE-YYYY-00096",
+        "book": {
+          "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
+          "id": 41,
+          "title": "Psicología del Desarrollo"
+        },
+        "location": {
+          "name": "Sala de Estudio"
+        },
+        "id": 96,
+        "shelf": {
+          "code": "C07",
+          "floor": "Primer Piso"
+        },
+        "status": "EXTRAVIADO"
+      },
+      {
+        "condition": "NUEVO",
+        "code": "EJE-YYYY-00095",
+        "book": {
+          "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
+          "id": 41,
+          "title": "Psicología del Desarrollo"
+        },
+        "location": {
+          "name": "Sala de Estudio"
+        },
+        "id": 95,
+        "shelf": {
+          "code": "C07",
+          "floor": "Primer Piso"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00094",
+        "book": {
+          "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
+          "id": 41,
+          "title": "Psicología del Desarrollo"
+        },
+        "location": {
+          "name": "Sala de Estudio"
+        },
+        "id": 94,
+        "shelf": {
+          "code": "C07",
+          "floor": "Primer Piso"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00093",
+        "book": {
+          "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/45\/d2\/45d28890f2d269be7a105e4697931eb7.jpg",
+          "id": 37,
+          "title": "Biología Molecular"
+        },
+        "location": {
+          "name": "Sala de Estudio"
+        },
+        "id": 93,
+        "shelf": {
+          "code": "C02",
+          "floor": "Primer Piso"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "NUEVO",
+        "code": "EJE-YYYY-00092",
+        "book": {
+          "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/45\/d2\/45d28890f2d269be7a105e4697931eb7.jpg",
+          "id": 37,
+          "title": "Biología Molecular"
+        },
+        "location": {
+          "name": "Sala de Estudio"
+        },
+        "id": 92,
+        "shelf": {
+          "code": "C02",
+          "floor": "Primer Piso"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "REGULAR",
+        "code": "EJE-YYYY-00091",
+        "book": {
+          "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRQ23tn2gq2hBnxcbTrFbytZp15_5V6iJ4w2w&s",
+          "id": 20,
+          "title": "Platero y yo"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 91,
+        "shelf": {
+          "code": "A03",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00090",
+        "book": {
+          "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRQ23tn2gq2hBnxcbTrFbytZp15_5V6iJ4w2w&s",
+          "id": 20,
+          "title": "Platero y yo"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 90,
+        "shelf": {
+          "code": "A03",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "NUEVO",
+        "code": "EJE-YYYY-00089",
+        "book": {
+          "coverUrl": "https:\/\/www.elvirrey.com\/imagenes\/9789972\/978997233296.GIF",
+          "id": 5,
+          "title": "Tradiciones Peruanas"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 89,
+        "shelf": {
+          "code": "A01",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "REGULAR",
+        "code": "EJE-YYYY-00088",
+        "book": {
+          "coverUrl": "https:\/\/www.elvirrey.com\/imagenes\/9789972\/978997233296.GIF",
+          "id": 5,
+          "title": "Tradiciones Peruanas"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 88,
+        "shelf": {
+          "code": "A01",
+          "floor": "Planta Baja"
+        },
+        "status": "MANTENIMIENTO"
+      },
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00087",
+        "book": {
+          "coverUrl": "https:\/\/www.elvirrey.com\/imagenes\/9789972\/978997233296.GIF",
+          "id": 5,
+          "title": "Tradiciones Peruanas"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 87,
+        "shelf": {
+          "code": "A01",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "REGULAR",
+        "code": "EJE-YYYY-00086",
+        "book": {
+          "coverUrl": "https:\/\/pendulo.com\/imagenes_grandes\/9788494\/978849441163.GIF",
+          "id": 29,
+          "title": "Orgullo y prejuicio"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 86,
+        "shelf": {
+          "code": "A04",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "NUEVO",
+        "code": "EJE-YYYY-00085",
+        "book": {
+          "coverUrl": "https:\/\/pendulo.com\/imagenes_grandes\/9788494\/978849441163.GIF",
+          "id": 29,
+          "title": "Orgullo y prejuicio"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 85,
+        "shelf": {
+          "code": "A04",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00084",
+        "book": {
+          "coverUrl": "https:\/\/pendulo.com\/imagenes_grandes\/9788494\/978849441163.GIF",
+          "id": 29,
+          "title": "Orgullo y prejuicio"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 84,
+        "shelf": {
+          "code": "A04",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "REGULAR",
+        "code": "EJE-YYYY-00083",
+        "book": {
+          "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/90\/53\/905322d10841b36aa311dbd5c90d92ed.jpg",
+          "id": 13,
+          "title": "Rayuela"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 83,
+        "shelf": {
+          "code": "A02",
+          "floor": "Planta Baja"
+        },
+        "status": "RESERVADO"
+      },
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00082",
+        "book": {
+          "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/90\/53\/905322d10841b36aa311dbd5c90d92ed.jpg",
+          "id": 13,
+          "title": "Rayuela"
+        },
+        "location": {
+          "name": "Sala General"
+        },
+        "id": 82,
+        "shelf": {
+          "code": "A02",
+          "floor": "Planta Baja"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "BUENO",
+        "code": "EJE-YYYY-00081",
+        "book": {
+          "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
+          "id": 44,
+          "title": "Matilda"
+        },
+        "location": {
+          "name": "Sala Infantil"
+        },
+        "id": 81,
+        "shelf": {
+          "code": "D01",
+          "floor": "Segundo Piso"
+        },
+        "status": "DISPONIBLE"
+      },
+      {
+        "condition": "REGULAR",
+        "code": "EJE-YYYY-00080",
+        "book": {
+          "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
+          "id": 44,
+          "title": "Matilda"
+        },
+        "location": {
+          "name": "Sala Infantil"
+        },
+        "id": 80,
+        "shelf": {
+          "code": "D01",
+          "floor": "Segundo Piso"
+        },
+        "status": "EXTRAVIADO"
+      },
+      {
+        "condition": "NUEVO",
+        "code": "EJE-YYYY-00079",
+        "book": {
+          "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
+          "id": 44,
+          "title": "Matilda"
+        },
+        "location": {
+          "name": "Sala Infantil"
+        },
+        "id": 79,
+        "shelf": {
+          "code": "D01",
+          "floor": "Segundo Piso"
+        },
+        "status": "DISPONIBLE"
+      }
+    ],
+    "totalElements": 98
+  },
   "success": true,
   "message": "Copies listed successfully"
 }

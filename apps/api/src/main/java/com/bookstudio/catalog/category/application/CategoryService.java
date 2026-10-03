@@ -1,19 +1,26 @@
 package com.bookstudio.catalog.category.application;
 
-import com.bookstudio.shared.response.OptionResponse;
 import com.bookstudio.catalog.category.CategoryApi;
-import com.bookstudio.catalog.category.infrastructure.repository.CategoryRepository;
-import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.catalog.category.application.dto.request.CategoryFilter;
 import com.bookstudio.catalog.category.application.dto.request.CreateCategoryRequest;
 import com.bookstudio.catalog.category.application.dto.request.UpdateCategoryRequest;
 import com.bookstudio.catalog.category.application.dto.response.CategoryDetailResponse;
 import com.bookstudio.catalog.category.application.dto.response.CategoryListResponse;
 import com.bookstudio.catalog.category.domain.model.Category;
 import com.bookstudio.catalog.category.domain.model.type.CategoryLevel;
+import com.bookstudio.catalog.category.infrastructure.repository.CategoryRepository;
+import com.bookstudio.shared.api.PageResponse;
+import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
+import com.bookstudio.shared.response.OptionResponse;
 import com.bookstudio.shared.type.Status;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -25,6 +32,8 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Validated
 public class CategoryService implements CategoryApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "name");
+
     private final CategoryRepository categoryRepository;
 
     @Override
@@ -39,8 +48,17 @@ public class CategoryService implements CategoryApi {
         return categoryRepository.findForOptions();
     }
 
-    public List<CategoryListResponse> getList() {
-        return categoryRepository.findList();
+    public PageResponse<CategoryListResponse> getPage(CategoryFilter filter, Pageable pageable) {
+        Specification<Category> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "name"),
+                Specs.equal("level", filter.level()),
+                Specs.equal("status", filter.status()));
+
+        return PageProjection.of(
+                categoryRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Category::getId,
+                categoryRepository::findListByIds,
+                CategoryListResponse::id);
     }
 
     public CategoryDetailResponse getDetailById(Long id) {

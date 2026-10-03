@@ -1,1254 +1,492 @@
 {
-  "data": [
-    {
-      "coverUrl": "https:\/\/www.udllibros.com\/imagenes\/9788416\/978841640712.JPG",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0533-9",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 52,
-      "title": "Manual de Primeros Auxilios",
-      "category": {
-        "name": "Medicina",
-        "id": 14
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/3c\/59\/3c59379c54fbdafd5428ed7935d77590.jpg",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0532-8",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 51,
-      "title": "Atlas Mundial",
-      "category": {
-        "name": "Geografía",
-        "id": 16
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/letras.rae.es\/128-thickbox_default\/diccionario-de-la-lengua-espanola-23-edicion.jpg",
-      "copies": {
-        "available": 2,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0531-7",
-      "publisher": {
-        "name": "Alianza Editorial",
-        "id": 19
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 50,
-      "title": "Diccionario de la Real Academia Española",
-      "category": {
-        "name": "Enciclopedias",
-        "id": 10
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/librosateneo.com\/image\/cache\/catalog\/libros\/lote-43\/Scan-43-10-550x550.jpg",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0530-6",
-      "publisher": {
-        "name": "Alianza Editorial",
-        "id": 19
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 49,
-      "title": "Gran Enciclopedia Larousse",
-      "category": {
-        "name": "Enciclopedias",
-        "id": 10
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/biblioteca.asamblea.gob.sv\/backendsiab\/images\/portadas\/Enciclopedia%20Juvenil%20Oceano.jpg",
-      "copies": {
-        "available": 3,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0506-7",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 48,
-      "title": "Enciclopedia Juvenil Oceano",
-      "category": {
-        "name": "Enciclopedias",
-        "id": 10
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/imgv2-1-f.scribdassets.com\/img\/document\/499209501\/original\/8b22de0346\/1?v=1",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0529-5",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 47,
-      "title": "Donde viven los monstruos",
-      "category": {
-        "name": "Economía",
-        "id": 17
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/76\/08\/7608d458499a573da01c43ebd8de9b22.jpg",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0528-4",
-      "publisher": {
-        "name": "Salamandra",
-        "id": 16
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 46,
-      "title": "Las crónicas de Narnia: El león, la bruja y el ropero",
-      "category": {
-        "name": "Cuentos Infantiles",
-        "id": 9
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/www.crisol.com.pe\/media\/catalog\/product\/cache\/f6d2c62455a42b0d712f6c919e880845\/9\/7\/9786124349164_4gd8k8wgb0tgpdgl.jpg",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0527-3",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 45,
-      "title": "Charlie y la fábrica de chocolate",
-      "category": {
-        "name": "Economía",
-        "id": 17
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
-      "copies": {
-        "available": 3,
-        "loaned": 1
-      },
-      "isbn": "978-84-376-0526-2",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 44,
-      "title": "Matilda",
-      "category": {
-        "name": "Economía",
-        "id": 17
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
-      "copies": {
-        "available": 3,
-        "loaned": 5
-      },
-      "isbn": "978-84-376-0505-0",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 43,
-      "title": "El Principito",
-      "category": {
-        "name": "Cuentos Infantiles",
-        "id": 9
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/30\/41\/3041d48bf887e062392a1cf10e006d5f.jpg",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0525-1",
-      "publisher": {
-        "name": "Fondo de Cultura Económica",
-        "id": 6
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 42,
-      "title": "Sociología Contemporánea",
-      "category": {
-        "name": "Sociología",
-        "id": 18
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
-      "copies": {
-        "available": 2,
-        "loaned": 1
-      },
-      "isbn": "978-84-376-0524-0",
-      "publisher": {
-        "name": "Planeta",
-        "id": 1
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 41,
-      "title": "Psicología del Desarrollo",
-      "category": {
-        "name": "Psicología",
-        "id": 12
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSlTpoDiln3Va1fIdQix4CfSoT_dljmOsTgHg&s",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0523-9",
-      "publisher": {
-        "name": "Fondo de Cultura Económica",
-        "id": 6
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 40,
-      "title": "Principios de Economía",
-      "category": {
-        "name": "Economía",
-        "id": 17
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/www.sancristoballibros.com\/imagenes\/9786125\/978612501923.GIF",
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0522-8",
-      "publisher": {
-        "name": "Peisa",
-        "id": 10
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 39,
-      "title": "Código Civil Peruano",
-      "category": {
-        "name": "Derecho",
-        "id": 15
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 2,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0521-7",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 38,
-      "title": "Anatomía Humana",
-      "category": {
-        "name": "Medicina",
-        "id": 14
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/45\/d2\/45d28890f2d269be7a105e4697931eb7.jpg",
-      "copies": {
-        "available": 2,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0520-6",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 37,
-      "title": "Biología Molecular",
-      "category": {
-        "name": "Biología",
-        "id": 8
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 3,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0519-5",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 36,
-      "title": "Química Orgánica",
-      "category": {
-        "name": "Química",
-        "id": 7
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 2,
-        "loaned": 2
-      },
-      "isbn": "978-84-376-0504-3",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 35,
-      "title": "Física General",
-      "category": {
-        "name": "Física",
-        "id": 6
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 5,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0503-6",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 34,
-      "title": "Matemáticas 4to Secundaria",
-      "category": {
-        "name": "Matemáticas",
-        "id": 5
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTE7JKNvHH9z1dXPXQ1giHsfknDNlNoncsniA&s",
-      "copies": {
-        "available": 2,
-        "loaned": 2
-      },
-      "isbn": "978-84-376-0502-9",
-      "publisher": {
-        "name": "Peisa",
-        "id": 10
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 33,
-      "title": "Historia del Perú Contemporáneo",
-      "category": {
-        "name": "Historia del Perú",
-        "id": 3
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0518-4",
-      "publisher": {
-        "name": "Penguin Random House",
-        "id": 3
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 32,
-      "title": "El cuervo y otros poemas",
-      "category": {
-        "name": "Historia del Perú",
-        "id": 3
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0517-3",
-      "publisher": {
-        "name": "Penguin Random House",
-        "id": 3
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 31,
-      "title": "Las aventuras de Tom Sawyer",
-      "category": {
-        "name": "Psicología",
-        "id": 12
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0516-2",
-      "publisher": {
-        "name": "Penguin Random House",
-        "id": 3
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 30,
-      "title": "Oliver Twist",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/pendulo.com\/imagenes_grandes\/9788494\/978849441163.GIF",
-      "copies": {
-        "available": 3,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0515-1",
-      "publisher": {
-        "name": "Penguin Random House",
-        "id": 3
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 29,
-      "title": "Orgullo y prejuicio",
-      "category": {
-        "name": "Filosofía",
-        "id": 11
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/b0\/39\/b039af065268818b7bd3b0e016f8db65.jpg",
-      "copies": {
-        "available": 3,
-        "loaned": 1
-      },
-      "isbn": "978-84-376-0514-0",
-      "publisher": {
-        "name": "Alianza Editorial",
-        "id": 19
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 28,
-      "title": "1984",
-      "category": {
-        "name": "Tecnología",
-        "id": 24
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 2
-      },
-      "isbn": "978-84-376-0501-2",
-      "publisher": {
-        "name": "Planeta",
-        "id": 1
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 27,
-      "title": "Asesinato en el Orient Express",
-      "category": {
-        "name": "Enciclopedias",
-        "id": 10
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
-      "copies": {
-        "available": 2,
-        "loaned": 4
-      },
-      "isbn": "978-84-376-0500-5",
-      "publisher": {
-        "name": "Santillana",
-        "id": 4
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 26,
-      "title": "Harry Potter y la piedra filosofal",
-      "category": {
-        "name": "Cuentos Infantiles",
-        "id": 9
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 1,
-        "loaned": 1
-      },
-      "isbn": "978-84-376-0513-9",
-      "publisher": {
-        "name": "Penguin Random House",
-        "id": 3
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 25,
-      "title": "It",
-      "category": {
-        "name": "Ingeniería",
-        "id": 13
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 1,
-        "loaned": 2
-      },
-      "isbn": "978-84-376-0499-2",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 24,
-      "title": "El viejo y el mar",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn2.buscalibre.com\/fit-in\/360x360\/1b\/3d\/1b3d13ee1322464e244fbb0b23dc11db.jpg",
-      "copies": {
-        "available": 3,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0498-5",
-      "publisher": {
-        "name": "Cátedra",
-        "id": 8
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 23,
-      "title": "Romeo y Julieta",
-      "category": {
-        "name": "Historia Universal",
-        "id": 4
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0512-8",
-      "publisher": {
-        "name": "Planeta",
-        "id": 1
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 22,
-      "title": "Los santos inocentes",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0511-7",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 21,
-      "title": "La colmena",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRQ23tn2gq2hBnxcbTrFbytZp15_5V6iJ4w2w&s",
-      "copies": {
-        "available": 2,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0510-6",
-      "publisher": {
-        "name": "Cátedra",
-        "id": 8
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 20,
-      "title": "Platero y yo",
-      "category": {
-        "name": "Historia del Perú",
-        "id": 3
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0509-5",
-      "publisher": {
-        "name": "Cátedra",
-        "id": 8
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 19,
-      "title": "Campos de Castilla",
-      "category": {
-        "name": "Historia del Perú",
-        "id": 3
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0508-4",
-      "publisher": {
-        "name": "Cátedra",
-        "id": 8
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 18,
-      "title": "Romancero Gitano",
-      "category": {
-        "name": "Historia del Perú",
-        "id": 3
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 3,
-        "loaned": 3
-      },
-      "isbn": "978-84-376-0497-8",
-      "publisher": {
-        "name": "Cátedra",
-        "id": 8
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 17,
-      "title": "Don Quijote de la Mancha",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0507-3",
-      "publisher": {
-        "name": "Editorial Sudamericana",
-        "id": 12
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 16,
-      "title": "El túnel",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0506-2",
-      "publisher": {
-        "name": "Fondo de Cultura Económica",
-        "id": 6
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 15,
-      "title": "La muerte de Artemio Cruz",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0505-1",
-      "publisher": {
-        "name": "Seix Barral",
-        "id": 7
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 14,
-      "title": "Veinte poemas de amor y una canción desesperada",
-      "category": {
-        "name": "Historia del Perú",
-        "id": 3
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/90\/53\/905322d10841b36aa311dbd5c90d92ed.jpg",
-      "copies": {
-        "available": 1,
-        "loaned": 1
-      },
-      "isbn": "978-84-376-0504-0",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 13,
-      "title": "Rayuela",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0503-9",
-      "publisher": {
-        "name": "Fondo de Cultura Económica",
-        "id": 6
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 12,
-      "title": "El laberinto de la soledad",
-      "category": {
-        "name": "Matemáticas",
-        "id": 5
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 3,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0502-8",
-      "publisher": {
-        "name": "Planeta",
-        "id": 1
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 11,
-      "title": "La casa de los espíritus",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 1,
-        "loaned": 2
-      },
-      "isbn": "978-84-376-0501-7",
-      "publisher": {
-        "name": "Editorial Norma",
-        "id": 11
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 10,
-      "title": "Ficciones",
-      "category": {
-        "name": "Literatura Contemporánea",
-        "id": 2
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 1,
-        "loaned": 3
-      },
-      "isbn": "978-84-376-0494-7",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 9,
-      "title": "Cien años de soledad",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0500-6",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 8,
-      "title": "Un mundo para Julius",
-      "category": {
-        "name": "Literatura Contemporánea",
-        "id": 2
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0499-4",
-      "publisher": {
-        "name": "Fondo de Cultura Económica",
-        "id": 6
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 7,
-      "title": "7 ensayos de interpretación de la realidad peruana",
-      "category": {
-        "name": "Matemáticas",
-        "id": 5
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 0
-      },
-      "isbn": "978-84-376-0498-3",
-      "publisher": {
-        "name": "Peisa",
-        "id": 10
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 6,
-      "title": "El mundo es ancho y ajeno",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "INACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/www.elvirrey.com\/imagenes\/9789972\/978997233296.GIF",
-      "copies": {
-        "available": 2,
-        "loaned": 1
-      },
-      "isbn": "978-84-376-0497-2",
-      "publisher": {
-        "name": "Peisa",
-        "id": 10
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 5,
-      "title": "Tradiciones Peruanas",
-      "category": {
-        "name": "Química",
-        "id": 7
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 0,
-        "loaned": 2
-      },
-      "isbn": "978-84-376-0496-1",
-      "publisher": {
-        "name": "Cátedra",
-        "id": 8
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 4,
-      "title": "Trilce",
-      "category": {
-        "name": "Historia del Perú",
-        "id": 3
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 1,
-        "loaned": 1
-      },
-      "isbn": "978-84-204-8305-4",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 3,
-      "title": "La palabra del mudo",
-      "category": {
-        "name": "Literatura Contemporánea",
-        "id": 2
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": null,
-      "copies": {
-        "available": 2,
-        "loaned": 1
-      },
-      "isbn": "978-84-376-0495-4",
-      "publisher": {
-        "name": "Seix Barral",
-        "id": 7
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 2,
-      "title": "Los ríos profundos",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "ACTIVO"
-    },
-    {
-      "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
-      "copies": {
-        "available": 5,
-        "loaned": 0
-      },
-      "isbn": "978-84-204-8304-7",
-      "publisher": {
-        "name": "Alfaguara",
-        "id": 2
-      },
-      "language": {
-        "code": "es",
-        "name": "Español",
-        "id": 1
-      },
-      "id": 1,
-      "title": "La ciudad y los perros",
-      "category": {
-        "name": "Literatura Clásica",
-        "id": 1
-      },
-      "status": "ACTIVO"
-    }
-  ],
+  "data": {
+    "size": 20,
+    "totalPages": 3,
+    "page": 0,
+    "content": [
+      {
+        "coverUrl": "https:\/\/www.udllibros.com\/imagenes\/9788416\/978841640712.JPG",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0533-9",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 52,
+        "title": "Manual de Primeros Auxilios",
+        "category": {
+          "name": "Medicina",
+          "id": 14
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/3c\/59\/3c59379c54fbdafd5428ed7935d77590.jpg",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0532-8",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 51,
+        "title": "Atlas Mundial",
+        "category": {
+          "name": "Geografía",
+          "id": 16
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/letras.rae.es\/128-thickbox_default\/diccionario-de-la-lengua-espanola-23-edicion.jpg",
+        "copies": {
+          "available": 2,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0531-7",
+        "publisher": {
+          "name": "Alianza Editorial",
+          "id": 19
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 50,
+        "title": "Diccionario de la Real Academia Española",
+        "category": {
+          "name": "Enciclopedias",
+          "id": 10
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/librosateneo.com\/image\/cache\/catalog\/libros\/lote-43\/Scan-43-10-550x550.jpg",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0530-6",
+        "publisher": {
+          "name": "Alianza Editorial",
+          "id": 19
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 49,
+        "title": "Gran Enciclopedia Larousse",
+        "category": {
+          "name": "Enciclopedias",
+          "id": 10
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/biblioteca.asamblea.gob.sv\/backendsiab\/images\/portadas\/Enciclopedia%20Juvenil%20Oceano.jpg",
+        "copies": {
+          "available": 3,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0506-7",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 48,
+        "title": "Enciclopedia Juvenil Oceano",
+        "category": {
+          "name": "Enciclopedias",
+          "id": 10
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/imgv2-1-f.scribdassets.com\/img\/document\/499209501\/original\/8b22de0346\/1?v=1",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0529-5",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 47,
+        "title": "Donde viven los monstruos",
+        "category": {
+          "name": "Economía",
+          "id": 17
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/76\/08\/7608d458499a573da01c43ebd8de9b22.jpg",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0528-4",
+        "publisher": {
+          "name": "Salamandra",
+          "id": 16
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 46,
+        "title": "Las crónicas de Narnia: El león, la bruja y el ropero",
+        "category": {
+          "name": "Cuentos Infantiles",
+          "id": 9
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/www.crisol.com.pe\/media\/catalog\/product\/cache\/f6d2c62455a42b0d712f6c919e880845\/9\/7\/9786124349164_4gd8k8wgb0tgpdgl.jpg",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0527-3",
+        "publisher": {
+          "name": "Alfaguara",
+          "id": 2
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 45,
+        "title": "Charlie y la fábrica de chocolate",
+        "category": {
+          "name": "Economía",
+          "id": 17
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQp_ZwohnRa6rntPD2M_AvydOmRyZ3ITtrbRA&s",
+        "copies": {
+          "available": 3,
+          "loaned": 1
+        },
+        "isbn": "978-84-376-0526-2",
+        "publisher": {
+          "name": "Alfaguara",
+          "id": 2
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 44,
+        "title": "Matilda",
+        "category": {
+          "name": "Economía",
+          "id": 17
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
+        "copies": {
+          "available": 3,
+          "loaned": 5
+        },
+        "isbn": "978-84-376-0505-0",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 43,
+        "title": "El Principito",
+        "category": {
+          "name": "Cuentos Infantiles",
+          "id": 9
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/30\/41\/3041d48bf887e062392a1cf10e006d5f.jpg",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0525-1",
+        "publisher": {
+          "name": "Fondo de Cultura Económica",
+          "id": 6
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 42,
+        "title": "Sociología Contemporánea",
+        "category": {
+          "name": "Sociología",
+          "id": 18
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/83\/e8\/83e81530c5d2ed30544439f0d84b899e.jpg",
+        "copies": {
+          "available": 2,
+          "loaned": 1
+        },
+        "isbn": "978-84-376-0524-0",
+        "publisher": {
+          "name": "Planeta",
+          "id": 1
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 41,
+        "title": "Psicología del Desarrollo",
+        "category": {
+          "name": "Psicología",
+          "id": 12
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSlTpoDiln3Va1fIdQix4CfSoT_dljmOsTgHg&s",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0523-9",
+        "publisher": {
+          "name": "Fondo de Cultura Económica",
+          "id": 6
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 40,
+        "title": "Principios de Economía",
+        "category": {
+          "name": "Economía",
+          "id": 17
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/www.sancristoballibros.com\/imagenes\/9786125\/978612501923.GIF",
+        "copies": {
+          "available": 0,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0522-8",
+        "publisher": {
+          "name": "Peisa",
+          "id": 10
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 39,
+        "title": "Código Civil Peruano",
+        "category": {
+          "name": "Derecho",
+          "id": 15
+        },
+        "status": "INACTIVO"
+      },
+      {
+        "coverUrl": null,
+        "copies": {
+          "available": 2,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0521-7",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 38,
+        "title": "Anatomía Humana",
+        "category": {
+          "name": "Medicina",
+          "id": 14
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/45\/d2\/45d28890f2d269be7a105e4697931eb7.jpg",
+        "copies": {
+          "available": 2,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0520-6",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 37,
+        "title": "Biología Molecular",
+        "category": {
+          "name": "Biología",
+          "id": 8
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": null,
+        "copies": {
+          "available": 3,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0519-5",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 36,
+        "title": "Química Orgánica",
+        "category": {
+          "name": "Química",
+          "id": 7
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": null,
+        "copies": {
+          "available": 2,
+          "loaned": 2
+        },
+        "isbn": "978-84-376-0504-3",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 35,
+        "title": "Física General",
+        "category": {
+          "name": "Física",
+          "id": 6
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": null,
+        "copies": {
+          "available": 5,
+          "loaned": 0
+        },
+        "isbn": "978-84-376-0503-6",
+        "publisher": {
+          "name": "Santillana",
+          "id": 4
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 34,
+        "title": "Matemáticas 4to Secundaria",
+        "category": {
+          "name": "Matemáticas",
+          "id": 5
+        },
+        "status": "ACTIVO"
+      },
+      {
+        "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTE7JKNvHH9z1dXPXQ1giHsfknDNlNoncsniA&s",
+        "copies": {
+          "available": 2,
+          "loaned": 2
+        },
+        "isbn": "978-84-376-0502-9",
+        "publisher": {
+          "name": "Peisa",
+          "id": 10
+        },
+        "language": {
+          "code": "es",
+          "name": "Español",
+          "id": 1
+        },
+        "id": 33,
+        "title": "Historia del Perú Contemporáneo",
+        "category": {
+          "name": "Historia del Perú",
+          "id": 3
+        },
+        "status": "ACTIVO"
+      }
+    ],
+    "totalElements": 52
+  },
   "success": true,
   "message": "Books listed successfully"
 }

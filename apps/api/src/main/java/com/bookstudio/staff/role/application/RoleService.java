@@ -1,7 +1,14 @@
 package com.bookstudio.staff.role.application;
 
+import com.bookstudio.shared.api.PageResponse;
+import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
+import com.bookstudio.shared.response.OptionResponse;
 import com.bookstudio.staff.role.RoleApi;
 import com.bookstudio.staff.role.application.dto.request.CreateRoleRequest;
+import com.bookstudio.staff.role.application.dto.request.RoleFilter;
 import com.bookstudio.staff.role.application.dto.request.UpdateRoleRequest;
 import com.bookstudio.staff.role.application.dto.response.RoleDetailResponse;
 import com.bookstudio.staff.role.application.dto.response.RoleListResponse;
@@ -11,11 +18,11 @@ import com.bookstudio.staff.role.domain.model.RolePermission;
 import com.bookstudio.staff.role.domain.model.RolePermissionId;
 import com.bookstudio.staff.role.infrastructure.repository.RolePermissionRepository;
 import com.bookstudio.staff.role.infrastructure.repository.RoleRepository;
-import com.bookstudio.shared.exception.ResourceNotFoundException;
-import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -27,6 +34,8 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Validated
 public class RoleService implements RoleApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "name");
+
     private final RoleRepository roleRepository;
     private final RolePermissionRepository rolePermissionRepository;
 
@@ -42,8 +51,15 @@ public class RoleService implements RoleApi {
         return roleRepository.findForOptions();
     }
 
-    public List<RoleListResponse> getList() {
-        return roleRepository.findList();
+    public PageResponse<RoleListResponse> getPage(RoleFilter filter, Pageable pageable) {
+        Specification<Role> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "name"));
+
+        return PageProjection.of(
+                roleRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Role::getId,
+                roleRepository::findListByIds,
+                RoleListResponse::id);
     }
 
     public RoleDetailResponse getDetailById(Long id) {

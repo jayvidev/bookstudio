@@ -25,6 +25,7 @@ import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.BadRequestException;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
 import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
@@ -75,9 +76,9 @@ public class LoanService implements LoanApi {
     public PageResponse<LoanListResponse> getPage(LoanFilter filter, Pageable pageable) {
         Specification<Loan> spec = Specification.allOf(
                 LoanSpecifications.hasItemWithStatus(filter.status()),
-                LoanSpecifications.belongsToReader(filter.readerId()),
-                LoanSpecifications.loanedOnOrAfter(filter.from()),
-                LoanSpecifications.loanedOnOrBefore(filter.to()),
+                Specs.equal("readerId", filter.readerId()),
+                Specs.onOrAfter("loanDate", filter.from()),
+                Specs.onOrBefore("loanDate", filter.to()),
                 filter.hasSearch()
                         ? LoanSpecifications.codeContainsOrReaderIn(
                                 filter.search(), readerApi.findIdsByName(filter.search().trim()))

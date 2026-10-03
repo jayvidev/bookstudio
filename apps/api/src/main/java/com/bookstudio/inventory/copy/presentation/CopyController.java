@@ -1,6 +1,7 @@
 package com.bookstudio.inventory.copy.presentation;
 
 import com.bookstudio.inventory.copy.application.CopyService;
+import com.bookstudio.inventory.copy.application.dto.request.CopyFilter;
 import com.bookstudio.inventory.copy.application.dto.request.CreateCopyRequest;
 import com.bookstudio.inventory.copy.application.dto.request.UpdateCopyRequest;
 import com.bookstudio.inventory.copy.application.dto.response.CopyDetailResponse;
@@ -9,6 +10,7 @@ import com.bookstudio.inventory.copy.application.dto.response.CopyListResponse;
 import com.bookstudio.inventory.copy.application.dto.response.CopySelectOptionsResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,10 +23,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +41,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/copies")
@@ -44,18 +51,20 @@ public class CopyController {
     private final CopyService copyService;
 
     @GetMapping
-    @Operation(summary = "List all copies")
+    @Operation(summary = "List copies (paginated, filterable)",
+            description = "Sortable by code, id, e.g. sort=code,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Copies listed successfully (or empty list if no copies found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/copies\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of copies (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<CopyListResponse>>> list() {
-        List<CopyListResponse> copies = copyService.getList();
-        ApiSuccess<List<CopyListResponse>> response = new ApiSuccess<>(
-                copies.isEmpty() ? "No copies found" : "Copies listed successfully",
-                copies);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<CopyListResponse>>> list(
+            @ParameterObject @Valid CopyFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<CopyListResponse> page = copyService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No copies found" : "Copies listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

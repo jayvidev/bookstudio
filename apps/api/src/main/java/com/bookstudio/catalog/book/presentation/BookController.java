@@ -1,6 +1,7 @@
 package com.bookstudio.catalog.book.presentation;
 
 import com.bookstudio.catalog.book.application.BookService;
+import com.bookstudio.catalog.book.application.dto.request.BookFilter;
 import com.bookstudio.catalog.book.application.dto.request.CreateBookRequest;
 import com.bookstudio.catalog.book.application.dto.request.UpdateBookRequest;
 import com.bookstudio.catalog.book.application.dto.response.BookDetailResponse;
@@ -9,6 +10,7 @@ import com.bookstudio.catalog.book.application.dto.response.BookListResponse;
 import com.bookstudio.catalog.book.application.dto.response.BookSelectOptionsResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,7 +23,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +41,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/books")
@@ -44,18 +51,20 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping
-    @Operation(summary = "List all books")
+    @Operation(summary = "List books (paginated, filterable)",
+            description = "Sortable by id, releaseDate, title, e.g. sort=title,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Books listed successfully (or empty list if no books found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/books\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of books (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<BookListResponse>>> list() {
-        List<BookListResponse> books = bookService.getList();
-        ApiSuccess<List<BookListResponse>> response = new ApiSuccess<>(
-                books.isEmpty() ? "No books found" : "Books listed successfully",
-                books);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<BookListResponse>>> list(
+            @ParameterObject @Valid BookFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<BookListResponse> page = bookService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No books found" : "Books listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

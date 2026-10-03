@@ -1,356 +1,292 @@
 {
-  "data": [
-    {
-      "code": "RES-2024-00025",
-      "reader": {
-        "code": "LEC-YYYY-00019",
-        "fullName": "Rosa María Guerrero Silva",
-        "id": 19
+  "data": {
+    "size": 20,
+    "totalPages": 2,
+    "page": 0,
+    "content": [
+      {
+        "code": "RES-2024-00025",
+        "reader": {
+          "code": "LEC-YYYY-00019",
+          "fullName": "Rosa María Guerrero Silva",
+          "id": 19
+        },
+        "id": 25,
+        "copy": {
+          "code": "EJE-YYYY-00006"
+        },
+        "reservationDate": "2024-07-24",
+        "status": "EXPIRADA"
       },
-      "id": 25,
-      "copy": {
-        "code": "EJE-YYYY-00006"
+      {
+        "code": "RES-2024-00024",
+        "reader": {
+          "code": "LEC-YYYY-00015",
+          "fullName": "Fernanda Alejandra Mamani Quispe",
+          "id": 15
+        },
+        "id": 24,
+        "copy": {
+          "code": "EJE-YYYY-00023"
+        },
+        "reservationDate": "2024-07-23",
+        "status": "CANCELADA"
       },
-      "reservationDate": "2024-07-24",
-      "status": "EXPIRADA"
-    },
-    {
-      "code": "RES-2024-00024",
-      "reader": {
-        "code": "LEC-YYYY-00015",
-        "fullName": "Fernanda Alejandra Mamani Quispe",
-        "id": 15
+      {
+        "code": "RES-2024-00023",
+        "reader": {
+          "code": "LEC-YYYY-00010",
+          "fullName": "Mateo José Condori Apaza",
+          "id": 10
+        },
+        "id": 23,
+        "copy": {
+          "code": "EJE-YYYY-00054"
+        },
+        "reservationDate": "2024-07-22",
+        "status": "EXPIRADA"
       },
-      "id": 24,
-      "copy": {
-        "code": "EJE-YYYY-00023"
+      {
+        "code": "RES-2024-00022",
+        "reader": {
+          "code": "LEC-YYYY-00007",
+          "fullName": "Sofía Elena Quispe Mamani",
+          "id": 7
+        },
+        "id": 22,
+        "copy": {
+          "code": "EJE-YYYY-00030"
+        },
+        "reservationDate": "2024-07-21",
+        "status": "CANCELADA"
       },
-      "reservationDate": "2024-07-23",
-      "status": "CANCELADA"
-    },
-    {
-      "code": "RES-2024-00023",
-      "reader": {
-        "code": "LEC-YYYY-00010",
-        "fullName": "Mateo José Condori Apaza",
-        "id": 10
+      {
+        "code": "RES-2024-00021",
+        "reader": {
+          "code": "LEC-YYYY-00004",
+          "fullName": "Roberto Miguel Castro Quispe",
+          "id": 4
+        },
+        "id": 21,
+        "copy": {
+          "code": "EJE-YYYY-00040"
+        },
+        "reservationDate": "2024-07-20",
+        "status": "EXPIRADA"
       },
-      "id": 23,
-      "copy": {
-        "code": "EJE-YYYY-00054"
+      {
+        "code": "RES-2024-00020",
+        "reader": {
+          "code": "LEC-YYYY-00024",
+          "fullName": "Manuel Antonio Sánchez Vega",
+          "id": 24
+        },
+        "id": 20,
+        "copy": {
+          "code": "EJE-YYYY-00016"
+        },
+        "reservationDate": "2024-08-01",
+        "status": "ATENDIDA"
       },
-      "reservationDate": "2024-07-22",
-      "status": "EXPIRADA"
-    },
-    {
-      "code": "RES-2024-00022",
-      "reader": {
-        "code": "LEC-YYYY-00007",
-        "fullName": "Sofía Elena Quispe Mamani",
-        "id": 7
+      {
+        "code": "RES-2024-00019",
+        "reader": {
+          "code": "LEC-YYYY-00020",
+          "fullName": "Jorge Enrique Medina Castro",
+          "id": 20
+        },
+        "id": 19,
+        "copy": {
+          "code": "EJE-YYYY-00046"
+        },
+        "reservationDate": "2024-07-30",
+        "status": "ATENDIDA"
       },
-      "id": 22,
-      "copy": {
-        "code": "EJE-YYYY-00030"
+      {
+        "code": "RES-2024-00018",
+        "reader": {
+          "code": "LEC-YYYY-00020",
+          "fullName": "Jorge Enrique Medina Castro",
+          "id": 20
+        },
+        "id": 18,
+        "copy": {
+          "code": "EJE-YYYY-00012"
+        },
+        "reservationDate": "2024-07-30",
+        "status": "ATENDIDA"
       },
-      "reservationDate": "2024-07-21",
-      "status": "CANCELADA"
-    },
-    {
-      "code": "RES-2024-00021",
-      "reader": {
-        "code": "LEC-YYYY-00004",
-        "fullName": "Roberto Miguel Castro Quispe",
-        "id": 4
+      {
+        "code": "RES-2024-00017",
+        "reader": {
+          "code": "LEC-YYYY-00016",
+          "fullName": "María Elena Rodríguez Torres",
+          "id": 16
+        },
+        "id": 17,
+        "copy": {
+          "code": "EJE-YYYY-00015"
+        },
+        "reservationDate": "2024-07-29",
+        "status": "ATENDIDA"
       },
-      "id": 21,
-      "copy": {
-        "code": "EJE-YYYY-00040"
+      {
+        "code": "RES-2024-00016",
+        "reader": {
+          "code": "LEC-YYYY-00012",
+          "fullName": "Sebastián Alonso Poma Hancco",
+          "id": 12
+        },
+        "id": 16,
+        "copy": {
+          "code": "EJE-YYYY-00042"
+        },
+        "reservationDate": "2024-07-28",
+        "status": "ATENDIDA"
       },
-      "reservationDate": "2024-07-20",
-      "status": "EXPIRADA"
-    },
-    {
-      "code": "RES-2024-00020",
-      "reader": {
-        "code": "LEC-YYYY-00024",
-        "fullName": "Manuel Antonio Sánchez Vega",
-        "id": 24
+      {
+        "code": "RES-2024-00015",
+        "reader": {
+          "code": "LEC-YYYY-00012",
+          "fullName": "Sebastián Alonso Poma Hancco",
+          "id": 12
+        },
+        "id": 15,
+        "copy": {
+          "code": "EJE-YYYY-00007"
+        },
+        "reservationDate": "2024-07-28",
+        "status": "ATENDIDA"
       },
-      "id": 20,
-      "copy": {
-        "code": "EJE-YYYY-00016"
+      {
+        "code": "RES-2024-00014",
+        "reader": {
+          "code": "LEC-YYYY-00009",
+          "fullName": "Camila Andrea Torres Vilca",
+          "id": 9
+        },
+        "id": 14,
+        "copy": {
+          "code": "EJE-YYYY-00058"
+        },
+        "reservationDate": "2024-07-27",
+        "status": "ATENDIDA"
       },
-      "reservationDate": "2024-08-01",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00019",
-      "reader": {
-        "code": "LEC-YYYY-00020",
-        "fullName": "Jorge Enrique Medina Castro",
-        "id": 20
+      {
+        "code": "RES-2024-00013",
+        "reader": {
+          "code": "LEC-YYYY-00009",
+          "fullName": "Camila Andrea Torres Vilca",
+          "id": 9
+        },
+        "id": 13,
+        "copy": {
+          "code": "EJE-YYYY-00044"
+        },
+        "reservationDate": "2024-07-27",
+        "status": "ATENDIDA"
       },
-      "id": 19,
-      "copy": {
-        "code": "EJE-YYYY-00046"
+      {
+        "code": "RES-2024-00012",
+        "reader": {
+          "code": "LEC-YYYY-00009",
+          "fullName": "Camila Andrea Torres Vilca",
+          "id": 9
+        },
+        "id": 12,
+        "copy": {
+          "code": "EJE-YYYY-00018"
+        },
+        "reservationDate": "2024-07-27",
+        "status": "ATENDIDA"
       },
-      "reservationDate": "2024-07-30",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00018",
-      "reader": {
-        "code": "LEC-YYYY-00020",
-        "fullName": "Jorge Enrique Medina Castro",
-        "id": 20
+      {
+        "code": "RES-2024-00011",
+        "reader": {
+          "code": "LEC-YYYY-00006",
+          "fullName": "Diego Alejandro Moreno Ramos",
+          "id": 6
+        },
+        "id": 11,
+        "copy": {
+          "code": "EJE-YYYY-00032"
+        },
+        "reservationDate": "2024-07-26",
+        "status": "ATENDIDA"
       },
-      "id": 18,
-      "copy": {
-        "code": "EJE-YYYY-00012"
+      {
+        "code": "RES-2024-00010",
+        "reader": {
+          "code": "LEC-YYYY-00003",
+          "fullName": "Patricia Rosa Vargas Chávez",
+          "id": 3
+        },
+        "id": 10,
+        "copy": {
+          "code": "EJE-YYYY-00052"
+        },
+        "reservationDate": "2024-07-25",
+        "status": "ATENDIDA"
       },
-      "reservationDate": "2024-07-30",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00017",
-      "reader": {
-        "code": "LEC-YYYY-00016",
-        "fullName": "María Elena Rodríguez Torres",
-        "id": 16
+      {
+        "code": "RES-2024-00009",
+        "reader": {
+          "code": "LEC-YYYY-00003",
+          "fullName": "Patricia Rosa Vargas Chávez",
+          "id": 3
+        },
+        "id": 9,
+        "copy": {
+          "code": "EJE-YYYY-00035"
+        },
+        "reservationDate": "2024-07-25",
+        "status": "ATENDIDA"
       },
-      "id": 17,
-      "copy": {
-        "code": "EJE-YYYY-00015"
+      {
+        "code": "RES-2024-00008",
+        "reader": {
+          "code": "LEC-YYYY-00020",
+          "fullName": "Jorge Enrique Medina Castro",
+          "id": 20
+        },
+        "id": 8,
+        "copy": {
+          "code": "EJE-YYYY-00028"
+        },
+        "reservationDate": "2024-08-05",
+        "status": "PENDIENTE"
       },
-      "reservationDate": "2024-07-29",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00016",
-      "reader": {
-        "code": "LEC-YYYY-00012",
-        "fullName": "Sebastián Alonso Poma Hancco",
-        "id": 12
+      {
+        "code": "RES-2024-00007",
+        "reader": {
+          "code": "LEC-YYYY-00017",
+          "fullName": "Carmen Luz Herrera Morales",
+          "id": 17
+        },
+        "id": 7,
+        "copy": {
+          "code": "EJE-YYYY-00011"
+        },
+        "reservationDate": "2024-08-04",
+        "status": "PENDIENTE"
       },
-      "id": 16,
-      "copy": {
-        "code": "EJE-YYYY-00042"
-      },
-      "reservationDate": "2024-07-28",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00015",
-      "reader": {
-        "code": "LEC-YYYY-00012",
-        "fullName": "Sebastián Alonso Poma Hancco",
-        "id": 12
-      },
-      "id": 15,
-      "copy": {
-        "code": "EJE-YYYY-00007"
-      },
-      "reservationDate": "2024-07-28",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00014",
-      "reader": {
-        "code": "LEC-YYYY-00009",
-        "fullName": "Camila Andrea Torres Vilca",
-        "id": 9
-      },
-      "id": 14,
-      "copy": {
-        "code": "EJE-YYYY-00058"
-      },
-      "reservationDate": "2024-07-27",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00013",
-      "reader": {
-        "code": "LEC-YYYY-00009",
-        "fullName": "Camila Andrea Torres Vilca",
-        "id": 9
-      },
-      "id": 13,
-      "copy": {
-        "code": "EJE-YYYY-00044"
-      },
-      "reservationDate": "2024-07-27",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00012",
-      "reader": {
-        "code": "LEC-YYYY-00009",
-        "fullName": "Camila Andrea Torres Vilca",
-        "id": 9
-      },
-      "id": 12,
-      "copy": {
-        "code": "EJE-YYYY-00018"
-      },
-      "reservationDate": "2024-07-27",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00011",
-      "reader": {
-        "code": "LEC-YYYY-00006",
-        "fullName": "Diego Alejandro Moreno Ramos",
-        "id": 6
-      },
-      "id": 11,
-      "copy": {
-        "code": "EJE-YYYY-00032"
-      },
-      "reservationDate": "2024-07-26",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00010",
-      "reader": {
-        "code": "LEC-YYYY-00003",
-        "fullName": "Patricia Rosa Vargas Chávez",
-        "id": 3
-      },
-      "id": 10,
-      "copy": {
-        "code": "EJE-YYYY-00052"
-      },
-      "reservationDate": "2024-07-25",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00009",
-      "reader": {
-        "code": "LEC-YYYY-00003",
-        "fullName": "Patricia Rosa Vargas Chávez",
-        "id": 3
-      },
-      "id": 9,
-      "copy": {
-        "code": "EJE-YYYY-00035"
-      },
-      "reservationDate": "2024-07-25",
-      "status": "ATENDIDA"
-    },
-    {
-      "code": "RES-2024-00008",
-      "reader": {
-        "code": "LEC-YYYY-00020",
-        "fullName": "Jorge Enrique Medina Castro",
-        "id": 20
-      },
-      "id": 8,
-      "copy": {
-        "code": "EJE-YYYY-00028"
-      },
-      "reservationDate": "2024-08-05",
-      "status": "PENDIENTE"
-    },
-    {
-      "code": "RES-2024-00007",
-      "reader": {
-        "code": "LEC-YYYY-00017",
-        "fullName": "Carmen Luz Herrera Morales",
-        "id": 17
-      },
-      "id": 7,
-      "copy": {
-        "code": "EJE-YYYY-00011"
-      },
-      "reservationDate": "2024-08-04",
-      "status": "PENDIENTE"
-    },
-    {
-      "code": "RES-2024-00006",
-      "reader": {
-        "code": "LEC-YYYY-00014",
-        "fullName": "Adrián Gabriel Choque Apaza",
-        "id": 14
-      },
-      "id": 6,
-      "copy": {
-        "code": "EJE-YYYY-00043"
-      },
-      "reservationDate": "2024-08-03",
-      "status": "PENDIENTE"
-    },
-    {
-      "code": "RES-2024-00005",
-      "reader": {
-        "code": "LEC-YYYY-00011",
-        "fullName": "Valeria Milagros Ramos Ccahuana",
-        "id": 11
-      },
-      "id": 5,
-      "copy": {
-        "code": "EJE-YYYY-00021"
-      },
-      "reservationDate": "2024-08-02",
-      "status": "PENDIENTE"
-    },
-    {
-      "code": "RES-2024-00004",
-      "reader": {
-        "code": "LEC-YYYY-00008",
-        "fullName": "Javier Fernando Huamán Flores",
-        "id": 8
-      },
-      "id": 4,
-      "copy": {
-        "code": "EJE-YYYY-00037"
-      },
-      "reservationDate": "2024-08-01",
-      "status": "PENDIENTE"
-    },
-    {
-      "code": "RES-2024-00003",
-      "reader": {
-        "code": "LEC-YYYY-00005",
-        "fullName": "Lucía Isabel Paredes Gutiérrez",
-        "id": 5
-      },
-      "id": 3,
-      "copy": {
-        "code": "EJE-YYYY-00017"
-      },
-      "reservationDate": "2024-07-30",
-      "status": "PENDIENTE"
-    },
-    {
-      "code": "RES-2024-00002",
-      "reader": {
-        "code": "LEC-YYYY-00002",
-        "fullName": "Carlos Andrés Mendoza Silva",
-        "id": 2
-      },
-      "id": 2,
-      "copy": {
-        "code": "EJE-YYYY-00031"
-      },
-      "reservationDate": "2024-07-29",
-      "status": "PENDIENTE"
-    },
-    {
-      "code": "RES-2024-00001",
-      "reader": {
-        "code": "LEC-YYYY-00001",
-        "fullName": "Ana María García López",
-        "id": 1
-      },
-      "id": 1,
-      "copy": {
-        "code": "EJE-YYYY-00050"
-      },
-      "reservationDate": "2024-07-28",
-      "status": "PENDIENTE"
-    }
-  ],
+      {
+        "code": "RES-2024-00006",
+        "reader": {
+          "code": "LEC-YYYY-00014",
+          "fullName": "Adrián Gabriel Choque Apaza",
+          "id": 14
+        },
+        "id": 6,
+        "copy": {
+          "code": "EJE-YYYY-00043"
+        },
+        "reservationDate": "2024-08-03",
+        "status": "PENDIENTE"
+      }
+    ],
+    "totalElements": 25
+  },
   "success": true,
   "message": "Reservations listed successfully"
 }

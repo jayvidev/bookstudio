@@ -1,406 +1,332 @@
 {
-  "data": [
-    {
-      "loan": {
-        "code": "PRE-2024-00021",
-        "id": 21
+  "data": {
+    "size": 20,
+    "totalPages": 2,
+    "page": 0,
+    "content": [
+      {
+        "loan": {
+          "code": "PRE-2024-00021",
+          "id": 21
+        },
+        "amount": 3.75,
+        "code": "MUL-2024-00025",
+        "daysLate": 1,
+        "id": 25,
+        "copy": {
+          "code": "EJE-YYYY-00024",
+          "id": 24
+        },
+        "issuedAt": "2024-08-25",
+        "status": "PAGADO"
       },
-      "amount": 3.75,
-      "code": "MUL-2024-00025",
-      "daysLate": 1,
-      "id": 25,
-      "copy": {
-        "code": "EJE-YYYY-00024",
-        "id": 24
+      {
+        "loan": {
+          "code": "PRE-2024-00017",
+          "id": 17
+        },
+        "amount": 2.5,
+        "code": "MUL-2024-00024",
+        "daysLate": 1,
+        "id": 24,
+        "copy": {
+          "code": "EJE-YYYY-00061",
+          "id": 61
+        },
+        "issuedAt": "2024-08-21",
+        "status": "PAGADO"
       },
-      "issuedAt": "2024-08-25",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00017",
-        "id": 17
+      {
+        "loan": {
+          "code": "PRE-2024-00017",
+          "id": 17
+        },
+        "amount": 2.5,
+        "code": "MUL-2024-00023",
+        "daysLate": 1,
+        "id": 23,
+        "copy": {
+          "code": "EJE-YYYY-00045",
+          "id": 45
+        },
+        "issuedAt": "2024-08-21",
+        "status": "PAGADO"
       },
-      "amount": 2.5,
-      "code": "MUL-2024-00024",
-      "daysLate": 1,
-      "id": 24,
-      "copy": {
-        "code": "EJE-YYYY-00061",
-        "id": 61
+      {
+        "loan": {
+          "code": "PRE-2024-00017",
+          "id": 17
+        },
+        "amount": 2.5,
+        "code": "MUL-2024-00022",
+        "daysLate": 1,
+        "id": 22,
+        "copy": {
+          "code": "EJE-YYYY-00020",
+          "id": 20
+        },
+        "issuedAt": "2024-08-21",
+        "status": "PAGADO"
       },
-      "issuedAt": "2024-08-21",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00017",
-        "id": 17
+      {
+        "loan": {
+          "code": "PRE-2024-00013",
+          "id": 13
+        },
+        "amount": 3.75,
+        "code": "MUL-2024-00021",
+        "daysLate": 1,
+        "id": 21,
+        "copy": {
+          "code": "EJE-YYYY-00026",
+          "id": 26
+        },
+        "issuedAt": "2024-08-17",
+        "status": "PAGADO"
       },
-      "amount": 2.5,
-      "code": "MUL-2024-00023",
-      "daysLate": 1,
-      "id": 23,
-      "copy": {
-        "code": "EJE-YYYY-00045",
-        "id": 45
+      {
+        "loan": {
+          "code": "PRE-2024-00013",
+          "id": 13
+        },
+        "amount": 3.75,
+        "code": "MUL-2024-00020",
+        "daysLate": 1,
+        "id": 20,
+        "copy": {
+          "code": "EJE-YYYY-00019",
+          "id": 19
+        },
+        "issuedAt": "2024-08-17",
+        "status": "PAGADO"
       },
-      "issuedAt": "2024-08-21",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00017",
-        "id": 17
+      {
+        "loan": {
+          "code": "PRE-2024-00008",
+          "id": 8
+        },
+        "amount": 15,
+        "code": "MUL-2024-00019",
+        "daysLate": 6,
+        "id": 19,
+        "copy": {
+          "code": "EJE-YYYY-00004",
+          "id": 4
+        },
+        "issuedAt": "2024-08-16",
+        "status": "PAGADO"
       },
-      "amount": 2.5,
-      "code": "MUL-2024-00022",
-      "daysLate": 1,
-      "id": 22,
-      "copy": {
-        "code": "EJE-YYYY-00020",
-        "id": 20
+      {
+        "loan": {
+          "code": "PRE-2024-00007",
+          "id": 7
+        },
+        "amount": 5,
+        "code": "MUL-2024-00018",
+        "daysLate": 2,
+        "id": 18,
+        "copy": {
+          "code": "EJE-YYYY-00034",
+          "id": 34
+        },
+        "issuedAt": "2024-08-09",
+        "status": "PAGADO"
       },
-      "issuedAt": "2024-08-21",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00013",
-        "id": 13
+      {
+        "loan": {
+          "code": "PRE-2024-00007",
+          "id": 7
+        },
+        "amount": 5,
+        "code": "MUL-2024-00017",
+        "daysLate": 2,
+        "id": 17,
+        "copy": {
+          "code": "EJE-YYYY-00051",
+          "id": 51
+        },
+        "issuedAt": "2024-08-09",
+        "status": "PAGADO"
       },
-      "amount": 3.75,
-      "code": "MUL-2024-00021",
-      "daysLate": 1,
-      "id": 21,
-      "copy": {
-        "code": "EJE-YYYY-00026",
-        "id": 26
+      {
+        "loan": {
+          "code": "PRE-2024-00004",
+          "id": 4
+        },
+        "amount": 3.75,
+        "code": "MUL-2024-00016",
+        "daysLate": 1,
+        "id": 16,
+        "copy": {
+          "code": "EJE-YYYY-00010",
+          "id": 10
+        },
+        "issuedAt": "2024-08-05",
+        "status": "PAGADO"
       },
-      "issuedAt": "2024-08-17",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00013",
-        "id": 13
+      {
+        "loan": {
+          "code": "PRE-2024-00001",
+          "id": 1
+        },
+        "amount": 2.5,
+        "code": "MUL-2024-00015",
+        "daysLate": 1,
+        "id": 15,
+        "copy": {
+          "code": "EJE-YYYY-00047",
+          "id": 47
+        },
+        "issuedAt": "2024-07-25",
+        "status": "PAGADO"
       },
-      "amount": 3.75,
-      "code": "MUL-2024-00020",
-      "daysLate": 1,
-      "id": 20,
-      "copy": {
-        "code": "EJE-YYYY-00019",
-        "id": 19
+      {
+        "loan": {
+          "code": "PRE-2024-00001",
+          "id": 1
+        },
+        "amount": 2.5,
+        "code": "MUL-2024-00014",
+        "daysLate": 1,
+        "id": 14,
+        "copy": {
+          "code": "EJE-YYYY-00025",
+          "id": 25
+        },
+        "issuedAt": "2024-07-25",
+        "status": "PAGADO"
       },
-      "issuedAt": "2024-08-17",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00008",
-        "id": 8
+      {
+        "loan": {
+          "code": "PRE-2024-00001",
+          "id": 1
+        },
+        "amount": 2.5,
+        "code": "MUL-2024-00013",
+        "daysLate": 1,
+        "id": 13,
+        "copy": {
+          "code": "EJE-YYYY-00003",
+          "id": 3
+        },
+        "issuedAt": "2024-07-25",
+        "status": "PAGADO"
       },
-      "amount": 15,
-      "code": "MUL-2024-00019",
-      "daysLate": 6,
-      "id": 19,
-      "copy": {
-        "code": "EJE-YYYY-00004",
-        "id": 4
+      {
+        "loan": {
+          "code": "PRE-2024-00020",
+          "id": 20
+        },
+        "amount": 8.75,
+        "code": "MUL-2024-00012",
+        "daysLate": 3,
+        "id": 12,
+        "copy": {
+          "code": "EJE-YYYY-00046",
+          "id": 46
+        },
+        "issuedAt": "2024-08-26",
+        "status": "CONDONADO"
       },
-      "issuedAt": "2024-08-16",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00007",
-        "id": 7
+      {
+        "loan": {
+          "code": "PRE-2024-00012",
+          "id": 12
+        },
+        "amount": 12.5,
+        "code": "MUL-2024-00011",
+        "daysLate": 5,
+        "id": 11,
+        "copy": {
+          "code": "EJE-YYYY-00042",
+          "id": 42
+        },
+        "issuedAt": "2024-08-20",
+        "status": "CONDONADO"
       },
-      "amount": 5,
-      "code": "MUL-2024-00018",
-      "daysLate": 2,
-      "id": 18,
-      "copy": {
-        "code": "EJE-YYYY-00034",
-        "id": 34
+      {
+        "loan": {
+          "code": "PRE-2024-00009",
+          "id": 9
+        },
+        "amount": 10,
+        "code": "MUL-2024-00010",
+        "daysLate": 4,
+        "id": 10,
+        "copy": {
+          "code": "EJE-YYYY-00058",
+          "id": 58
+        },
+        "issuedAt": "2024-08-15",
+        "status": "CONDONADO"
       },
-      "issuedAt": "2024-08-09",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00007",
-        "id": 7
+      {
+        "loan": {
+          "code": "PRE-2024-00003",
+          "id": 3
+        },
+        "amount": 7.5,
+        "code": "MUL-2024-00009",
+        "daysLate": 3,
+        "id": 9,
+        "copy": {
+          "code": "EJE-YYYY-00052",
+          "id": 52
+        },
+        "issuedAt": "2024-08-08",
+        "status": "CONDONADO"
       },
-      "amount": 5,
-      "code": "MUL-2024-00017",
-      "daysLate": 2,
-      "id": 17,
-      "copy": {
-        "code": "EJE-YYYY-00051",
-        "id": 51
+      {
+        "loan": {
+          "code": "PRE-2024-00024",
+          "id": 24
+        },
+        "amount": 11.25,
+        "code": "MUL-2024-00008",
+        "daysLate": 4,
+        "id": 8,
+        "copy": {
+          "code": "EJE-YYYY-00016",
+          "id": 16
+        },
+        "issuedAt": "2024-08-31",
+        "status": "PENDIENTE"
       },
-      "issuedAt": "2024-08-09",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00004",
-        "id": 4
+      {
+        "loan": {
+          "code": "PRE-2024-00020",
+          "id": 20
+        },
+        "amount": 8.75,
+        "code": "MUL-2024-00007",
+        "daysLate": 3,
+        "id": 7,
+        "copy": {
+          "code": "EJE-YYYY-00012",
+          "id": 12
+        },
+        "issuedAt": "2024-08-26",
+        "status": "PENDIENTE"
       },
-      "amount": 3.75,
-      "code": "MUL-2024-00016",
-      "daysLate": 1,
-      "id": 16,
-      "copy": {
-        "code": "EJE-YYYY-00010",
-        "id": 10
-      },
-      "issuedAt": "2024-08-05",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00001",
-        "id": 1
-      },
-      "amount": 2.5,
-      "code": "MUL-2024-00015",
-      "daysLate": 1,
-      "id": 15,
-      "copy": {
-        "code": "EJE-YYYY-00047",
-        "id": 47
-      },
-      "issuedAt": "2024-07-25",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00001",
-        "id": 1
-      },
-      "amount": 2.5,
-      "code": "MUL-2024-00014",
-      "daysLate": 1,
-      "id": 14,
-      "copy": {
-        "code": "EJE-YYYY-00025",
-        "id": 25
-      },
-      "issuedAt": "2024-07-25",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00001",
-        "id": 1
-      },
-      "amount": 2.5,
-      "code": "MUL-2024-00013",
-      "daysLate": 1,
-      "id": 13,
-      "copy": {
-        "code": "EJE-YYYY-00003",
-        "id": 3
-      },
-      "issuedAt": "2024-07-25",
-      "status": "PAGADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00020",
-        "id": 20
-      },
-      "amount": 8.75,
-      "code": "MUL-2024-00012",
-      "daysLate": 3,
-      "id": 12,
-      "copy": {
-        "code": "EJE-YYYY-00046",
-        "id": 46
-      },
-      "issuedAt": "2024-08-26",
-      "status": "CONDONADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00012",
-        "id": 12
-      },
-      "amount": 12.5,
-      "code": "MUL-2024-00011",
-      "daysLate": 5,
-      "id": 11,
-      "copy": {
-        "code": "EJE-YYYY-00042",
-        "id": 42
-      },
-      "issuedAt": "2024-08-20",
-      "status": "CONDONADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00009",
-        "id": 9
-      },
-      "amount": 10,
-      "code": "MUL-2024-00010",
-      "daysLate": 4,
-      "id": 10,
-      "copy": {
-        "code": "EJE-YYYY-00058",
-        "id": 58
-      },
-      "issuedAt": "2024-08-15",
-      "status": "CONDONADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00003",
-        "id": 3
-      },
-      "amount": 7.5,
-      "code": "MUL-2024-00009",
-      "daysLate": 3,
-      "id": 9,
-      "copy": {
-        "code": "EJE-YYYY-00052",
-        "id": 52
-      },
-      "issuedAt": "2024-08-08",
-      "status": "CONDONADO"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00024",
-        "id": 24
-      },
-      "amount": 11.25,
-      "code": "MUL-2024-00008",
-      "daysLate": 4,
-      "id": 8,
-      "copy": {
-        "code": "EJE-YYYY-00016",
-        "id": 16
-      },
-      "issuedAt": "2024-08-31",
-      "status": "PENDIENTE"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00020",
-        "id": 20
-      },
-      "amount": 8.75,
-      "code": "MUL-2024-00007",
-      "daysLate": 3,
-      "id": 7,
-      "copy": {
-        "code": "EJE-YYYY-00012",
-        "id": 12
-      },
-      "issuedAt": "2024-08-26",
-      "status": "PENDIENTE"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00016",
-        "id": 16
-      },
-      "amount": 6.25,
-      "code": "MUL-2024-00006",
-      "daysLate": 2,
-      "id": 6,
-      "copy": {
-        "code": "EJE-YYYY-00015",
-        "id": 15
-      },
-      "issuedAt": "2024-08-21",
-      "status": "PENDIENTE"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00012",
-        "id": 12
-      },
-      "amount": 12.5,
-      "code": "MUL-2024-00005",
-      "daysLate": 5,
-      "id": 5,
-      "copy": {
-        "code": "EJE-YYYY-00007",
-        "id": 7
-      },
-      "issuedAt": "2024-08-20",
-      "status": "PENDIENTE"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00009",
-        "id": 9
-      },
-      "amount": 10,
-      "code": "MUL-2024-00004",
-      "daysLate": 4,
-      "id": 4,
-      "copy": {
-        "code": "EJE-YYYY-00044",
-        "id": 44
-      },
-      "issuedAt": "2024-08-15",
-      "status": "PENDIENTE"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00009",
-        "id": 9
-      },
-      "amount": 10,
-      "code": "MUL-2024-00003",
-      "daysLate": 4,
-      "id": 3,
-      "copy": {
-        "code": "EJE-YYYY-00018",
-        "id": 18
-      },
-      "issuedAt": "2024-08-15",
-      "status": "PENDIENTE"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00006",
-        "id": 6
-      },
-      "amount": 5,
-      "code": "MUL-2024-00002",
-      "daysLate": 2,
-      "id": 2,
-      "copy": {
-        "code": "EJE-YYYY-00032",
-        "id": 32
-      },
-      "issuedAt": "2024-08-10",
-      "status": "PENDIENTE"
-    },
-    {
-      "loan": {
-        "code": "PRE-2024-00003",
-        "id": 3
-      },
-      "amount": 7.5,
-      "code": "MUL-2024-00001",
-      "daysLate": 3,
-      "id": 1,
-      "copy": {
-        "code": "EJE-YYYY-00035",
-        "id": 35
-      },
-      "issuedAt": "2024-08-08",
-      "status": "PENDIENTE"
-    }
-  ],
+      {
+        "loan": {
+          "code": "PRE-2024-00016",
+          "id": 16
+        },
+        "amount": 6.25,
+        "code": "MUL-2024-00006",
+        "daysLate": 2,
+        "id": 6,
+        "copy": {
+          "code": "EJE-YYYY-00015",
+          "id": 15
+        },
+        "issuedAt": "2024-08-21",
+        "status": "PENDIENTE"
+      }
+    ],
+    "totalElements": 25
+  },
   "success": true,
   "message": "Fines listed successfully"
 }

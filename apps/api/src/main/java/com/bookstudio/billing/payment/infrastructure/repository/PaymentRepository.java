@@ -5,12 +5,14 @@ import com.bookstudio.billing.payment.application.dto.response.PaymentListRespon
 import com.bookstudio.billing.payment.domain.model.Payment;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface PaymentRepository extends JpaRepository<Payment, Long> {
+public interface PaymentRepository extends JpaRepository<Payment, Long>, JpaSpecificationExecutor<Payment> {
     String LIST_SELECT = """
         SELECT
             p.id AS id,
@@ -33,8 +35,8 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
         GROUP BY p.id, p.code, r.id, r.code, r.firstName, r.lastName, p.amount, p.paymentDate, p.method
         """;
 
-    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY p.id DESC")
-    List<PaymentListResponse> findList();
+    @Query(LIST_SELECT + "WHERE p.id IN :ids " + LIST_GROUP_BY)
+    List<PaymentListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE p.id = :id " + LIST_GROUP_BY)
     Optional<PaymentListResponse> findListItemById(Long id);

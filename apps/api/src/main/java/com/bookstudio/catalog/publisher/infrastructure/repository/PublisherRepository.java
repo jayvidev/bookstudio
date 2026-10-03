@@ -6,12 +6,14 @@ import com.bookstudio.catalog.publisher.domain.model.Publisher;
 import com.bookstudio.shared.response.OptionResponse;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface PublisherRepository extends JpaRepository<Publisher, Long> {
+public interface PublisherRepository extends JpaRepository<Publisher, Long>, JpaSpecificationExecutor<Publisher> {
     String LIST_SELECT = """
         SELECT 
             p.id AS id,
@@ -29,8 +31,8 @@ public interface PublisherRepository extends JpaRepository<Publisher, Long> {
         JOIN Nationality n ON n.id = p.nationalityId
         """;
 
-    @Query(LIST_SELECT + "ORDER BY p.id DESC")
-    List<PublisherListResponse> findList();
+    @Query(LIST_SELECT + "WHERE p.id IN :ids ")
+    List<PublisherListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE p.id = :id")
     Optional<PublisherListResponse> findListItemById(Long id);

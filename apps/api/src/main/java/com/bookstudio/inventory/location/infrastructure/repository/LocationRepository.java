@@ -1,17 +1,19 @@
 package com.bookstudio.inventory.location.infrastructure.repository;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.inventory.location.application.dto.response.LocationDetailResponse;
 import com.bookstudio.inventory.location.application.dto.response.LocationListResponse;
 import com.bookstudio.inventory.location.domain.model.Location;
 import com.bookstudio.shared.response.OptionResponse;
 
-public interface LocationRepository extends JpaRepository<Location, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+public interface LocationRepository extends JpaRepository<Location, Long>, JpaSpecificationExecutor<Location> {
     String LIST_SELECT = """
         SELECT
             l.id AS id,
@@ -29,8 +31,8 @@ public interface LocationRepository extends JpaRepository<Location, Long> {
         GROUP BY l.id, l.name, l.description
         """;
 
-    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY l.id DESC")
-    List<LocationListResponse> findList();
+    @Query(LIST_SELECT + "WHERE l.id IN :ids " + LIST_GROUP_BY)
+    List<LocationListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE l.id = :id " + LIST_GROUP_BY)
     Optional<LocationListResponse> findListItemById(Long id);

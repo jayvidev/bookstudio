@@ -1,17 +1,19 @@
 package com.bookstudio.inventory.copy.infrastructure.repository;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.inventory.copy.application.dto.response.CopyDetailResponse;
 import com.bookstudio.inventory.copy.application.dto.response.CopyListResponse;
 import com.bookstudio.inventory.copy.domain.model.Copy;
 import com.bookstudio.shared.response.OptionResponse;
 
-public interface CopyRepository extends JpaRepository<Copy, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+public interface CopyRepository extends JpaRepository<Copy, Long>, JpaSpecificationExecutor<Copy> {
     String LIST_SELECT = """
         SELECT 
             c.id AS id,
@@ -34,8 +36,8 @@ public interface CopyRepository extends JpaRepository<Copy, Long> {
         JOIN s.location l
         """;
 
-    @Query(LIST_SELECT + "ORDER BY c.id DESC")
-    List<CopyListResponse> findList();
+    @Query(LIST_SELECT + "WHERE c.id IN :ids ")
+    List<CopyListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE c.id = :id")
     Optional<CopyListResponse> findListItemById(Long id);

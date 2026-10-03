@@ -1,18 +1,20 @@
 package com.bookstudio.staff.role.infrastructure.repository;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
+import com.bookstudio.shared.response.OptionResponse;
 import com.bookstudio.staff.role.application.dto.response.RoleDetailResponse;
 import com.bookstudio.staff.role.application.dto.response.RoleListResponse;
 import com.bookstudio.staff.role.domain.model.Role;
-import com.bookstudio.shared.response.OptionResponse;
 
-public interface RoleRepository extends JpaRepository<Role, Long>{
-    @Query("""
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+public interface RoleRepository extends JpaRepository<Role, Long>, JpaSpecificationExecutor<Role> {
+    String LIST_SELECT = """
         SELECT 
             r.id AS id,
             r.name AS name,
@@ -20,10 +22,14 @@ public interface RoleRepository extends JpaRepository<Role, Long>{
             COUNT(rp.permission.id) AS permissionCount
         FROM Role r
         LEFT JOIN RolePermission rp ON rp.role = r
+        """;
+
+    String LIST_GROUP_BY = """
         GROUP BY r.id, r.name, r.description
-        ORDER BY r.id DESC
-    """)
-    List<RoleListResponse> findList();
+        """;
+
+    @Query(LIST_SELECT + "WHERE r.id IN :ids " + LIST_GROUP_BY)
+    List<RoleListResponse> findListByIds(Collection<Long> ids);
 
     @Query("""
         SELECT 

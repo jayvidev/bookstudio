@@ -1,18 +1,20 @@
 package com.bookstudio.membership.reader.infrastructure.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.membership.reader.application.dto.response.ReaderDetailResponse;
 import com.bookstudio.membership.reader.application.dto.response.ReaderListResponse;
 import com.bookstudio.membership.reader.domain.model.Reader;
 import com.bookstudio.shared.response.OptionResponse;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface ReaderRepository extends JpaRepository<Reader, Long> {    
-    @Query("""
+public interface ReaderRepository extends JpaRepository<Reader, Long>, JpaSpecificationExecutor<Reader> {    
+    String LIST_SELECT = """
         SELECT 
             r.id AS id,
             r.code AS code,
@@ -22,9 +24,10 @@ public interface ReaderRepository extends JpaRepository<Reader, Long> {
             r.type AS type,
             r.status AS status
         FROM Reader r
-        ORDER BY r.id DESC
-    """)
-    List<ReaderListResponse> findList();
+        """;
+
+    @Query(LIST_SELECT + "WHERE r.id IN :ids ")
+    List<ReaderListResponse> findListByIds(Collection<Long> ids);
 
     @Query("""
         SELECT 

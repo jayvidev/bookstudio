@@ -1,12 +1,14 @@
 package com.bookstudio.catalog.category.presentation;
 
 import com.bookstudio.catalog.category.application.CategoryService;
+import com.bookstudio.catalog.category.application.dto.request.CategoryFilter;
 import com.bookstudio.catalog.category.application.dto.request.CreateCategoryRequest;
 import com.bookstudio.catalog.category.application.dto.request.UpdateCategoryRequest;
 import com.bookstudio.catalog.category.application.dto.response.CategoryDetailResponse;
 import com.bookstudio.catalog.category.application.dto.response.CategoryListResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,10 +21,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +39,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
@@ -42,18 +49,20 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping
-    @Operation(summary = "List all categories")
+    @Operation(summary = "List categories (paginated, filterable)",
+            description = "Sortable by id, name, e.g. sort=name,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Categories listed successfully (or empty list if no categories found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/categories\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of categories (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<CategoryListResponse>>> list() {
-        List<CategoryListResponse> categories = categoryService.getList();
-        ApiSuccess<List<CategoryListResponse>> response = new ApiSuccess<>(
-                categories.isEmpty() ? "No categories found" : "Categories listed successfully",
-                categories);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<CategoryListResponse>>> list(
+            @ParameterObject @Valid CategoryFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<CategoryListResponse> page = categoryService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No categories found" : "Categories listed successfully",
+                page));
     }
 
     @GetMapping("/{id}")

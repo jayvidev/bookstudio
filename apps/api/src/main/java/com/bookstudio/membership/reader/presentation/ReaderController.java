@@ -2,11 +2,13 @@ package com.bookstudio.membership.reader.presentation;
 
 import com.bookstudio.membership.reader.application.ReaderService;
 import com.bookstudio.membership.reader.application.dto.request.CreateReaderRequest;
+import com.bookstudio.membership.reader.application.dto.request.ReaderFilter;
 import com.bookstudio.membership.reader.application.dto.request.UpdateReaderRequest;
 import com.bookstudio.membership.reader.application.dto.response.ReaderDetailResponse;
 import com.bookstudio.membership.reader.application.dto.response.ReaderListResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,10 +21,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +39,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/readers")
@@ -42,18 +49,20 @@ public class ReaderController {
     private final ReaderService readerService;
 
     @GetMapping
-    @Operation(summary = "List all readers")
+    @Operation(summary = "List readers (paginated, filterable)",
+            description = "Sortable by code, id, lastName, e.g. sort=code,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Readers listed successfully (or empty list if no readers found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/readers\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of readers (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<ReaderListResponse>>> list() {
-        List<ReaderListResponse> readers = readerService.getList();
-        ApiSuccess<List<ReaderListResponse>> response = new ApiSuccess<>(
-                readers.isEmpty() ? "No readers found" : "Readers listed successfully",
-                readers);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<ReaderListResponse>>> list(
+            @ParameterObject @Valid ReaderFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<ReaderListResponse> page = readerService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No readers found" : "Readers listed successfully",
+                page));
     }
 
     @GetMapping("/{id}")

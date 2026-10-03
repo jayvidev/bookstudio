@@ -1,16 +1,18 @@
 package com.bookstudio.catalog.author.infrastructure.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
 import com.bookstudio.catalog.author.application.dto.response.AuthorDetailResponse;
 import com.bookstudio.catalog.author.application.dto.response.AuthorListResponse;
 import com.bookstudio.catalog.author.domain.model.Author;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface AuthorRepository extends JpaRepository<Author, Long> {
+public interface AuthorRepository extends JpaRepository<Author, Long>, JpaSpecificationExecutor<Author> {
     String LIST_SELECT = """
         SELECT
             a.id AS id,
@@ -27,8 +29,8 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
         JOIN Nationality n ON n.id = a.nationalityId
         """;
 
-    @Query(LIST_SELECT + "ORDER BY a.id DESC")
-    List<AuthorListResponse> findList();
+    @Query(LIST_SELECT + "WHERE a.id IN :ids ")
+    List<AuthorListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE a.id = :id")
     Optional<AuthorListResponse> findListItemById(Long id);

@@ -1,6 +1,5 @@
 package com.bookstudio.circulation.loan.infrastructure.repository;
 
-import java.time.LocalDate;
 import java.util.Collection;
 
 import org.springframework.data.jpa.domain.Specification;
@@ -8,14 +7,13 @@ import org.springframework.data.jpa.domain.Specification;
 import com.bookstudio.circulation.LoanItemStatus;
 import com.bookstudio.circulation.loan.domain.model.Loan;
 import com.bookstudio.circulation.loan.domain.model.LoanItem;
+import com.bookstudio.shared.paging.Specs;
 
 import jakarta.persistence.criteria.Root;
 import jakarta.persistence.criteria.Subquery;
 
 /**
- * Composable filters for {@link Loan}. Each returns an unrestricted
- * specification when its argument is absent, so callers can combine them
- * without null checks and only present filters reach the SQL.
+ * Loan-specific filters; generic ones live in {@code shared.paging.Specs}.
  */
 public final class LoanSpecifications {
 
@@ -35,35 +33,15 @@ public final class LoanSpecifications {
         };
     }
 
-    public static Specification<Loan> belongsToReader(Long readerId) {
-        if (readerId == null) {
-            return Specification.unrestricted();
-        }
-        return (root, query, cb) -> cb.equal(root.get("readerId"), readerId);
-    }
-
-    public static Specification<Loan> loanedOnOrAfter(LocalDate from) {
-        if (from == null) {
-            return Specification.unrestricted();
-        }
-        return (root, query, cb) -> cb.greaterThanOrEqualTo(root.get("loanDate"), from);
-    }
-
-    public static Specification<Loan> loanedOnOrBefore(LocalDate to) {
-        if (to == null) {
-            return Specification.unrestricted();
-        }
-        return (root, query, cb) -> cb.lessThanOrEqualTo(root.get("loanDate"), to);
-    }
-
     /**
      * Code contains {@code text}, or the loan belongs to one of {@code readerIds}
      * (the readers whose name matched, resolved by the reader module).
      */
     public static Specification<Loan> codeContainsOrReaderIn(String text, Collection<Long> readerIds) {
-        return (root, query, cb) -> {
-            var codeMatches = cb.like(cb.lower(root.get("code")), "%" + text.trim().toLowerCase() + "%");
-            return readerIds.isEmpty() ? codeMatches : cb.or(codeMatches, root.get("readerId").in(readerIds));
-        };
+        Specification<Loan> codeMatches = Specs.containsIgnoreCase(text, "code");
+        if (readerIds.isEmpty()) {
+            return codeMatches;
+        }
+        return Specification.anyOf(codeMatches, (root, query, cb) -> root.get("readerId").in(readerIds));
     }
 }

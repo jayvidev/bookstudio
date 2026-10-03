@@ -6,12 +6,14 @@ import com.bookstudio.catalog.book.domain.model.Book;
 import com.bookstudio.shared.response.OptionResponse;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface BookRepository extends JpaRepository<Book, Long> {
+public interface BookRepository extends JpaRepository<Book, Long>, JpaSpecificationExecutor<Book> {
     String LIST_SELECT = """
         SELECT 
             b.id AS id,
@@ -44,8 +46,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
         GROUP BY b.id, b.isbn, b.coverUrl, b.title, c.id, c.name, p.id, p.name, l.id, l.code, l.name, b.status
         """;
 
-    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY b.id DESC")
-    List<BookListResponse> findList();
+    @Query(LIST_SELECT + "WHERE b.id IN :ids " + LIST_GROUP_BY)
+    List<BookListResponse> findListByIds(Collection<Long> ids);
 
     @Query(LIST_SELECT + "WHERE b.id = :id " + LIST_GROUP_BY)
     Optional<BookListResponse> findListItemById(Long id);

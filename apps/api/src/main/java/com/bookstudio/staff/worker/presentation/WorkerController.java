@@ -2,11 +2,13 @@ package com.bookstudio.staff.worker.presentation;
 
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.security.CurrentUser;
 import com.bookstudio.shared.validation.ValidationMessages;
 import com.bookstudio.staff.worker.application.WorkerService;
 import com.bookstudio.staff.worker.application.dto.request.CreateWorkerRequest;
 import com.bookstudio.staff.worker.application.dto.request.UpdateWorkerRequest;
+import com.bookstudio.staff.worker.application.dto.request.WorkerFilter;
 import com.bookstudio.staff.worker.application.dto.response.WorkerDetailResponse;
 import com.bookstudio.staff.worker.application.dto.response.WorkerFilterOptionsResponse;
 import com.bookstudio.staff.worker.application.dto.response.WorkerListResponse;
@@ -24,6 +26,10 @@ import jakarta.validation.constraints.Min;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -37,7 +43,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/workers")
@@ -48,19 +53,21 @@ public class WorkerController {
     private final WorkerService workerService;
 
     @GetMapping
-    @Operation(summary = "List all workers")
+    @Operation(summary = "List workers (paginated, filterable)",
+            description = "Sortable by id, lastName, username, e.g. sort=username,asc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Workers listed successfully (or empty list if no workers found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/workers\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of workers (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<WorkerListResponse>>> list(@AuthenticationPrincipal Jwt jwt) {
-        List<WorkerListResponse> workers = workerService.getList(CurrentUser.id(jwt));
-
-        ApiSuccess<List<WorkerListResponse>> response = new ApiSuccess<>(
-                workers.isEmpty() ? "No workers found" : "Workers listed successfully",
-                workers);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<WorkerListResponse>>> list(
+            @AuthenticationPrincipal Jwt jwt,
+            @ParameterObject @Valid WorkerFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<WorkerListResponse> page = workerService.getPage(filter, pageable, CurrentUser.id(jwt));
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No workers found" : "Workers listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

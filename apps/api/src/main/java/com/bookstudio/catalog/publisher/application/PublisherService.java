@@ -1,10 +1,10 @@
 package com.bookstudio.catalog.publisher.application;
 
-import com.bookstudio.shared.response.OptionResponse;
-import com.bookstudio.catalog.publisher.PublisherApi;
 import com.bookstudio.catalog.genre.GenreApi;
 import com.bookstudio.catalog.nationality.NationalityApi;
+import com.bookstudio.catalog.publisher.PublisherApi;
 import com.bookstudio.catalog.publisher.application.dto.request.CreatePublisherRequest;
+import com.bookstudio.catalog.publisher.application.dto.request.PublisherFilter;
 import com.bookstudio.catalog.publisher.application.dto.request.UpdatePublisherRequest;
 import com.bookstudio.catalog.publisher.application.dto.response.PublisherDetailResponse;
 import com.bookstudio.catalog.publisher.application.dto.response.PublisherFilterOptionsResponse;
@@ -12,11 +12,18 @@ import com.bookstudio.catalog.publisher.application.dto.response.PublisherListRe
 import com.bookstudio.catalog.publisher.application.dto.response.PublisherSelectOptionsResponse;
 import com.bookstudio.catalog.publisher.domain.model.Publisher;
 import com.bookstudio.catalog.publisher.infrastructure.repository.PublisherRepository;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.PageProjection;
+import com.bookstudio.shared.paging.SortWhitelist;
+import com.bookstudio.shared.paging.Specs;
+import com.bookstudio.shared.response.OptionResponse;
 import com.bookstudio.shared.type.Status;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -28,6 +35,8 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Validated
 public class PublisherService implements PublisherApi {
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "name", "foundationYear");
+
     private final PublisherRepository publisherRepository;
     private final NationalityApi nationalityApi;
     private final GenreApi genreApi;
@@ -44,8 +53,17 @@ public class PublisherService implements PublisherApi {
         return publisherRepository.findForOptions();
     }
 
-    public List<PublisherListResponse> getList() {
-        return publisherRepository.findList();
+    public PageResponse<PublisherListResponse> getPage(PublisherFilter filter, Pageable pageable) {
+        Specification<Publisher> spec = Specification.allOf(
+                Specs.containsIgnoreCase(filter.search(), "name"),
+                Specs.equal("nationalityId", filter.nationalityId()),
+                Specs.equal("status", filter.status()));
+
+        return PageProjection.of(
+                publisherRepository.findAll(spec, SORTABLE.validate(pageable)),
+                Publisher::getId,
+                publisherRepository::findListByIds,
+                PublisherListResponse::id);
     }
 
     public PublisherFilterOptionsResponse getFilterOptions() {

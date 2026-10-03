@@ -1,266 +1,272 @@
 {
-  "data": [
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ-Z5B40zh6694uqvZB6XbpLHkJ5dPbV_TuK0VhPrw5WtwfcNM3eZ1M3agJR6czbcKlz38",
-      "website": "www.edicionesb.com",
-      "address": "Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+  "data": {
+    "size": 20,
+    "totalPages": 1,
+    "page": 0,
+    "content": [
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ-Z5B40zh6694uqvZB6XbpLHkJ5dPbV_TuK0VhPrw5WtwfcNM3eZ1M3agJR6czbcKlz38",
+        "website": "www.edicionesb.com",
+        "address": "Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Ediciones B",
+        "id": 20,
+        "status": "ACTIVO"
       },
-      "name": "Ediciones B",
-      "id": 20,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/pbs.twimg.com\/profile_images\/1369193039466553345\/bmhVCrT7_400x400.jpg",
-      "website": "www.alianzaeditorial.es",
-      "address": "Madrid, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/pbs.twimg.com\/profile_images\/1369193039466553345\/bmhVCrT7_400x400.jpg",
+        "website": "www.alianzaeditorial.es",
+        "address": "Madrid, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Alianza Editorial",
+        "id": 19,
+        "status": "INACTIVO"
       },
-      "name": "Alianza Editorial",
-      "id": 19,
-      "status": "INACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/casatomadalibreriacafe.com\/wp-content\/uploads\/2020\/09\/logo_CRITICA.jpg",
-      "website": "www.ed-critica.es",
-      "address": "Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/casatomadalibreriacafe.com\/wp-content\/uploads\/2020\/09\/logo_CRITICA.jpg",
+        "website": "www.ed-critica.es",
+        "address": "Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Crítica",
+        "id": 18,
+        "status": "ACTIVO"
       },
-      "name": "Crítica",
-      "id": 18,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/hablemos-escritoras-as.s3.us-west-1.amazonaws.com\/variants\/wgnm367hidp8j4s1pmefduijvyfv\/fec9312db351f781c0197cc9c4f9c66013b1e39507ba1aecf24862b67be970f0",
-      "website": "www.penguinlibros.com",
-      "address": "Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/hablemos-escritoras-as.s3.us-west-1.amazonaws.com\/variants\/wgnm367hidp8j4s1pmefduijvyfv\/fec9312db351f781c0197cc9c4f9c66013b1e39507ba1aecf24862b67be970f0",
+        "website": "www.penguinlibros.com",
+        "address": "Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Debolsillo",
+        "id": 17,
+        "status": "ACTIVO"
       },
-      "name": "Debolsillo",
-      "id": 17,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRyiLwCL41nSe1jcHg4uee2dCZyBUGr4HS3bg&s",
-      "website": "www.salamandra.info",
-      "address": "Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRyiLwCL41nSe1jcHg4uee2dCZyBUGr4HS3bg&s",
+        "website": "www.salamandra.info",
+        "address": "Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Salamandra",
+        "id": 16,
+        "status": "ACTIVO"
       },
-      "name": "Salamandra",
-      "id": 16,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/es.babelio.com\/users\/EDIG_Andres-Bello_9631.jpg",
-      "website": "www.andresbello.cl",
-      "address": "Santiago, Chile",
-      "nationality": {
-        "code": "cl",
-        "name": "Chilena",
-        "id": 6
+      {
+        "photoUrl": "https:\/\/es.babelio.com\/users\/EDIG_Andres-Bello_9631.jpg",
+        "website": "www.andresbello.cl",
+        "address": "Santiago, Chile",
+        "nationality": {
+          "code": "cl",
+          "name": "Chilena",
+          "id": 6
+        },
+        "name": "Editorial Andrés Bello",
+        "id": 15,
+        "status": "ACTIVO"
       },
-      "name": "Editorial Andrés Bello",
-      "id": 15,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/http2.mlstatic.com\/D_NQ_NP_718679-MLM31408428279_072019-O.webp",
-      "website": "www.porrua.com",
-      "address": "Ciudad de México, México",
-      "nationality": {
-        "code": "mx",
-        "name": "Mexicana",
-        "id": 4
+      {
+        "photoUrl": "https:\/\/http2.mlstatic.com\/D_NQ_NP_718679-MLM31408428279_072019-O.webp",
+        "website": "www.porrua.com",
+        "address": "Ciudad de México, México",
+        "nationality": {
+          "code": "mx",
+          "name": "Mexicana",
+          "id": 4
+        },
+        "name": "Editorial Porrúa",
+        "id": 14,
+        "status": "ACTIVO"
       },
-      "name": "Editorial Porrúa",
-      "id": 14,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRqIiS61_tgWiFOKdEiulmL8jZZkt0f6wbj6Q&s",
-      "website": "www.emece.com.ar",
-      "address": "Buenos Aires, Argentina",
-      "nationality": {
-        "code": "ar",
-        "name": "Argentina",
-        "id": 3
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRqIiS61_tgWiFOKdEiulmL8jZZkt0f6wbj6Q&s",
+        "website": "www.emece.com.ar",
+        "address": "Buenos Aires, Argentina",
+        "nationality": {
+          "code": "ar",
+          "name": "Argentina",
+          "id": 3
+        },
+        "name": "Emecé Editores",
+        "id": 13,
+        "status": "INACTIVO"
       },
-      "name": "Emecé Editores",
-      "id": 13,
-      "status": "INACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQijPZ8s7YKGiJUWwnBZqojCS0rfCWUw6d1Tw&s",
-      "website": "www.sudamericanalibros.com.ar",
-      "address": "Buenos Aires, Argentina",
-      "nationality": {
-        "code": "ar",
-        "name": "Argentina",
-        "id": 3
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQijPZ8s7YKGiJUWwnBZqojCS0rfCWUw6d1Tw&s",
+        "website": "www.sudamericanalibros.com.ar",
+        "address": "Buenos Aires, Argentina",
+        "nationality": {
+          "code": "ar",
+          "name": "Argentina",
+          "id": 3
+        },
+        "name": "Editorial Sudamericana",
+        "id": 12,
+        "status": "ACTIVO"
       },
-      "name": "Editorial Sudamericana",
-      "id": 12,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/pbs.twimg.com\/profile_images\/887441240110751744\/mwP27QIB_400x400.jpg",
-      "website": "www.librerianorma.com",
-      "address": "Bogotá, Colombia",
-      "nationality": {
-        "code": "co",
-        "name": "Colombiana",
-        "id": 5
+      {
+        "photoUrl": "https:\/\/pbs.twimg.com\/profile_images\/887441240110751744\/mwP27QIB_400x400.jpg",
+        "website": "www.librerianorma.com",
+        "address": "Bogotá, Colombia",
+        "nationality": {
+          "code": "co",
+          "name": "Colombiana",
+          "id": 5
+        },
+        "name": "Editorial Norma",
+        "id": 11,
+        "status": "ACTIVO"
       },
-      "name": "Editorial Norma",
-      "id": 11,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTL5wYUc7Sdg3cfgS7eKvaaDBX6xpxD2mUEsg&s",
-      "website": "www.peisa.com.pe",
-      "address": "Lima, Perú",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTL5wYUc7Sdg3cfgS7eKvaaDBX6xpxD2mUEsg&s",
+        "website": "www.peisa.com.pe",
+        "address": "Lima, Perú",
+        "nationality": {
+          "code": "pe",
+          "name": "Peruana",
+          "id": 1
+        },
+        "name": "Peisa",
+        "id": 10,
+        "status": "ACTIVO"
       },
-      "name": "Peisa",
-      "id": 10,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.tusquetseditores.com",
-      "address": "Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": null,
+        "website": "www.tusquetseditores.com",
+        "address": "Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Tusquets",
+        "id": 9,
+        "status": "INACTIVO"
       },
-      "name": "Tusquets",
-      "id": 9,
-      "status": "INACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.catedra.com",
-      "address": "Madrid, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": null,
+        "website": "www.catedra.com",
+        "address": "Madrid, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Cátedra",
+        "id": 8,
+        "status": "ACTIVO"
       },
-      "name": "Cátedra",
-      "id": 8,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.seixbarral.es",
-      "address": "Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": null,
+        "website": "www.seixbarral.es",
+        "address": "Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Seix Barral",
+        "id": 7,
+        "status": "ACTIVO"
       },
-      "name": "Seix Barral",
-      "id": 7,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.fondodeculturaeconomica.com",
-      "address": "Ciudad de México, México",
-      "nationality": {
-        "code": "mx",
-        "name": "Mexicana",
-        "id": 4
+      {
+        "photoUrl": null,
+        "website": "www.fondodeculturaeconomica.com",
+        "address": "Ciudad de México, México",
+        "nationality": {
+          "code": "mx",
+          "name": "Mexicana",
+          "id": 4
+        },
+        "name": "Fondo de Cultura Económica",
+        "id": 6,
+        "status": "ACTIVO"
       },
-      "name": "Fondo de Cultura Económica",
-      "id": 6,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.anagrama-ed.es",
-      "address": "Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": null,
+        "website": "www.anagrama-ed.es",
+        "address": "Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Anagrama",
+        "id": 5,
+        "status": "INACTIVO"
       },
-      "name": "Anagrama",
-      "id": 5,
-      "status": "INACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.santillana.com",
-      "address": "Madrid, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": null,
+        "website": "www.santillana.com",
+        "address": "Madrid, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Santillana",
+        "id": 4,
+        "status": "ACTIVO"
       },
-      "name": "Santillana",
-      "id": 4,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.penguinrandomhouse.com",
-      "address": "New York, Estados Unidos",
-      "nationality": {
-        "code": "us",
-        "name": "Estadounidense",
-        "id": 7
+      {
+        "photoUrl": null,
+        "website": "www.penguinrandomhouse.com",
+        "address": "New York, Estados Unidos",
+        "nationality": {
+          "code": "us",
+          "name": "Estadounidense",
+          "id": 7
+        },
+        "name": "Penguin Random House",
+        "id": 3,
+        "status": "ACTIVO"
       },
-      "name": "Penguin Random House",
-      "id": 3,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.alfaguara.com",
-      "address": "Calle Torrelaguna 60, Madrid, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": null,
+        "website": "www.alfaguara.com",
+        "address": "Calle Torrelaguna 60, Madrid, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Alfaguara",
+        "id": 2,
+        "status": "ACTIVO"
       },
-      "name": "Alfaguara",
-      "id": 2,
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": null,
-      "website": "www.planeta.es",
-      "address": "Av. Diagonal 662-664, Barcelona, España",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
-      },
-      "name": "Planeta",
-      "id": 1,
-      "status": "ACTIVO"
-    }
-  ],
+      {
+        "photoUrl": null,
+        "website": "www.planeta.es",
+        "address": "Av. Diagonal 662-664, Barcelona, España",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Planeta",
+        "id": 1,
+        "status": "ACTIVO"
+      }
+    ],
+    "totalElements": 20
+  },
   "success": true,
   "message": "Publishers listed successfully"
 }

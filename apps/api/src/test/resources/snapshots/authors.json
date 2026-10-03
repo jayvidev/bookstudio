@@ -1,390 +1,252 @@
 {
-  "data": [
-    {
-      "photoUrl": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b1\/Edgar_Allan_Poe_portrait.jpg\/250px-Edgar_Allan_Poe_portrait.jpg",
-      "nationality": {
-        "code": "us",
-        "name": "Estadounidense",
-        "id": 7
+  "data": {
+    "size": 20,
+    "totalPages": 2,
+    "page": 0,
+    "content": [
+      {
+        "photoUrl": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b1\/Edgar_Allan_Poe_portrait.jpg\/250px-Edgar_Allan_Poe_portrait.jpg",
+        "nationality": {
+          "code": "us",
+          "name": "Estadounidense",
+          "id": 7
+        },
+        "name": "Edgar Allan Poe",
+        "id": 32,
+        "birthDate": "1809-01-19",
+        "status": "ACTIVO"
       },
-      "name": "Edgar Allan Poe",
-      "id": 32,
-      "birthDate": "1809-01-19",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/www.biografiasyvidas.com\/biografia\/t\/fotos\/twain_mark.jpg",
-      "nationality": {
-        "code": "us",
-        "name": "Estadounidense",
-        "id": 7
+      {
+        "photoUrl": "https:\/\/www.biografiasyvidas.com\/biografia\/t\/fotos\/twain_mark.jpg",
+        "nationality": {
+          "code": "us",
+          "name": "Estadounidense",
+          "id": 7
+        },
+        "name": "Mark Twain",
+        "id": 31,
+        "birthDate": "1835-11-30",
+        "status": "ACTIVO"
       },
-      "name": "Mark Twain",
-      "id": 31,
-      "birthDate": "1835-11-30",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/aa\/Dickens_Gurney_head.jpg\/330px-Dickens_Gurney_head.jpg",
-      "nationality": {
-        "code": "gb",
-        "name": "Británica",
-        "id": 8
+      {
+        "photoUrl": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/aa\/Dickens_Gurney_head.jpg\/330px-Dickens_Gurney_head.jpg",
+        "nationality": {
+          "code": "gb",
+          "name": "Británica",
+          "id": 8
+        },
+        "name": "Charles Dickens",
+        "id": 30,
+        "birthDate": "1812-02-07",
+        "status": "ACTIVO"
       },
-      "name": "Charles Dickens",
-      "id": 30,
-      "birthDate": "1812-02-07",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSa_DJhO_MYLBPWthlaG-T3VS1s9XDajHewYw&s",
-      "nationality": {
-        "code": "gb",
-        "name": "Británica",
-        "id": 8
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSa_DJhO_MYLBPWthlaG-T3VS1s9XDajHewYw&s",
+        "nationality": {
+          "code": "gb",
+          "name": "Británica",
+          "id": 8
+        },
+        "name": "Jane Austen",
+        "id": 29,
+        "birthDate": "1775-12-16",
+        "status": "ACTIVO"
       },
-      "name": "Jane Austen",
-      "id": 29,
-      "birthDate": "1775-12-16",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQWtPv8flPnqjFjXD4f26XftUHQNg3WvmBBCgqGPDQQmNzZZfTWVgTIk07ioArjBAskgI8",
-      "nationality": {
-        "code": "gb",
-        "name": "Británica",
-        "id": 8
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQWtPv8flPnqjFjXD4f26XftUHQNg3WvmBBCgqGPDQQmNzZZfTWVgTIk07ioArjBAskgI8",
+        "nationality": {
+          "code": "gb",
+          "name": "Británica",
+          "id": 8
+        },
+        "name": "George Orwell",
+        "id": 28,
+        "birthDate": "1903-06-25",
+        "status": "ACTIVO"
       },
-      "name": "George Orwell",
-      "id": 28,
-      "birthDate": "1903-06-25",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRVox9E3jQeH8BFpnBRANQeBBC0bsH9230x6Q&s",
-      "nationality": {
-        "code": "gb",
-        "name": "Británica",
-        "id": 8
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRVox9E3jQeH8BFpnBRANQeBBC0bsH9230x6Q&s",
+        "nationality": {
+          "code": "gb",
+          "name": "Británica",
+          "id": 8
+        },
+        "name": "Agatha Christie",
+        "id": 27,
+        "birthDate": "1890-09-15",
+        "status": "ACTIVO"
       },
-      "name": "Agatha Christie",
-      "id": 27,
-      "birthDate": "1890-09-15",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/m.media-amazon.com\/images\/S\/amzn-author-media-prod\/8cigckin175jtpsk3gs361r4ss.jpg",
-      "nationality": {
-        "code": "gb",
-        "name": "Británica",
-        "id": 8
+      {
+        "photoUrl": "https:\/\/m.media-amazon.com\/images\/S\/amzn-author-media-prod\/8cigckin175jtpsk3gs361r4ss.jpg",
+        "nationality": {
+          "code": "gb",
+          "name": "Británica",
+          "id": 8
+        },
+        "name": "J.K. Rowling",
+        "id": 26,
+        "birthDate": "1965-07-31",
+        "status": "ACTIVO"
       },
-      "name": "J.K. Rowling",
-      "id": 26,
-      "birthDate": "1965-07-31",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSzdidYzM4lPIVjiSBk_zyLYE1JmSCt_NZMFA&s",
-      "nationality": {
-        "code": "us",
-        "name": "Estadounidense",
-        "id": 7
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSzdidYzM4lPIVjiSBk_zyLYE1JmSCt_NZMFA&s",
+        "nationality": {
+          "code": "us",
+          "name": "Estadounidense",
+          "id": 7
+        },
+        "name": "Stephen King",
+        "id": 25,
+        "birthDate": "1947-09-21",
+        "status": "ACTIVO"
       },
-      "name": "Stephen King",
-      "id": 25,
-      "birthDate": "1947-09-21",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQr-h9MaDue5peCMC0nHtjfPd6rK-flGwMq2Q&s",
-      "nationality": {
-        "code": "us",
-        "name": "Estadounidense",
-        "id": 7
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQr-h9MaDue5peCMC0nHtjfPd6rK-flGwMq2Q&s",
+        "nationality": {
+          "code": "us",
+          "name": "Estadounidense",
+          "id": 7
+        },
+        "name": "Ernest Hemingway",
+        "id": 24,
+        "birthDate": "1899-07-21",
+        "status": "ACTIVO"
       },
-      "name": "Ernest Hemingway",
-      "id": 24,
-      "birthDate": "1899-07-21",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSfaNYWLuCHQbKlAe-G7AkVoD76qvBsvwR4Vg&s",
-      "nationality": {
-        "code": "gb",
-        "name": "Británica",
-        "id": 8
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSfaNYWLuCHQbKlAe-G7AkVoD76qvBsvwR4Vg&s",
+        "nationality": {
+          "code": "gb",
+          "name": "Británica",
+          "id": 8
+        },
+        "name": "William Shakespeare",
+        "id": 23,
+        "birthDate": "1564-04-26",
+        "status": "ACTIVO"
       },
-      "name": "William Shakespeare",
-      "id": 23,
-      "birthDate": "1564-04-26",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ8XmYugB0jtGO4A6n_T940MEXT9ASYHsHRBA&s",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ8XmYugB0jtGO4A6n_T940MEXT9ASYHsHRBA&s",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Miguel Delibes",
+        "id": 22,
+        "birthDate": "1920-10-17",
+        "status": "INACTIVO"
       },
-      "name": "Miguel Delibes",
-      "id": 22,
-      "birthDate": "1920-10-17",
-      "status": "INACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSUMhqvroPXoeZqUhFLxGTOQ2NvfYjHClVW_g&s",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSUMhqvroPXoeZqUhFLxGTOQ2NvfYjHClVW_g&s",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Camilo José Cela",
+        "id": 21,
+        "birthDate": "1916-05-11",
+        "status": "INACTIVO"
       },
-      "name": "Camilo José Cela",
-      "id": 21,
-      "birthDate": "1916-05-11",
-      "status": "INACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ2MAHA1q7KckmnQrhJmVxLQDMdcXKYPZ-JVQ&s",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ2MAHA1q7KckmnQrhJmVxLQDMdcXKYPZ-JVQ&s",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Juan Ramón Jiménez",
+        "id": 20,
+        "birthDate": "1881-12-23",
+        "status": "ACTIVO"
       },
-      "name": "Juan Ramón Jiménez",
-      "id": 20,
-      "birthDate": "1881-12-23",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/www.cervantesvirtual.com\/images\/portales\/antonio_machado\/antonio_machado.jpg",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/www.cervantesvirtual.com\/images\/portales\/antonio_machado\/antonio_machado.jpg",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Antonio Machado",
+        "id": 19,
+        "birthDate": "1875-07-26",
+        "status": "ACTIVO"
       },
-      "name": "Antonio Machado",
-      "id": 19,
-      "birthDate": "1875-07-26",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRxIvPX4QM3R_jz0BLZ8tikBYkoVJ5hCD9jmQ&s",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRxIvPX4QM3R_jz0BLZ8tikBYkoVJ5hCD9jmQ&s",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Federico García Lorca",
+        "id": 18,
+        "birthDate": "1898-06-05",
+        "status": "ACTIVO"
       },
-      "name": "Federico García Lorca",
-      "id": 18,
-      "birthDate": "1898-06-05",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQptVFHhSDXKQF-Jg04BV9m_ebL46ofOeJqGg&s",
-      "nationality": {
-        "code": "es",
-        "name": "Española",
-        "id": 2
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQptVFHhSDXKQF-Jg04BV9m_ebL46ofOeJqGg&s",
+        "nationality": {
+          "code": "es",
+          "name": "Española",
+          "id": 2
+        },
+        "name": "Miguel de Cervantes",
+        "id": 17,
+        "birthDate": "1547-09-29",
+        "status": "ACTIVO"
       },
-      "name": "Miguel de Cervantes",
-      "id": 17,
-      "birthDate": "1547-09-29",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTW3L_tRYM8_zKZxBqmEsecUcz5l1LwAkKBBQ&s",
-      "nationality": {
-        "code": "ar",
-        "name": "Argentina",
-        "id": 3
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTW3L_tRYM8_zKZxBqmEsecUcz5l1LwAkKBBQ&s",
+        "nationality": {
+          "code": "ar",
+          "name": "Argentina",
+          "id": 3
+        },
+        "name": "Ernesto Sabato",
+        "id": 16,
+        "birthDate": "1911-06-24",
+        "status": "INACTIVO"
       },
-      "name": "Ernesto Sabato",
-      "id": 16,
-      "birthDate": "1911-06-24",
-      "status": "INACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQB0tz84SUKi8ofB4-PGBO1pawbo8Uk029-Vw&s",
-      "nationality": {
-        "code": "mx",
-        "name": "Mexicana",
-        "id": 4
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQB0tz84SUKi8ofB4-PGBO1pawbo8Uk029-Vw&s",
+        "nationality": {
+          "code": "mx",
+          "name": "Mexicana",
+          "id": 4
+        },
+        "name": "Carlos Fuentes",
+        "id": 15,
+        "birthDate": "1928-11-11",
+        "status": "ACTIVO"
       },
-      "name": "Carlos Fuentes",
-      "id": 15,
-      "birthDate": "1928-11-11",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRTwxSPB9FTat7um_b6KRiCGOHFUyRKbgWSxw&s",
-      "nationality": {
-        "code": "cl",
-        "name": "Chilena",
-        "id": 6
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRTwxSPB9FTat7um_b6KRiCGOHFUyRKbgWSxw&s",
+        "nationality": {
+          "code": "cl",
+          "name": "Chilena",
+          "id": 6
+        },
+        "name": "Pablo Neruda",
+        "id": 14,
+        "birthDate": "1904-07-12",
+        "status": "ACTIVO"
       },
-      "name": "Pablo Neruda",
-      "id": 14,
-      "birthDate": "1904-07-12",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTAxnGUOOqgregKFvtRdEAlujiGq2PX2MeS5Q&s",
-      "nationality": {
-        "code": "ar",
-        "name": "Argentina",
-        "id": 3
-      },
-      "name": "Julio Cortázar",
-      "id": 13,
-      "birthDate": "1914-08-26",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRNh6HAYvG6Nf0eCwhUamJR6DooIhX_f7mqhQ&s",
-      "nationality": {
-        "code": "mx",
-        "name": "Mexicana",
-        "id": 4
-      },
-      "name": "Octavio Paz",
-      "id": 12,
-      "birthDate": "1914-03-31",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQKKHLqOoWoChMh08Mrh6ypo295IMQEzyAUWA&s",
-      "nationality": {
-        "code": "ar",
-        "name": "Argentina",
-        "id": 3
-      },
-      "name": "Isabel Allende",
-      "id": 11,
-      "birthDate": "1942-08-02",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSHKIGlaz3swY7Dz4dPvHbS2Vefa4m0auvY2g&s",
-      "nationality": {
-        "code": "ar",
-        "name": "Argentina",
-        "id": 3
-      },
-      "name": "Jorge Luis Borges",
-      "id": 10,
-      "birthDate": "1899-08-24",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/www.biografiasyvidas.com\/reportaje\/garcia_marquez\/fotos\/garcia_marquez_420a.jpg",
-      "nationality": {
-        "code": "co",
-        "name": "Colombiana",
-        "id": 5
-      },
-      "name": "Gabriel García Márquez",
-      "id": 9,
-      "birthDate": "1927-03-06",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTMmUkZHafO_SU9YnccrNc6WH_2U8FREHPAsQ&s",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "Alfredo Bryce Echenique",
-      "id": 8,
-      "birthDate": "1939-02-19",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRoxReV53nsHY0Z6IDLkUZkZ65SsT4RVLd5yg&s",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "José Carlos Mariátegui",
-      "id": 7,
-      "birthDate": "1894-06-14",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSqyqMpscC4JQHXuuJ_FNep3N6DAU12CijIXQ&s",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "Ciro Alegría",
-      "id": 6,
-      "birthDate": "1909-11-04",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ-5xsn7BPM5X9Wyjfs_5cwWJ7-wUJqlbT9oQ&s",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "Ricardo Palma",
-      "id": 5,
-      "birthDate": "1833-02-07",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/static.wixstatic.com\/media\/1f8451_ab7e05f2b05b409f97b2a7b8a48265bf~mv2.jpg\/v1\/fill\/w_420,h_607,al_c,lg_1,q_80\/1f8451_ab7e05f2b05b409f97b2a7b8a48265bf~mv2.jpg",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "José María Arguedas",
-      "id": 4,
-      "birthDate": "1911-01-18",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQIcaENo1dT84TEQhcP9ypMGTEHSe8zeGz3sQ&s",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "César Vallejo",
-      "id": 3,
-      "birthDate": "1892-03-16",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/portal.andina.pe\/EDPfotografia2\/Thumbnail\/2011\/12\/03\/000171146W.jpg",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "Julio Ramón Ribeyro",
-      "id": 2,
-      "birthDate": "1929-08-31",
-      "status": "ACTIVO"
-    },
-    {
-      "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ1vrnEOMvV7mwmCjPaPQkFluklQO_IdsMvaQ&s",
-      "nationality": {
-        "code": "pe",
-        "name": "Peruana",
-        "id": 1
-      },
-      "name": "Mario Vargas Llosa",
-      "id": 1,
-      "birthDate": "1936-03-28",
-      "status": "ACTIVO"
-    }
-  ],
+      {
+        "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTAxnGUOOqgregKFvtRdEAlujiGq2PX2MeS5Q&s",
+        "nationality": {
+          "code": "ar",
+          "name": "Argentina",
+          "id": 3
+        },
+        "name": "Julio Cortázar",
+        "id": 13,
+        "birthDate": "1914-08-26",
+        "status": "ACTIVO"
+      }
+    ],
+    "totalElements": 32
+  },
   "success": true,
   "message": "Authors listed successfully"
 }
