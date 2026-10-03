@@ -11,39 +11,43 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-    @Query("""
-        SELECT 
+    String LIST_SELECT = """
+        SELECT
             a.id AS id,
             a.photoUrl AS photoUrl,
             a.name AS name,
-            
+
             n.id AS nationalityId,
             n.code AS nationalityCode,
             n.name AS nationalityName,
-            
+
             a.birthDate AS birthDate,
             a.status AS status
         FROM Author a
-        JOIN a.nationality n
-        ORDER BY a.id DESC
-    """)
+        JOIN Nationality n ON n.id = a.nationalityId
+        """;
+
+    @Query(LIST_SELECT + "ORDER BY a.id DESC")
     List<AuthorListResponse> findList();
 
+    @Query(LIST_SELECT + "WHERE a.id = :id")
+    Optional<AuthorListResponse> findListItemById(Long id);
+
     @Query("""
-        SELECT 
+        SELECT
             a.id AS id,
             a.name AS name,
-            
+
             n.id AS nationalityId,
             n.code AS nationalityCode,
             n.name AS nationalityName,
-            
+
             a.birthDate AS birthDate,
             a.biography AS biography,
             a.status AS status,
             a.photoUrl AS photoUrl
         FROM Author a
-        JOIN a.nationality n
+        JOIN Nationality n ON n.id = a.nationalityId
         WHERE a.id = :id
     """)
     Optional<AuthorDetailResponse> findDetailById(Long id);

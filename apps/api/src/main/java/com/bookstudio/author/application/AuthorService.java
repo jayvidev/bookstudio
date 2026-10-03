@@ -8,7 +8,7 @@ import com.bookstudio.author.application.dto.response.AuthorListResponse;
 import com.bookstudio.author.application.dto.response.AuthorSelectOptionsResponse;
 import com.bookstudio.author.domain.model.Author;
 import com.bookstudio.author.infrastructure.repository.AuthorRepository;
-import com.bookstudio.nationality.infrastructure.repository.NationalityRepository;
+import com.bookstudio.nationality.NationalityApi;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.shared.type.Status;
 
@@ -26,7 +26,7 @@ import java.util.List;
 @Validated
 public class AuthorService {
     private final AuthorRepository authorRepository;
-    private final NationalityRepository nationalityRepository;
+    private final NationalityApi nationalityApi;
 
     public List<AuthorListResponse> getList() {
         return authorRepository.findList();
@@ -34,12 +34,12 @@ public class AuthorService {
 
     public AuthorFilterOptionsResponse getFilterOptions() {
         return new AuthorFilterOptionsResponse(
-                nationalityRepository.findForOptions());
+                nationalityApi.getOptions());
     }
 
     public AuthorSelectOptionsResponse getSelectOptions() {
         return new AuthorSelectOptionsResponse(
-                nationalityRepository.findForOptions());
+                nationalityApi.getOptions());
     }
 
     public AuthorDetailResponse getDetailById(Long id) {
@@ -50,10 +50,8 @@ public class AuthorService {
     @Transactional
     public AuthorListResponse create(CreateAuthorRequest request) {
         Author author = new Author();
-        author.setNationality(nationalityRepository.findById(request.nationalityId())
-                .orElseThrow(
-                        () -> new ResourceNotFoundException(
-                                "Nationality not found with ID: " + request.nationalityId())));
+        nationalityApi.requireExists(request.nationalityId());
+        author.setNationalityId(request.nationalityId());
 
         author.setName(request.name());
         author.setBirthDate(request.birthDate());
@@ -71,10 +69,8 @@ public class AuthorService {
         Author author = authorRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Author not found with ID: " + id));
 
-        author.setNationality(nationalityRepository.findById(request.nationalityId())
-                .orElseThrow(
-                        () -> new ResourceNotFoundException(
-                                "Nationality not found with ID: " + request.nationalityId())));
+        nationalityApi.requireExists(request.nationalityId());
+        author.setNationalityId(request.nationalityId());
 
         author.setName(request.name());
         author.setBirthDate(request.birthDate());
@@ -88,16 +84,6 @@ public class AuthorService {
     }
 
     private AuthorListResponse toListResponse(Author author) {
-        return new AuthorListResponse(
-                author.getId(),
-                author.getPhotoUrl(),
-                author.getName(),
-
-                author.getNationality().getId(),
-                author.getNationality().getCode(),
-                author.getNationality().getName(),
-
-                author.getBirthDate(),
-                author.getStatus());
+        return authorRepository.findListItemById(author.getId()).orElseThrow();
     }
 }
