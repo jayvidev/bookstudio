@@ -14,7 +14,6 @@ import com.bookstudio.role.infrastructure.repository.RoleRepository;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.shared.response.OptionResponse;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -49,7 +48,7 @@ public class RoleService implements RoleApi {
 
     public RoleDetailResponse getDetailById(Long id) {
         RoleDetailResponse base = roleRepository.findDetailById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Role not found with ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found with ID: " + id));
 
         return base.withPermissions(rolePermissionRepository.findPermissionItemsByRoleId(id));
     }
@@ -76,7 +75,7 @@ public class RoleService implements RoleApi {
     @Transactional
     public RoleListResponse update(Long id, UpdateRoleRequest request) {
         Role role = roleRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Role not found with ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found with ID: " + id));
 
         role.setName(request.name());
         role.setDescription(request.description());

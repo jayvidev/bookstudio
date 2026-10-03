@@ -1,12 +1,13 @@
 package com.bookstudio.worker.application;
 
 import com.bookstudio.role.RoleApi;
+import com.bookstudio.shared.exception.BusinessRuleException;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.worker.application.dto.request.CreateWorkerRequest;
 import com.bookstudio.worker.application.dto.request.UpdateWorkerRequest;
 import com.bookstudio.worker.application.dto.response.WorkerDetailResponse;
-import com.bookstudio.worker.application.dto.response.WorkerListResponse;
 import com.bookstudio.worker.application.dto.response.WorkerFilterOptionsResponse;
+import com.bookstudio.worker.application.dto.response.WorkerListResponse;
 import com.bookstudio.worker.domain.model.Worker;
 import com.bookstudio.worker.domain.model.type.WorkerStatus;
 import com.bookstudio.worker.infrastructure.repository.WorkerRepository;
@@ -43,11 +44,11 @@ public class WorkerService {
     @Transactional
     public WorkerListResponse create(CreateWorkerRequest request) {
         if (workerRepository.findByUsername(request.username()).isPresent()) {
-            throw new IllegalArgumentException("The provided username is already registered.");
+            throw new BusinessRuleException("The provided username is already registered.");
         }
 
         if (workerRepository.findByEmail(request.email()).isPresent()) {
-            throw new IllegalArgumentException("The provided email address is already registered.");
+            throw new BusinessRuleException("The provided email address is already registered.");
         }
 
         Worker worker = new Worker();

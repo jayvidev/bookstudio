@@ -11,6 +11,7 @@ import com.bookstudio.reader.domain.model.type.ReaderStatus;
 import com.bookstudio.reader.domain.model.type.ReaderType;
 import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
 import com.bookstudio.shared.code.CodeGenerator;
+import com.bookstudio.shared.exception.BusinessRuleException;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.shared.response.OptionResponse;
 
@@ -61,11 +62,11 @@ public class ReaderService implements ReaderApi {
     @Transactional
     public ReaderListResponse create(CreateReaderRequest request) {
         if (readerRepository.findByDni(request.dni()).isPresent()) {
-            throw new IllegalArgumentException("The provided DNI is already registered.");
+            throw new BusinessRuleException("The provided DNI is already registered.");
         }
 
         if (readerRepository.findByEmail(request.email()).isPresent()) {
-            throw new IllegalArgumentException("The provided email address is already registered.");
+            throw new BusinessRuleException("The provided email address is already registered.");
         }
 
         Reader reader = new Reader();
@@ -93,7 +94,7 @@ public class ReaderService implements ReaderApi {
                 .orElseThrow(() -> new ResourceNotFoundException("Reader not found with ID: " + id));
 
         if (readerRepository.findByEmailAndIdNot(request.email(), id).isPresent()) {
-            throw new IllegalArgumentException("The provided email address is already registered.");
+            throw new BusinessRuleException("The provided email address is already registered.");
         }
 
         reader.setFirstName(request.firstName());
