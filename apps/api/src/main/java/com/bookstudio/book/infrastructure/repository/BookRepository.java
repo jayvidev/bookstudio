@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
-    @Query("""
+    String LIST_SELECT = """
         SELECT 
             b.id AS id,
             b.isbn AS isbn,
@@ -34,14 +34,21 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
             b.status AS status
         FROM Book b
-        JOIN b.publisher p
-        JOIN b.category c
-        JOIN b.language l
-        LEFT JOIN b.copies cpy
+        JOIN Publisher p ON p.id = b.publisherId
+        JOIN Category c ON c.id = b.categoryId
+        JOIN Language l ON l.id = b.languageId
+        LEFT JOIN Copy cpy ON cpy.book.id = b.id
+        """;
+
+    String LIST_GROUP_BY = """
         GROUP BY b.id, b.isbn, b.coverUrl, b.title, c.id, c.name, p.id, p.name, l.id, l.code, l.name, b.status
-        ORDER BY b.id DESC
-    """)
+        """;
+
+    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY b.id DESC")
     List<BookListResponse> findList();
+
+    @Query(LIST_SELECT + "WHERE b.id = :id " + LIST_GROUP_BY)
+    Optional<BookListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT 
@@ -80,10 +87,34 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             NULL AS authors,
             NULL AS genres
         FROM Book b
-        JOIN b.publisher p
-        JOIN b.category c
-        JOIN b.language l
+        JOIN Publisher p ON p.id = b.publisherId
+        JOIN Category c ON c.id = b.categoryId
+        JOIN Language l ON l.id = b.languageId
         WHERE b.id = :id
     """)
     Optional<BookDetailResponse> findDetailById(Long id);
+
+    @Query("""
+        SELECT
+            a.id AS id,
+            a.name AS name
+        FROM Book b
+        JOIN b.authorIds authorId
+        JOIN Author a ON a.id = authorId
+        WHERE b.id = :id
+        ORDER BY a.id
+    """)
+    List<BookDetailResponse.AuthorItem> findAuthorItemsByBookId(Long id);
+
+    @Query("""
+        SELECT
+            g.id AS id,
+            g.name AS name
+        FROM Book b
+        JOIN b.genreIds genreId
+        JOIN Genre g ON g.id = genreId
+        WHERE b.id = :id
+        ORDER BY g.id
+    """)
+    List<BookDetailResponse.GenreItem> findGenreItemsByBookId(Long id);
 }

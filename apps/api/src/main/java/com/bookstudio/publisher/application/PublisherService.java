@@ -1,5 +1,7 @@
 package com.bookstudio.publisher.application;
 
+import com.bookstudio.shared.response.OptionResponse;
+import com.bookstudio.publisher.PublisherApi;
 import com.bookstudio.genre.GenreApi;
 import com.bookstudio.nationality.NationalityApi;
 import com.bookstudio.publisher.application.dto.request.CreatePublisherRequest;
@@ -25,10 +27,22 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class PublisherService {
+public class PublisherService implements PublisherApi {
     private final PublisherRepository publisherRepository;
     private final NationalityApi nationalityApi;
     private final GenreApi genreApi;
+
+    @Override
+    public void requireExists(Long id) {
+        if (!publisherRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Publisher not found with ID: " + id);
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getOptions() {
+        return publisherRepository.findForOptions();
+    }
 
     public List<PublisherListResponse> getList() {
         return publisherRepository.findList();

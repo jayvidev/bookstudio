@@ -1,5 +1,6 @@
 package com.bookstudio.author.application;
 
+import com.bookstudio.author.AuthorApi;
 import com.bookstudio.author.application.dto.request.CreateAuthorRequest;
 import com.bookstudio.author.application.dto.request.UpdateAuthorRequest;
 import com.bookstudio.author.application.dto.response.AuthorDetailResponse;
@@ -18,15 +19,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class AuthorService {
+public class AuthorService implements AuthorApi {
     private final AuthorRepository authorRepository;
     private final NationalityApi nationalityApi;
+
+    @Override
+    public void requireAllExist(Collection<Long> ids) {
+        Set<Long> found = new HashSet<>();
+        authorRepository.findAllById(ids).stream().map(Author::getId).forEach(found::add);
+
+        ids.stream()
+                .filter(id -> !found.contains(id))
+                .findFirst()
+                .ifPresent(id -> {
+                    throw new ResourceNotFoundException("Author not found with ID: " + id);
+                });
+    }
 
     public List<AuthorListResponse> getList() {
         return authorRepository.findList();

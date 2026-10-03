@@ -11,14 +11,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "authors")
 @Data
-@NoArgsConstructor
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,8 +39,4 @@ public class Author {
 
     @Column(length = 512)
     private String photoUrl;
-
-    public Author(Long id) {
-        this.id = id;
-    }
 }

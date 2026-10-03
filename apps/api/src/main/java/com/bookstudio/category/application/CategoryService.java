@@ -1,5 +1,7 @@
 package com.bookstudio.category.application;
 
+import com.bookstudio.shared.response.OptionResponse;
+import com.bookstudio.category.CategoryApi;
 import com.bookstudio.category.infrastructure.repository.CategoryRepository;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.category.application.dto.request.CreateCategoryRequest;
@@ -22,8 +24,20 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class CategoryService {
+public class CategoryService implements CategoryApi {
     private final CategoryRepository categoryRepository;
+
+    @Override
+    public void requireExists(Long id) {
+        if (!categoryRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Category not found with ID: " + id);
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getOptions() {
+        return categoryRepository.findForOptions();
+    }
 
     public List<CategoryListResponse> getList() {
         return categoryRepository.findList();
