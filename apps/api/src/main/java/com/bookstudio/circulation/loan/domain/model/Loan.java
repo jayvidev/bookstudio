@@ -1,11 +1,6 @@
 package com.bookstudio.circulation.loan.domain.model;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
+import com.bookstudio.circulation.LoanItemReturned;
 import com.bookstudio.circulation.LoanItemStatus;
 import com.bookstudio.shared.code.CodeSeries;
 import com.bookstudio.shared.exception.BusinessRuleException;
@@ -25,16 +20,26 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import org.springframework.data.domain.AbstractAggregateRoot;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 /**
  * Aggregate root: a reader borrowing one or more copies. Items are only added,
  * changed or removed through this class, which reports the effect each change
  * has on the copy so the application layer can apply it in the copy module.
+ * Returning an item registers a {@link LoanItemReturned} event, published by
+ * Spring Data when the loan is saved.
  */
 @Entity
 @Table(name = "loans")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Loan {
+public class Loan extends AbstractAggregateRoot<Loan> {
     public static final CodeSeries CODE_SERIES = new CodeSeries("PRE");
 
     @Id
@@ -101,7 +106,7 @@ public class Loan {
         LoanItem item = findItem(copyId)
                 .orElseThrow(() -> new BusinessRuleException("Copy %d is not part of loan %s".formatted(copyId, code)));
         item.reschedule(dueDate);
-        return item.changeStatus(status, today);
+        return changeStatus(item, status, today);
     }
 
     /**
@@ -116,7 +121,7 @@ public class Loan {
             throw new BusinessRuleException("Copy %d of loan %s is not on loan (status: %s)"
                     .formatted(copyId, code, item.getStatus()));
         }
-        return item.changeStatus(LoanItemStatus.DEVUELTO, today);
+        return changeStatus(item, LoanItemStatus.DEVUELTO, today);
     }
 
     /**
@@ -127,5 +132,14 @@ public class Loan {
                 .orElseThrow(() -> new BusinessRuleException("Copy %d is not part of loan %s".formatted(copyId, code)));
         loanItems.remove(item);
         return item.holdsCopy() ? CopyEffect.RELEASE : CopyEffect.NONE;
+    }
+
+    private CopyEffect changeStatus(LoanItem item, LoanItemStatus status, LocalDate today) {
+        boolean wasReturned = item.getStatus() == LoanItemStatus.DEVUELTO;
+        CopyEffect effect = item.changeStatus(status, today);
+        if (!wasReturned && status == LoanItemStatus.DEVUELTO) {
+            registerEvent(new LoanItemReturned(id, code, item.getCopyId(), readerId, item.getDueDate(), today));
+        }
+        return effect;
     }
 }

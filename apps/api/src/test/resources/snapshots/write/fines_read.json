@@ -4,15 +4,15 @@
     "code": "<generated-code>",
     "daysLate": 4,
     "loanItem": {
-      "returnDate": "2024-08-01",
-      "dueDate": "2024-08-03",
+      "returnDate": null,
+      "dueDate": "2024-08-04",
       "copy": {
-        "code": "EJE-YYYY-00003",
-        "id": 3,
-        "barcode": "100001003",
-        "status": "DISPONIBLE"
+        "code": "EJE-YYYY-00013",
+        "id": 13,
+        "barcode": "100003001",
+        "status": "PRESTADO"
       },
-      "status": "DEVUELTO"
+      "status": "PRESTADO"
     },
     "id": "<created-id>",
     "issuedAt": "2026-01-20",

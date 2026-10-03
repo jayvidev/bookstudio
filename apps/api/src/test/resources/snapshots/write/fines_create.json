@@ -1,16 +1,16 @@
 {
   "data": {
     "loan": {
-      "code": "PRE-2024-00001",
-      "id": 1
+      "code": "PRE-2024-00002",
+      "id": 2
     },
     "amount": 5.5,
     "code": "<generated-code>",
     "daysLate": 3,
     "id": "<created-id>",
     "copy": {
-      "code": "EJE-YYYY-00003",
-      "id": 3
+      "code": "EJE-YYYY-00013",
+      "id": 13
     },
     "issuedAt": "2026-01-20",
     "status": "PENDIENTE"

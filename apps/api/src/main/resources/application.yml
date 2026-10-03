@@ -28,6 +28,15 @@ spring:
   threads:
     virtual:
       enabled: true
+  modulith:
+    events:
+      jdbc:
+        # The event_publication table is created by Flyway (V7)
+        schema-initialization:
+          enabled: false
+      # Completed publications are removed; incomplete ones stay for retry
+      completion-mode: delete
+      republish-outstanding-events-on-restart: true
 
 server:
   port: 8080
@@ -48,6 +57,9 @@ springdoc:
     enabled: false
 
 app:
+  billing:
+    # Charged per day an item is returned after its due date
+    daily-overdue-fine: 1.00
   cors:
     allowed-origins: http://localhost:3000
   security:

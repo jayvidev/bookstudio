@@ -73,4 +73,6 @@ public interface FineRepository extends JpaRepository<Fine, Long>, JpaSpecificat
         WHERE f.id = :id
     """)
     Optional<FineDetailResponse> findDetailById(Long id);
+
+    boolean existsByLoanIdAndCopyId(Long loanId, Long copyId);
 }

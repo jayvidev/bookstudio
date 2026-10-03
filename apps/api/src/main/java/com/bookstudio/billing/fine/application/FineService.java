@@ -14,6 +14,7 @@ import com.bookstudio.circulation.LoanApi;
 import com.bookstudio.inventory.CopyApi;
 import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.code.CodeGenerator;
+import com.bookstudio.shared.exception.BusinessRuleException;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.shared.paging.PageProjection;
 import com.bookstudio.shared.paging.SortWhitelist;
@@ -21,15 +22,19 @@ import com.bookstudio.shared.paging.Specs;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -37,6 +42,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
+@EnableConfigurationProperties(BillingProperties.class)
 public class FineService implements FineApi {
     private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "code", "issuedAt", "amount");
 
@@ -45,6 +51,7 @@ public class FineService implements FineApi {
     private final FineRepository fineRepository;
     private final LoanApi loanApi;
     private final CopyApi copyApi;
+    private final BillingProperties billing;
 
     @Override
     @Transactional
@@ -91,6 +98,9 @@ public class FineService implements FineApi {
     public FineListResponse create(CreateFineRequest request) {
         Fine fine = new Fine();
         loanApi.requireItemExists(request.loanItemId().loanId(), request.loanItemId().copyId());
+        if (fineRepository.existsByLoanIdAndCopyId(request.loanItemId().loanId(), request.loanItemId().copyId())) {
+            throw new BusinessRuleException("This loan item already has a fine");
+        }
         fine.setLoanId(request.loanItemId().loanId());
         fine.setCopyId(request.loanItemId().copyId());
 
@@ -104,6 +114,31 @@ public class FineService implements FineApi {
         Fine saved = fineRepository.save(fine);
 
         return toListResponse(saved);
+    }
+
+    /**
+     * Issues the fine for an item returned {@code daysLate} days after its due
+     * date. Idempotent: an item that already has a fine is left alone, so a
+     * redelivered event does not fine twice.
+     *
+     * @return the code of the new fine, or empty if the item already had one
+     */
+    @Transactional
+    public Optional<String> issueOverdueFine(Long loanId, Long copyId, long daysLate, LocalDate returnDate) {
+        if (fineRepository.existsByLoanIdAndCopyId(loanId, copyId)) {
+            return Optional.empty();
+        }
+
+        Fine fine = new Fine();
+        fine.setLoanId(loanId);
+        fine.setCopyId(copyId);
+        fine.setDaysLate(Math.toIntExact(daysLate));
+        fine.setAmount(billing.dailyOverdueFine().multiply(BigDecimal.valueOf(daysLate)));
+        fine.setStatus(FineStatus.PENDIENTE);
+        fine.setIssuedAt(returnDate);
+        fine.setCode(codeGenerator.next(Fine.CODE_SERIES, returnDate));
+
+        return Optional.of(fineRepository.save(fine).getCode());
     }
 
     @Transactional

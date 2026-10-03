@@ -139,8 +139,10 @@ class WriteEndpointsSnapshotTest {
     private Map<String, Object> seedReferences() {
         var available = jdbc.sql("SELECT id FROM copies WHERE status = 'DISPONIBLE' ORDER BY id LIMIT 2")
                 .query(Long.class).list();
-        var loanItem = jdbc.sql("SELECT loan_id, copy_id FROM loan_items ORDER BY loan_id, copy_id LIMIT 1")
-                .query().singleRow();
+        var loanItem = jdbc.sql("""
+                SELECT li.loan_id, li.copy_id FROM loan_items li
+                WHERE NOT EXISTS (SELECT 1 FROM fines f WHERE f.loan_id = li.loan_id AND f.copy_id = li.copy_id)
+                ORDER BY li.loan_id, li.copy_id LIMIT 1""").query().singleRow();
         var pendingFine = jdbc.sql("""
                 SELECT f.id, l.reader_id FROM fines f JOIN loans l ON l.id = f.loan_id
                 WHERE f.status = 'PENDIENTE' ORDER BY f.id LIMIT 1""")
