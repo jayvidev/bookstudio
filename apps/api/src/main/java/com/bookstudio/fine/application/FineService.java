@@ -13,8 +13,6 @@ import com.bookstudio.loan.infrastructure.repository.LoanRepository;
 import com.bookstudio.copy.infrastructure.repository.CopyRepository;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -22,14 +20,14 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
 public class FineService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final CodeGenerator codeGenerator;
 
     private final FineRepository fineRepository;
     private final LoanRepository loanRepository;
@@ -63,8 +61,9 @@ public class FineService {
         fine.setStatus(FineStatus.valueOf(request.status()));
         fine.setIssuedAt(request.issuedAt());
 
+        fine.setCode(codeGenerator.next(Fine.CODE_SERIES, fine.getIssuedAt()));
+
         Fine saved = fineRepository.save(fine);
-        entityManager.refresh(saved);
 
         return toListResponse(saved);
     }

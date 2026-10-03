@@ -17,8 +17,6 @@ import com.bookstudio.payment.infrastructure.repository.PaymentRepository;
 import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -27,14 +25,14 @@ import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 import java.util.Objects;
+import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
 public class PaymentService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final CodeGenerator codeGenerator;
 
     private final PaymentRepository paymentRepository;
     private final FineRepository fineRepository;
@@ -67,8 +65,9 @@ public class PaymentService {
         payment.setPaymentDate(request.paymentDate());
         payment.setMethod(PaymentMethod.valueOf(request.method()));
 
+        payment.setCode(codeGenerator.next(Payment.CODE_SERIES, payment.getPaymentDate()));
+
         Payment saved = paymentRepository.save(payment);
-        entityManager.refresh(saved);
 
         for (Long fineId : request.fineIds()) {
             Fine fine = fineRepository.findById(Objects.requireNonNull(fineId, "Fine ID cannot be null"))

@@ -3,6 +3,9 @@ package com.bookstudio.loan;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
+import org.springframework.test.web.servlet.assertj.MvcTestResult;
 
 import com.bookstudio.IntegrationTest;
+import com.jayway.jsonpath.JsonPath;
 
 @IntegrationTest
 class LoanApiIntegrationTest {
@@ -87,6 +92,28 @@ class LoanApiIntegrationTest {
                     json.assertThat().extractingPath("$.data.itemCount").isEqualTo(1);
                     json.assertThat().extractingPath("$.data.statusCounts.borrowed").isEqualTo(1);
                 });
+    }
+
+    @Test
+    void generatesSequentialCodesForLoansOnTheSameDay() throws Exception {
+        long readerId = anyReaderId();
+        String today = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+
+        List<String> codes = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            MvcTestResult result = mvc.post().uri("/loans")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(createLoanJson(readerId, anyAvailableCopyId(i)))
+                    .exchange();
+
+            assertThat(result).hasStatus(HttpStatus.CREATED);
+            codes.add(JsonPath.read(result.getResponse().getContentAsString(), "$.data.code"));
+        }
+
+        assertThat(codes).containsExactly(
+                "PRE-" + today + "-00001",
+                "PRE-" + today + "-00002",
+                "PRE-" + today + "-00003");
     }
 
     @Test

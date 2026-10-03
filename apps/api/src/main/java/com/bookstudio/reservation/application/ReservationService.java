@@ -12,8 +12,6 @@ import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.copy.infrastructure.repository.CopyRepository;
 import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -21,14 +19,14 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
 public class ReservationService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final CodeGenerator codeGenerator;
 
     private final ReservationRepository reservationRepository;
     private final ReaderRepository readerRepository;
@@ -62,8 +60,9 @@ public class ReservationService {
         reservation.setReservationDate(request.reservationDate());
         reservation.setStatus(ReservationStatus.valueOf(request.status()));
 
+        reservation.setCode(codeGenerator.next(Reservation.CODE_SERIES, reservation.getReservationDate()));
+
         Reservation saved = reservationRepository.save(reservation);
-        entityManager.refresh(saved);
 
         return toListResponse(saved);
     }

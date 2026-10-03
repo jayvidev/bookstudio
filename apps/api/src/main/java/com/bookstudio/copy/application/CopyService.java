@@ -14,8 +14,6 @@ import com.bookstudio.copy.domain.model.type.CopyCondition;
 import com.bookstudio.copy.domain.model.type.CopyStatus;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -23,14 +21,15 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import java.time.LocalDate;
+import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
 public class CopyService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final CodeGenerator codeGenerator;
 
     private final CopyRepository copyRepository;
     private final BookRepository bookRepository;
@@ -68,8 +67,9 @@ public class CopyService {
         copy.setStatus(CopyStatus.valueOf(request.status()));
         copy.setCondition(CopyCondition.valueOf(request.condition()));
 
+        copy.setCode(codeGenerator.next(Copy.CODE_SERIES, LocalDate.now()));
+
         Copy saved = copyRepository.save(copy);
-        entityManager.refresh(saved);
 
         return toListResponse(saved);
     }

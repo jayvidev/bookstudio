@@ -20,8 +20,6 @@ import com.bookstudio.loan.infrastructure.repository.LoanRepository;
 import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -32,14 +30,14 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
 public class LoanService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final CodeGenerator codeGenerator;
 
     private final LoanRepository loanRepository;
     private final LoanItemRepository loanItemRepository;
@@ -79,8 +77,9 @@ public class LoanService {
         loan.setLoanDate(LocalDate.now());
         loan.setObservation(request.observation());
 
+        loan.setCode(codeGenerator.next(Loan.CODE_SERIES, loan.getLoanDate()));
+
         Loan saved = loanRepository.save(loan);
-        entityManager.refresh(saved);
 
         for (CreateLoanItemRequest itemDto : request.items()) {
             Copy copy = copyRepository.findById(itemDto.copyId())

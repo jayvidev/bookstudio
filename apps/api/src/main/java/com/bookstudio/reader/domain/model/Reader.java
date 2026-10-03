@@ -16,16 +16,20 @@ import java.time.LocalDate;
 import com.bookstudio.reader.domain.model.type.ReaderGender;
 import com.bookstudio.reader.domain.model.type.ReaderStatus;
 import com.bookstudio.reader.domain.model.type.ReaderType;
+import com.bookstudio.shared.code.CodePeriod;
+import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
 @Table(name = "readers")
 @Data
 public class Reader {
+    public static final CodeSeries CODE_SERIES = new CodeSeries("LEC", CodePeriod.YEAR, 5);
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(insertable = false, updatable = false)
+    @Column(nullable = false, unique = true, updatable = false)
     private String code;
 
     @Column(nullable = false, unique = true, length = 8)

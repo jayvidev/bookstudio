@@ -11,8 +11,6 @@ import com.bookstudio.reader.domain.model.type.ReaderType;
 import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -20,14 +18,15 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import java.time.LocalDate;
+import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
 public class ReaderService {
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final CodeGenerator codeGenerator;
 
     private final ReaderRepository readerRepository;
 
@@ -62,8 +61,9 @@ public class ReaderService {
         reader.setType(ReaderType.valueOf(request.type()));
         reader.setStatus(ReaderStatus.valueOf(request.status()));
 
+        reader.setCode(codeGenerator.next(Reader.CODE_SERIES, LocalDate.now()));
+
         Reader saved = readerRepository.save(reader);
-        entityManager.refresh(saved);
 
         return toListResponse(saved);
     }

@@ -14,19 +14,24 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.bookstudio.reader.domain.model.Reader;
+import com.bookstudio.shared.code.CodePeriod;
+import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
 @Table(name = "loans")
 @Data
 public class Loan {
+    public static final CodeSeries CODE_SERIES = new CodeSeries("PRE", CodePeriod.DAY, 5);
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(insertable = false, updatable = false)
+    @Column(nullable = false, unique = true, updatable = false)
     private String code;
 
     @ManyToOne
@@ -40,5 +45,5 @@ public class Loan {
     private String observation;
 
     @OneToMany(mappedBy = "loan", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<LoanItem> loanItems;
+    private List<LoanItem> loanItems = new ArrayList<>();
 }
