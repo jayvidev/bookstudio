@@ -1,5 +1,6 @@
 package com.bookstudio.role.application;
 
+import com.bookstudio.role.RoleApi;
 import com.bookstudio.role.application.dto.request.CreateRoleRequest;
 import com.bookstudio.role.application.dto.request.UpdateRoleRequest;
 import com.bookstudio.role.application.dto.response.RoleDetailResponse;
@@ -10,6 +11,8 @@ import com.bookstudio.role.domain.model.RolePermission;
 import com.bookstudio.role.domain.model.RolePermissionId;
 import com.bookstudio.role.infrastructure.repository.RolePermissionRepository;
 import com.bookstudio.role.infrastructure.repository.RoleRepository;
+import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.response.OptionResponse;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +27,21 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class RoleService {
+public class RoleService implements RoleApi {
     private final RoleRepository roleRepository;
     private final RolePermissionRepository rolePermissionRepository;
+
+    @Override
+    public void requireExists(Long id) {
+        if (!roleRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Role not found with ID: " + id);
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getOptions() {
+        return roleRepository.findForOptions();
+    }
 
     public List<RoleListResponse> getList() {
         return roleRepository.findList();

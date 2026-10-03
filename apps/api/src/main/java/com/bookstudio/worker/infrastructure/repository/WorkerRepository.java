@@ -11,23 +11,27 @@ import java.util.List;
 import java.util.Optional;
 
 public interface WorkerRepository extends JpaRepository<Worker, Long> {
-    @Query("""
-        SELECT 
+    String LIST_SELECT = """
+        SELECT
             w.id AS id,
             w.profilePhotoUrl AS profilePhotoUrl,
             w.username AS username,
             w.email AS email,
             CONCAT(w.firstName, ' ', w.lastName) AS fullName,
 
-            w.role.id AS roleId,
-            w.role.name AS roleName,
+            r.id AS roleId,
+            r.name AS roleName,
 
             w.status AS status
         FROM Worker w
-        WHERE w.id <> :loggedId
-        ORDER BY w.id DESC
-    """)
+        JOIN Role r ON r.id = w.roleId
+        """;
+
+    @Query(LIST_SELECT + "WHERE w.id <> :loggedId ORDER BY w.id DESC")
     List<WorkerListResponse> findList(Long loggedId);
+
+    @Query(LIST_SELECT + "WHERE w.id = :id")
+    Optional<WorkerListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT 
@@ -37,12 +41,13 @@ public interface WorkerRepository extends JpaRepository<Worker, Long> {
             w.firstName AS firstName,
             w.lastName AS lastName,
 
-            w.role.id AS roleId,
-            w.role.name AS roleName,
+            r.id AS roleId,
+            r.name AS roleName,
 
             w.profilePhotoUrl AS profilePhotoUrl,
             w.status AS status
         FROM Worker w
+        JOIN Role r ON r.id = w.roleId
         WHERE w.id = :id
     """)
     Optional<WorkerDetailResponse> findDetailById(Long id);

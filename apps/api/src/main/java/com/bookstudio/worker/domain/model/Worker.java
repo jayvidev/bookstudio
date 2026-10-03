@@ -1,6 +1,5 @@
 package com.bookstudio.worker.domain.model;
 
-import com.bookstudio.role.domain.model.Role;
 import com.bookstudio.worker.domain.model.type.WorkerStatus;
 
 import jakarta.persistence.Column;
@@ -10,8 +9,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import lombok.Data;
@@ -39,9 +36,8 @@ public class Worker {
     @Column(nullable = false)
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
-    private Role role;
+    @Column(name = "role_id", nullable = false)
+    private Long roleId;
 
     @Column(length = 512)
     private String profilePhotoUrl;

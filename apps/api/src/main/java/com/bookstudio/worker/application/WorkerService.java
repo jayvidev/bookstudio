@@ -1,6 +1,6 @@
 package com.bookstudio.worker.application;
 
-import com.bookstudio.role.infrastructure.repository.RoleRepository;
+import com.bookstudio.role.RoleApi;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.worker.application.dto.request.CreateWorkerRequest;
 import com.bookstudio.worker.application.dto.request.UpdateWorkerRequest;
@@ -25,14 +25,14 @@ import java.util.List;
 @Validated
 public class WorkerService {
     private final WorkerRepository workerRepository;
-    private final RoleRepository roleRepository;
+    private final RoleApi roleApi;
 
     public List<WorkerListResponse> getList(Long loggedId) {
         return workerRepository.findList(loggedId);
     }
 
     public WorkerFilterOptionsResponse getFilterOptions() {
-        return new WorkerFilterOptionsResponse(roleRepository.findForOptions());
+        return new WorkerFilterOptionsResponse(roleApi.getOptions());
     }
 
     public WorkerDetailResponse getDetailById(Long id) {
@@ -51,9 +51,8 @@ public class WorkerService {
         }
 
         Worker worker = new Worker();
-        worker.setRole(roleRepository.findById(request.roleId())
-                .orElseThrow(
-                        () -> new ResourceNotFoundException("Role not found with ID: " + request.roleId())));
+        roleApi.requireExists(request.roleId());
+        worker.setRoleId(request.roleId());
 
         worker.setUsername(request.username());
         worker.setEmail(request.email());
@@ -72,8 +71,8 @@ public class WorkerService {
         Worker worker = workerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Worker not found with ID: " + id));
 
-        worker.setRole(roleRepository.findById(request.roleId())
-                .orElseThrow(() -> new ResourceNotFoundException("Role not found with ID: " + request.roleId())));
+        roleApi.requireExists(request.roleId());
+        worker.setRoleId(request.roleId());
 
         worker.setFirstName(request.firstName());
         worker.setLastName(request.lastName());
@@ -85,16 +84,6 @@ public class WorkerService {
     }
 
     private WorkerListResponse toListResponse(Worker worker) {
-        return new WorkerListResponse(
-                worker.getId(),
-                worker.getProfilePhotoUrl(),
-                worker.getUsername(),
-                worker.getEmail(),
-                worker.getFullName(),
-
-                worker.getRole().getId(),
-                worker.getRole().getName(),
-
-                worker.getStatus());
+        return workerRepository.findListItemById(worker.getId()).orElseThrow();
     }
 }
