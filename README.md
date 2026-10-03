@@ -74,6 +74,28 @@ Ports are configurable in `.env` via `DB_PORT`, `API_PORT`, `WEB_PORT`.
 >
 > **Port conflicts:** If any default port is already in use, override it in `.env` — e.g. `DB_PORT=5433`, `API_PORT=8081`, `WEB_PORT=3001`. Internal container communication is unaffected.
 
+## Authentication
+
+Every endpoint except `/auth/*`, `/actuator/health` and the API docs requires a
+bearer token. Demo data includes these staff accounts, all with the password
+`BookStudio2026!`:
+
+| Username         | Role          |
+| ---------------- | ------------- |
+| `admin`          | Administrador |
+| `bibliotecario1` | Bibliotecario |
+| `asistente1`     | Asistente     |
+| `demo`           | Bibliotecario (one-click demo) |
+
+```bash
+curl -X POST http://localhost:8080/auth/login -H 'Content-Type: application/json' \
+  -d '{"username": "admin", "password": "BookStudio2026!"}'
+```
+
+In Swagger UI, call `POST /auth/demo` and paste the `accessToken` into
+**Authorize**. Production must set `APP_SECURITY_JWT_SECRET` (32+ characters).
+Design: [ADR 0004](apps/api/docs/adr/0004-staff-authentication.md).
+
 ## Local development without Docker
 
 ### Database
