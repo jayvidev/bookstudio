@@ -57,3 +57,6 @@ app:
       issuer: bookstudio-api
       access-token-ttl: 15m
       refresh-token-ttl: 7d
+    auth-rate-limit:
+      # Per client IP, on /auth/login, /auth/demo and /auth/refresh
+      requests-per-minute: 10

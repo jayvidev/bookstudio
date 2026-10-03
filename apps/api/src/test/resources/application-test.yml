@@ -8,3 +8,6 @@ app:
   security:
     jwt:
       secret: test-only-bookstudio-jwt-secret-0123456789abcdef
+    auth-rate-limit:
+      # Tests log in many times from the same address
+      requests-per-minute: 1000

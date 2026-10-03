@@ -1,3 +1,8 @@
+server:
+  # Behind the hosting provider's proxy: trust X-Forwarded-* from it so the
+  # client IP (used for rate limiting) is the real one.
+  forward-headers-strategy: native
+
 spring:
   flyway:
     # Schema migrations only; never the demo seed
