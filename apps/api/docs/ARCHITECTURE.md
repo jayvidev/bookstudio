@@ -485,6 +485,54 @@ List<BookListResponse> findList();
 
 ---
 
+## 📄 Pagination, Filters and Sorting
+
+Pilot: `GET /loans`. Every growing list follows the same shape:
+
+```
+GET /loans?page=0&size=20&sort=loanDate,desc&status=PRESTADO&readerId=3&search=ana&from=2026-01-01
+-> ApiSuccess<PageResponse<LoanListResponse>>   { content, page, size, totalElements, totalPages }
+```
+
+| Piece | Where | Why |
+|-------|-------|-----|
+| `{Module}Filter` record | `application/dto/request` | Groups optional filters; bound with `@ParameterObject @Valid`, so enums and ISO dates are converted by Spring (bad values -> 400) |
+| `@PageableDefault(size = 20, sort = "id", direction = DESC)` | controller | Stable default order; `max-page-size: 100` caps `size` |
+| `SortWhitelist.of("id", "code", "loanDate")` | service | Unknown sort properties -> 400 |
+| `{Module}Specifications` | `infrastructure/repository` | One small `Specification` per filter, `unrestricted()` when absent: only present filters reach the SQL and Spring derives the count query |
+| `findListByIds(ids)` | repository | When the list projection aggregates (`GROUP BY`), page the entity ids with the specification, then project that page in one query and keep its order |
+| `PageResponse<T>` | `shared.api` | Stable JSON instead of serializing Spring's `Page` |
+
+Filters on another module's data go through its API, e.g. `search` resolves
+reader ids with `ReaderApi.findIdsByName` instead of joining `Reader` in a
+criteria query.
+
+---
+
+## 🧩 Rich Aggregates (core modules)
+
+Core modules keep their rules inside the entity. `Loan` has no setters: items
+are added, changed and removed through the aggregate, which returns the
+`CopyEffect` of each change. The service collects those effects and applies
+them through `CopyApi` in the same transaction:
+
+```java
+CopyChanges copyChanges = new CopyChanges();
+copyChanges.record(copyId, loan.changeItem(copyId, dueDate, status, today));  // RELEASE when returned
+copyChanges.applyTo(copyApi);                                                  // copyApi.release(...)
+```
+
+Concurrency: `@Version` on `Loan` and `Copy` (optimistic locking -> 409) and a
+partial unique index so a copy is in at most one active loan item.
+
+| Exception | HTTP |
+|-----------|------|
+| `ResourceNotFoundException` | 404 |
+| `BadRequestException`, validation errors | 400 |
+| `BusinessRuleException`, optimistic lock, constraint violation | 409 |
+
+---
+
 ## ⚡ Services - Structure and Patterns
 
 ### Class Annotations
