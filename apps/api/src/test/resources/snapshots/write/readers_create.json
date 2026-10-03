@@ -1,0 +1,13 @@
+{
+  "data": {
+    "code": "<generated-code>",
+    "phone": "999999901",
+    "fullName": "Snap Shot",
+    "id": "<created-id>",
+    "type": "ESTUDIANTE",
+    "email": "snap@test.pe",
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Reader created successfully"
+}

@@ -1,0 +1,17 @@
+{
+  "data": {
+    "amount": 10,
+    "code": "<generated-code>",
+    "method": "EFECTIVO",
+    "reader": {
+      "code": "LEC-YYYY-00003",
+      "fullName": "Patricia Rosa Vargas Chávez",
+      "id": 3
+    },
+    "id": "<created-id>",
+    "paymentDate": "2026-02-01",
+    "fineCount": 1
+  },
+  "success": true,
+  "message": "Payment created successfully"
+}

@@ -1,0 +1,18 @@
+{
+  "data": {
+    "code": "<generated-code>",
+    "reader": {
+      "code": "LEC-YYYY-00002",
+      "fullName": "Carlos Andrés Mendoza Silva",
+      "id": 2
+    },
+    "id": "<created-id>",
+    "copy": {
+      "code": "EJE-YYYY-00002"
+    },
+    "reservationDate": "2026-03-02",
+    "status": "CANCELADA"
+  },
+  "success": true,
+  "message": "Reservation updated successfully"
+}

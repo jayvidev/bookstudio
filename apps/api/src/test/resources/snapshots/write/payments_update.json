@@ -1,0 +1,17 @@
+{
+  "data": {
+    "amount": 12,
+    "code": "<generated-code>",
+    "method": "TARJETA",
+    "reader": {
+      "code": "LEC-YYYY-00003",
+      "fullName": "Patricia Rosa Vargas Chávez",
+      "id": 3
+    },
+    "id": "<created-id>",
+    "paymentDate": "2026-02-02",
+    "fineCount": 1
+  },
+  "success": true,
+  "message": "Payment updated successfully"
+}

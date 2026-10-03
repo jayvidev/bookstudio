@@ -1,0 +1,16 @@
+{
+  "data": {
+    "permissions": [
+      {
+        "code": "USER_EDIT",
+        "description": "Editar usuarios",
+        "id": 3
+      }
+    ],
+    "name": "Rol Snapshot Editado",
+    "description": "Desc 2",
+    "id": "<created-id>"
+  },
+  "success": true,
+  "message": "Role found"
+}

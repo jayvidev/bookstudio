@@ -1,0 +1,16 @@
+{
+  "data": {
+    "photoUrl": null,
+    "nationality": {
+      "code": "pe",
+      "name": "Peruana",
+      "id": 1
+    },
+    "name": "Autor Snapshot",
+    "id": "<created-id>",
+    "birthDate": "1950-05-10",
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Author created successfully"
+}

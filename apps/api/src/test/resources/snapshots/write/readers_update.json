@@ -1,0 +1,13 @@
+{
+  "data": {
+    "code": "<generated-code>",
+    "phone": "999999902",
+    "fullName": "Snap2 Shot2",
+    "id": "<created-id>",
+    "type": "DOCENTE",
+    "email": "snap2@test.pe",
+    "status": "SUSPENDIDO"
+  },
+  "success": true,
+  "message": "Reader updated successfully"
+}

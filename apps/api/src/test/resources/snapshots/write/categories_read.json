@@ -1,0 +1,11 @@
+{
+  "data": {
+    "level": "SUPERIOR",
+    "name": "Categoria Snapshot Editada",
+    "description": "Desc 2",
+    "id": "<created-id>",
+    "status": "INACTIVO"
+  },
+  "success": true,
+  "message": "Category found"
+}

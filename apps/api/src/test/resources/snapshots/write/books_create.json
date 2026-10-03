@@ -1,0 +1,28 @@
+{
+  "data": {
+    "coverUrl": null,
+    "copies": {
+      "available": 0,
+      "loaned": 0
+    },
+    "isbn": "978-0-00-000001-1",
+    "publisher": {
+      "name": "Planeta",
+      "id": 1
+    },
+    "language": {
+      "code": "es",
+      "name": "Español",
+      "id": 1
+    },
+    "id": "<created-id>",
+    "title": "Libro Snapshot",
+    "category": {
+      "name": "Literatura Clásica",
+      "id": 1
+    },
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Book created successfully"
+}

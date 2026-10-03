@@ -1,0 +1,12 @@
+{
+  "data": {
+    "shelfCount": 1,
+    "bookCount": 0,
+    "name": "Sala Snapshot Editada",
+    "copyCount": 0,
+    "description": "Desc 2",
+    "id": "<created-id>"
+  },
+  "success": true,
+  "message": "Location updated successfully"
+}

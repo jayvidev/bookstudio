@@ -1,0 +1,17 @@
+{
+  "data": {
+    "photoUrl": null,
+    "website": "https:\/\/snap.pe",
+    "address": "Lima",
+    "nationality": {
+      "code": "pe",
+      "name": "Peruana",
+      "id": 1
+    },
+    "name": "Editorial Snapshot",
+    "id": "<created-id>",
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Publisher created successfully"
+}

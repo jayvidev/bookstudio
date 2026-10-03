@@ -1,0 +1,11 @@
+{
+  "data": {
+    "level": "GENERAL",
+    "name": "Categoria Snapshot",
+    "description": "Desc",
+    "id": "<created-id>",
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Category created successfully"
+}

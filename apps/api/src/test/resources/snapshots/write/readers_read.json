@@ -1,0 +1,18 @@
+{
+  "data": {
+    "firstName": "Snap2",
+    "lastName": "Shot2",
+    "code": "<generated-code>",
+    "address": "Cusco",
+    "gender": "MASCULINO",
+    "phone": "999999902",
+    "id": "<created-id>",
+    "type": "DOCENTE",
+    "birthDate": "2001-02-02",
+    "dni": "99999901",
+    "email": "snap2@test.pe",
+    "status": "SUSPENDIDO"
+  },
+  "success": true,
+  "message": "Reader found"
+}

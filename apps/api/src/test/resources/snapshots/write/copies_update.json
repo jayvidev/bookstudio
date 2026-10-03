@@ -1,0 +1,22 @@
+{
+  "data": {
+    "condition": "REGULAR",
+    "code": "<generated-code>",
+    "book": {
+      "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
+      "id": 1,
+      "title": "La ciudad y los perros"
+    },
+    "location": {
+      "name": "Sala General"
+    },
+    "id": "<created-id>",
+    "shelf": {
+      "code": "A02",
+      "floor": "Planta Baja"
+    },
+    "status": "MANTENIMIENTO"
+  },
+  "success": true,
+  "message": "Copy updated successfully"
+}

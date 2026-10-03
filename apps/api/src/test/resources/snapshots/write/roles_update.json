@@ -1,0 +1,10 @@
+{
+  "data": {
+    "name": "Rol Snapshot Editado",
+    "description": "Desc 2",
+    "id": "<created-id>",
+    "permissionCount": 0
+  },
+  "success": true,
+  "message": "Role updated successfully"
+}

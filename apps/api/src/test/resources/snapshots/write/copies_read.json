@@ -1,0 +1,23 @@
+{
+  "data": {
+    "condition": "REGULAR",
+    "code": "<generated-code>",
+    "book": {
+      "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
+      "isbn": "978-84-204-8304-7",
+      "id": 1,
+      "title": "La ciudad y los perros"
+    },
+    "id": "<created-id>",
+    "barcode": "SNAP-0002",
+    "shelf": {
+      "code": "A02",
+      "description": "Literatura latinoamericana",
+      "id": 2,
+      "floor": "Planta Baja"
+    },
+    "status": "MANTENIMIENTO"
+  },
+  "success": true,
+  "message": "Copy found"
+}

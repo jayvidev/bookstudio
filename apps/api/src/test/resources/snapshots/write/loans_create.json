@@ -1,0 +1,22 @@
+{
+  "data": {
+    "code": "<generated-code>",
+    "statusCounts": {
+      "canceled": 0,
+      "overdue": 0,
+      "lost": 0,
+      "returned": 0,
+      "borrowed": 1
+    },
+    "reader": {
+      "code": "LEC-YYYY-00001",
+      "fullName": "Ana María García López",
+      "id": 1
+    },
+    "loanDate": "<today>",
+    "id": "<created-id>",
+    "itemCount": 1
+  },
+  "success": true,
+  "message": "Loan created successfully"
+}

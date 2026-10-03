@@ -1,0 +1,17 @@
+{
+  "data": {
+    "name": "Sala Snapshot Editada",
+    "description": "Desc 2",
+    "id": "<created-id>",
+    "shelves": [
+      {
+        "code": "S-02",
+        "description": "Estante 2",
+        "id": "<created-id>",
+        "floor": "2"
+      }
+    ]
+  },
+  "success": true,
+  "message": "Location found"
+}

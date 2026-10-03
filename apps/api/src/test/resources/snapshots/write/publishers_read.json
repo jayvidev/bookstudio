@@ -1,0 +1,24 @@
+{
+  "data": {
+    "photoUrl": null,
+    "website": "https:\/\/snap2.pe",
+    "address": "Cusco",
+    "nationality": {
+      "code": "es",
+      "name": "Española",
+      "id": 2
+    },
+    "genres": [
+      {
+        "name": "Poesía",
+        "id": 3
+      }
+    ],
+    "name": "Editorial Snapshot Editada",
+    "foundationYear": 1991,
+    "id": "<created-id>",
+    "status": "INACTIVO"
+  },
+  "success": true,
+  "message": "Publisher found"
+}

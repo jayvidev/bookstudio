@@ -1,0 +1,40 @@
+{
+  "data": {
+    "releaseDate": "2021-02-16",
+    "isbn": "978-0-00-000001-2",
+    "edition": "2da",
+    "description": "Desc 2",
+    "language": {
+      "code": "en",
+      "name": "Inglés",
+      "id": 2
+    },
+    "title": "Libro Snapshot Editado",
+    "coverUrl": null,
+    "pages": 150,
+    "genres": [
+      {
+        "name": "Poesía",
+        "id": 3
+      }
+    ],
+    "publisher": {
+      "name": "Alfaguara",
+      "id": 2
+    },
+    "id": "<created-id>",
+    "category": {
+      "name": "Literatura Contemporánea",
+      "id": 2
+    },
+    "status": "INACTIVO",
+    "authors": [
+      {
+        "name": "César Vallejo",
+        "id": 3
+      }
+    ]
+  },
+  "success": true,
+  "message": "Book found"
+}

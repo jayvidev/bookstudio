@@ -1,0 +1,17 @@
+{
+  "data": {
+    "photoUrl": null,
+    "website": "https:\/\/snap2.pe",
+    "address": "Cusco",
+    "nationality": {
+      "code": "es",
+      "name": "Española",
+      "id": 2
+    },
+    "name": "Editorial Snapshot Editada",
+    "id": "<created-id>",
+    "status": "INACTIVO"
+  },
+  "success": true,
+  "message": "Publisher updated successfully"
+}

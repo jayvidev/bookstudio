@@ -1,0 +1,17 @@
+{
+  "data": {
+    "photoUrl": null,
+    "nationality": {
+      "code": "es",
+      "name": "Española",
+      "id": 2
+    },
+    "name": "Autor Snapshot Editado",
+    "id": "<created-id>",
+    "biography": "Bio editada",
+    "birthDate": "1951-06-11",
+    "status": "INACTIVO"
+  },
+  "success": true,
+  "message": "Author found"
+}

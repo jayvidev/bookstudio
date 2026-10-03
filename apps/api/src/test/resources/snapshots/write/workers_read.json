@@ -1,0 +1,17 @@
+{
+  "data": {
+    "firstName": "Snap2",
+    "lastName": "Shot2",
+    "role": {
+      "name": "Bibliotecario",
+      "id": 2
+    },
+    "id": "<created-id>",
+    "email": "snapshot@bookstudio.pe",
+    "username": "snapshot",
+    "profilePhotoUrl": null,
+    "status": "SUSPENDIDO"
+  },
+  "success": true,
+  "message": "Worker found"
+}

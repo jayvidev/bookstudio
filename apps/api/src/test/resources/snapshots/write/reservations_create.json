@@ -1,0 +1,18 @@
+{
+  "data": {
+    "code": "<generated-code>",
+    "reader": {
+      "code": "LEC-YYYY-00001",
+      "fullName": "Ana María García López",
+      "id": 1
+    },
+    "id": "<created-id>",
+    "copy": {
+      "code": "EJE-YYYY-00001"
+    },
+    "reservationDate": "2026-03-01",
+    "status": "PENDIENTE"
+  },
+  "success": true,
+  "message": "Reservation created successfully"
+}

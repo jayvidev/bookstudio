@@ -1,0 +1,10 @@
+{
+  "data": {
+    "name": "Rol Snapshot",
+    "description": "Desc",
+    "id": "<created-id>",
+    "permissionCount": 0
+  },
+  "success": true,
+  "message": "Role created successfully"
+}

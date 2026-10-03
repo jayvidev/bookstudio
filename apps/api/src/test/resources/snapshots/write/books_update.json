@@ -1,0 +1,28 @@
+{
+  "data": {
+    "coverUrl": null,
+    "copies": {
+      "available": 0,
+      "loaned": 0
+    },
+    "isbn": "978-0-00-000001-2",
+    "publisher": {
+      "name": "Alfaguara",
+      "id": 2
+    },
+    "language": {
+      "code": "en",
+      "name": "Inglés",
+      "id": 2
+    },
+    "id": "<created-id>",
+    "title": "Libro Snapshot Editado",
+    "category": {
+      "name": "Literatura Contemporánea",
+      "id": 2
+    },
+    "status": "INACTIVO"
+  },
+  "success": true,
+  "message": "Book updated successfully"
+}

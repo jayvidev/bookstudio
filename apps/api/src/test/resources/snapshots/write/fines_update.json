@@ -1,0 +1,20 @@
+{
+  "data": {
+    "loan": {
+      "code": "PRE-2024-00001",
+      "id": 1
+    },
+    "amount": 7,
+    "code": "<generated-code>",
+    "daysLate": 4,
+    "id": "<created-id>",
+    "copy": {
+      "code": "EJE-YYYY-00003",
+      "id": 3
+    },
+    "issuedAt": "2026-01-20",
+    "status": "CONDONADO"
+  },
+  "success": true,
+  "message": "Fine updated successfully"
+}
