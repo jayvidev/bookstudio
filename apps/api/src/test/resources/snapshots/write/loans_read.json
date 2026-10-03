@@ -12,23 +12,12 @@
     "items": [
       {
         "returnDate": null,
-        "dueDate": "2099-01-01",
-        "copy": {
-          "code": "EJE-YYYY-00001",
-          "id": 1,
-          "barcode": "100001001",
-          "status": "DISPONIBLE"
-        },
-        "status": "PRESTADO"
-      },
-      {
-        "returnDate": null,
         "dueDate": "2099-03-01",
         "copy": {
           "code": "EJE-YYYY-00002",
           "id": 2,
           "barcode": "100001002",
-          "status": "DISPONIBLE"
+          "status": "PRESTADO"
         },
         "status": "PRESTADO"
       }

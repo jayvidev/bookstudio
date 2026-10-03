@@ -106,7 +106,7 @@
         "code": "C02",
         "floor": "Primer Piso"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "NUEVO",
@@ -430,7 +430,7 @@
         "code": "C02",
         "floor": "Primer Piso"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "BUENO",
@@ -592,7 +592,7 @@
         "code": "A02",
         "floor": "Planta Baja"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "NUEVO",
@@ -682,7 +682,7 @@
         "code": "A02",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "DETERIORADO",
@@ -754,7 +754,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -772,7 +772,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "MANTENIMIENTO"
+      "status": "PRESTADO"
     },
     {
       "condition": "REGULAR",
@@ -790,7 +790,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -826,7 +826,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "REGULAR",
@@ -934,7 +934,7 @@
         "code": "C01",
         "floor": "Primer Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1024,7 +1024,7 @@
         "code": "C01",
         "floor": "Primer Piso"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "BUENO",
@@ -1096,7 +1096,7 @@
         "code": "B01",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "NUEVO",
@@ -1132,7 +1132,7 @@
         "code": "A04",
         "floor": "Planta Baja"
       },
-      "status": "EXTRAVIADO"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1150,7 +1150,7 @@
         "code": "A04",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "NUEVO",
@@ -1168,7 +1168,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "REGULAR",
@@ -1186,7 +1186,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1204,7 +1204,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1222,7 +1222,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "BUENO",
@@ -1258,7 +1258,7 @@
         "code": "D01",
         "floor": "Segundo Piso"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "NUEVO",
@@ -1312,7 +1312,7 @@
         "code": "A04",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1330,7 +1330,7 @@
         "code": "A04",
         "floor": "Planta Baja"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "NUEVO",
@@ -1384,7 +1384,7 @@
         "code": "A03",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1456,7 +1456,7 @@
         "code": "A03",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1492,7 +1492,7 @@
         "code": "A01",
         "floor": "Planta Baja"
       },
-      "status": "EXTRAVIADO"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1510,7 +1510,7 @@
         "code": "A01",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1546,7 +1546,7 @@
         "code": "A01",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "NUEVO",
@@ -1564,7 +1564,7 @@
         "code": "A01",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1582,7 +1582,7 @@
         "code": "A01",
         "floor": "Planta Baja"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "BUENO",
@@ -1618,7 +1618,7 @@
         "code": "A02",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1654,7 +1654,7 @@
         "code": "A02",
         "floor": "Planta Baja"
       },
-      "status": "DISPONIBLE"
+      "status": "PRESTADO"
     },
     {
       "condition": "BUENO",
@@ -1726,7 +1726,7 @@
         "code": "A01",
         "floor": "Planta Baja"
       },
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     {
       "condition": "BUENO",

@@ -3,6 +3,7 @@ package com.bookstudio.shared.exception;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -111,6 +112,29 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ApiError apiError = new ApiError(
                 HttpStatus.CONFLICT.value(),
                 "Database error: constraint violation",
+                request.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(apiError);
+    }
+
+    @ExceptionHandler(BusinessRuleException.class)
+    public ResponseEntity<ApiError> handleBusinessRule(BusinessRuleException ex, HttpServletRequest request) {
+
+        ApiError apiError = new ApiError(
+                HttpStatus.CONFLICT.value(),
+                ex.getMessage(),
+                request.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(apiError);
+    }
+
+    @ExceptionHandler(OptimisticLockingFailureException.class)
+    public ResponseEntity<ApiError> handleOptimisticLocking(OptimisticLockingFailureException ex,
+            HttpServletRequest request) {
+
+        ApiError apiError = new ApiError(
+                HttpStatus.CONFLICT.value(),
+                "The resource was modified by another request. Reload it and try again.",
                 request.getRequestURI());
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(apiError);

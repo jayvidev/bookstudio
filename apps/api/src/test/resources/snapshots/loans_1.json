@@ -17,7 +17,7 @@
           "code": "EJE-YYYY-00003",
           "id": 3,
           "barcode": "100001003",
-          "status": "PRESTADO"
+          "status": "DISPONIBLE"
         },
         "status": "DEVUELTO"
       },
@@ -28,7 +28,7 @@
           "code": "EJE-YYYY-00025",
           "id": 25,
           "barcode": "100023003",
-          "status": "PRESTADO"
+          "status": "DISPONIBLE"
         },
         "status": "DEVUELTO"
       },
@@ -39,7 +39,7 @@
           "code": "EJE-YYYY-00047",
           "id": 47,
           "barcode": "100035002",
-          "status": "DISPONIBLE"
+          "status": "PRESTADO"
         },
         "status": "RETRASADO"
       }

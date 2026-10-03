@@ -219,8 +219,8 @@
     {
       "coverUrl": "https:\/\/image.cdn1.buscalibre.com\/5b57fc1690f0b5295a8b4567.RS500x500.jpg",
       "copies": {
-        "available": 6,
-        "loaned": 2
+        "available": 3,
+        "loaned": 5
       },
       "isbn": "978-84-376-0505-0",
       "publisher": {
@@ -363,8 +363,8 @@
     {
       "coverUrl": "https:\/\/images.cdn1.buscalibre.com\/fit-in\/360x360\/45\/d2\/45d28890f2d269be7a105e4697931eb7.jpg",
       "copies": {
-        "available": 1,
-        "loaned": 1
+        "available": 2,
+        "loaned": 0
       },
       "isbn": "978-84-376-0520-6",
       "publisher": {
@@ -387,8 +387,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 2,
-        "loaned": 1
+        "available": 3,
+        "loaned": 0
       },
       "isbn": "978-84-376-0519-5",
       "publisher": {
@@ -411,8 +411,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 3,
-        "loaned": 1
+        "available": 2,
+        "loaned": 2
       },
       "isbn": "978-84-376-0504-3",
       "publisher": {
@@ -435,8 +435,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 4,
-        "loaned": 1
+        "available": 5,
+        "loaned": 0
       },
       "isbn": "978-84-376-0503-6",
       "publisher": {
@@ -459,8 +459,8 @@
     {
       "coverUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTE7JKNvHH9z1dXPXQ1giHsfknDNlNoncsniA&s",
       "copies": {
-        "available": 3,
-        "loaned": 1
+        "available": 2,
+        "loaned": 2
       },
       "isbn": "978-84-376-0502-9",
       "publisher": {
@@ -603,8 +603,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 1,
-        "loaned": 1
+        "available": 0,
+        "loaned": 2
       },
       "isbn": "978-84-376-0501-2",
       "publisher": {
@@ -627,8 +627,8 @@
     {
       "coverUrl": "https:\/\/images.cdn3.buscalibre.com\/fit-in\/360x360\/f5\/f2\/f5f2e2edd647784f07b709f1fef82d1c.jpg",
       "copies": {
-        "available": 5,
-        "loaned": 1
+        "available": 2,
+        "loaned": 4
       },
       "isbn": "978-84-376-0500-5",
       "publisher": {
@@ -675,8 +675,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 2,
-        "loaned": 1
+        "available": 1,
+        "loaned": 2
       },
       "isbn": "978-84-376-0499-2",
       "publisher": {
@@ -699,8 +699,8 @@
     {
       "coverUrl": "https:\/\/images.cdn2.buscalibre.com\/fit-in\/360x360\/1b\/3d\/1b3d13ee1322464e244fbb0b23dc11db.jpg",
       "copies": {
-        "available": 2,
-        "loaned": 1
+        "available": 3,
+        "loaned": 0
       },
       "isbn": "978-84-376-0498-5",
       "publisher": {
@@ -843,8 +843,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 5,
-        "loaned": 1
+        "available": 3,
+        "loaned": 3
       },
       "isbn": "978-84-376-0497-8",
       "publisher": {
@@ -987,8 +987,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 2,
-        "loaned": 1
+        "available": 3,
+        "loaned": 0
       },
       "isbn": "978-84-376-0502-8",
       "publisher": {
@@ -1011,8 +1011,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 2,
-        "loaned": 1
+        "available": 1,
+        "loaned": 2
       },
       "isbn": "978-84-376-0501-7",
       "publisher": {
@@ -1035,8 +1035,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 3,
-        "loaned": 1
+        "available": 1,
+        "loaned": 3
       },
       "isbn": "978-84-376-0494-7",
       "publisher": {
@@ -1155,8 +1155,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 1,
-        "loaned": 1
+        "available": 0,
+        "loaned": 2
       },
       "isbn": "978-84-376-0496-1",
       "publisher": {
@@ -1179,8 +1179,8 @@
     {
       "coverUrl": null,
       "copies": {
-        "available": 2,
-        "loaned": 0
+        "available": 1,
+        "loaned": 1
       },
       "isbn": "978-84-204-8305-4",
       "publisher": {
@@ -1227,8 +1227,8 @@
     {
       "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
       "copies": {
-        "available": 4,
-        "loaned": 1
+        "available": 5,
+        "loaned": 0
       },
       "isbn": "978-84-204-8304-7",
       "publisher": {

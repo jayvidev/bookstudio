@@ -22,40 +22,16 @@
         "value": 6
       },
       {
-        "label": "EJE-YYYY-00007",
-        "value": 7
-      },
-      {
-        "label": "EJE-YYYY-00009",
-        "value": 9
-      },
-      {
         "label": "EJE-YYYY-00010",
         "value": 10
-      },
-      {
-        "label": "EJE-YYYY-00012",
-        "value": 12
-      },
-      {
-        "label": "EJE-YYYY-00013",
-        "value": 13
       },
       {
         "label": "EJE-YYYY-00014",
         "value": 14
       },
       {
-        "label": "EJE-YYYY-00015",
-        "value": 15
-      },
-      {
         "label": "EJE-YYYY-00017",
         "value": 17
-      },
-      {
-        "label": "EJE-YYYY-00018",
-        "value": 18
       },
       {
         "label": "EJE-YYYY-00020",
@@ -66,10 +42,6 @@
         "value": 21
       },
       {
-        "label": "EJE-YYYY-00022",
-        "value": 22
-      },
-      {
         "label": "EJE-YYYY-00023",
         "value": 23
       },
@@ -78,44 +50,16 @@
         "value": 24
       },
       {
-        "label": "EJE-YYYY-00026",
-        "value": 26
-      },
-      {
         "label": "EJE-YYYY-00028",
         "value": 28
-      },
-      {
-        "label": "EJE-YYYY-00029",
-        "value": 29
       },
       {
         "label": "EJE-YYYY-00030",
         "value": 30
       },
       {
-        "label": "EJE-YYYY-00032",
-        "value": 32
-      },
-      {
-        "label": "EJE-YYYY-00033",
-        "value": 33
-      },
-      {
-        "label": "EJE-YYYY-00034",
-        "value": 34
-      },
-      {
-        "label": "EJE-YYYY-00035",
-        "value": 35
-      },
-      {
         "label": "EJE-YYYY-00037",
         "value": 37
-      },
-      {
-        "label": "EJE-YYYY-00038",
-        "value": 38
       },
       {
         "label": "EJE-YYYY-00040",
@@ -142,10 +86,6 @@
         "value": 46
       },
       {
-        "label": "EJE-YYYY-00047",
-        "value": 47
-      },
-      {
         "label": "EJE-YYYY-00049",
         "value": 49
       },
@@ -158,20 +98,8 @@
         "value": 51
       },
       {
-        "label": "EJE-YYYY-00053",
-        "value": 53
-      },
-      {
         "label": "EJE-YYYY-00054",
         "value": 54
-      },
-      {
-        "label": "EJE-YYYY-00055",
-        "value": 55
-      },
-      {
-        "label": "EJE-YYYY-00057",
-        "value": 57
       },
       {
         "label": "EJE-YYYY-00058",
@@ -184,10 +112,6 @@
       {
         "label": "EJE-YYYY-00060",
         "value": 60
-      },
-      {
-        "label": "EJE-YYYY-00061",
-        "value": 61
       },
       {
         "label": "EJE-YYYY-00063",
@@ -296,6 +220,38 @@
       {
         "label": "EJE-YYYY-00098",
         "value": 98
+      },
+      {
+        "label": "EJE-YYYY-00003",
+        "value": 3
+      },
+      {
+        "label": "EJE-YYYY-00011",
+        "value": 11
+      },
+      {
+        "label": "EJE-YYYY-00025",
+        "value": 25
+      },
+      {
+        "label": "EJE-YYYY-00031",
+        "value": 31
+      },
+      {
+        "label": "EJE-YYYY-00042",
+        "value": 42
+      },
+      {
+        "label": "EJE-YYYY-00066",
+        "value": 66
+      },
+      {
+        "label": "EJE-YYYY-00075",
+        "value": 75
+      },
+      {
+        "label": "EJE-YYYY-00093",
+        "value": 93
       }
     ],
     "loans": [

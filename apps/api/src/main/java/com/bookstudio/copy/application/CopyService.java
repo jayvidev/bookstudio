@@ -24,7 +24,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -47,6 +52,34 @@ public class CopyService implements CopyApi {
     @Override
     public List<OptionResponse> getOptions() {
         return copyRepository.findForOptions();
+    }
+
+    @Override
+    @Transactional
+    public void lend(Collection<Long> copyIds) {
+        loadAll(copyIds).forEach(Copy::lend);
+    }
+
+    @Override
+    @Transactional
+    public void release(Collection<Long> copyIds) {
+        loadAll(copyIds).forEach(Copy::release);
+    }
+
+    @Override
+    @Transactional
+    public void markLost(Collection<Long> copyIds) {
+        loadAll(copyIds).forEach(Copy::markLost);
+    }
+
+    private List<Copy> loadAll(Collection<Long> copyIds) {
+        Map<Long, Copy> copies = copyRepository.findAllById(copyIds).stream()
+                .collect(Collectors.toMap(Copy::getId, Function.identity()));
+
+        return copyIds.stream()
+                .map(id -> Optional.ofNullable(copies.get(id))
+                        .orElseThrow(() -> new ResourceNotFoundException("Copy not found with ID: " + id)))
+                .toList();
     }
 
     public List<CopyListResponse> getList() {

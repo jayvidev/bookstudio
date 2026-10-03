@@ -22,6 +22,7 @@ import com.bookstudio.loan.infrastructure.repository.LoanSpecifications;
 import com.bookstudio.reader.ReaderApi;
 import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.code.CodeGenerator;
+import com.bookstudio.shared.exception.BadRequestException;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.shared.paging.SortWhitelist;
 import com.bookstudio.shared.response.OptionResponse;
@@ -36,8 +37,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -104,61 +107,72 @@ public class LoanService implements LoanApi {
 
     @Transactional
     public LoanListResponse create(CreateLoanRequest request) {
-        Loan loan = new Loan();
         readerApi.requireExists(request.readerId());
-        loan.setReaderId(request.readerId());
+        requireDistinctCopies(request.items().stream().map(CreateLoanItemRequest::copyId).toList());
 
-        loan.setLoanDate(LocalDate.now());
-        loan.setObservation(request.observation());
+        LocalDate today = LocalDate.now();
+        Loan loan = Loan.open(
+                codeGenerator.next(Loan.CODE_SERIES, today), request.readerId(), today, request.observation());
 
-        loan.setCode(codeGenerator.next(Loan.CODE_SERIES, loan.getLoanDate()));
-
-        Loan saved = loanRepository.save(loan);
-
-        for (CreateLoanItemRequest itemDto : request.items()) {
-            copyApi.requireExists(itemDto.copyId());
-
-            LoanItem item = new LoanItem(
-                    new LoanItemId(saved.getId(), itemDto.copyId()),
-                    saved,
-                    itemDto.dueDate(),
-                    null,
-                    LoanItemStatus.PRESTADO);
-
-            saved.getLoanItems().add(loanItemRepository.save(item));
+        CopyChanges copyChanges = new CopyChanges();
+        for (CreateLoanItemRequest item : request.items()) {
+            copyChanges.record(item.copyId(), loan.addItem(item.copyId(), item.dueDate()));
         }
+        copyChanges.applyTo(copyApi);
 
-        return toListResponse(saved);
+        return toListResponse(loanRepository.save(loan));
     }
 
+    /**
+     * Applies the requested items as a diff: kept items are changed in place
+     * (keeping their history), missing ones are removed and new ones added.
+     * Copies follow: returned or removed copies go back to the shelf, lost ones
+     * are marked lost, new ones are lent.
+     */
     @Transactional
     public LoanListResponse update(Long id, UpdateLoanRequest request) {
         Loan loan = loanRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found with ID: " + id));
 
         readerApi.requireExists(request.readerId());
-        loan.setReaderId(request.readerId());
+        requireDistinctCopies(request.items().stream().map(UpdateLoanItemRequest::copyId).toList());
+        loan.updateDetails(request.readerId(), request.observation());
 
-        loan.setObservation(request.observation());
+        Map<Long, UpdateLoanItemRequest> requested = request.items().stream()
+                .collect(Collectors.toMap(UpdateLoanItemRequest::copyId, Function.identity()));
+        LocalDate today = LocalDate.now();
+        CopyChanges copyChanges = new CopyChanges();
 
-        Loan updated = loanRepository.save(loan);
+        loan.getLoanItems().stream()
+                .map(LoanItem::getCopyId)
+                .filter(copyId -> !requested.containsKey(copyId))
+                .toList()
+                .forEach(copyId -> copyChanges.record(copyId, loan.removeItem(copyId)));
 
-        loanItemRepository.deleteAllByLoan(updated);
+        for (UpdateLoanItemRequest item : request.items()) {
+            LoanItemStatus status = LoanItemStatus.valueOf(item.status());
 
-        for (UpdateLoanItemRequest itemDto : request.items()) {
-            copyApi.requireExists(itemDto.copyId());
-
-            LoanItem item = new LoanItem(
-                    new LoanItemId(updated.getId(), itemDto.copyId()),
-                    updated,
-                    itemDto.dueDate(),
-                    null,
-                    LoanItemStatus.PRESTADO);
-
-            loanItemRepository.save(item);
+            if (loan.findItem(item.copyId()).isPresent()) {
+                copyChanges.record(item.copyId(), loan.changeItem(item.copyId(), item.dueDate(), status, today));
+            } else if (status == LoanItemStatus.PRESTADO) {
+                copyChanges.record(item.copyId(), loan.addItem(item.copyId(), item.dueDate()));
+            } else {
+                throw new BadRequestException(
+                        "Copy %d is new to this loan, so its status must be PRESTADO".formatted(item.copyId()));
+            }
         }
+        copyChanges.applyTo(copyApi);
 
-        return toListResponse(updated);
+        return toListResponse(loanRepository.save(loan));
+    }
+
+    private static void requireDistinctCopies(List<Long> copyIds) {
+        Set<Long> seen = new HashSet<>();
+        for (Long copyId : copyIds) {
+            if (!seen.add(copyId)) {
+                throw new BadRequestException("Copy %d appears more than once in the loan".formatted(copyId));
+            }
+        }
     }
 
     /**

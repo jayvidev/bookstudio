@@ -11,7 +11,7 @@
       "code": "EJE-YYYY-00031",
       "id": 31,
       "barcode": "100026003",
-      "status": "PRESTADO"
+      "status": "DISPONIBLE"
     },
     "reservationDate": "2024-07-29",
     "status": "PENDIENTE"

@@ -1,7 +1,9 @@
 package com.bookstudio.copy.domain.model;
 
-import com.bookstudio.copy.domain.model.type.CopyCondition;
 import com.bookstudio.copy.CopyStatus;
+import com.bookstudio.copy.domain.model.type.CopyCondition;
+import com.bookstudio.shared.code.CodeSeries;
+import com.bookstudio.shared.exception.BusinessRuleException;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,8 +13,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
+
 import lombok.Data;
-import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
 @Table(name = "copies")
@@ -23,6 +26,9 @@ public class Copy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Version
+    private Long version;
 
     @Column(nullable = false, unique = true, updatable = false)
     private String code;
@@ -41,4 +47,22 @@ public class Copy {
 
     @Enumerated(EnumType.STRING)
     private CopyCondition condition;
+
+    /**
+     * @throws BusinessRuleException unless the copy is available
+     */
+    public void lend() {
+        if (status != CopyStatus.DISPONIBLE) {
+            throw new BusinessRuleException("Copy %s is not available (status: %s)".formatted(code, status));
+        }
+        status = CopyStatus.PRESTADO;
+    }
+
+    public void release() {
+        status = CopyStatus.DISPONIBLE;
+    }
+
+    public void markLost() {
+        status = CopyStatus.EXTRAVIADO;
+    }
 }

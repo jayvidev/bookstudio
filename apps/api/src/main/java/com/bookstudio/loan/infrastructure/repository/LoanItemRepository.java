@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.bookstudio.loan.application.dto.response.LoanDetailResponse;
-import com.bookstudio.loan.domain.model.Loan;
 import com.bookstudio.loan.domain.model.LoanItem;
 import com.bookstudio.loan.domain.model.LoanItemId;
 
@@ -27,5 +26,4 @@ public interface LoanItemRepository extends JpaRepository<LoanItem, LoanItemId> 
     """)
     List<LoanDetailResponse.LoanItem> findLoanItemsByLoanId(Long id);
 
-    void deleteAllByLoan(Loan loan);
 }
