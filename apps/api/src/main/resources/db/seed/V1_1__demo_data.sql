@@ -1,6 +1,4 @@
-SET search_path TO public;
 
-BEGIN;
 
 -- 1. NACIONALIDADES
 INSERT INTO nationalities (name, code) VALUES
@@ -992,4 +990,3 @@ INSERT INTO payment_fines (payment_id, fine_id) VALUES
 (21, 8),    -- Roberto (payment_id=21) -> multa pendiente de Valeria (fine_id=8)
 (22, 9);    -- Camila (payment_id=22) -> multa pendiente de Carmen (fine_id=9)
 
-COMMIT;
