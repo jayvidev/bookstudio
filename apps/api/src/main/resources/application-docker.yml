@@ -6,3 +6,11 @@ spring:
 springdoc:
   swagger-ui:
     enabled: true
+
+app:
+  demo:
+    enabled: true
+  security:
+    jwt:
+      # Development-only secret; never reuse it outside local/docker.
+      secret: dev-only-bookstudio-jwt-secret-change-me-0123456789

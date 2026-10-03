@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bookstudio.IntegrationTest;
+import com.bookstudio.security.StaffAuth;
 
 /**
  * Runs without the per-test rollback so each request commits for real, which is
@@ -88,7 +89,7 @@ class LoanConcurrencyIntegrationTest {
     }
 
     private MvcTestResult post(String json) {
-        return mvc.post().uri("/loans").contentType(MediaType.APPLICATION_JSON).content(json).exchange();
+        return mvc.post().uri("/loans").with(StaffAuth.admin()).contentType(MediaType.APPLICATION_JSON).content(json).exchange();
     }
 
     private static String loanJson(long... copyIds) {

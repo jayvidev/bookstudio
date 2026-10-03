@@ -22,5 +22,14 @@ public interface RolePermissionRepository extends JpaRepository<RolePermission, 
     """)
     List<RoleDetailResponse.PermissionItem> findPermissionItemsByRoleId(Long id);
 
+    @Query("""
+        SELECT p.code
+        FROM RolePermission rp
+        JOIN rp.permission p
+        WHERE rp.role.id = :roleId
+        ORDER BY p.code
+    """)
+    List<String> findPermissionCodesByRoleId(Long roleId);
+
     void deleteAllByRole(Role role);
 }

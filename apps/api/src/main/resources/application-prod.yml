@@ -6,3 +6,7 @@ spring:
 app:
   cors:
     allowed-origins: https://bookstudio-site.vercel.app
+
+springdoc:
+  api-docs:
+    enabled: false

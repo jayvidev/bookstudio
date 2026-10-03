@@ -50,3 +50,10 @@ springdoc:
 app:
   cors:
     allowed-origins: http://localhost:3000
+  security:
+    jwt:
+      # No default: every environment must provide APP_SECURITY_JWT_SECRET
+      # (at least 32 bytes). The app refuses to start without it.
+      issuer: bookstudio-api
+      access-token-ttl: 15m
+      refresh-token-ttl: 7d
