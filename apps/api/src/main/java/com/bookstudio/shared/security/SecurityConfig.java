@@ -1,6 +1,7 @@
 package com.bookstudio.shared.security;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -31,8 +32,8 @@ import com.nimbusds.jose.jwk.source.ImmutableSecret;
  *
  * <p>Tokens are issued by the staff module and signed with HS256. Their
  * {@value #PERMISSIONS_CLAIM} claim becomes the request's authorities, which
- * controllers check with {@code @PreAuthorize}. Reads only require an
- * authenticated user.
+ * each module checks through its {@link AuthorizationRules}. Anything a module
+ * does not restrict (reads) only requires an authenticated user.
  */
 @Configuration
 @EnableMethodSecurity
@@ -43,19 +44,23 @@ public class SecurityConfig {
     public static final String ROLE_CLAIM = "role";
 
     @Bean
-    SecurityFilterChain apiSecurity(HttpSecurity http, ApiErrorResponseWriter errors) throws Exception {
+    SecurityFilterChain apiSecurity(HttpSecurity http, ApiErrorResponseWriter errors,
+            List<AuthorizationRules> moduleRules) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
+                .authorizeHttpRequests(auth -> {
+                    auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/refresh", "/auth/demo").permitAll()
                         .requestMatchers("/actuator/health/**", "/actuator/info").permitAll()
                         // Swagger/OpenAPI are disabled in prod by springdoc settings.
                         .requestMatchers("/", "/docs.html", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**")
-                        .permitAll()
-                        .anyRequest().authenticated())
+                        .permitAll();
+                    moduleRules.forEach(rules -> rules.configure(auth));
+                    auth.anyRequest().authenticated();
+                })
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
                         .authenticationEntryPoint(errors))

@@ -2,13 +2,14 @@ package com.bookstudio.staff.worker.presentation;
 
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.security.CurrentUser;
 import com.bookstudio.shared.validation.ValidationMessages;
 import com.bookstudio.staff.worker.application.WorkerService;
 import com.bookstudio.staff.worker.application.dto.request.CreateWorkerRequest;
 import com.bookstudio.staff.worker.application.dto.request.UpdateWorkerRequest;
 import com.bookstudio.staff.worker.application.dto.response.WorkerDetailResponse;
-import com.bookstudio.staff.worker.application.dto.response.WorkerListResponse;
 import com.bookstudio.staff.worker.application.dto.response.WorkerFilterOptionsResponse;
+import com.bookstudio.staff.worker.application.dto.response.WorkerListResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -20,10 +21,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,8 +53,8 @@ public class WorkerController {
             @ApiResponse(responseCode = "200", description = "Workers listed successfully (or empty list if no workers found)"),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/workers\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
     })
-    public ResponseEntity<ApiSuccess<List<WorkerListResponse>>> list() {
-        List<WorkerListResponse> workers = workerService.getList(1L);
+    public ResponseEntity<ApiSuccess<List<WorkerListResponse>>> list(@AuthenticationPrincipal Jwt jwt) {
+        List<WorkerListResponse> workers = workerService.getList(CurrentUser.id(jwt));
 
         ApiSuccess<List<WorkerListResponse>> response = new ApiSuccess<>(
                 workers.isEmpty() ? "No workers found" : "Workers listed successfully",

@@ -1,18 +1,8 @@
 package com.bookstudio.staff.auth.presentation;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
-import com.bookstudio.shared.security.SecurityConfig;
+import com.bookstudio.shared.security.CurrentUser;
 import com.bookstudio.staff.auth.application.AuthService;
 import com.bookstudio.staff.auth.application.dto.request.LoginRequest;
 import com.bookstudio.staff.auth.application.dto.request.RefreshTokenRequest;
@@ -26,8 +16,20 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
 import jakarta.validation.Valid;
+
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
@@ -78,7 +80,6 @@ public class AuthController {
     @GetMapping("/me")
     @Operation(summary = "Current user with role and permissions")
     public ResponseEntity<ApiSuccess<AuthUserResponse>> me(@AuthenticationPrincipal Jwt jwt) {
-        Long workerId = ((Number) jwt.getClaim(SecurityConfig.USER_ID_CLAIM)).longValue();
-        return ResponseEntity.ok(new ApiSuccess<>("Current user", authService.currentUser(workerId)));
+        return ResponseEntity.ok(new ApiSuccess<>("Current user", authService.currentUser(CurrentUser.id(jwt))));
     }
 }

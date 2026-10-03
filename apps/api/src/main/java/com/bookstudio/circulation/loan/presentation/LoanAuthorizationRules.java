@@ -1,0 +1,19 @@
+package com.bookstudio.circulation.loan.presentation;
+
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
+import org.springframework.stereotype.Component;
+
+import com.bookstudio.shared.security.AuthorizationRules;
+
+@Component
+class LoanAuthorizationRules implements AuthorizationRules {
+
+    @Override
+    public void configure(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry auth) {
+        auth
+                .requestMatchers(HttpMethod.POST, "/loans").hasAuthority("LOAN_CREATE")
+                .requestMatchers(HttpMethod.PUT, "/loans/*").hasAuthority("LOAN_EDIT");
+    }
+}

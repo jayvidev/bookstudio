@@ -30,6 +30,13 @@ public final class StaffAuth {
                 token(defaults.id(), defaults.username(), defaults.permissions()));
     }
 
+    /**
+     * Per-request authentication of a staff member holding only {@code permissions}.
+     */
+    public static RequestPostProcessor withPermissions(String... permissions) {
+        return SecurityMockMvcRequestPostProcessors.authentication(token(99, "tester", permissions));
+    }
+
     static JwtAuthenticationToken token(long id, String username, String... permissions) {
         Jwt jwt = Jwt.withTokenValue("test-token")
                 .header("alg", "HS256")
