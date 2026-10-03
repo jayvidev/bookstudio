@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PublisherRepository extends JpaRepository<Publisher, Long> {
-    @Query("""
+    String LIST_SELECT = """
         SELECT 
             p.id AS id,
             p.photoUrl AS photoUrl,
@@ -26,10 +26,14 @@ public interface PublisherRepository extends JpaRepository<Publisher, Long> {
             p.address AS address,
             p.status AS status
         FROM Publisher p
-        JOIN p.nationality n
-        ORDER BY p.id DESC
-    """)
+        JOIN Nationality n ON n.id = p.nationalityId
+        """;
+
+    @Query(LIST_SELECT + "ORDER BY p.id DESC")
     List<PublisherListResponse> findList();
+
+    @Query(LIST_SELECT + "WHERE p.id = :id")
+    Optional<PublisherListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT
@@ -58,8 +62,20 @@ public interface PublisherRepository extends JpaRepository<Publisher, Long> {
             
             NULL AS genres
         FROM Publisher p
-        JOIN p.nationality n
+        JOIN Nationality n ON n.id = p.nationalityId
         WHERE p.id = :id
     """)
     Optional<PublisherDetailResponse> findDetailById(Long id);
+
+    @Query("""
+        SELECT
+            g.id AS id,
+            g.name AS name
+        FROM Publisher p
+        JOIN p.genreIds genreId
+        JOIN Genre g ON g.id = genreId
+        WHERE p.id = :id
+        ORDER BY g.id
+    """)
+    List<PublisherDetailResponse.GenreItem> findGenreItemsByPublisherId(Long id);
 }
