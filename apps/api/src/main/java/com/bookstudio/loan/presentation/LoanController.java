@@ -2,6 +2,7 @@ package com.bookstudio.loan.presentation;
 
 import com.bookstudio.loan.application.LoanService;
 import com.bookstudio.loan.application.dto.request.CreateLoanRequest;
+import com.bookstudio.loan.application.dto.request.LoanFilter;
 import com.bookstudio.loan.application.dto.request.UpdateLoanRequest;
 import com.bookstudio.loan.application.dto.response.LoanDetailResponse;
 import com.bookstudio.loan.application.dto.response.LoanFilterOptionsResponse;
@@ -9,6 +10,7 @@ import com.bookstudio.loan.application.dto.response.LoanListResponse;
 import com.bookstudio.loan.application.dto.response.LoanSelectOptionsResponse;
 import com.bookstudio.shared.api.ApiError;
 import com.bookstudio.shared.api.ApiSuccess;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.validation.ValidationMessages;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,10 +23,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +41,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/loans")
@@ -44,18 +51,20 @@ public class LoanController {
     private final LoanService loanService;
 
     @GetMapping
-    @Operation(summary = "List all loans")
+    @Operation(summary = "List loans (paginated, filterable)",
+            description = "Sortable by id, code and loanDate, e.g. sort=loanDate,desc. Max page size: 100.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Loans listed successfully (or empty list if no loans found)"),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Internal Error", summary = "Internal server error", value = "{\"success\":false,\"status\":500,\"message\":\"Internal server error\",\"path\":\"/loans\",\"timestamp\":\"2025-10-16T21:09:26.122Z\",\"errors\":null}")))
+            @ApiResponse(responseCode = "200", description = "Page of loans (empty content if none match)"),
+            @ApiResponse(responseCode = "400", description = "Invalid filter, page or sort parameter", content = @Content(schema = @Schema(implementation = ApiError.class), examples = @ExampleObject(name = "Invalid sort", summary = "Unknown sort property", value = "{\"success\":false,\"status\":400,\"message\":\"Cannot sort by 'observation'. Allowed: [code, id, loanDate]\",\"path\":\"/loans\",\"timestamp\":\"2026-10-02T21:09:26.122Z\",\"errors\":null}"))),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public ResponseEntity<ApiSuccess<List<LoanListResponse>>> list() {
-        List<LoanListResponse> loans = loanService.getList();
-        ApiSuccess<List<LoanListResponse>> response = new ApiSuccess<>(
-                loans.isEmpty() ? "No loans found" : "Loans listed successfully",
-                loans);
-
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiSuccess<PageResponse<LoanListResponse>>> list(
+            @ParameterObject @Valid LoanFilter filter,
+            @ParameterObject @PageableDefault(size = 20, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        PageResponse<LoanListResponse> page = loanService.getPage(filter, pageable);
+        return ResponseEntity.ok(new ApiSuccess<>(
+                page.content().isEmpty() ? "No loans found" : "Loans listed successfully",
+                page));
     }
 
     @GetMapping("/filter-options")

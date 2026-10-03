@@ -44,6 +44,11 @@ public class ReaderService implements ReaderApi {
         return readerRepository.findForOptions();
     }
 
+    @Override
+    public List<Long> findIdsByName(String text) {
+        return readerRepository.findIdsByFullNameContaining(text);
+    }
+
     public List<ReaderListResponse> getList() {
         return readerRepository.findList();
     }

@@ -33,7 +33,7 @@ class LoanApiIntegrationTest {
         assertThat(mvc.get().uri("/loans"))
                 .hasStatusOk()
                 .bodyJson()
-                .extractingPath("$.data.length()").isEqualTo((int) seeded);
+                .extractingPath("$.data.totalElements").isEqualTo((int) seeded);
     }
 
     @Test

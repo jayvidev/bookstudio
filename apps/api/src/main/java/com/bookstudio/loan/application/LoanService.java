@@ -6,6 +6,7 @@ import com.bookstudio.loan.LoanApi;
 import com.bookstudio.loan.LoanItemStatus;
 import com.bookstudio.loan.application.dto.request.CreateLoanItemRequest;
 import com.bookstudio.loan.application.dto.request.CreateLoanRequest;
+import com.bookstudio.loan.application.dto.request.LoanFilter;
 import com.bookstudio.loan.application.dto.request.UpdateLoanItemRequest;
 import com.bookstudio.loan.application.dto.request.UpdateLoanRequest;
 import com.bookstudio.loan.application.dto.response.LoanDetailResponse;
@@ -17,19 +18,28 @@ import com.bookstudio.loan.domain.model.LoanItem;
 import com.bookstudio.loan.domain.model.LoanItemId;
 import com.bookstudio.loan.infrastructure.repository.LoanItemRepository;
 import com.bookstudio.loan.infrastructure.repository.LoanRepository;
+import com.bookstudio.loan.infrastructure.repository.LoanSpecifications;
 import com.bookstudio.reader.ReaderApi;
+import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.paging.SortWhitelist;
 import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -45,6 +55,8 @@ public class LoanService implements LoanApi {
     private final ReaderApi readerApi;
     private final CopyApi copyApi;
 
+    private static final SortWhitelist SORTABLE = SortWhitelist.of("id", "code", "loanDate");
+
     @Override
     public void requireItemExists(Long loanId, Long copyId) {
         if (!loanItemRepository.existsById(new LoanItemId(loanId, copyId))) {
@@ -57,8 +69,19 @@ public class LoanService implements LoanApi {
         return loanRepository.findForOptions();
     }
 
-    public List<LoanListResponse> getList() {
-        return loanRepository.findList();
+    public PageResponse<LoanListResponse> getPage(LoanFilter filter, Pageable pageable) {
+        Specification<Loan> spec = Specification.allOf(
+                LoanSpecifications.hasItemWithStatus(filter.status()),
+                LoanSpecifications.belongsToReader(filter.readerId()),
+                LoanSpecifications.loanedOnOrAfter(filter.from()),
+                LoanSpecifications.loanedOnOrBefore(filter.to()),
+                filter.hasSearch()
+                        ? LoanSpecifications.codeContainsOrReaderIn(
+                                filter.search(), readerApi.findIdsByName(filter.search().trim()))
+                        : Specification.unrestricted());
+
+        Page<Loan> page = loanRepository.findAll(spec, SORTABLE.validate(pageable));
+        return PageResponse.from(page, this::toListResponses);
     }
 
     public LoanFilterOptionsResponse getFilterOptions() {
@@ -136,6 +159,21 @@ public class LoanService implements LoanApi {
         }
 
         return toListResponse(updated);
+    }
+
+    /**
+     * Projects one page of loans with a single query, keeping the page order.
+     */
+    private List<LoanListResponse> toListResponses(List<Loan> loans) {
+        if (loans.isEmpty()) {
+            return List.of();
+        }
+
+        Map<Long, LoanListResponse> byId = loanRepository.findListByIds(loans.stream().map(Loan::getId).toList())
+                .stream()
+                .collect(Collectors.toMap(LoanListResponse::id, Function.identity()));
+
+        return loans.stream().map(loan -> byId.get(loan.getId())).toList();
     }
 
     private LoanListResponse toListResponse(Loan loan) {

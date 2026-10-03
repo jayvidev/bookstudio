@@ -5,13 +5,15 @@ import com.bookstudio.loan.application.dto.response.LoanListResponse;
 import com.bookstudio.loan.domain.model.Loan;
 import com.bookstudio.shared.response.OptionResponse;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-public interface LoanRepository extends JpaRepository<Loan, Long> {
+public interface LoanRepository extends JpaRepository<Loan, Long>, JpaSpecificationExecutor<Loan> {
     String LIST_SELECT = """
         SELECT 
             l.id AS id,
@@ -38,11 +40,11 @@ public interface LoanRepository extends JpaRepository<Loan, Long> {
         GROUP BY l.id, l.code, r.id, r.code, r.firstName, r.lastName, l.loanDate
         """;
 
-    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY l.id DESC")
-    List<LoanListResponse> findList();
-
     @Query(LIST_SELECT + "WHERE l.id = :id " + LIST_GROUP_BY)
     Optional<LoanListResponse> findListItemById(Long id);
+
+    @Query(LIST_SELECT + "WHERE l.id IN :ids " + LIST_GROUP_BY)
+    List<LoanListResponse> findListByIds(Collection<Long> ids);
 
     @Query("""
         SELECT

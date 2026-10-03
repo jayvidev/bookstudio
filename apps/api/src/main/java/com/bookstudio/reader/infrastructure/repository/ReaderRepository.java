@@ -37,6 +37,13 @@ public interface ReaderRepository extends JpaRepository<Reader, Long> {
     List<OptionResponse> findForOptions();
 
     @Query("""
+        SELECT r.id
+        FROM Reader r
+        WHERE LOWER(CONCAT(r.firstName, ' ', r.lastName)) LIKE LOWER(CONCAT('%', :text, '%'))
+    """)
+    List<Long> findIdsByFullNameContaining(String text);
+
+    @Query("""
         SELECT 
             r.id AS id,
             r.code AS code,

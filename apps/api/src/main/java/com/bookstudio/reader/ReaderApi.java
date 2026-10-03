@@ -15,4 +15,9 @@ public interface ReaderApi {
     void requireExists(Long id);
 
     List<OptionResponse> getOptions();
+
+    /**
+     * Ids of readers whose full name contains {@code text}, ignoring case.
+     */
+    List<Long> findIdsByName(String text);
 }
