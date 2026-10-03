@@ -123,8 +123,8 @@ pnpm dev:web   # only Web (Next.js)
 cd apps/api
 
 # Set up local properties
-cp src/main/resources/application-local.properties.example \
-   src/main/resources/application-local.properties
+cp src/main/resources/application-local.yml.example \
+   src/main/resources/application-local.yml
 # Fill in your DB credentials, etc.
 
 ./mvnw spring-boot:run
@@ -151,7 +151,7 @@ Configuration depends on how you run the project:
 | -------- | ----------- |
 | **Docker Compose** | `.env` (copy from `.env.example`) |
 | **Web standalone** | `apps/web/.env.local` (copy from `apps/web/.env.example`) |
-| **API standalone** | `apps/api/src/main/resources/application-local.properties` (copy from `.example`) |
+| **API standalone** | `apps/api/src/main/resources/application-local.yml` (copy from `.example`) |
 
 The root `.env.example` is only for Docker Compose — if you deploy each service independently (e.g. via Coolify using the individual Dockerfiles), use the per-service config files instead.
 

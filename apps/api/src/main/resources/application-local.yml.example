@@ -1,0 +1,11 @@
+# Copy to application-local.yml and fill in your local database.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookstudio
+    username: your_username
+    password: your_password
+  jpa:
+    show-sql: true
+  flyway:
+    # Demo data (db/seed) is loaded only outside prod
+    locations: classpath:db/migration,classpath:db/seed

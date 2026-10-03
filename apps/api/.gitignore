@@ -3,6 +3,7 @@
 build/
 
 # ─── Spring Boot local config ─────────────────
+/src/main/resources/application-local.yml
 /src/main/resources/application-local.properties
 /src/main/resources/firebase-service-account.json
 

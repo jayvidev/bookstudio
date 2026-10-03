@@ -1,0 +1,4 @@
+spring:
+  flyway:
+    # Demo data (db/seed) is loaded only outside prod
+    locations: classpath:db/migration,classpath:db/seed

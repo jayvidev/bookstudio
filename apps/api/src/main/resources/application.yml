@@ -1,0 +1,30 @@
+# Shared configuration. In docker/prod the datasource comes from the
+# SPRING_DATASOURCE_URL / _USERNAME / _PASSWORD environment variables.
+spring:
+  application:
+    name: bookstudio
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    locations: classpath:db/migration
+  web:
+    error:
+      whitelabel:
+        enabled: false
+  servlet:
+    multipart:
+      enabled: true
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    enabled: false
