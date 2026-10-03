@@ -167,6 +167,22 @@ public class LoanService implements LoanApi {
         return toListResponse(loanRepository.save(loan));
     }
 
+    /**
+     * Registers the return of one copy: records the date and frees the copy.
+     */
+    @Transactional
+    public LoanDetailResponse returnItem(Long loanId, Long copyId) {
+        Loan loan = loanRepository.findById(loanId)
+                .orElseThrow(() -> new ResourceNotFoundException("Loan not found with ID: " + loanId));
+
+        CopyChanges copyChanges = new CopyChanges();
+        copyChanges.record(copyId, loan.returnItem(copyId, LocalDate.now()));
+        copyChanges.applyTo(copyApi);
+
+        loanRepository.save(loan);
+        return getDetailById(loanId);
+    }
+
     private static void requireDistinctCopies(List<Long> copyIds) {
         Set<Long> seen = new HashSet<>();
         for (Long copyId : copyIds) {

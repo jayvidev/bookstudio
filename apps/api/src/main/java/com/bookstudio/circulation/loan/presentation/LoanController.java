@@ -146,4 +146,18 @@ public class LoanController {
         LoanListResponse result = loanService.update(id, request);
         return ResponseEntity.ok(new ApiSuccess<>("Loan updated successfully", result));
     }
+
+    @PostMapping("/{id}/items/{copyId}/return")
+    @Operation(summary = "Return one copy of a loan",
+            description = "Marks the item as returned today and puts the copy back on the shelf. Requires LOAN_RETURN.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Item returned"),
+            @ApiResponse(responseCode = "404", description = "Loan not found", content = @Content(schema = @Schema(implementation = ApiError.class))),
+            @ApiResponse(responseCode = "409", description = "The copy is not on loan in this loan", content = @Content(schema = @Schema(implementation = ApiError.class)))
+    })
+    public ResponseEntity<ApiSuccess<LoanDetailResponse>> returnItem(
+            @PathVariable @Min(value = 1, message = ValidationMessages.ID_MIN_VALUE) Long id,
+            @PathVariable @Min(value = 1, message = ValidationMessages.ID_MIN_VALUE) Long copyId) {
+        return ResponseEntity.ok(new ApiSuccess<>("Item returned", loanService.returnItem(id, copyId)));
+    }
 }

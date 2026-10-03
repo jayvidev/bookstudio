@@ -13,6 +13,7 @@ class LoanAuthorizationRules implements AuthorizationRules {
     @Override
     public void configure(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry auth) {
         auth
+                .requestMatchers(HttpMethod.POST, "/loans/*/items/*/return").hasAuthority("LOAN_RETURN")
                 .requestMatchers(HttpMethod.POST, "/loans").hasAuthority("LOAN_CREATE")
                 .requestMatchers(HttpMethod.PUT, "/loans/*").hasAuthority("LOAN_EDIT");
     }

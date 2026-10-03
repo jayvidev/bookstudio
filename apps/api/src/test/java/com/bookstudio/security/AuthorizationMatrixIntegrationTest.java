@@ -46,6 +46,7 @@ class AuthorizationMatrixIntegrationTest {
                 Arguments.of("PUT", "/readers/1", "READER_MANAGE"),
                 Arguments.of("POST", "/loans", "LOAN_CREATE"),
                 Arguments.of("PUT", "/loans/1", "LOAN_EDIT"),
+                Arguments.of("POST", "/loans/1/items/1/return", "LOAN_RETURN"),
                 Arguments.of("POST", "/reservations", "RESERVATION_MANAGE"),
                 Arguments.of("PUT", "/reservations/1", "RESERVATION_MANAGE"),
                 Arguments.of("POST", "/fines", "FINE_CREATE"),

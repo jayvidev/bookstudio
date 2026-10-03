@@ -105,6 +105,21 @@ public class Loan {
     }
 
     /**
+     * The reader brings the copy back.
+     *
+     * @throws BusinessRuleException if the copy is not currently on loan in this loan
+     */
+    public CopyEffect returnItem(Long copyId, LocalDate today) {
+        LoanItem item = findItem(copyId)
+                .orElseThrow(() -> new BusinessRuleException("Copy %d is not part of loan %s".formatted(copyId, code)));
+        if (!item.holdsCopy()) {
+            throw new BusinessRuleException("Copy %d of loan %s is not on loan (status: %s)"
+                    .formatted(copyId, code, item.getStatus()));
+        }
+        return item.changeStatus(LoanItemStatus.DEVUELTO, today);
+    }
+
+    /**
      * Removes an item; if the reader still had the copy it goes back to the shelf.
      */
     public CopyEffect removeItem(Long copyId) {

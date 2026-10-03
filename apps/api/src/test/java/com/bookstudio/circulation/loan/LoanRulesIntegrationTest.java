@@ -125,6 +125,35 @@ class LoanRulesIntegrationTest {
                 .hasStatus(HttpStatus.BAD_REQUEST);
     }
 
+    @Test
+    void returningOneCopyFreesItAndKeepsTheOthersOnLoan() throws Exception {
+        long returned = availableCopy(0);
+        long kept = availableCopy(1);
+        long loanId = createLoan(returned, kept);
+
+        assertThat(mvc.post().uri("/loans/%d/items/%d/return".formatted(loanId, returned)))
+                .hasStatusOk()
+                .bodyJson()
+                .satisfies(json -> {
+                    json.assertThat().extractingPath("$.data.items[?(@.copy.id == %d)].status".formatted(returned))
+                            .asArray().containsExactly("DEVUELTO");
+                    json.assertThat().extractingPath("$.data.items[?(@.copy.id == %d)].returnDate".formatted(returned))
+                            .asArray().containsExactly(LocalDate.now().toString());
+                });
+        assertThat(copyStatus(returned)).isEqualTo("DISPONIBLE");
+        assertThat(copyStatus(kept)).isEqualTo("PRESTADO");
+    }
+
+    @Test
+    void cannotReturnTheSameCopyTwice() throws Exception {
+        long copyId = availableCopy(0);
+        long loanId = createLoan(copyId);
+        mvc.post().uri("/loans/%d/items/%d/return".formatted(loanId, copyId)).exchange();
+
+        assertThat(mvc.post().uri("/loans/%d/items/%d/return".formatted(loanId, copyId)))
+                .hasStatus(HttpStatus.CONFLICT);
+    }
+
     private long createLoan(long... copyIds) throws Exception {
         MvcTestResult result = post("/loans", createJson(copyIds));
         assertThat(result).hasStatus(HttpStatus.CREATED);
