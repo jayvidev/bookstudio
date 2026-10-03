@@ -1,0 +1,29 @@
+package com.bookstudio.circulation.loan.infrastructure.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.bookstudio.circulation.loan.application.dto.response.LoanDetailResponse;
+import com.bookstudio.circulation.loan.domain.model.LoanItem;
+import com.bookstudio.circulation.loan.domain.model.LoanItemId;
+
+public interface LoanItemRepository extends JpaRepository<LoanItem, LoanItemId> {
+    @Query("""
+        SELECT 
+            c.id AS copyId,
+            c.code AS copyCode,
+            c.barcode AS copyBarcode,
+            c.status AS copyStatus,
+
+            li.dueDate AS dueDate,
+            li.returnDate AS returnDate,
+            li.status AS status
+        FROM LoanItem li
+        JOIN Copy c ON c.id = li.id.copyId
+        WHERE li.loan.id = :id
+    """)
+    List<LoanDetailResponse.LoanItem> findLoanItemsByLoanId(Long id);
+
+}
