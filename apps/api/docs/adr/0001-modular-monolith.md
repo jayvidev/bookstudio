@@ -1,6 +1,6 @@
 # ADR 0001: Modular monolith with Spring Modulith
 
-- **Status:** Accepted
+- **Status:** Accepted. Module granularity amended by [ADR 0003](0003-modules-by-business-capability.md)
 - **Date:** 2026-10-02
 
 ## Context
@@ -47,54 +47,9 @@ Keep one deployable application, but make every top-level package a
    another module's state.
 5. **`shared` is an open module** (shared kernel): API envelopes, errors,
    validation, business code generation.
-6. **No cycles.** The resulting graph is a DAG:
-
-```mermaid
-graph TD
-    subgraph core [Core domain]
-        loan
-        fine
-        reservation
-        payment
-    end
-    subgraph catalog [Catalog and inventory]
-        book
-        copy
-        location
-    end
-    subgraph support [Supporting / reference data]
-        reader
-        author
-        publisher
-        category
-        language
-        genre
-        nationality
-        worker
-        role
-    end
-
-    payment --> fine
-    payment --> reader
-    fine --> loan
-    fine --> copy
-    loan --> reader
-    loan --> copy
-    loan --> book
-    reservation --> reader
-    reservation --> copy
-    copy --> book
-    copy --> location
-    book --> author
-    book --> publisher
-    book --> category
-    book --> language
-    book --> genre
-    publisher --> nationality
-    publisher --> genre
-    author --> nationality
-    worker --> role
-```
+6. **No cycles.** The module graph is a DAG; see
+   [ADR 0003](0003-modules-by-business-capability.md) for the modules and their
+   dependencies.
 
 ### Depth varies by module, the folder layout does not
 
@@ -104,8 +59,8 @@ design goes inside differs on purpose:
 
 | Module type | Examples | Design |
 |-------------|----------|--------|
-| Core | `loan`, `fine`, `reservation` | Business rules belong in the entities; cross-module reactions become domain events (next step). |
-| Supporting | `language`, `genre`, `category`, `nationality` | Plain CRUD. A service, a repository and projections are enough. |
+| Core | `circulation` (loan, reservation), `billing` (fine) | Business rules belong in the aggregates; cross-module reactions become domain events (next step). |
+| Supporting | `catalog` reference data (language, genre, category, nationality), `staff` | Plain CRUD. A service, a repository and projections are enough. |
 
 ## Alternatives considered
 

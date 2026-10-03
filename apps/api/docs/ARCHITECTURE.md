@@ -6,25 +6,27 @@ This guide documents all patterns, conventions, and standards used in this API. 
 
 ## 🧱 Module Boundaries (Spring Modulith)
 
-Every top-level package is an application module, and `ModularityTests` runs
-`ApplicationModules.verify()` on every build. Rationale and trade-offs:
-[ADR 0001](adr/0001-modular-monolith.md).
+Every top-level package is an application module (a business capability:
+`catalog`, `inventory`, `membership`, `circulation`, `billing`, `staff`), and
+`ModularityTests` runs `ApplicationModules.verify()` on every build. Rationale:
+[ADR 0001](adr/0001-modular-monolith.md),
+[ADR 0003](adr/0003-modules-by-business-capability.md).
 
 | Rule | Example |
 |------|---------|
-| Only the module's **root package** is public | `com.bookstudio.reader.ReaderApi` |
+| Only the module's **root package** is public | `com.bookstudio.membership.ReaderApi` |
 | Other modules talk to it through that API, never its repositories or entities | `readerApi.requireExists(id)` |
 | Entities reference other modules' aggregates **by id** | `private Long readerId;` |
 | Cross-module writes go through intention-revealing methods | `fineApi.markPaid(fineIds)` |
 | Read projections may join other modules' entities by id | `JOIN Reader r ON r.id = l.readerId` |
-| Enums shown in other modules' responses live in the module root | `com.bookstudio.copy.CopyStatus` |
+| Enums shown in other modules' responses live in the module root | `com.bookstudio.inventory.CopyStatus` |
 | `shared` is an open module (shared kernel) | `ApiSuccess`, `CodeGenerator` |
 | No dependency cycles | |
 
 ### Public API
 
 ```java
-package com.bookstudio.reader;
+package com.bookstudio.membership;
 
 public interface ReaderApi {
     void requireExists(Long id);           // throws ResourceNotFoundException
@@ -40,11 +42,16 @@ package-private service does when the module has no controller
 
 ## 📁 Package Structure (Layered Architecture)
 
-Each module follows a well-defined 4-layer structure:
+A module contains one package per aggregate; each aggregate follows the same
+4-layer structure:
 
 ```
-com.bookstudio.{module}/
-├── {Module}Api.java      # Public API used by other modules (if any)
+com.bookstudio.{module}/              # e.g. circulation
+├── package-info.java                 # @ApplicationModule(displayName = ...)
+├── {Aggregate}Api.java               # Public API used by other modules (if any)
+└── {aggregate}/                      # e.g. loan (internal)
+
+com.bookstudio.{module}.{aggregate}/
 ├── application/          # Business logic
 │   ├── {Module}Service.java
 │   └── dto/
