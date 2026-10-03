@@ -9,7 +9,11 @@ RUN mvn clean package -DskipTests -o -q -B
 
 FROM eclipse-temurin:25-jre AS runner
 
-RUN groupadd -r bookstudio && useradd -r -g bookstudio bookstudio
+# curl is only used by the HEALTHCHECK below
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends curl \
+  && rm -rf /var/lib/apt/lists/* \
+  && groupadd -r bookstudio && useradd -r -g bookstudio bookstudio
 
 WORKDIR /app
 COPY --from=builder --chown=bookstudio:bookstudio /app/target/bookstudio-*.jar app.jar
@@ -18,8 +22,7 @@ USER bookstudio
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", \
-  "-XX:+UseContainerSupport", \
-  "-XX:MaxRAMPercentage=75.0", \
-  "-Djava.security.egd=file:/dev./urandom", \
-  "-jar", "app.jar"]
+HEALTHCHECK --interval=15s --timeout=5s --start-period=40s --retries=5 \
+  CMD curl -sf http://localhost:8080/actuator/health/readiness || exit 1
+
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]

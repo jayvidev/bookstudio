@@ -1,0 +1,7 @@
+# Dev only. `docker compose up` merges this file automatically;
+# `pnpm docker:up:prod` passes -f explicitly, so it is not applied there.
+services:
+
+  postgres:
+    ports:
+      - "${DB_PORT:-5432}:5432"

@@ -1,0 +1,11 @@
+target/
+.mvn/
+mvnw
+mvnw.cmd
+.idea/
+.vscode/
+*.iml
+docs/
+images/
+src/main/resources/application-local.yml
+src/main/resources/application-local.properties

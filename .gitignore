@@ -1,7 +1,6 @@
 # Env (docker-compose usa .env en la raíz)
 .env
 .env.local
-docker-compose.override.yml
 
 # OS
 .DS_Store
