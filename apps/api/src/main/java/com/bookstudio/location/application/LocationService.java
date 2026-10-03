@@ -1,6 +1,6 @@
 package com.bookstudio.location.application;
 
-import com.bookstudio.copy.infrastructure.repository.CopyRepository;
+import com.bookstudio.location.LocationApi;
 import com.bookstudio.location.application.dto.request.CreateLocationRequest;
 import com.bookstudio.location.application.dto.request.CreateShelfRequest;
 import com.bookstudio.location.application.dto.request.UpdateLocationRequest;
@@ -12,9 +12,8 @@ import com.bookstudio.location.domain.model.Shelf;
 import com.bookstudio.location.infrastructure.repository.LocationRepository;
 import com.bookstudio.location.infrastructure.repository.ShelfRepository;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.response.OptionResponse;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -27,13 +26,21 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class LocationService {
-    @PersistenceContext
-    private EntityManager entityManager;
-
+public class LocationService implements LocationApi {
     private final LocationRepository locationRepository;
     private final ShelfRepository shelfRepository;
-    private final CopyRepository copyRepository;
+
+    @Override
+    public void requireShelfExists(Long shelfId) {
+        if (!shelfRepository.existsById(shelfId)) {
+            throw new ResourceNotFoundException("Shelf not found with ID: " + shelfId);
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getShelfOptions() {
+        return shelfRepository.findForOptions();
+    }
 
     public List<LocationListResponse> getList() {
         return locationRepository.findList();
@@ -53,7 +60,6 @@ public class LocationService {
         location.setDescription(request.description());
 
         Location saved = locationRepository.save(location);
-        entityManager.refresh(saved);
 
         if (request.shelves() != null) {
             for (CreateShelfRequest shelfDto : request.shelves()) {
@@ -93,12 +99,6 @@ public class LocationService {
     }
 
     private LocationListResponse toListResponse(Location location) {
-        return new LocationListResponse(
-                location.getId(),
-                location.getName(),
-                location.getDescription(),
-                shelfRepository.countByLocation(location),
-                copyRepository.countDistinctBookByShelfLocation(location),
-                copyRepository.countByShelfLocation(location));
+        return locationRepository.findListItemById(location.getId()).orElseThrow();
     }
 }

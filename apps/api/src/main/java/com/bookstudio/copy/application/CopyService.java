@@ -1,8 +1,7 @@
 package com.bookstudio.copy.application;
 
-import com.bookstudio.book.infrastructure.repository.BookRepository;
-import com.bookstudio.copy.infrastructure.repository.CopyRepository;
-import com.bookstudio.location.infrastructure.repository.ShelfRepository;
+import com.bookstudio.book.BookApi;
+import com.bookstudio.copy.CopyStatus;
 import com.bookstudio.copy.application.dto.request.CreateCopyRequest;
 import com.bookstudio.copy.application.dto.request.UpdateCopyRequest;
 import com.bookstudio.copy.application.dto.response.CopyDetailResponse;
@@ -11,7 +10,9 @@ import com.bookstudio.copy.application.dto.response.CopyListResponse;
 import com.bookstudio.copy.application.dto.response.CopySelectOptionsResponse;
 import com.bookstudio.copy.domain.model.Copy;
 import com.bookstudio.copy.domain.model.type.CopyCondition;
-import com.bookstudio.copy.domain.model.type.CopyStatus;
+import com.bookstudio.copy.infrastructure.repository.CopyRepository;
+import com.bookstudio.location.LocationApi;
+import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
@@ -20,9 +21,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.List;
 import java.time.LocalDate;
-import com.bookstudio.shared.code.CodeGenerator;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -32,8 +32,8 @@ public class CopyService {
     private final CodeGenerator codeGenerator;
 
     private final CopyRepository copyRepository;
-    private final BookRepository bookRepository;
-    private final ShelfRepository shelfRepository;
+    private final BookApi bookApi;
+    private final LocationApi locationApi;
 
     public List<CopyListResponse> getList() {
         return copyRepository.findList();
@@ -41,13 +41,13 @@ public class CopyService {
 
     public CopyFilterOptionsResponse getFilterOptions() {
         return new CopyFilterOptionsResponse(
-                bookRepository.findForOptions());
+                bookApi.getOptions());
     }
 
     public CopySelectOptionsResponse getSelectOptions() {
         return new CopySelectOptionsResponse(
-                bookRepository.findForOptions(),
-                shelfRepository.findForOptions());
+                bookApi.getOptions(),
+                locationApi.getShelfOptions());
     }
 
     public CopyDetailResponse getDetailById(Long id) {
@@ -58,10 +58,11 @@ public class CopyService {
     @Transactional
     public CopyListResponse create(CreateCopyRequest request) {
         Copy copy = new Copy();
-        copy.setBook(bookRepository.findById(request.bookId())
-                .orElseThrow(() -> new ResourceNotFoundException("Book not found with ID: " + request.bookId())));
-        copy.setShelf(shelfRepository.findById(request.shelfId())
-                .orElseThrow(() -> new ResourceNotFoundException("Shelf not found with ID: " + request.shelfId())));
+        bookApi.requireExists(request.bookId());
+        locationApi.requireShelfExists(request.shelfId());
+
+        copy.setBookId(request.bookId());
+        copy.setShelfId(request.shelfId());
 
         copy.setBarcode(request.barcode());
         copy.setStatus(CopyStatus.valueOf(request.status()));
@@ -79,8 +80,8 @@ public class CopyService {
         Copy copy = copyRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Copy not found with ID: " + id));
 
-        copy.setShelf(shelfRepository.findById(request.shelfId())
-                .orElseThrow(() -> new ResourceNotFoundException("Shelf not found with ID: " + request.shelfId())));
+        locationApi.requireShelfExists(request.shelfId());
+        copy.setShelfId(request.shelfId());
 
         copy.setBarcode(request.barcode());
         copy.setStatus(CopyStatus.valueOf(request.status()));
@@ -92,20 +93,6 @@ public class CopyService {
     }
 
     private CopyListResponse toListResponse(Copy copy) {
-        return new CopyListResponse(
-                copy.getId(),
-                copy.getCode(),
-
-                copy.getBook().getId(),
-                copy.getBook().getCoverUrl(),
-                copy.getBook().getTitle(),
-
-                copy.getShelf().getCode(),
-                copy.getShelf().getFloor(),
-
-                copy.getShelf().getLocation().getName(),
-
-                copy.getStatus(),
-                copy.getCondition());
+        return copyRepository.findListItemById(copy.getId()).orElseThrow();
     }
 }

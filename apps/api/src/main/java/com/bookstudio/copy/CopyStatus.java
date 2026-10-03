@@ -1,4 +1,4 @@
-package com.bookstudio.copy.domain.model.type;
+package com.bookstudio.copy;
 
 public enum CopyStatus {
     DISPONIBLE,

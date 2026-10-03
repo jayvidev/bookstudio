@@ -1,6 +1,7 @@
 package com.bookstudio.book.application;
 
 import com.bookstudio.author.AuthorApi;
+import com.bookstudio.book.BookApi;
 import com.bookstudio.book.application.dto.request.CreateBookRequest;
 import com.bookstudio.book.application.dto.request.UpdateBookRequest;
 import com.bookstudio.book.application.dto.response.BookDetailResponse;
@@ -14,6 +15,7 @@ import com.bookstudio.genre.GenreApi;
 import com.bookstudio.language.LanguageApi;
 import com.bookstudio.publisher.PublisherApi;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.response.OptionResponse;
 import com.bookstudio.shared.type.Status;
 
 import lombok.RequiredArgsConstructor;
@@ -28,7 +30,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class BookService {
+public class BookService implements BookApi {
     private final BookRepository bookRepository;
 
     private final LanguageApi languageApi;
@@ -36,6 +38,18 @@ public class BookService {
     private final CategoryApi categoryApi;
     private final AuthorApi authorApi;
     private final GenreApi genreApi;
+
+    @Override
+    public void requireExists(Long id) {
+        if (!bookRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Book not found with ID: " + id);
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getOptions() {
+        return bookRepository.findForOptions();
+    }
 
     public List<BookListResponse> getList() {
         return bookRepository.findList();

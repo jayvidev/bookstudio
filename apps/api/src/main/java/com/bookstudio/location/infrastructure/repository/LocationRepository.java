@@ -12,21 +12,28 @@ import com.bookstudio.location.domain.model.Location;
 import com.bookstudio.shared.response.OptionResponse;
 
 public interface LocationRepository extends JpaRepository<Location, Long> {
-    @Query("""
-        SELECT 
+    String LIST_SELECT = """
+        SELECT
             l.id AS id,
             l.name AS name,
             l.description AS description,
             COUNT(DISTINCT s.id) AS shelfCount,
-            COUNT(DISTINCT c.book.id) AS bookCount,
+            COUNT(DISTINCT c.bookId) AS bookCount,
             COUNT(DISTINCT c.id) AS copyCount
         FROM Location l
         LEFT JOIN l.shelves s
-        LEFT JOIN s.copies c
+        LEFT JOIN Copy c ON c.shelfId = s.id
+        """;
+
+    String LIST_GROUP_BY = """
         GROUP BY l.id, l.name, l.description
-        ORDER BY l.id DESC
-    """)
+        """;
+
+    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY l.id DESC")
     List<LocationListResponse> findList();
+
+    @Query(LIST_SELECT + "WHERE l.id = :id " + LIST_GROUP_BY)
+    Optional<LocationListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT 

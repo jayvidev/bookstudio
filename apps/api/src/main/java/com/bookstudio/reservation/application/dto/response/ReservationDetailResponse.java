@@ -2,7 +2,7 @@ package com.bookstudio.reservation.application.dto.response;
 
 import java.time.LocalDate;
 
-import com.bookstudio.copy.domain.model.type.CopyStatus;
+import com.bookstudio.copy.CopyStatus;
 import com.bookstudio.reservation.domain.model.type.ReservationStatus;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;

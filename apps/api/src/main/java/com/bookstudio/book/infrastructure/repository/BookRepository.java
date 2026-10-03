@@ -37,7 +37,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
         JOIN Publisher p ON p.id = b.publisherId
         JOIN Category c ON c.id = b.categoryId
         JOIN Language l ON l.id = b.languageId
-        LEFT JOIN Copy cpy ON cpy.book.id = b.id
+        LEFT JOIN Copy cpy ON cpy.bookId = b.id
         """;
 
     String LIST_GROUP_BY = """

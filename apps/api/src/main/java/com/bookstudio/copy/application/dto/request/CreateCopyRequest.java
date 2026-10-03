@@ -1,7 +1,7 @@
 package com.bookstudio.copy.application.dto.request;
 
 import com.bookstudio.copy.domain.model.type.CopyCondition;
-import com.bookstudio.copy.domain.model.type.CopyStatus;
+import com.bookstudio.copy.CopyStatus;
 import com.bookstudio.shared.validation.ValidEnum;
 
 import jakarta.validation.constraints.Min;

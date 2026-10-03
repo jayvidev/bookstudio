@@ -3,7 +3,7 @@ package com.bookstudio.fine.application.dto.response;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.bookstudio.copy.domain.model.type.CopyStatus;
+import com.bookstudio.copy.CopyStatus;
 import com.bookstudio.fine.domain.model.type.FineStatus;
 import com.bookstudio.loan.domain.model.type.LoanItemStatus;
 import com.fasterxml.jackson.annotation.JsonGetter;

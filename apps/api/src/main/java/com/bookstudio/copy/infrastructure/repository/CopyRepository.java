@@ -9,11 +9,10 @@ import org.springframework.data.jpa.repository.Query;
 import com.bookstudio.copy.application.dto.response.CopyDetailResponse;
 import com.bookstudio.copy.application.dto.response.CopyListResponse;
 import com.bookstudio.copy.domain.model.Copy;
-import com.bookstudio.location.domain.model.Location;
 import com.bookstudio.shared.response.OptionResponse;
 
 public interface CopyRepository extends JpaRepository<Copy, Long> {
-    @Query("""
+    String LIST_SELECT = """
         SELECT 
             c.id AS id,
             c.code AS code,
@@ -30,12 +29,16 @@ public interface CopyRepository extends JpaRepository<Copy, Long> {
             c.status AS status,
             c.condition AS condition
         FROM Copy c
-        JOIN c.book b
-        JOIN c.shelf s
+        JOIN Book b ON b.id = c.bookId
+        JOIN Shelf s ON s.id = c.shelfId
         JOIN s.location l
-        ORDER BY c.id DESC
-    """)
+        """;
+
+    @Query(LIST_SELECT + "ORDER BY c.id DESC")
     List<CopyListResponse> findList();
+
+    @Query(LIST_SELECT + "WHERE c.id = :id")
+    Optional<CopyListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT 
@@ -65,23 +68,10 @@ public interface CopyRepository extends JpaRepository<Copy, Long> {
             c.status AS status,
             c.condition AS condition
         FROM Copy c
-        JOIN c.book b
-        JOIN c.shelf s
+        JOIN Book b ON b.id = c.bookId
+        JOIN Shelf s ON s.id = c.shelfId
         WHERE c.id = :id
     """)
     Optional<CopyDetailResponse> findDetailById(Long id);
 
-    @Query("""
-        SELECT COUNT(c)
-        FROM Copy c
-        WHERE c.shelf.location = :location
-    """)
-    Long countByShelfLocation(Location location);
-
-    @Query("""
-        SELECT COUNT(DISTINCT c.book.id)
-        FROM Copy c
-        WHERE c.shelf.location = :location
-    """)
-    Long countDistinctBookByShelfLocation(Location location);
 }

@@ -3,7 +3,7 @@ package com.bookstudio.loan.application.dto.response;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.bookstudio.copy.domain.model.type.CopyStatus;
+import com.bookstudio.copy.CopyStatus;
 import com.bookstudio.loan.domain.model.type.LoanItemStatus;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.bookstudio.location.application.dto.response.LocationDetailResponse;
-import com.bookstudio.location.domain.model.Location;
 import com.bookstudio.location.domain.model.Shelf;
 import com.bookstudio.shared.response.OptionResponse;
 
@@ -30,7 +29,4 @@ public interface ShelfRepository extends JpaRepository<Shelf, Long> {
         WHERE s.location.id = :id
     """)
     List<LocationDetailResponse.ShelfItem> findShelfItemsByLocationId(Long id);
-
-    Long countByLocation(Location location);
-    void deleteAllByLocation(Location location);
 }

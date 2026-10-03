@@ -1,7 +1,7 @@
 package com.bookstudio.copy.application.dto.response;
 
 import com.bookstudio.copy.domain.model.type.CopyCondition;
-import com.bookstudio.copy.domain.model.type.CopyStatus;
+import com.bookstudio.copy.CopyStatus;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
