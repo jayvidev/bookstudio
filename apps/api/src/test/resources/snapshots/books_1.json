@@ -1,0 +1,40 @@
+{
+  "data": {
+    "releaseDate": "1963-10-15",
+    "isbn": "978-84-204-8304-7",
+    "edition": "1ª edición",
+    "description": "Primera novela de Mario Vargas Llosa, ambientada en el Colegio Militar Leoncio Prado",
+    "language": {
+      "code": "es",
+      "name": "Español",
+      "id": 1
+    },
+    "title": "La ciudad y los perros",
+    "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
+    "pages": 408,
+    "genres": [
+      {
+        "name": "Novela",
+        "id": 1
+      }
+    ],
+    "publisher": {
+      "name": "Alfaguara",
+      "id": 2
+    },
+    "id": 1,
+    "category": {
+      "name": "Literatura Clásica",
+      "id": 1
+    },
+    "status": "ACTIVO",
+    "authors": [
+      {
+        "name": "Mario Vargas Llosa",
+        "id": 1
+      }
+    ]
+  },
+  "success": true,
+  "message": "Book found"
+}

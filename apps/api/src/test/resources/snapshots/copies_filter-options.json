@@ -1,0 +1,124 @@
+{
+  "data": {
+    "books": [
+      {
+        "label": "1984",
+        "value": 28
+      },
+      {
+        "label": "Anatomía Humana",
+        "value": 38
+      },
+      {
+        "label": "Asesinato en el Orient Express",
+        "value": 27
+      },
+      {
+        "label": "Biología Molecular",
+        "value": 37
+      },
+      {
+        "label": "Cien años de soledad",
+        "value": 9
+      },
+      {
+        "label": "Diccionario de la Real Academia Española",
+        "value": 50
+      },
+      {
+        "label": "Don Quijote de la Mancha",
+        "value": 17
+      },
+      {
+        "label": "El Principito",
+        "value": 43
+      },
+      {
+        "label": "El viejo y el mar",
+        "value": 24
+      },
+      {
+        "label": "Enciclopedia Juvenil Oceano",
+        "value": 48
+      },
+      {
+        "label": "Ficciones",
+        "value": 10
+      },
+      {
+        "label": "Física General",
+        "value": 35
+      },
+      {
+        "label": "Harry Potter y la piedra filosofal",
+        "value": 26
+      },
+      {
+        "label": "Historia del Perú Contemporáneo",
+        "value": 33
+      },
+      {
+        "label": "It",
+        "value": 25
+      },
+      {
+        "label": "La casa de los espíritus",
+        "value": 11
+      },
+      {
+        "label": "La ciudad y los perros",
+        "value": 1
+      },
+      {
+        "label": "La palabra del mudo",
+        "value": 3
+      },
+      {
+        "label": "Los ríos profundos",
+        "value": 2
+      },
+      {
+        "label": "Matemáticas 4to Secundaria",
+        "value": 34
+      },
+      {
+        "label": "Matilda",
+        "value": 44
+      },
+      {
+        "label": "Orgullo y prejuicio",
+        "value": 29
+      },
+      {
+        "label": "Platero y yo",
+        "value": 20
+      },
+      {
+        "label": "Psicología del Desarrollo",
+        "value": 41
+      },
+      {
+        "label": "Química Orgánica",
+        "value": 36
+      },
+      {
+        "label": "Rayuela",
+        "value": 13
+      },
+      {
+        "label": "Romeo y Julieta",
+        "value": 23
+      },
+      {
+        "label": "Tradiciones Peruanas",
+        "value": 5
+      },
+      {
+        "label": "Trilce",
+        "value": 4
+      }
+    ]
+  },
+  "success": true,
+  "message": "Filter options retrieved successfully"
+}

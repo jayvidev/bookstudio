@@ -1,0 +1,19 @@
+{
+  "data": {
+    "photoUrl": null,
+    "website": "www.alfaguara.com",
+    "address": "Calle Torrelaguna 60, Madrid, España",
+    "nationality": {
+      "code": "es",
+      "name": "Española",
+      "id": 2
+    },
+    "genres": [],
+    "name": "Alfaguara",
+    "foundationYear": 1964,
+    "id": 2,
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Publisher found"
+}

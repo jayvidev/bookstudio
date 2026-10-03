@@ -1,0 +1,21 @@
+{
+  "data": {
+    "code": "RES-2024-00001",
+    "reader": {
+      "code": "LEC-YYYY-00001",
+      "fullName": "Ana María García López",
+      "id": 1
+    },
+    "id": 1,
+    "copy": {
+      "code": "EJE-YYYY-00050",
+      "id": 50,
+      "barcode": "100043001",
+      "status": "DISPONIBLE"
+    },
+    "reservationDate": "2024-07-28",
+    "status": "PENDIENTE"
+  },
+  "success": true,
+  "message": "Reservation found"
+}

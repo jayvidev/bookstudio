@@ -1,0 +1,17 @@
+{
+  "data": {
+    "photoUrl": "https:\/\/portal.andina.pe\/EDPfotografia2\/Thumbnail\/2011\/12\/03\/000171146W.jpg",
+    "nationality": {
+      "code": "pe",
+      "name": "Peruana",
+      "id": 1
+    },
+    "name": "Julio Ramón Ribeyro",
+    "id": 2,
+    "biography": "Escritor peruano, maestro del cuento latinoamericano",
+    "birthDate": "1929-08-31",
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Author found"
+}

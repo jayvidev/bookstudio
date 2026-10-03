@@ -1,0 +1,112 @@
+{
+  "data": {
+    "readers": [
+      {
+        "label": "Adrián Gabriel Choque Apaza",
+        "value": 14
+      },
+      {
+        "label": "Ana María García López",
+        "value": 1
+      },
+      {
+        "label": "Camila Andrea Torres Vilca",
+        "value": 9
+      },
+      {
+        "label": "Carlos Andrés Mendoza Silva",
+        "value": 2
+      },
+      {
+        "label": "Carmen Luz Herrera Morales",
+        "value": 17
+      },
+      {
+        "label": "Diego Alejandro Moreno Ramos",
+        "value": 6
+      },
+      {
+        "label": "Eduardo César Espinoza Luna",
+        "value": 26
+      },
+      {
+        "label": "Fernanda Alejandra Mamani Quispe",
+        "value": 15
+      },
+      {
+        "label": "Isabella Nicole Nina Calla",
+        "value": 13
+      },
+      {
+        "label": "Javier Fernando Huamán Flores",
+        "value": 8
+      },
+      {
+        "label": "Jorge Enrique Medina Castro",
+        "value": 20
+      },
+      {
+        "label": "José Luis Fernández Huamán",
+        "value": 21
+      },
+      {
+        "label": "Lucía Isabel Paredes Gutiérrez",
+        "value": 5
+      },
+      {
+        "label": "Luis Alberto Vega Sánchez",
+        "value": 18
+      },
+      {
+        "label": "Manuel Antonio Sánchez Vega",
+        "value": 24
+      },
+      {
+        "label": "María Elena Rodríguez Torres",
+        "value": 16
+      },
+      {
+        "label": "Mateo José Condori Apaza",
+        "value": 10
+      },
+      {
+        "label": "Patricia Rosa Vargas Chávez",
+        "value": 3
+      },
+      {
+        "label": "Pilar Roxana Alvarez Tejada",
+        "value": 25
+      },
+      {
+        "label": "Ricardo Manuel Morales Díaz",
+        "value": 23
+      },
+      {
+        "label": "Roberto Miguel Castro Quispe",
+        "value": 4
+      },
+      {
+        "label": "Rosa María Guerrero Silva",
+        "value": 19
+      },
+      {
+        "label": "Sandra Patricia López Vargas",
+        "value": 22
+      },
+      {
+        "label": "Sebastián Alonso Poma Hancco",
+        "value": 12
+      },
+      {
+        "label": "Sofía Elena Quispe Mamani",
+        "value": 7
+      },
+      {
+        "label": "Valeria Milagros Ramos Ccahuana",
+        "value": 11
+      }
+    ]
+  },
+  "success": true,
+  "message": "Filter options retrieved successfully"
+}

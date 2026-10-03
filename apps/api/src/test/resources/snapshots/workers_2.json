@@ -1,0 +1,17 @@
+{
+  "data": {
+    "firstName": "Ana María",
+    "lastName": "Torres Vásquez",
+    "role": {
+      "name": "Bibliotecario",
+      "id": 2
+    },
+    "id": 2,
+    "email": "ana.torres@biblioteca.edu.pe",
+    "username": "bibliotecario1",
+    "profilePhotoUrl": null,
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Worker found"
+}

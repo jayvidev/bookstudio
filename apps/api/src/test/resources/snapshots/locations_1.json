@@ -1,0 +1,71 @@
+{
+  "data": {
+    "name": "Sala General",
+    "description": "Sala principal con literatura general y consulta",
+    "id": 1,
+    "shelves": [
+      {
+        "code": "A01",
+        "description": "Literatura peruana",
+        "id": 1,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "A02",
+        "description": "Literatura latinoamericana",
+        "id": 2,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "A03",
+        "description": "Literatura española",
+        "id": 3,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "A04",
+        "description": "Literatura universal",
+        "id": 4,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "A05",
+        "description": "Novelas contemporáneas",
+        "id": 5,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "A06",
+        "description": "Clásicos universales",
+        "id": 6,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "B01",
+        "description": "Historia y biografías",
+        "id": 7,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "B02",
+        "description": "Ciencias sociales",
+        "id": 8,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "B03",
+        "description": "Filosofía",
+        "id": 9,
+        "floor": "Planta Baja"
+      },
+      {
+        "code": "B04",
+        "description": "Religión",
+        "id": 10,
+        "floor": "Planta Baja"
+      }
+    ]
+  },
+  "success": true,
+  "message": "Location found"
+}

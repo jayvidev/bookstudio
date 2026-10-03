@@ -1,0 +1,11 @@
+{
+  "data": {
+    "level": "SUPERIOR",
+    "name": "Literatura Contemporánea",
+    "description": "Obras literarias modernas y actuales",
+    "id": 2,
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Category found"
+}

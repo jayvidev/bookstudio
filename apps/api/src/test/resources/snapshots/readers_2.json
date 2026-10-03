@@ -1,0 +1,18 @@
+{
+  "data": {
+    "firstName": "Carlos Andrés",
+    "lastName": "Mendoza Silva",
+    "code": "LEC-YYYY-00002",
+    "address": "Jr. Los Olivos 567, Lima",
+    "gender": "MASCULINO",
+    "phone": "976543210",
+    "id": 2,
+    "type": "ESTUDIANTE",
+    "birthDate": "1997-08-22",
+    "dni": "23456789",
+    "email": "carlos.mendoza@email.com",
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Reader found"
+}

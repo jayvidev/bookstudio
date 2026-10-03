@@ -1,0 +1,24 @@
+{
+  "data": {
+    "amount": 3.75,
+    "code": "PAG-2024-00002",
+    "method": "EFECTIVO",
+    "reader": {
+      "code": "LEC-YYYY-00004",
+      "fullName": "Roberto Miguel Castro Quispe",
+      "id": 4
+    },
+    "fines": [
+      {
+        "amount": 3.75,
+        "code": "MUL-2024-00016",
+        "id": 16,
+        "status": "PAGADO"
+      }
+    ],
+    "id": 2,
+    "paymentDate": "2024-08-06"
+  },
+  "success": true,
+  "message": "Payment found"
+}

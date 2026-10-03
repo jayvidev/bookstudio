@@ -1,0 +1,21 @@
+{
+  "data": {
+    "code": "RES-2024-00002",
+    "reader": {
+      "code": "LEC-YYYY-00002",
+      "fullName": "Carlos Andrés Mendoza Silva",
+      "id": 2
+    },
+    "id": 2,
+    "copy": {
+      "code": "EJE-YYYY-00031",
+      "id": 31,
+      "barcode": "100026003",
+      "status": "PRESTADO"
+    },
+    "reservationDate": "2024-07-29",
+    "status": "PENDIENTE"
+  },
+  "success": true,
+  "message": "Reservation found"
+}

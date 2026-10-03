@@ -1,0 +1,256 @@
+{
+  "data": {
+    "languages": [
+      {
+        "label": "Alemán",
+        "value": 4
+      },
+      {
+        "label": "Chino",
+        "value": 9
+      },
+      {
+        "label": "Coreano",
+        "value": 12
+      },
+      {
+        "label": "Danés",
+        "value": 16
+      },
+      {
+        "label": "Español",
+        "value": 1
+      },
+      {
+        "label": "Finés",
+        "value": 17
+      },
+      {
+        "label": "Francés",
+        "value": 3
+      },
+      {
+        "label": "Griego",
+        "value": 18
+      },
+      {
+        "label": "Hebreo",
+        "value": 20
+      },
+      {
+        "label": "Hindi",
+        "value": 11
+      },
+      {
+        "label": "Holandés",
+        "value": 13
+      },
+      {
+        "label": "Inglés",
+        "value": 2
+      },
+      {
+        "label": "Italiano",
+        "value": 5
+      },
+      {
+        "label": "Japonés",
+        "value": 7
+      },
+      {
+        "label": "Latín",
+        "value": 19
+      },
+      {
+        "label": "Noruego",
+        "value": 15
+      },
+      {
+        "label": "Portugués",
+        "value": 6
+      },
+      {
+        "label": "Ruso",
+        "value": 8
+      },
+      {
+        "label": "Sueco",
+        "value": 14
+      },
+      {
+        "label": "Árabe",
+        "value": 10
+      }
+    ],
+    "publishers": [
+      {
+        "label": "Alfaguara",
+        "value": 2
+      },
+      {
+        "label": "Crítica",
+        "value": 18
+      },
+      {
+        "label": "Cátedra",
+        "value": 8
+      },
+      {
+        "label": "Debolsillo",
+        "value": 17
+      },
+      {
+        "label": "Ediciones B",
+        "value": 20
+      },
+      {
+        "label": "Editorial Andrés Bello",
+        "value": 15
+      },
+      {
+        "label": "Editorial Norma",
+        "value": 11
+      },
+      {
+        "label": "Editorial Porrúa",
+        "value": 14
+      },
+      {
+        "label": "Editorial Sudamericana",
+        "value": 12
+      },
+      {
+        "label": "Fondo de Cultura Económica",
+        "value": 6
+      },
+      {
+        "label": "Peisa",
+        "value": 10
+      },
+      {
+        "label": "Penguin Random House",
+        "value": 3
+      },
+      {
+        "label": "Planeta",
+        "value": 1
+      },
+      {
+        "label": "Salamandra",
+        "value": 16
+      },
+      {
+        "label": "Santillana",
+        "value": 4
+      },
+      {
+        "label": "Seix Barral",
+        "value": 7
+      }
+    ],
+    "categories": [
+      {
+        "label": "Arte",
+        "value": 19
+      },
+      {
+        "label": "Biología",
+        "value": 8
+      },
+      {
+        "label": "Cocina",
+        "value": 22
+      },
+      {
+        "label": "Cuentos Infantiles",
+        "value": 9
+      },
+      {
+        "label": "Deportes",
+        "value": 21
+      },
+      {
+        "label": "Derecho",
+        "value": 15
+      },
+      {
+        "label": "Economía",
+        "value": 17
+      },
+      {
+        "label": "Enciclopedias",
+        "value": 10
+      },
+      {
+        "label": "Filosofía",
+        "value": 11
+      },
+      {
+        "label": "Física",
+        "value": 6
+      },
+      {
+        "label": "Geografía",
+        "value": 16
+      },
+      {
+        "label": "Historia Universal",
+        "value": 4
+      },
+      {
+        "label": "Historia del Perú",
+        "value": 3
+      },
+      {
+        "label": "Ingeniería",
+        "value": 13
+      },
+      {
+        "label": "Jardinería",
+        "value": 23
+      },
+      {
+        "label": "Literatura Clásica",
+        "value": 1
+      },
+      {
+        "label": "Literatura Contemporánea",
+        "value": 2
+      },
+      {
+        "label": "Matemáticas",
+        "value": 5
+      },
+      {
+        "label": "Medicina",
+        "value": 14
+      },
+      {
+        "label": "Música",
+        "value": 20
+      },
+      {
+        "label": "Psicología",
+        "value": 12
+      },
+      {
+        "label": "Química",
+        "value": 7
+      },
+      {
+        "label": "Religión",
+        "value": 25
+      },
+      {
+        "label": "Sociología",
+        "value": 18
+      },
+      {
+        "label": "Tecnología",
+        "value": 24
+      }
+    ]
+  },
+  "success": true,
+  "message": "Filter options retrieved successfully"
+}

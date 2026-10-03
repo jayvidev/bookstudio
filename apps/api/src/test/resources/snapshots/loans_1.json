@@ -1,0 +1,50 @@
+{
+  "data": {
+    "code": "PRE-2024-00001",
+    "reader": {
+      "code": "LEC-YYYY-00001",
+      "fullName": "Ana María García López",
+      "id": 1
+    },
+    "observation": "Préstamo regular",
+    "loanDate": "2024-07-20",
+    "id": 1,
+    "items": [
+      {
+        "returnDate": "2024-08-01",
+        "dueDate": "2024-08-03",
+        "copy": {
+          "code": "EJE-YYYY-00003",
+          "id": 3,
+          "barcode": "100001003",
+          "status": "PRESTADO"
+        },
+        "status": "DEVUELTO"
+      },
+      {
+        "returnDate": "2024-08-01",
+        "dueDate": "2024-08-03",
+        "copy": {
+          "code": "EJE-YYYY-00025",
+          "id": 25,
+          "barcode": "100023003",
+          "status": "PRESTADO"
+        },
+        "status": "DEVUELTO"
+      },
+      {
+        "returnDate": null,
+        "dueDate": "2024-08-03",
+        "copy": {
+          "code": "EJE-YYYY-00047",
+          "id": 47,
+          "barcode": "100035002",
+          "status": "DISPONIBLE"
+        },
+        "status": "RETRASADO"
+      }
+    ]
+  },
+  "success": true,
+  "message": "Loan found"
+}

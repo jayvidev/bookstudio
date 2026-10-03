@@ -1,0 +1,302 @@
+{
+  "data": {
+    "books": [
+      {
+        "label": "1984",
+        "value": 28
+      },
+      {
+        "label": "Anatomía Humana",
+        "value": 38
+      },
+      {
+        "label": "Asesinato en el Orient Express",
+        "value": 27
+      },
+      {
+        "label": "Biología Molecular",
+        "value": 37
+      },
+      {
+        "label": "Cien años de soledad",
+        "value": 9
+      },
+      {
+        "label": "Diccionario de la Real Academia Española",
+        "value": 50
+      },
+      {
+        "label": "Don Quijote de la Mancha",
+        "value": 17
+      },
+      {
+        "label": "El Principito",
+        "value": 43
+      },
+      {
+        "label": "El viejo y el mar",
+        "value": 24
+      },
+      {
+        "label": "Enciclopedia Juvenil Oceano",
+        "value": 48
+      },
+      {
+        "label": "Ficciones",
+        "value": 10
+      },
+      {
+        "label": "Física General",
+        "value": 35
+      },
+      {
+        "label": "Harry Potter y la piedra filosofal",
+        "value": 26
+      },
+      {
+        "label": "Historia del Perú Contemporáneo",
+        "value": 33
+      },
+      {
+        "label": "It",
+        "value": 25
+      },
+      {
+        "label": "La casa de los espíritus",
+        "value": 11
+      },
+      {
+        "label": "La ciudad y los perros",
+        "value": 1
+      },
+      {
+        "label": "La palabra del mudo",
+        "value": 3
+      },
+      {
+        "label": "Los ríos profundos",
+        "value": 2
+      },
+      {
+        "label": "Matemáticas 4to Secundaria",
+        "value": 34
+      },
+      {
+        "label": "Matilda",
+        "value": 44
+      },
+      {
+        "label": "Orgullo y prejuicio",
+        "value": 29
+      },
+      {
+        "label": "Platero y yo",
+        "value": 20
+      },
+      {
+        "label": "Psicología del Desarrollo",
+        "value": 41
+      },
+      {
+        "label": "Química Orgánica",
+        "value": 36
+      },
+      {
+        "label": "Rayuela",
+        "value": 13
+      },
+      {
+        "label": "Romeo y Julieta",
+        "value": 23
+      },
+      {
+        "label": "Tradiciones Peruanas",
+        "value": 5
+      },
+      {
+        "label": "Trilce",
+        "value": 4
+      }
+    ],
+    "shelves": [
+      {
+        "label": "Archivo Histórico - Sótano",
+        "value": 39
+      },
+      {
+        "label": "Biblioteca Digital - Tercer Piso",
+        "value": 40
+      },
+      {
+        "label": "Depósito - Depósito",
+        "value": 34
+      },
+      {
+        "label": "Depósito - Depósito",
+        "value": 33
+      },
+      {
+        "label": "Depósito - Depósito",
+        "value": 32
+      },
+      {
+        "label": "Exposiciones - Planta Baja",
+        "value": 44
+      },
+      {
+        "label": "Hemeroteca - Primer Piso",
+        "value": 36
+      },
+      {
+        "label": "Hemeroteca - Primer Piso",
+        "value": 37
+      },
+      {
+        "label": "Hemeroteca - Primer Piso",
+        "value": 35
+      },
+      {
+        "label": "Ludoteca - Segundo Piso",
+        "value": 43
+      },
+      {
+        "label": "Préstamos Especiales - Segundo Piso",
+        "value": 41
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 1
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 2
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 3
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 4
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 5
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 6
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 7
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 8
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 9
+      },
+      {
+        "label": "Sala General - Planta Baja",
+        "value": 10
+      },
+      {
+        "label": "Sala Infantil - Segundo Piso",
+        "value": 22
+      },
+      {
+        "label": "Sala Infantil - Segundo Piso",
+        "value": 23
+      },
+      {
+        "label": "Sala Infantil - Segundo Piso",
+        "value": 21
+      },
+      {
+        "label": "Sala Infantil - Segundo Piso",
+        "value": 20
+      },
+      {
+        "label": "Sala Infantil - Segundo Piso",
+        "value": 19
+      },
+      {
+        "label": "Sala de Computadoras - Primer Piso",
+        "value": 38
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 15
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 18
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 17
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 16
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 14
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 13
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 12
+      },
+      {
+        "label": "Sala de Estudio - Primer Piso",
+        "value": 11
+      },
+      {
+        "label": "Sala de Investigación - Tercer Piso",
+        "value": 29
+      },
+      {
+        "label": "Sala de Investigación - Tercer Piso",
+        "value": 30
+      },
+      {
+        "label": "Sala de Investigación - Tercer Piso",
+        "value": 31
+      },
+      {
+        "label": "Sala de Investigación - Tercer Piso",
+        "value": 28
+      },
+      {
+        "label": "Sala de Referencia - Segundo Piso",
+        "value": 26
+      },
+      {
+        "label": "Sala de Referencia - Segundo Piso",
+        "value": 27
+      },
+      {
+        "label": "Sala de Referencia - Segundo Piso",
+        "value": 24
+      },
+      {
+        "label": "Sala de Referencia - Segundo Piso",
+        "value": 25
+      },
+      {
+        "label": "Talleres - Primer Piso",
+        "value": 42
+      }
+    ]
+  },
+  "success": true,
+  "message": "Select options retrieved successfully"
+}

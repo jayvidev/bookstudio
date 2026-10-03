@@ -1,0 +1,36 @@
+{
+  "data": {
+    "amount": 7.5,
+    "code": "PAG-2024-00001",
+    "method": "EFECTIVO",
+    "reader": {
+      "code": "LEC-YYYY-00001",
+      "fullName": "Ana María García López",
+      "id": 1
+    },
+    "fines": [
+      {
+        "amount": 2.5,
+        "code": "MUL-2024-00013",
+        "id": 13,
+        "status": "PAGADO"
+      },
+      {
+        "amount": 2.5,
+        "code": "MUL-2024-00014",
+        "id": 14,
+        "status": "PAGADO"
+      },
+      {
+        "amount": 2.5,
+        "code": "MUL-2024-00015",
+        "id": 15,
+        "status": "PAGADO"
+      }
+    ],
+    "id": 1,
+    "paymentDate": "2024-07-26"
+  },
+  "success": true,
+  "message": "Payment found"
+}

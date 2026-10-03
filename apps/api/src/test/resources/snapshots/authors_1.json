@@ -1,0 +1,17 @@
+{
+  "data": {
+    "photoUrl": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQ1vrnEOMvV7mwmCjPaPQkFluklQO_IdsMvaQ&s",
+    "nationality": {
+      "code": "pe",
+      "name": "Peruana",
+      "id": 1
+    },
+    "name": "Mario Vargas Llosa",
+    "id": 1,
+    "biography": "Premio Nobel de Literatura 2010, escritor peruano considerado uno de los más importantes novelistas contemporáneos",
+    "birthDate": "1936-03-28",
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Author found"
+}

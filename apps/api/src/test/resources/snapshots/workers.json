@@ -1,0 +1,234 @@
+{
+  "data": [
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Luis Fernando Nina Calla",
+      "id": 20,
+      "email": "luis.nina@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente10",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Mónica Álvarez Tejada",
+      "id": 19,
+      "email": "monica.alvarez@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario9",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Jesús Poma Hancco",
+      "id": 18,
+      "email": "jesus.poma@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente9",
+      "status": "SUSPENDIDO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Rosa María Morales Espinoza",
+      "id": 17,
+      "email": "rosa.morales@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario8",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "David Choque Apaza",
+      "id": 16,
+      "email": "david.choque@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente8",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Patricia Ramos Ccahuana",
+      "id": 15,
+      "email": "patricia.ramos@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario7",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Carlos Alberto Herrera Luna",
+      "id": 14,
+      "email": "carlos.herrera@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente7",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Andrea Mamani Quispe",
+      "id": 13,
+      "email": "andrea.mamani@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente6",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Fernando Silva Coronado",
+      "id": 12,
+      "email": "fernando.silva@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario6",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Elena Vargas Medina",
+      "id": 11,
+      "email": "elena.vargas@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario5",
+      "status": "SUSPENDIDO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Miguel Rojas Condori",
+      "id": 10,
+      "email": "miguel.rojas@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente5",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Sofía Guerrero Vilca",
+      "id": 9,
+      "email": "sofia.guerrero@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente4",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Ricardo Flores Pérez",
+      "id": 8,
+      "email": "ricardo.flores@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente3",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "Carmen Rosa Díaz Huamán",
+      "id": 7,
+      "email": "carmen.diaz@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente2",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Asistente",
+        "id": 3
+      },
+      "fullName": "María Elena López Fernández",
+      "id": 6,
+      "email": "maria.lopez@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "asistente1",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Pedro Martínez Castillo",
+      "id": 5,
+      "email": "pedro.martinez@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario4",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Lucía Santos Rivera",
+      "id": 4,
+      "email": "lucia.santos@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario3",
+      "status": "ELIMINADO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "José Luis Ruiz Morales",
+      "id": 3,
+      "email": "jose.ruiz@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario2",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Ana María Torres Vásquez",
+      "id": 2,
+      "email": "ana.torres@biblioteca.edu.pe",
+      "profilePhotoUrl": null,
+      "username": "bibliotecario1",
+      "status": "ACTIVO"
+    }
+  ],
+  "success": true,
+  "message": "Workers listed successfully"
+}

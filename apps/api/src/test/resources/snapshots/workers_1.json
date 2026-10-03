@@ -1,0 +1,17 @@
+{
+  "data": {
+    "firstName": "Carlos",
+    "lastName": "Mendoza García",
+    "role": {
+      "name": "Administrador",
+      "id": 1
+    },
+    "id": 1,
+    "email": "admin@biblioteca.edu.pe",
+    "username": "admin",
+    "profilePhotoUrl": null,
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Worker found"
+}

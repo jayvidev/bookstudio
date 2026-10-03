@@ -1,0 +1,19 @@
+{
+  "data": {
+    "photoUrl": null,
+    "website": "www.planeta.es",
+    "address": "Av. Diagonal 662-664, Barcelona, España",
+    "nationality": {
+      "code": "es",
+      "name": "Española",
+      "id": 2
+    },
+    "genres": [],
+    "name": "Planeta",
+    "foundationYear": 1949,
+    "id": 1,
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Publisher found"
+}

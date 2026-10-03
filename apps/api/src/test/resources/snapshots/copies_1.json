@@ -1,0 +1,23 @@
+{
+  "data": {
+    "condition": "BUENO",
+    "code": "EJE-YYYY-00001",
+    "book": {
+      "coverUrl": "https:\/\/www.rae.es\/sites\/default\/files\/styles\/obra_portada_ficha\/public\/la_ciudad_y_los_perros.jpg?itok=xRoMNsUb",
+      "isbn": "978-84-204-8304-7",
+      "id": 1,
+      "title": "La ciudad y los perros"
+    },
+    "id": 1,
+    "barcode": "100001001",
+    "shelf": {
+      "code": "A01",
+      "description": "Literatura peruana",
+      "id": 1,
+      "floor": "Planta Baja"
+    },
+    "status": "DISPONIBLE"
+  },
+  "success": true,
+  "message": "Copy found"
+}

@@ -1,0 +1,20 @@
+{
+  "data": {
+    "roles": [
+      {
+        "label": "Administrador",
+        "value": 1
+      },
+      {
+        "label": "Asistente",
+        "value": 3
+      },
+      {
+        "label": "Bibliotecario",
+        "value": 2
+      }
+    ]
+  },
+  "success": true,
+  "message": "Filter options retrieved successfully"
+}

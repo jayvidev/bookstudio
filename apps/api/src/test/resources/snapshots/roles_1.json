@@ -1,0 +1,91 @@
+{
+  "data": {
+    "permissions": [
+      {
+        "code": "ADMIN_FULL",
+        "description": "Acceso completo de administrador",
+        "id": 1
+      },
+      {
+        "code": "USER_CREATE",
+        "description": "Crear usuarios",
+        "id": 2
+      },
+      {
+        "code": "USER_EDIT",
+        "description": "Editar usuarios",
+        "id": 3
+      },
+      {
+        "code": "USER_DELETE",
+        "description": "Eliminar usuarios",
+        "id": 4
+      },
+      {
+        "code": "BOOK_CREATE",
+        "description": "Agregar libros",
+        "id": 5
+      },
+      {
+        "code": "BOOK_EDIT",
+        "description": "Editar libros",
+        "id": 6
+      },
+      {
+        "code": "BOOK_DELETE",
+        "description": "Eliminar libros",
+        "id": 7
+      },
+      {
+        "code": "LOAN_CREATE",
+        "description": "Crear préstamos",
+        "id": 8
+      },
+      {
+        "code": "LOAN_EDIT",
+        "description": "Editar préstamos",
+        "id": 9
+      },
+      {
+        "code": "LOAN_RETURN",
+        "description": "Procesar devoluciones",
+        "id": 10
+      },
+      {
+        "code": "FINE_CREATE",
+        "description": "Crear multas",
+        "id": 11
+      },
+      {
+        "code": "FINE_EDIT",
+        "description": "Editar multas",
+        "id": 12
+      },
+      {
+        "code": "FINE_PAYMENT",
+        "description": "Procesar pagos de multas",
+        "id": 13
+      },
+      {
+        "code": "REPORT_VIEW",
+        "description": "Ver reportes",
+        "id": 14
+      },
+      {
+        "code": "CATALOG_MANAGE",
+        "description": "Gestionar catálogo",
+        "id": 15
+      },
+      {
+        "code": "RESERVATION_MANAGE",
+        "description": "Gestionar reservas",
+        "id": 16
+      }
+    ],
+    "name": "Administrador",
+    "description": "Acceso completo al sistema, gestión de usuarios y configuración",
+    "id": 1
+  },
+  "success": true,
+  "message": "Role found"
+}

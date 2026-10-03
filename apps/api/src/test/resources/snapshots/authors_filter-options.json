@@ -1,0 +1,108 @@
+{
+  "data": {
+    "nationalities": [
+      {
+        "label": "Alemana",
+        "value": 10
+      },
+      {
+        "label": "Argentina",
+        "value": 3
+      },
+      {
+        "label": "Australiana",
+        "value": 16
+      },
+      {
+        "label": "Austriaca",
+        "value": 23
+      },
+      {
+        "label": "Belga",
+        "value": 21
+      },
+      {
+        "label": "Brasileña",
+        "value": 12
+      },
+      {
+        "label": "Británica",
+        "value": 8
+      },
+      {
+        "label": "Canadiense",
+        "value": 15
+      },
+      {
+        "label": "Checa",
+        "value": 25
+      },
+      {
+        "label": "Chilena",
+        "value": 6
+      },
+      {
+        "label": "Colombiana",
+        "value": 5
+      },
+      {
+        "label": "Danesa",
+        "value": 20
+      },
+      {
+        "label": "Española",
+        "value": 2
+      },
+      {
+        "label": "Estadounidense",
+        "value": 7
+      },
+      {
+        "label": "Francesa",
+        "value": 9
+      },
+      {
+        "label": "Holandesa",
+        "value": 17
+      },
+      {
+        "label": "Italiana",
+        "value": 11
+      },
+      {
+        "label": "Japonesa",
+        "value": 13
+      },
+      {
+        "label": "Mexicana",
+        "value": 4
+      },
+      {
+        "label": "Noruega",
+        "value": 19
+      },
+      {
+        "label": "Peruana",
+        "value": 1
+      },
+      {
+        "label": "Polaca",
+        "value": 24
+      },
+      {
+        "label": "Rusa",
+        "value": 14
+      },
+      {
+        "label": "Sueca",
+        "value": 18
+      },
+      {
+        "label": "Suiza",
+        "value": 22
+      }
+    ]
+  },
+  "success": true,
+  "message": "Filter options retrieved successfully"
+}

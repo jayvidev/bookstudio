@@ -1,0 +1,59 @@
+{
+  "data": {
+    "name": "Sala de Estudio",
+    "description": "Área silenciosa para estudio individual",
+    "id": 2,
+    "shelves": [
+      {
+        "code": "C01",
+        "description": "Matemáticas y física",
+        "id": 11,
+        "floor": "Primer Piso"
+      },
+      {
+        "code": "C02",
+        "description": "Química y biología",
+        "id": 12,
+        "floor": "Primer Piso"
+      },
+      {
+        "code": "C03",
+        "description": "Ingeniería y tecnología",
+        "id": 13,
+        "floor": "Primer Piso"
+      },
+      {
+        "code": "C04",
+        "description": "Medicina y salud",
+        "id": 14,
+        "floor": "Primer Piso"
+      },
+      {
+        "code": "C05",
+        "description": "Derecho",
+        "id": 15,
+        "floor": "Primer Piso"
+      },
+      {
+        "code": "C06",
+        "description": "Economía",
+        "id": 16,
+        "floor": "Primer Piso"
+      },
+      {
+        "code": "C07",
+        "description": "Psicología",
+        "id": 17,
+        "floor": "Primer Piso"
+      },
+      {
+        "code": "C08",
+        "description": "Educación",
+        "id": 18,
+        "floor": "Primer Piso"
+      }
+    ]
+  },
+  "success": true,
+  "message": "Location found"
+}

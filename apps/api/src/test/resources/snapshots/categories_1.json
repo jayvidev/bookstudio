@@ -1,0 +1,11 @@
+{
+  "data": {
+    "level": "SUPERIOR",
+    "name": "Literatura Clásica",
+    "description": "Obras literarias de reconocido valor universal",
+    "id": 1,
+    "status": "ACTIVO"
+  },
+  "success": true,
+  "message": "Category found"
+}

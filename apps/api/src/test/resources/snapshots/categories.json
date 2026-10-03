@@ -1,0 +1,321 @@
+{
+  "data": [
+    {
+      "level": "GENERAL",
+      "name": "Ajedrez",
+      "description": "Estrategias y técnicas del juego de ajedrez",
+      "id": 45,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Fotografía",
+      "description": "Técnicas fotográficas y composición",
+      "id": 44,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Folklore",
+      "description": "Tradiciones y cultura popular",
+      "id": 43,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Ecología",
+      "description": "Medio ambiente y conservación",
+      "id": 42,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Turismo",
+      "description": "Gestión turística y hotelera",
+      "id": 41,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Periodismo",
+      "description": "Técnicas de comunicación y medios",
+      "id": 40,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Nutrición",
+      "description": "Alimentación y salud nutricional",
+      "id": 39,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Criminología",
+      "description": "Estudio del crimen y la justicia penal",
+      "id": 38,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Estadística",
+      "description": "Métodos estadísticos y análisis de datos",
+      "id": 37,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Literatura Juvenil",
+      "description": "Libros dirigidos a adolescentes",
+      "id": 36,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Arqueología",
+      "description": "Investigación de civilizaciones antiguas",
+      "id": 35,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Botánica",
+      "description": "Estudio científico de las plantas",
+      "id": 34,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Antropología Cultural",
+      "description": "Estudios de culturas y sociedades",
+      "id": 33,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Teatro Clásico",
+      "description": "Obras teatrales tradicionales",
+      "id": 32,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Pedagogía",
+      "description": "Métodos de enseñanza y educación",
+      "id": 31,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Química Orgánica",
+      "description": "Química especializada nivel universitario",
+      "id": 30,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Administración",
+      "description": "Gestión empresarial y organizacional",
+      "id": 29,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Política Internacional",
+      "description": "Análisis político y relaciones internacionales",
+      "id": 28,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Astronomía",
+      "description": "Libros sobre el universo y los astros",
+      "id": 27,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Literatura Fantástica",
+      "description": "Novelas de fantasía y ciencia ficción",
+      "id": 26,
+      "status": "INACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Religión",
+      "description": "Textos religiosos y estudios teológicos",
+      "id": 25,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Tecnología",
+      "description": "Informática y nuevas tecnologías",
+      "id": 24,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Jardinería",
+      "description": "Cuidado de plantas y jardines",
+      "id": 23,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Cocina",
+      "description": "Libros de recetas y gastronomía",
+      "id": 22,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Deportes",
+      "description": "Libros sobre deportes y educación física",
+      "id": 21,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Música",
+      "description": "Teoría musical e historia de la música",
+      "id": 20,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Arte",
+      "description": "Historia del arte y técnicas artísticas",
+      "id": 19,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Sociología",
+      "description": "Estudios sociales y antropología",
+      "id": 18,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Economía",
+      "description": "Textos de economía y finanzas",
+      "id": 17,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Geografía",
+      "description": "Libros de geografía y cartografía",
+      "id": 16,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Derecho",
+      "description": "Textos jurídicos y legales",
+      "id": 15,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Medicina",
+      "description": "Libros de medicina y salud",
+      "id": 14,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Ingeniería",
+      "description": "Textos técnicos de ingeniería",
+      "id": 13,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Psicología",
+      "description": "Libros de psicología y comportamiento humano",
+      "id": 12,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Filosofía",
+      "description": "Textos filosóficos y pensamiento",
+      "id": 11,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "GENERAL",
+      "name": "Enciclopedias",
+      "description": "Obras de consulta general",
+      "id": 10,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "PRIMARIA",
+      "name": "Cuentos Infantiles",
+      "description": "Libros para niños de educación primaria",
+      "id": 9,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Biología",
+      "description": "Textos de biología y ciencias naturales",
+      "id": 8,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Química",
+      "description": "Libros de química nivel secundario",
+      "id": 7,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Física",
+      "description": "Textos de física para secundaria",
+      "id": 6,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Matemáticas",
+      "description": "Libros de matemáticas nivel secundario",
+      "id": 5,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Historia Universal",
+      "description": "Historia mundial y civilizaciones",
+      "id": 4,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SECUNDARIA",
+      "name": "Historia del Perú",
+      "description": "Libros sobre la historia nacional",
+      "id": 3,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Literatura Contemporánea",
+      "description": "Obras literarias modernas y actuales",
+      "id": 2,
+      "status": "ACTIVO"
+    },
+    {
+      "level": "SUPERIOR",
+      "name": "Literatura Clásica",
+      "description": "Obras literarias de reconocido valor universal",
+      "id": 1,
+      "status": "ACTIVO"
+    }
+  ],
+  "success": true,
+  "message": "Categories listed successfully"
+}

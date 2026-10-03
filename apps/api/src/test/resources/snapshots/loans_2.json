@@ -1,0 +1,39 @@
+{
+  "data": {
+    "code": "PRE-2024-00002",
+    "reader": {
+      "code": "LEC-YYYY-00002",
+      "fullName": "Carlos Andrés Mendoza Silva",
+      "id": 2
+    },
+    "observation": "Estudiante de literatura",
+    "loanDate": "2024-07-21",
+    "id": 2,
+    "items": [
+      {
+        "returnDate": null,
+        "dueDate": "2024-08-04",
+        "copy": {
+          "code": "EJE-YYYY-00013",
+          "id": 13,
+          "barcode": "100003001",
+          "status": "DISPONIBLE"
+        },
+        "status": "PRESTADO"
+      },
+      {
+        "returnDate": null,
+        "dueDate": "2024-08-04",
+        "copy": {
+          "code": "EJE-YYYY-00029",
+          "id": 29,
+          "barcode": "100026001",
+          "status": "DISPONIBLE"
+        },
+        "status": "RETRASADO"
+      }
+    ]
+  },
+  "success": true,
+  "message": "Loan found"
+}

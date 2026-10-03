@@ -1,0 +1,23 @@
+{
+  "data": {
+    "amount": 7.5,
+    "code": "MUL-2024-00001",
+    "daysLate": 3,
+    "loanItem": {
+      "returnDate": null,
+      "dueDate": "2024-08-05",
+      "copy": {
+        "code": "EJE-YYYY-00035",
+        "id": 35,
+        "barcode": "100027001",
+        "status": "DISPONIBLE"
+      },
+      "status": "RETRASADO"
+    },
+    "id": 1,
+    "issuedAt": "2024-08-08",
+    "status": "PENDIENTE"
+  },
+  "success": true,
+  "message": "Fine found"
+}

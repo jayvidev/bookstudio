@@ -1,0 +1,40 @@
+{
+  "data": {
+    "releaseDate": "1958-11-20",
+    "isbn": "978-84-376-0495-4",
+    "edition": "3ª edición",
+    "description": "Novela de José María Arguedas sobre la cultura andina",
+    "language": {
+      "code": "es",
+      "name": "Español",
+      "id": 1
+    },
+    "title": "Los ríos profundos",
+    "coverUrl": null,
+    "pages": 264,
+    "genres": [
+      {
+        "name": "Novela",
+        "id": 1
+      }
+    ],
+    "publisher": {
+      "name": "Seix Barral",
+      "id": 7
+    },
+    "id": 2,
+    "category": {
+      "name": "Literatura Clásica",
+      "id": 1
+    },
+    "status": "ACTIVO",
+    "authors": [
+      {
+        "name": "José María Arguedas",
+        "id": 4
+      }
+    ]
+  },
+  "success": true,
+  "message": "Book found"
+}
