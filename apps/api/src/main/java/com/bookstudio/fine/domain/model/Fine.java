@@ -18,14 +18,13 @@ import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
-import com.bookstudio.shared.code.CodePeriod;
 import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
 @Table(name = "fines")
 @Data
 public class Fine {
-    public static final CodeSeries CODE_SERIES = new CodeSeries("MULT", CodePeriod.YEAR, 5);
+    public static final CodeSeries CODE_SERIES = new CodeSeries("MUL");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

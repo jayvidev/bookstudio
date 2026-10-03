@@ -16,14 +16,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
-import com.bookstudio.shared.code.CodePeriod;
 import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
 @Table(name = "copies")
 @Data
 public class Copy {
-    public static final CodeSeries CODE_SERIES = new CodeSeries("EJ", CodePeriod.YEAR, 4);
+    public static final CodeSeries CODE_SERIES = new CodeSeries("EJE");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

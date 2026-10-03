@@ -1,28 +1,32 @@
 package com.bookstudio.shared.code;
 
 import java.time.LocalDate;
-import java.util.Objects;
+import java.util.regex.Pattern;
 
 /**
- * Format of a human-readable business code, e.g. {@code PRE-20261002-00001}:
- * prefix, period key and a zero-padded counter that restarts every period.
+ * A family of human-readable business codes, e.g. {@code PRE-2026-00001}:
+ * three-letter prefix, the year the counter restarts on, and a five-digit counter.
  */
-public record CodeSeries(String prefix, CodePeriod period, int digits) {
+public record CodeSeries(String prefix) {
+
+    private static final Pattern PREFIX = Pattern.compile("[A-Z]{3}");
+    private static final long MAX_COUNTER = 99_999;
 
     public CodeSeries {
-        Objects.requireNonNull(prefix, "prefix");
-        Objects.requireNonNull(period, "period");
-        if (digits < 1) {
-            throw new IllegalArgumentException("digits must be positive");
+        if (prefix == null || !PREFIX.matcher(prefix).matches()) {
+            throw new IllegalArgumentException("Code prefix must be three uppercase letters: " + prefix);
         }
     }
 
-    public String format(LocalDate date, long number) {
-        String counter = String.valueOf(number);
-        if (counter.length() > digits) {
+    public String periodOf(LocalDate date) {
+        return String.valueOf(date.getYear());
+    }
+
+    public String format(LocalDate date, long counter) {
+        if (counter < 1 || counter > MAX_COUNTER) {
             throw new IllegalStateException(
-                    "Code counter %s overflowed %d digits for %s".formatted(counter, digits, prefix));
+                    "Counter %d out of range for series %s in %s".formatted(counter, prefix, periodOf(date)));
         }
-        return prefix + "-" + period.keyOf(date) + "-" + "0".repeat(digits - counter.length()) + counter;
+        return "%s-%s-%05d".formatted(prefix, periodOf(date), counter);
     }
 }

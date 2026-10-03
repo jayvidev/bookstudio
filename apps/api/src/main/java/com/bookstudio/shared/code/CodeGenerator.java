@@ -32,7 +32,7 @@ public class CodeGenerator {
                 RETURNING last_value
                 """)
                 .param("series", series.prefix())
-                .param("period", series.period().keyOf(date))
+                .param("period", series.periodOf(date))
                 .query(Long.class)
                 .single();
 

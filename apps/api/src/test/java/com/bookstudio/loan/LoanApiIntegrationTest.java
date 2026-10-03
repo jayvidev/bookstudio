@@ -3,7 +3,6 @@ package com.bookstudio.loan;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +75,7 @@ class LoanApiIntegrationTest {
                 .bodyJson()
                 .satisfies(json -> {
                     json.assertThat().extractingPath("$.data.code").asString()
-                            .matches("PRE-\\d{8}-\\d{5}");
+                            .matches("PRE-\\d{4}-\\d{5}");
                     json.assertThat().extractingPath("$.data.reader.id").isEqualTo((int) readerId);
                 });
     }
@@ -95,9 +94,12 @@ class LoanApiIntegrationTest {
     }
 
     @Test
-    void generatesSequentialCodesForLoansOnTheSameDay() throws Exception {
+    void generatesConsecutiveCodesForConsecutiveLoans() throws Exception {
         long readerId = anyReaderId();
-        String today = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+        String year = String.valueOf(LocalDate.now().getYear());
+        long last = jdbc.sql("SELECT COALESCE(MAX(last_value), 0) FROM code_sequences WHERE series = 'PRE' AND period = :year")
+                .param("year", year)
+                .query(Long.class).single();
 
         List<String> codes = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
@@ -111,9 +113,9 @@ class LoanApiIntegrationTest {
         }
 
         assertThat(codes).containsExactly(
-                "PRE-" + today + "-00001",
-                "PRE-" + today + "-00002",
-                "PRE-" + today + "-00003");
+                "PRE-%s-%05d".formatted(year, last + 1),
+                "PRE-%s-%05d".formatted(year, last + 2),
+                "PRE-%s-%05d".formatted(year, last + 3));
     }
 
     @Test

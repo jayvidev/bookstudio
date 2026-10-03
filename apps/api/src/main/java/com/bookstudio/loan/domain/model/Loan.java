@@ -18,14 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bookstudio.reader.domain.model.Reader;
-import com.bookstudio.shared.code.CodePeriod;
 import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
 @Table(name = "loans")
 @Data
 public class Loan {
-    public static final CodeSeries CODE_SERIES = new CodeSeries("PRE", CodePeriod.DAY, 5);
+    public static final CodeSeries CODE_SERIES = new CodeSeries("PRE");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

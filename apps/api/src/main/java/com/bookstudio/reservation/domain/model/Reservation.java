@@ -17,14 +17,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
-import com.bookstudio.shared.code.CodePeriod;
 import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
 @Table(name = "reservations")
 @Data
 public class Reservation {
-    public static final CodeSeries CODE_SERIES = new CodeSeries("RES", CodePeriod.YEAR, 5);
+    public static final CodeSeries CODE_SERIES = new CodeSeries("RES");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,22 +12,19 @@ class CodeSeriesTest {
     private static final LocalDate DATE = LocalDate.of(2026, 10, 2);
 
     @Test
-    void formatsDailySeries() {
-        assertThat(new CodeSeries("PRE", CodePeriod.DAY, 5).format(DATE, 7))
-                .isEqualTo("PRE-20261002-00007");
+    void formatsPrefixYearAndPaddedCounter() {
+        assertThat(new CodeSeries("PRE").format(DATE, 7)).isEqualTo("PRE-2026-00007");
     }
 
     @Test
-    void formatsYearlySeries() {
-        assertThat(new CodeSeries("EJ", CodePeriod.YEAR, 4).format(DATE, 123))
-                .isEqualTo("EJ-2026-0123");
+    void rejectsPrefixThatIsNotThreeUppercaseLetters() {
+        assertThatThrownBy(() -> new CodeSeries("MULT")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new CodeSeries("pre")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void failsWhenCounterOverflowsDigits() {
-        CodeSeries series = new CodeSeries("EJ", CodePeriod.YEAR, 4);
-
-        assertThatThrownBy(() -> series.format(DATE, 10_000))
+    void failsWhenCounterOverflowsFiveDigits() {
+        assertThatThrownBy(() -> new CodeSeries("EJE").format(DATE, 100_000))
                 .isInstanceOf(IllegalStateException.class);
     }
 }
