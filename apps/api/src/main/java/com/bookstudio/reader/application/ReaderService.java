@@ -1,5 +1,6 @@
 package com.bookstudio.reader.application;
 
+import com.bookstudio.reader.ReaderApi;
 import com.bookstudio.reader.application.dto.request.CreateReaderRequest;
 import com.bookstudio.reader.application.dto.request.UpdateReaderRequest;
 import com.bookstudio.reader.application.dto.response.ReaderDetailResponse;
@@ -9,7 +10,9 @@ import com.bookstudio.reader.domain.model.type.ReaderGender;
 import com.bookstudio.reader.domain.model.type.ReaderStatus;
 import com.bookstudio.reader.domain.model.type.ReaderType;
 import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
+import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,18 +20,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.List;
 import java.time.LocalDate;
-import com.bookstudio.shared.code.CodeGenerator;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class ReaderService {
+public class ReaderService implements ReaderApi {
     private final CodeGenerator codeGenerator;
 
     private final ReaderRepository readerRepository;
+
+    @Override
+    public void requireExists(Long id) {
+        if (!readerRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Reader not found with ID: " + id);
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getOptions() {
+        return readerRepository.findForOptions();
+    }
 
     public List<ReaderListResponse> getList() {
         return readerRepository.findList();

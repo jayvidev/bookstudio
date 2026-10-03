@@ -2,8 +2,6 @@ package com.bookstudio.reservation.domain.model;
 
 import java.time.LocalDate;
 
-import com.bookstudio.copy.domain.model.Copy;
-import com.bookstudio.reader.domain.model.Reader;
 import com.bookstudio.reservation.domain.model.type.ReservationStatus;
 
 import jakarta.persistence.Column;
@@ -13,8 +11,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import com.bookstudio.shared.code.CodeSeries;
@@ -32,13 +28,11 @@ public class Reservation {
     @Column(nullable = false, unique = true, updatable = false)
     private String code;
 
-    @ManyToOne
-    @JoinColumn(name = "reader_id", nullable = false)
-    private Reader reader;
+    @Column(name = "reader_id", nullable = false)
+    private Long readerId;
 
-    @ManyToOne
-    @JoinColumn(name = "copy_id", nullable = false)
-    private Copy copy;
+    @Column(name = "copy_id", nullable = false)
+    private Long copyId;
 
     private LocalDate reservationDate;
 

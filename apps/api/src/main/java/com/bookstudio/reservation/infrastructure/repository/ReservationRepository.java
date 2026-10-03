@@ -11,7 +11,7 @@ import com.bookstudio.reservation.application.dto.response.ReservationListRespon
 import com.bookstudio.reservation.domain.model.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
-    @Query("""
+    String LIST_SELECT = """
         SELECT 
             r.id AS id,
             r.code AS code,
@@ -25,11 +25,15 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
             r.reservationDate AS reservationDate,
             r.status AS status
         FROM Reservation r
-        JOIN r.reader rd
-        JOIN r.copy c
-        ORDER BY r.id DESC
-    """)
+        JOIN Reader rd ON rd.id = r.readerId
+        JOIN Copy c ON c.id = r.copyId
+        """;
+
+    @Query(LIST_SELECT + "ORDER BY r.id DESC")
     List<ReservationListResponse> findList();
+
+    @Query(LIST_SELECT + "WHERE r.id = :id")
+    Optional<ReservationListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT 
@@ -48,8 +52,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
             r.reservationDate AS reservationDate,
             r.status AS status
         FROM Reservation r
-        JOIN r.reader rd
-        JOIN r.copy c
+        JOIN Reader rd ON rd.id = r.readerId
+        JOIN Copy c ON c.id = r.copyId
         WHERE r.id = :id
     """)
     Optional<ReservationDetailResponse> findDetailById(Long id);

@@ -1,6 +1,7 @@
 package com.bookstudio.copy.application;
 
 import com.bookstudio.book.BookApi;
+import com.bookstudio.copy.CopyApi;
 import com.bookstudio.copy.CopyStatus;
 import com.bookstudio.copy.application.dto.request.CreateCopyRequest;
 import com.bookstudio.copy.application.dto.request.UpdateCopyRequest;
@@ -14,6 +15,7 @@ import com.bookstudio.copy.infrastructure.repository.CopyRepository;
 import com.bookstudio.location.LocationApi;
 import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,12 +30,24 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class CopyService {
+public class CopyService implements CopyApi {
     private final CodeGenerator codeGenerator;
 
     private final CopyRepository copyRepository;
     private final BookApi bookApi;
     private final LocationApi locationApi;
+
+    @Override
+    public void requireExists(Long id) {
+        if (!copyRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Copy not found with ID: " + id);
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getOptions() {
+        return copyRepository.findForOptions();
+    }
 
     public List<CopyListResponse> getList() {
         return copyRepository.findList();
