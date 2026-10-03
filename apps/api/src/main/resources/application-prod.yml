@@ -2,3 +2,7 @@ spring:
   flyway:
     # Schema migrations only; never the demo seed
     locations: classpath:db/migration
+
+app:
+  cors:
+    allowed-origins: https://bookstudio-site.vercel.app
