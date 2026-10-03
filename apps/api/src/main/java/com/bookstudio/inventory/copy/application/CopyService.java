@@ -16,6 +16,7 @@ import com.bookstudio.inventory.copy.infrastructure.repository.CopyRepository;
 import com.bookstudio.inventory.location.LocationApi;
 import com.bookstudio.shared.api.PageResponse;
 import com.bookstudio.shared.code.CodeGenerator;
+import com.bookstudio.shared.exception.BusinessRuleException;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 import com.bookstudio.shared.paging.PageProjection;
 import com.bookstudio.shared.paging.SortWhitelist;
@@ -132,7 +133,11 @@ public class CopyService implements CopyApi {
         copy.setShelfId(request.shelfId());
 
         copy.setBarcode(request.barcode());
-        copy.setStatus(CopyStatus.valueOf(request.status()));
+        CopyStatus status = CopyStatus.valueOf(request.status());
+        if (status == CopyStatus.PRESTADO) {
+            throw new BusinessRuleException("Copies are put on loan by creating a loan, not by editing the copy");
+        }
+        copy.setStatus(status);
         copy.setCondition(CopyCondition.valueOf(request.condition()));
 
         copy.setCode(codeGenerator.next(Copy.CODE_SERIES, LocalDate.now()));
@@ -151,7 +156,7 @@ public class CopyService implements CopyApi {
         copy.setShelfId(request.shelfId());
 
         copy.setBarcode(request.barcode());
-        copy.setStatus(CopyStatus.valueOf(request.status()));
+        copy.changeStatusManually(CopyStatus.valueOf(request.status()));
         copy.setCondition(CopyCondition.valueOf(request.condition()));
 
         Copy updated = copyRepository.save(copy);

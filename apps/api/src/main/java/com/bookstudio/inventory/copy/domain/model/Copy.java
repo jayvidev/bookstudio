@@ -49,6 +49,27 @@ public class Copy {
     private CopyCondition condition;
 
     /**
+     * Status change requested by staff (maintenance, lost, back on the shelf).
+     * Lending and returning only happen through loans, so a copy on loan cannot
+     * be changed here and no copy can be put on loan here.
+     *
+     * @throws BusinessRuleException if the change would bypass a loan
+     */
+    public void changeStatusManually(CopyStatus newStatus) {
+        if (newStatus == status) {
+            return;
+        }
+        if (status == CopyStatus.PRESTADO) {
+            throw new BusinessRuleException(
+                    "Copy %s is on loan; change it through its loan".formatted(code));
+        }
+        if (newStatus == CopyStatus.PRESTADO) {
+            throw new BusinessRuleException("Copies are put on loan by creating a loan, not by editing the copy");
+        }
+        status = newStatus;
+    }
+
+    /**
      * @throws BusinessRuleException unless the copy is available
      */
     public void lend() {
