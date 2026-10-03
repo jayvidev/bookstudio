@@ -22,12 +22,11 @@ Library management system built with Spring Boot, Next.js, and PostgreSQL.
 ```
 bookstudio/
 ├── apps/
-│   ├── api/                        REST API — Spring Boot 4, Java 17, Maven
+│   ├── api/                        REST API — Spring Boot 4, Java 25, Maven
 │   └── web/                        Frontend — Next.js 16, TypeScript, Tailwind CSS, pnpm
-├── database/                       SQL scripts (schema, functions, triggers, data)
 ├── package.json                    Root orchestration (concurrently)
 ├── docker-compose.yml              Base services (postgres + api)
-├── docker-compose.override.yml     Dev — web with next dev + hot reload (auto-loaded)
+├── docker-compose.override.yml     Dev — publishes the Postgres port (auto-loaded)
 └── docker-compose.prod.yml         Prod — web with next build
 ```
 
@@ -35,7 +34,7 @@ bookstudio/
 
 | Layer          | Technology                                                  |
 | -------------- | ----------------------------------------------------------- |
-| API            | Spring Boot 4, Java 17, Spring Data JPA, Maven              |
+| API            | Spring Boot 4.1, Java 25, Spring Modulith, Spring Data JPA, Flyway, Maven |
 | Database       | PostgreSQL 18                                               |
 | Frontend       | Next.js 16.1, TypeScript, Tailwind CSS v4, shadcn/ui        |
 | File storage   | Configured in system as needed                              |
@@ -43,7 +42,8 @@ bookstudio/
 ## Prerequisites
 
 - **Docker Compose v2** to run everything together
-- For local dev without Docker: Java 17 JDK, Maven or `./mvnw`, Node.js 20+, pnpm
+- For local dev without Docker: Java 25 JDK, `./mvnw`, Node.js 20+, pnpm
+- To run the API tests: Docker (Testcontainers starts a real PostgreSQL)
 
 ## Run with Docker Compose
 
@@ -56,20 +56,21 @@ cp .env.example .env
 # Edit .env — at minimum: DB_PASSWORD
 
 # 3. Start all services
-pnpm docker:up        # dev mode  — web runs with next dev + hot reload (default)
-pnpm docker:up:prod   # prod mode — web built with next build
+pnpm docker:up        # dev mode  — postgres + api, Postgres port published
+pnpm docker:up:prod   # prod mode — adds the web (next build); Postgres not published
 ```
 
 | Service    | URL                                  |
 | ---------- | ------------------------------------ |
-| PostgreSQL | `localhost:5432`                     |
+| PostgreSQL | `localhost:5432` (dev only)           |
 | API        | `http://localhost:8080`              |
 | Web        | `http://localhost:3000`              |
-| Swagger UI | `http://localhost:8080/swagger-ui.html` |
+| Swagger UI | `http://localhost:8080/swagger-ui.html` (dev) |
+| Health     | `http://localhost:8080/actuator/health` |
 
 Ports are configurable in `.env` via `DB_PORT`, `API_PORT`, `WEB_PORT`.
 
-> **Note:** Scripts in `database/` run automatically the first time the PostgreSQL volume is created. To reset the database from scratch: `pnpm docker:down -- -v && pnpm docker:up`.
+> **Note:** The API applies the Flyway migrations in `apps/api/src/main/resources/db/migration` on startup, plus demo data from `db/seed` outside prod. To reset the database from scratch: `pnpm docker:down -- -v && pnpm docker:up`.
 >
 > **Port conflicts:** If any default port is already in use, override it in `.env` — e.g. `DB_PORT=5433`, `API_PORT=8081`, `WEB_PORT=3001`. Internal container communication is unaffected.
 
@@ -79,11 +80,9 @@ Ports are configurable in `.env` via `DB_PORT`, `API_PORT`, `WEB_PORT`.
 
 ```bash
 psql -U postgres -c "CREATE DATABASE bookstudio;"
-psql -U postgres -d bookstudio -f database/01-schema.sql
-psql -U postgres -d bookstudio -f database/02-functions.sql
-psql -U postgres -d bookstudio -f database/03-triggers.sql
-psql -U postgres -d bookstudio -f database/04-data.sql
 ```
+
+The schema and demo data are created by Flyway when the API starts.
 
 ### Start both services
 
