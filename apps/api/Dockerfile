@@ -1,4 +1,4 @@
-FROM maven:3.9.6-eclipse-temurin-17 AS deps
+FROM maven:3.9.12-eclipse-temurin-25 AS deps
 WORKDIR /app
 COPY pom.xml ./
 RUN mvn dependency:go-offline -q -B
@@ -7,7 +7,7 @@ FROM deps AS builder
 COPY src ./src
 RUN mvn clean package -DskipTests -o -q -B
 
-FROM eclipse-temurin:17-jre AS runner
+FROM eclipse-temurin:25-jre AS runner
 
 RUN groupadd -r bookstudio && useradd -r -g bookstudio bookstudio
 
