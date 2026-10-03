@@ -1,20 +1,16 @@
 package com.bookstudio.payment.application;
 
-import com.bookstudio.fine.domain.model.Fine;
-import com.bookstudio.fine.domain.model.type.FineStatus;
-import com.bookstudio.fine.infrastructure.repository.FineRepository;
+import com.bookstudio.fine.FineApi;
 import com.bookstudio.payment.application.dto.request.CreatePaymentRequest;
 import com.bookstudio.payment.application.dto.request.UpdatePaymentRequest;
 import com.bookstudio.payment.application.dto.response.PaymentDetailResponse;
 import com.bookstudio.payment.application.dto.response.PaymentFilterOptionsResponse;
 import com.bookstudio.payment.application.dto.response.PaymentListResponse;
 import com.bookstudio.payment.domain.model.Payment;
-import com.bookstudio.payment.domain.model.PaymentFine;
-import com.bookstudio.payment.domain.model.PaymentFineId;
 import com.bookstudio.payment.domain.model.type.PaymentMethod;
-import com.bookstudio.payment.infrastructure.repository.PaymentFineRepository;
 import com.bookstudio.payment.infrastructure.repository.PaymentRepository;
-import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
+import com.bookstudio.reader.ReaderApi;
+import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
@@ -24,8 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
-import java.util.Objects;
-import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
@@ -35,9 +29,8 @@ public class PaymentService {
     private final CodeGenerator codeGenerator;
 
     private final PaymentRepository paymentRepository;
-    private final FineRepository fineRepository;
-    private final PaymentFineRepository paymentFineRepository;
-    private final ReaderRepository readerRepository;
+    private final ReaderApi readerApi;
+    private final FineApi fineApi;
 
     public List<PaymentListResponse> getList() {
         return paymentRepository.findList();
@@ -45,21 +38,22 @@ public class PaymentService {
 
     public PaymentFilterOptionsResponse getFilterOptions() {
         return new PaymentFilterOptionsResponse(
-                readerRepository.findForOptions());
+                readerApi.getOptions());
     }
 
     public PaymentDetailResponse getDetailById(Long id) {
         PaymentDetailResponse base = paymentRepository.findDetailById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Payment not found with ID: " + id));
 
-        return base.withFines(paymentFineRepository.findFinesItemsByPaymentId(id));
+        return base.withFines(paymentRepository.findFineItemsByPaymentId(id));
     }
 
     @Transactional
     public PaymentListResponse create(CreatePaymentRequest request) {
         Payment payment = new Payment();
-        payment.setReader(readerRepository.findById(request.readerId())
-                .orElseThrow(() -> new ResourceNotFoundException("Reader not found with ID: " + request.readerId())));
+        readerApi.requireExists(request.readerId());
+        payment.setReaderId(request.readerId());
+        payment.replaceFines(request.fineIds());
 
         payment.setAmount(request.amount());
         payment.setPaymentDate(request.paymentDate());
@@ -69,19 +63,7 @@ public class PaymentService {
 
         Payment saved = paymentRepository.save(payment);
 
-        for (Long fineId : request.fineIds()) {
-            Fine fine = fineRepository.findById(Objects.requireNonNull(fineId, "Fine ID cannot be null"))
-                    .orElseThrow(() -> new ResourceNotFoundException("Fine not found with ID: " + fineId));
-
-            PaymentFine relation = new PaymentFine(
-                    new PaymentFineId(saved.getId(), fine.getId()),
-                    saved,
-                    fine);
-            paymentFineRepository.save(relation);
-
-            fine.setStatus(FineStatus.PAGADO);
-            fineRepository.save(fine);
-        }
+        fineApi.markPaid(request.fineIds());
 
         return toListResponse(saved);
     }
@@ -91,8 +73,9 @@ public class PaymentService {
         Payment payment = paymentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Payment not found with ID: " + id));
 
-        payment.setReader(readerRepository.findById(request.readerId())
-                .orElseThrow(() -> new ResourceNotFoundException("Reader not found with ID: " + request.readerId())));
+        readerApi.requireExists(request.readerId());
+        payment.setReaderId(request.readerId());
+        payment.replaceFines(request.fineIds());
 
         payment.setAmount(request.amount());
         payment.setPaymentDate(request.paymentDate());
@@ -100,37 +83,12 @@ public class PaymentService {
 
         Payment updated = paymentRepository.save(payment);
 
-        paymentFineRepository.deleteAllByPayment(updated);
-
-        for (Long fineId : request.fineIds()) {
-            Fine fine = fineRepository.findById(Objects.requireNonNull(fineId, "Fine ID cannot be null"))
-                    .orElseThrow(() -> new ResourceNotFoundException("Fine not found with ID: " + fineId));
-
-            PaymentFine relation = new PaymentFine(
-                    new PaymentFineId(updated.getId(), fine.getId()),
-                    updated,
-                    fine);
-            paymentFineRepository.save(relation);
-
-            fine.setStatus(FineStatus.PAGADO);
-            fineRepository.save(fine);
-        }
+        fineApi.markPaid(request.fineIds());
 
         return toListResponse(updated);
     }
 
     private PaymentListResponse toListResponse(Payment payment) {
-        return new PaymentListResponse(
-                payment.getId(),
-                payment.getCode(),
-                paymentFineRepository.countByPayment(payment),
-
-                payment.getReader().getId(),
-                payment.getReader().getCode(),
-                payment.getReader().getFullName(),
-
-                payment.getAmount(),
-                payment.getPaymentDate(),
-                payment.getMethod());
+        return paymentRepository.findListItemById(payment.getId()).orElseThrow();
     }
 }

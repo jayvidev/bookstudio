@@ -1,13 +1,14 @@
 package com.bookstudio.fine.application;
 
 import com.bookstudio.copy.CopyApi;
+import com.bookstudio.fine.FineApi;
+import com.bookstudio.fine.FineStatus;
 import com.bookstudio.fine.application.dto.request.CreateFineRequest;
 import com.bookstudio.fine.application.dto.request.UpdateFineRequest;
 import com.bookstudio.fine.application.dto.response.FineDetailResponse;
 import com.bookstudio.fine.application.dto.response.FineFilterOptionsResponse;
 import com.bookstudio.fine.application.dto.response.FineListResponse;
 import com.bookstudio.fine.domain.model.Fine;
-import com.bookstudio.fine.domain.model.type.FineStatus;
 import com.bookstudio.fine.infrastructure.repository.FineRepository;
 import com.bookstudio.loan.LoanApi;
 import com.bookstudio.shared.code.CodeGenerator;
@@ -19,18 +20,37 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class FineService {
+public class FineService implements FineApi {
     private final CodeGenerator codeGenerator;
 
     private final FineRepository fineRepository;
     private final LoanApi loanApi;
     private final CopyApi copyApi;
+
+    @Override
+    @Transactional
+    public void markPaid(Collection<Long> fineIds) {
+        Map<Long, Fine> fines = fineRepository.findAllById(fineIds).stream()
+                .collect(Collectors.toMap(Fine::getId, Function.identity()));
+
+        for (Long fineId : fineIds) {
+            Fine fine = fines.get(fineId);
+            if (fine == null) {
+                throw new ResourceNotFoundException("Fine not found with ID: " + fineId);
+            }
+            fine.setStatus(FineStatus.PAGADO);
+        }
+    }
 
     public List<FineListResponse> getList() {
         return fineRepository.findList();

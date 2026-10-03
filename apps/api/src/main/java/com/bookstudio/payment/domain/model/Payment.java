@@ -1,12 +1,11 @@
 package com.bookstudio.payment.domain.model;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 import com.bookstudio.payment.domain.model.type.PaymentMethod;
-import com.bookstudio.reader.domain.model.Reader;
+import com.bookstudio.shared.code.CodeSeries;
 
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -14,10 +13,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 import lombok.Data;
-import com.bookstudio.shared.code.CodeSeries;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "payments")
@@ -32,9 +36,8 @@ public class Payment {
     @Column(nullable = false, unique = true, updatable = false)
     private String code;
 
-    @ManyToOne
-    @JoinColumn(name = "reader_id", nullable = false)
-    private Reader reader;
+    @Column(name = "reader_id", nullable = false)
+    private Long readerId;
 
     @Column(nullable = false)
     private BigDecimal amount;
@@ -43,4 +46,14 @@ public class Payment {
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod method;
+
+    @ElementCollection
+    @CollectionTable(name = "payment_fines", joinColumns = @JoinColumn(name = "payment_id"))
+    @Column(name = "fine_id")
+    private Set<Long> fineIds = new HashSet<>();
+
+    public void replaceFines(Collection<Long> ids) {
+        fineIds.clear();
+        fineIds.addAll(ids);
+    }
 }

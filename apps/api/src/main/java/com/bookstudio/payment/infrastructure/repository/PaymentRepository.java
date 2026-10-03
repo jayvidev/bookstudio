@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
-    @Query("""
-        SELECT 
+    String LIST_SELECT = """
+        SELECT
             p.id AS id,
             p.code AS code,
-            COUNT(f) AS fineCount,
+            COUNT(fineId) AS fineCount,
 
             r.id AS readerId,
             r.code AS readerCode,
@@ -25,14 +25,19 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
             p.paymentDate AS paymentDate,
             p.method AS method
         FROM Payment p
-        JOIN p.reader r
-        JOIN PaymentFine pf ON pf.payment = p
-        JOIN pf.fine f
+        JOIN Reader r ON r.id = p.readerId
+        JOIN p.fineIds fineId
+        """;
+
+    String LIST_GROUP_BY = """
         GROUP BY p.id, p.code, r.id, r.code, r.firstName, r.lastName, p.amount, p.paymentDate, p.method
-        ORDER BY p.id DESC
-    """)
+        """;
+
+    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY p.id DESC")
     List<PaymentListResponse> findList();
 
+    @Query(LIST_SELECT + "WHERE p.id = :id " + LIST_GROUP_BY)
+    Optional<PaymentListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT 
@@ -49,8 +54,22 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
             
             NULL AS fines
         FROM Payment p
-        JOIN p.reader r
+        JOIN Reader r ON r.id = p.readerId
         WHERE p.id = :id
     """)
     Optional<PaymentDetailResponse> findDetailById(Long id);
+
+    @Query("""
+        SELECT
+            f.id AS id,
+            f.code AS code,
+            f.amount AS amount,
+            f.status AS status
+        FROM Payment p
+        JOIN p.fineIds fineId
+        JOIN Fine f ON f.id = fineId
+        WHERE p.id = :id
+        ORDER BY f.id
+    """)
+    List<PaymentDetailResponse.FineItem> findFineItemsByPaymentId(Long id);
 }

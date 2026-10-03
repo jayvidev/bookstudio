@@ -1,6 +1,6 @@
 package com.bookstudio.fine.application.dto.request;
 
-import com.bookstudio.fine.domain.model.type.FineStatus;
+import com.bookstudio.fine.FineStatus;
 import com.bookstudio.shared.validation.ValidEnum;
 
 import jakarta.validation.Valid;

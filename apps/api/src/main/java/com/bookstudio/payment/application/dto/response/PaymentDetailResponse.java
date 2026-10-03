@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.bookstudio.fine.domain.model.type.FineStatus;
+import com.bookstudio.fine.FineStatus;
 import com.bookstudio.payment.domain.model.type.PaymentMethod;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;

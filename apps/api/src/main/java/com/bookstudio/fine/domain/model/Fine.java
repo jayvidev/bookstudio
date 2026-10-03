@@ -3,7 +3,7 @@ package com.bookstudio.fine.domain.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.bookstudio.fine.domain.model.type.FineStatus;
+import com.bookstudio.fine.FineStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -2,7 +2,7 @@ package com.bookstudio.fine.application.dto.request;
 
 import java.math.BigDecimal;
 
-import com.bookstudio.fine.domain.model.type.FineStatus;
+import com.bookstudio.fine.FineStatus;
 import com.bookstudio.shared.validation.ValidEnum;
 
 import jakarta.validation.constraints.DecimalMin;

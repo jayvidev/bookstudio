@@ -3,7 +3,7 @@ package com.bookstudio.fine.application.dto.response;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.bookstudio.fine.domain.model.type.FineStatus;
+import com.bookstudio.fine.FineStatus;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
