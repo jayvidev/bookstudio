@@ -1,3 +1,4 @@
+import { pageResponseSchema } from '@/lib/schemas/common/page-response.schema'
 import {
   type FineFilterOptions,
   fineFilterOptionsSchema,
@@ -8,8 +9,8 @@ import { apiClient } from './client'
 
 export const finesApi = {
   async getAll(): Promise<FineList[]> {
-    const data = await apiClient.get('/fines')
-    return fineListSchema.array().parse(data)
+    const data = await apiClient.get('/fines?size=100')
+    return pageResponseSchema(fineListSchema).parse(data).content
   },
 
   async getFilterOptions(): Promise<FineFilterOptions> {

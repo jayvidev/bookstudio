@@ -1,3 +1,4 @@
+import { pageResponseSchema } from '@/lib/schemas/common/page-response.schema'
 import {
   type PaymentFilterOptions,
   paymentFilterOptionsSchema,
@@ -8,8 +9,8 @@ import { apiClient } from './client'
 
 export const paymentsApi = {
   async getAll(): Promise<PaymentList[]> {
-    const data = await apiClient.get('/payments')
-    return paymentListSchema.array().parse(data)
+    const data = await apiClient.get('/payments?size=100')
+    return pageResponseSchema(paymentListSchema).parse(data).content
   },
 
   async getFilterOptions(): Promise<PaymentFilterOptions> {

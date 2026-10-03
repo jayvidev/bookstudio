@@ -16,6 +16,9 @@ export class ApiClientError extends Error {
   }
 }
 
+// TODO(front): list endpoints are paginated (PageResponse). Until the tables
+// use server-side pagination and filters, lib/api/* read the largest page (100)
+// and keep filtering client-side.
 export class ApiClient {
   constructor(private baseUrl: string = config.api.baseUrl) {}
 

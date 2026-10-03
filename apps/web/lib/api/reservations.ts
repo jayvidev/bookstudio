@@ -1,3 +1,4 @@
+import { pageResponseSchema } from '@/lib/schemas/common/page-response.schema'
 import {
   type ReservationFilterOptions,
   reservationFilterOptionsSchema,
@@ -11,8 +12,8 @@ import { apiClient } from './client'
 
 export const reservationsApi = {
   async getAll(): Promise<ReservationList[]> {
-    const data = await apiClient.get('/reservations')
-    return reservationListSchema.array().parse(data)
+    const data = await apiClient.get('/reservations?size=100')
+    return pageResponseSchema(reservationListSchema).parse(data).content
   },
 
   async getFilterOptions(): Promise<ReservationFilterOptions> {

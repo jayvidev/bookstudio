@@ -8,8 +8,6 @@ import { type LoanList, loanListSchema } from '@/lib/schemas/loan/loan.list.sche
 import { apiClient } from './client'
 
 export const loansApi = {
-  // TODO(front): use server-side pagination and filters; until then the table
-  // keeps filtering client-side over the largest page the API serves.
   async getAll(): Promise<LoanList[]> {
     const data = await apiClient.get('/loans?size=100')
     return pageResponseSchema(loanListSchema).parse(data).content

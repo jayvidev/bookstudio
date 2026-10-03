@@ -1,3 +1,4 @@
+import { pageResponseSchema } from '@/lib/schemas/common/page-response.schema'
 import {
   type PublisherFilterOptions,
   publisherFilterOptionsSchema,
@@ -11,8 +12,8 @@ import { apiClient } from './client'
 
 export const publishersApi = {
   async getAll(): Promise<PublisherList[]> {
-    const data = await apiClient.get('/publishers')
-    return publisherListSchema.array().parse(data)
+    const data = await apiClient.get('/publishers?size=100')
+    return pageResponseSchema(publisherListSchema).parse(data).content
   },
 
   async getFilterOptions(): Promise<PublisherFilterOptions> {

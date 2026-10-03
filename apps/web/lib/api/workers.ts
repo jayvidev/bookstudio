@@ -1,3 +1,4 @@
+import { pageResponseSchema } from '@/lib/schemas/common/page-response.schema'
 import {
   type WorkerFilterOptions,
   workerFilterOptionsSchema,
@@ -8,8 +9,8 @@ import { apiClient } from './client'
 
 export const workersApi = {
   async getAll(): Promise<WorkerList[]> {
-    const data = await apiClient.get('/workers')
-    return workerListSchema.array().parse(data)
+    const data = await apiClient.get('/workers?size=100')
+    return pageResponseSchema(workerListSchema).parse(data).content
   },
 
   async getFilterOptions(): Promise<WorkerFilterOptions> {
