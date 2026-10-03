@@ -14,6 +14,7 @@ import com.bookstudio.staff.worker.infrastructure.repository.WorkerRepository;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -27,6 +28,7 @@ import java.util.List;
 public class WorkerService {
     private final WorkerRepository workerRepository;
     private final RoleApi roleApi;
+    private final PasswordEncoder passwordEncoder;
 
     public List<WorkerListResponse> getList(Long loggedId) {
         return workerRepository.findList(loggedId);
@@ -59,7 +61,7 @@ public class WorkerService {
         worker.setEmail(request.email());
         worker.setFirstName(request.firstName());
         worker.setLastName(request.lastName());
-        worker.setPassword(request.password());
+        worker.setPassword(passwordEncoder.encode(request.password()));
         worker.setProfilePhotoUrl(request.profilePhotoUrl());
         worker.setStatus(WorkerStatus.valueOf(request.status()));
 

@@ -80,6 +80,11 @@
         "code": "RESERVATION_MANAGE",
         "description": "Gestionar reservas",
         "id": 16
+      },
+      {
+        "code": "READER_MANAGE",
+        "description": "Registrar y editar lectores",
+        "id": 33
       }
     ],
     "name": "Administrador",

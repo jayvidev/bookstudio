@@ -4,19 +4,19 @@
       "name": "Asistente",
       "description": "Apoyo en tareas básicas de biblioteca y atención al público",
       "id": 3,
-      "permissionCount": 4
+      "permissionCount": 5
     },
     {
       "name": "Bibliotecario",
       "description": "Gestión de préstamos, devoluciones, multas y catalogación de libros",
       "id": 2,
-      "permissionCount": 11
+      "permissionCount": 12
     },
     {
       "name": "Administrador",
       "description": "Acceso completo al sistema, gestión de usuarios y configuración",
       "id": 1,
-      "permissionCount": 16
+      "permissionCount": 17
     }
   ],
   "success": true,

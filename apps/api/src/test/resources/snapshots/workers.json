@@ -2,6 +2,18 @@
   "data": [
     {
       "role": {
+        "name": "Bibliotecario",
+        "id": 2
+      },
+      "fullName": "Cuenta Demo",
+      "id": 21,
+      "email": "demo@bookstudio.pe",
+      "profilePhotoUrl": null,
+      "username": "demo",
+      "status": "ACTIVO"
+    },
+    {
+      "role": {
         "name": "Asistente",
         "id": 3
       },
