@@ -1,17 +1,19 @@
 package com.bookstudio;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
 
+/**
+ * Fails the build when a module reaches into another module's internals
+ * (anything outside its root package) or when modules depend on each other
+ * in a cycle.
+ */
 class ModularityTests {
 
     static final ApplicationModules modules = ApplicationModules.of(BookstudioApplication.class);
 
     @Test
-    @EnabledIfSystemProperty(named = "modulith.verify", matches = "true",
-            disabledReason = "Module boundaries are being fixed module by module; run with -Dmodulith.verify=true")
     void verifiesModularStructure() {
         modules.verify();
     }
