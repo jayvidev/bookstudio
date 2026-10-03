@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import com.bookstudio.fine.domain.model.type.FineStatus;
-import com.bookstudio.loan.domain.model.LoanItem;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,9 +12,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import com.bookstudio.shared.code.CodeSeries;
@@ -33,12 +29,11 @@ public class Fine {
     @Column(nullable = false, unique = true, updatable = false)
     private String code;
 
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "loan_id", referencedColumnName = "loan_id"),
-            @JoinColumn(name = "copy_id", referencedColumnName = "copy_id")
-    })
-    private LoanItem loanItem;
+    @Column(name = "loan_id", nullable = false, updatable = false)
+    private Long loanId;
+
+    @Column(name = "copy_id", nullable = false, updatable = false)
+    private Long copyId;
 
     @Column(nullable = false)
     private BigDecimal amount;

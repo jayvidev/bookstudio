@@ -1,4 +1,4 @@
-package com.bookstudio.loan.domain.model.type;
+package com.bookstudio.loan;
 
 public enum LoanItemStatus {
     PRESTADO,

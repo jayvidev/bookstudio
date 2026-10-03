@@ -2,8 +2,7 @@ package com.bookstudio.loan.domain.model;
 
 import java.time.LocalDate;
 
-import com.bookstudio.copy.domain.model.Copy;
-import com.bookstudio.loan.domain.model.type.LoanItemStatus;
+import com.bookstudio.loan.LoanItemStatus;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -30,11 +29,6 @@ public class LoanItem {
     @MapsId("loanId")
     @JoinColumn(name = "loan_id")
     private Loan loan;
-
-    @ManyToOne
-    @MapsId("copyId")
-    @JoinColumn(name = "copy_id")
-    private Copy copy;
 
     private LocalDate dueDate;
 

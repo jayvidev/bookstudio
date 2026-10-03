@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 import com.bookstudio.copy.CopyStatus;
 import com.bookstudio.fine.domain.model.type.FineStatus;
-import com.bookstudio.loan.domain.model.type.LoanItemStatus;
+import com.bookstudio.loan.LoanItemStatus;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

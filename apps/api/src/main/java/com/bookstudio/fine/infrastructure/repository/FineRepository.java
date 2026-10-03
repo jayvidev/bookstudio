@@ -12,7 +12,7 @@ import com.bookstudio.fine.domain.model.Fine;
 import com.bookstudio.shared.response.OptionResponse;
 
 public interface FineRepository extends JpaRepository<Fine, Long> {
-    @Query("""
+    String LIST_SELECT = """
         SELECT 
             f.id AS id,
             f.code AS code,
@@ -28,12 +28,15 @@ public interface FineRepository extends JpaRepository<Fine, Long> {
             f.issuedAt AS issuedAt,
             f.status AS status
         FROM Fine f
-        JOIN f.loanItem li
-        JOIN li.loan l
-        JOIN li.copy c
-        ORDER BY f.id DESC
-    """)
+        JOIN Loan l ON l.id = f.loanId
+        JOIN Copy c ON c.id = f.copyId
+        """;
+
+    @Query(LIST_SELECT + "ORDER BY f.id DESC")
     List<FineListResponse> findList();
+
+    @Query(LIST_SELECT + "WHERE f.id = :id")
+    Optional<FineListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT
@@ -63,8 +66,8 @@ public interface FineRepository extends JpaRepository<Fine, Long> {
             f.status AS status,
             f.issuedAt AS issuedAt
         FROM Fine f
-        JOIN f.loanItem li
-        JOIN li.copy c
+        JOIN LoanItem li ON li.id.loanId = f.loanId AND li.id.copyId = f.copyId
+        JOIN Copy c ON c.id = f.copyId
         WHERE f.id = :id
     """)
     Optional<FineDetailResponse> findDetailById(Long id);

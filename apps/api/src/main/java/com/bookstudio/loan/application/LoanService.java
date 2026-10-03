@@ -1,8 +1,9 @@
 package com.bookstudio.loan.application;
 
-import com.bookstudio.book.infrastructure.repository.BookRepository;
-import com.bookstudio.copy.domain.model.Copy;
-import com.bookstudio.copy.infrastructure.repository.CopyRepository;
+import com.bookstudio.book.BookApi;
+import com.bookstudio.copy.CopyApi;
+import com.bookstudio.loan.LoanApi;
+import com.bookstudio.loan.LoanItemStatus;
 import com.bookstudio.loan.application.dto.request.CreateLoanItemRequest;
 import com.bookstudio.loan.application.dto.request.CreateLoanRequest;
 import com.bookstudio.loan.application.dto.request.UpdateLoanItemRequest;
@@ -14,11 +15,12 @@ import com.bookstudio.loan.application.dto.response.LoanSelectOptionsResponse;
 import com.bookstudio.loan.domain.model.Loan;
 import com.bookstudio.loan.domain.model.LoanItem;
 import com.bookstudio.loan.domain.model.LoanItemId;
-import com.bookstudio.loan.domain.model.type.LoanItemStatus;
 import com.bookstudio.loan.infrastructure.repository.LoanItemRepository;
 import com.bookstudio.loan.infrastructure.repository.LoanRepository;
-import com.bookstudio.reader.infrastructure.repository.ReaderRepository;
+import com.bookstudio.reader.ReaderApi;
+import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
+import com.bookstudio.shared.response.OptionResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,23 +30,32 @@ import org.springframework.validation.annotation.Validated;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Validated
-public class LoanService {
+public class LoanService implements LoanApi {
     private final CodeGenerator codeGenerator;
 
     private final LoanRepository loanRepository;
     private final LoanItemRepository loanItemRepository;
 
-    private final BookRepository bookRepository;
-    private final ReaderRepository readerRepository;
-    private final CopyRepository copyRepository;
+    private final BookApi bookApi;
+    private final ReaderApi readerApi;
+    private final CopyApi copyApi;
+
+    @Override
+    public void requireItemExists(Long loanId, Long copyId) {
+        if (!loanItemRepository.existsById(new LoanItemId(loanId, copyId))) {
+            throw new ResourceNotFoundException("Loan item not found with ID: " + new LoanItemId(loanId, copyId));
+        }
+    }
+
+    @Override
+    public List<OptionResponse> getOptions() {
+        return loanRepository.findForOptions();
+    }
 
     public List<LoanListResponse> getList() {
         return loanRepository.findList();
@@ -52,13 +63,13 @@ public class LoanService {
 
     public LoanFilterOptionsResponse getFilterOptions() {
         return new LoanFilterOptionsResponse(
-                readerRepository.findForOptions());
+                readerApi.getOptions());
     }
 
     public LoanSelectOptionsResponse getSelectOptions() {
         return new LoanSelectOptionsResponse(
-                bookRepository.findForOptions(),
-                readerRepository.findForOptions());
+                bookApi.getOptions(),
+                readerApi.getOptions());
     }
 
     public LoanDetailResponse getDetailById(Long id) {
@@ -71,8 +82,8 @@ public class LoanService {
     @Transactional
     public LoanListResponse create(CreateLoanRequest request) {
         Loan loan = new Loan();
-        loan.setReader(readerRepository.findById(request.readerId())
-                .orElseThrow(() -> new ResourceNotFoundException("Reader not found with ID: " + request.readerId())));
+        readerApi.requireExists(request.readerId());
+        loan.setReaderId(request.readerId());
 
         loan.setLoanDate(LocalDate.now());
         loan.setObservation(request.observation());
@@ -82,14 +93,11 @@ public class LoanService {
         Loan saved = loanRepository.save(loan);
 
         for (CreateLoanItemRequest itemDto : request.items()) {
-            Copy copy = copyRepository.findById(itemDto.copyId())
-                    .orElseThrow(
-                            () -> new ResourceNotFoundException("Copy not found with ID: " + itemDto.copyId()));
+            copyApi.requireExists(itemDto.copyId());
 
             LoanItem item = new LoanItem(
-                    new LoanItemId(saved.getId(), copy.getId()),
+                    new LoanItemId(saved.getId(), itemDto.copyId()),
                     saved,
-                    copy,
                     itemDto.dueDate(),
                     null,
                     LoanItemStatus.PRESTADO);
@@ -105,8 +113,8 @@ public class LoanService {
         Loan loan = loanRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Loan not found with ID: " + id));
 
-        loan.setReader(readerRepository.findById(request.readerId())
-                .orElseThrow(() -> new ResourceNotFoundException("Reader not found with ID: " + request.readerId())));
+        readerApi.requireExists(request.readerId());
+        loan.setReaderId(request.readerId());
 
         loan.setObservation(request.observation());
 
@@ -115,14 +123,11 @@ public class LoanService {
         loanItemRepository.deleteAllByLoan(updated);
 
         for (UpdateLoanItemRequest itemDto : request.items()) {
-            Copy copy = copyRepository.findById(itemDto.copyId())
-                    .orElseThrow(() -> new ResourceNotFoundException(
-                            "Copy not found with ID: " + itemDto.copyId()));
+            copyApi.requireExists(itemDto.copyId());
 
             LoanItem item = new LoanItem(
-                    new LoanItemId(updated.getId(), copy.getId()),
+                    new LoanItemId(updated.getId(), itemDto.copyId()),
                     updated,
-                    copy,
                     itemDto.dueDate(),
                     null,
                     LoanItemStatus.PRESTADO);
@@ -133,33 +138,7 @@ public class LoanService {
         return toListResponse(updated);
     }
 
-    public LoanListResponse toListResponse(Loan loan) {
-        Map<LoanItemStatus, Long> counts = loan.getLoanItems().stream()
-                .collect(Collectors.groupingBy(
-                        LoanItem::getStatus,
-                        Collectors.counting()));
-
-        Long borrowed = counts.getOrDefault(LoanItemStatus.PRESTADO, 0L);
-        Long returned = counts.getOrDefault(LoanItemStatus.DEVUELTO, 0L);
-        Long overdue = counts.getOrDefault(LoanItemStatus.RETRASADO, 0L);
-        Long lost = counts.getOrDefault(LoanItemStatus.EXTRAVIADO, 0L);
-        Long canceled = counts.getOrDefault(LoanItemStatus.CANCELADO, 0L);
-
-        return new LoanListResponse(
-                loan.getId(),
-                loan.getCode(),
-
-                loan.getReader().getId(),
-                loan.getReader().getCode(),
-                loan.getReader().getFullName(),
-
-                loan.getLoanDate(),
-                borrowed + returned + overdue + lost + canceled,
-
-                borrowed,
-                returned,
-                overdue,
-                lost,
-                canceled);
+    private LoanListResponse toListResponse(Loan loan) {
+        return loanRepository.findListItemById(loan.getId()).orElseThrow();
     }
 }

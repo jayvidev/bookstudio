@@ -22,7 +22,7 @@ public interface LoanItemRepository extends JpaRepository<LoanItem, LoanItemId> 
             li.returnDate AS returnDate,
             li.status AS status
         FROM LoanItem li
-        JOIN li.copy c
+        JOIN Copy c ON c.id = li.id.copyId
         WHERE li.loan.id = :id
     """)
     List<LoanDetailResponse.LoanItem> findLoanItemsByLoanId(Long id);

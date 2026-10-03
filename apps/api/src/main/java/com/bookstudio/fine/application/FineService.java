@@ -1,5 +1,6 @@
 package com.bookstudio.fine.application;
 
+import com.bookstudio.copy.CopyApi;
 import com.bookstudio.fine.application.dto.request.CreateFineRequest;
 import com.bookstudio.fine.application.dto.request.UpdateFineRequest;
 import com.bookstudio.fine.application.dto.response.FineDetailResponse;
@@ -8,9 +9,8 @@ import com.bookstudio.fine.application.dto.response.FineListResponse;
 import com.bookstudio.fine.domain.model.Fine;
 import com.bookstudio.fine.domain.model.type.FineStatus;
 import com.bookstudio.fine.infrastructure.repository.FineRepository;
-import com.bookstudio.loan.infrastructure.repository.LoanItemRepository;
-import com.bookstudio.loan.infrastructure.repository.LoanRepository;
-import com.bookstudio.copy.infrastructure.repository.CopyRepository;
+import com.bookstudio.loan.LoanApi;
+import com.bookstudio.shared.code.CodeGenerator;
 import com.bookstudio.shared.exception.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
-import com.bookstudio.shared.code.CodeGenerator;
 
 @Service
 @RequiredArgsConstructor
@@ -30,9 +29,8 @@ public class FineService {
     private final CodeGenerator codeGenerator;
 
     private final FineRepository fineRepository;
-    private final LoanRepository loanRepository;
-    private final CopyRepository copyRepository;
-    private final LoanItemRepository loanItemRepository;
+    private final LoanApi loanApi;
+    private final CopyApi copyApi;
 
     public List<FineListResponse> getList() {
         return fineRepository.findList();
@@ -40,8 +38,8 @@ public class FineService {
 
     public FineFilterOptionsResponse getFilterOptions() {
         return new FineFilterOptionsResponse(
-                loanRepository.findForOptions(),
-                copyRepository.findForOptions());
+                loanApi.getOptions(),
+                copyApi.getOptions());
     }
 
     public FineDetailResponse getDetailById(Long id) {
@@ -52,9 +50,9 @@ public class FineService {
     @Transactional
     public FineListResponse create(CreateFineRequest request) {
         Fine fine = new Fine();
-        fine.setLoanItem(loanItemRepository.findById(request.loanItemId())
-                .orElseThrow(
-                        () -> new ResourceNotFoundException("Loan item not found with ID: " + request.loanItemId())));
+        loanApi.requireItemExists(request.loanItemId().loanId(), request.loanItemId().copyId());
+        fine.setLoanId(request.loanItemId().loanId());
+        fine.setCopyId(request.loanItemId().copyId());
 
         fine.setAmount(request.amount());
         fine.setDaysLate(request.daysLate());
@@ -83,19 +81,6 @@ public class FineService {
     }
 
     private FineListResponse toListResponse(Fine fine) {
-        return new FineListResponse(
-                fine.getId(),
-                fine.getCode(),
-
-                fine.getLoanItem().getLoan().getId(),
-                fine.getLoanItem().getLoan().getCode(),
-
-                fine.getLoanItem().getCopy().getId(),
-                fine.getLoanItem().getCopy().getCode(),
-
-                fine.getAmount(),
-                fine.getDaysLate(),
-                fine.getIssuedAt(),
-                fine.getStatus());
+        return fineRepository.findListItemById(fine.getId()).orElseThrow();
     }
 }

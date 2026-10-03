@@ -6,7 +6,7 @@
       "overdue": 0,
       "lost": 0,
       "returned": 0,
-      "borrowed": 1
+      "borrowed": 2
     },
     "reader": {
       "code": "LEC-YYYY-00002",
@@ -15,7 +15,7 @@
     },
     "loanDate": "<today>",
     "id": "<created-id>",
-    "itemCount": 1
+    "itemCount": 2
   },
   "success": true,
   "message": "Loan updated successfully"

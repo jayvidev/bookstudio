@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface LoanRepository extends JpaRepository<Loan, Long> {
-    @Query("""
+    String LIST_SELECT = """
         SELECT 
             l.id AS id,
             l.code AS code,
@@ -30,12 +30,19 @@ public interface LoanRepository extends JpaRepository<Loan, Long> {
             COALESCE(SUM(CASE WHEN li.status = 'EXTRAVIADO' THEN 1 ELSE 0 END), 0) AS lostCount,
             COALESCE(SUM(CASE WHEN li.status = 'CANCELADO' THEN 1 ELSE 0 END), 0) AS canceledCount
         FROM Loan l
-        JOIN l.reader r
+        JOIN Reader r ON r.id = l.readerId
         LEFT JOIN l.loanItems li
+        """;
+
+    String LIST_GROUP_BY = """
         GROUP BY l.id, l.code, r.id, r.code, r.firstName, r.lastName, l.loanDate
-        ORDER BY l.id DESC
-    """)
+        """;
+
+    @Query(LIST_SELECT + LIST_GROUP_BY + "ORDER BY l.id DESC")
     List<LoanListResponse> findList();
+
+    @Query(LIST_SELECT + "WHERE l.id = :id " + LIST_GROUP_BY)
+    Optional<LoanListResponse> findListItemById(Long id);
 
     @Query("""
         SELECT
@@ -60,7 +67,7 @@ public interface LoanRepository extends JpaRepository<Loan, Long> {
             
             NULL AS items
         FROM Loan l
-        JOIN l.reader r
+        JOIN Reader r ON r.id = l.readerId
         WHERE l.id = :id
     """)
     Optional<LoanDetailResponse> findDetailById(Long id);

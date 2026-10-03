@@ -7,8 +7,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -17,7 +15,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bookstudio.reader.domain.model.Reader;
 import com.bookstudio.shared.code.CodeSeries;
 
 @Entity
@@ -33,9 +30,8 @@ public class Loan {
     @Column(nullable = false, unique = true, updatable = false)
     private String code;
 
-    @ManyToOne
-    @JoinColumn(name = "reader_id", nullable = false)
-    private Reader reader;
+    @Column(name = "reader_id", nullable = false)
+    private Long readerId;
 
     @Column(nullable = false)
     private LocalDate loanDate;
