@@ -4,12 +4,47 @@ This guide documents all patterns, conventions, and standards used in this API. 
 
 ---
 
+## 🧱 Module Boundaries (Spring Modulith)
+
+Every top-level package is an application module, and `ModularityTests` runs
+`ApplicationModules.verify()` on every build. Rationale and trade-offs:
+[ADR 0001](adr/0001-modular-monolith.md).
+
+| Rule | Example |
+|------|---------|
+| Only the module's **root package** is public | `com.bookstudio.reader.ReaderApi` |
+| Other modules talk to it through that API, never its repositories or entities | `readerApi.requireExists(id)` |
+| Entities reference other modules' aggregates **by id** | `private Long readerId;` |
+| Cross-module writes go through intention-revealing methods | `fineApi.markPaid(fineIds)` |
+| Read projections may join other modules' entities by id | `JOIN Reader r ON r.id = l.readerId` |
+| Enums shown in other modules' responses live in the module root | `com.bookstudio.copy.CopyStatus` |
+| `shared` is an open module (shared kernel) | `ApiSuccess`, `CodeGenerator` |
+| No dependency cycles | |
+
+### Public API
+
+```java
+package com.bookstudio.reader;
+
+public interface ReaderApi {
+    void requireExists(Long id);           // throws ResourceNotFoundException
+    List<OptionResponse> getOptions();
+}
+```
+
+The module's service implements it (`ReaderService implements ReaderApi`), or a
+package-private service does when the module has no controller
+(`NationalityService`, `GenreService`, `LanguageService`).
+
+---
+
 ## 📁 Package Structure (Layered Architecture)
 
 Each module follows a well-defined 4-layer structure:
 
 ```
 com.bookstudio.{module}/
+├── {Module}Api.java      # Public API used by other modules (if any)
 ├── application/          # Business logic
 │   ├── {Module}Service.java
 │   └── dto/
@@ -35,129 +70,49 @@ com.bookstudio.{module}/
 
 ---
 
-## 🔗 Dependent Entities (No Separate Module)
+## 🔗 Relations: Child Entities vs. References
 
-### Rule
-When an entity **depends entirely on another** and has no meaning on its own, it does **NOT** get its own module folder. Instead, it lives inside the parent module.
+### Child entities (same aggregate)
+An entity that only exists as part of a parent lives in the parent module and
+keeps a real JPA association: `LoanItem` (with `LoanItemId`) inside `loan`,
+`Shelf` inside `location`.
 
-### When to Apply
-- **Intermediate tables** for many-to-many relations (e.g., `BookAuthor`, `BookGenre`)
-- **Child entities** that only exist as part of a parent (e.g., `PaymentFine`, `LoanItem`)
-- **Composite IDs** for intermediate tables (e.g., `BookAuthorId`, `LoanItemId`)
+### References to other modules
+Store the id, never the other module's entity:
 
-### Location Pattern
-
-```
-com.bookstudio.{parent}/
-├── application/
-│   └── dto/
-│       ├── request/
-│       │   ├── Create{Parent}Request.java
-│       │   ├── Update{Parent}Request.java
-│       │   ├── Create{Parent}{Child}Request.java   # If child needs its own request DTO
-│       │   └── Update{Parent}{Child}Request.java   # If child needs its own request DTO
-│       └── response/
-│           ├── {Parent}ListResponse.java
-│           └── {Parent}DetailResponse.java
-│               └── {Child}Item (nested record)     # Child DTOs are nested records
-├── domain/
-│   └── model/
-│       ├── {Parent}.java           # Main entity
-│       ├── {Parent}{Child}.java    # Dependent entity
-│       └── {Parent}{Child}Id.java  # Composite ID (if needed)
-└── infrastructure/
-    └── repository/
-        ├── {Parent}Repository.java
-        └── {Parent}{Child}Repository.java  # Repository for dependent entity
+```java
+@Column(name = "reader_id", nullable = false)
+private Long readerId;
 ```
 
-### Real Examples
+### Many-to-many to another module
+No intermediate entity or repository. The owning entity keeps an element
+collection of ids mapped to the existing join table:
 
-#### Book Module (with many-to-many relations)
-```
-com.bookstudio.book/
-├── application/
-│   └── dto/
-│       ├── request/
-│       │   ├── CreateBookRequest.java     # Contains List<Long> authorIds, genreIds
-│       │   └── UpdateBookRequest.java
-│       └── response/
-│           ├── BookListResponse.java
-│           └── BookDetailResponse.java
-│               ├── AuthorItem (nested record)
-│               └── GenreItem (nested record)
-├── domain/
-│   └── model/
-│       ├── Book.java
-│       ├── BookAuthor.java      # Intermediate table Book <-> Author
-│       ├── BookAuthorId.java    # Composite ID
-│       ├── BookGenre.java       # Intermediate table Book <-> Genre
-│       └── BookGenreId.java     # Composite ID
-└── infrastructure/
-    └── repository/
-        ├── BookRepository.java
-        ├── BookAuthorRepository.java
-        └── BookGenreRepository.java
+```java
+@ElementCollection
+@CollectionTable(name = "book_authors", joinColumns = @JoinColumn(name = "book_id"))
+@Column(name = "author_id")
+private Set<Long> authorIds = new HashSet<>();
+
+public void replaceAuthors(Collection<Long> ids) {
+    authorIds.clear();
+    authorIds.addAll(ids);
+}
 ```
 
-#### Loan Module (with child entity that has its own request DTO)
-```
-com.bookstudio.loan/
-├── application/
-│   └── dto/
-│       ├── request/
-│       │   ├── CreateLoanRequest.java          # Contains List<CreateLoanItemRequest>
-│       │   ├── CreateLoanItemRequest.java      # Separate file for item request
-│       │   ├── UpdateLoanRequest.java          # Contains List<UpdateLoanItemRequest>
-│       │   └── UpdateLoanItemRequest.java      # Separate file for item request
-│       └── response/
-│           ├── LoanListResponse.java
-│           └── LoanDetailResponse.java
-│               └── LoanItem (nested record)    # Response uses nested record
-├── domain/
-│   └── model/
-│       ├── Loan.java
-│       ├── LoanItem.java        # Individual items in a loan
-│       └── LoanItemId.java      # Composite ID
-└── infrastructure/
-    └── repository/
-        ├── LoanRepository.java
-        └── LoanItemRepository.java
-```
+Used by `Book.authorIds`, `Book.genreIds`, `Publisher.genreIds` and
+`Payment.fineIds`.
 
-#### Payment Module (with simple child reference)
-```
-com.bookstudio.payment/
-├── application/
-│   └── dto/
-│       ├── request/
-│       │   ├── CreatePaymentRequest.java   # Contains List<Long> fineIds (just IDs)
-│       │   └── UpdatePaymentRequest.java
-│       └── response/
-│           ├── PaymentListResponse.java
-│           └── PaymentDetailResponse.java
-│               └── FineItem (nested record)
-├── domain/
-│   └── model/
-│       ├── Payment.java
-│       ├── PaymentFine.java     # Payment detail for fines
-│       └── PaymentFineId.java   # Composite ID
-└── infrastructure/
-    └── repository/
-        ├── PaymentRepository.java
-        └── PaymentFineRepository.java
-```
+### Request DTOs
+- **Simple**: `List<Long> {child}Ids` in the parent request (`authorIds`, `fineIds`).
+- **Complex**: a separate `Create{Parent}{Child}Request` (`CreateLoanItemRequest`).
+- A request never uses another module's types; it declares its own record
+  (`fine`'s `LoanItemRef` instead of `loan`'s `LoanItemId`).
 
-### Key Points
-
-1. **No separate module folder** for dependent entities
-2. **Models**: `{Parent}{Child}.java` in parent's `domain/model/`
-3. **Composite IDs**: `{Parent}{Child}Id.java` for intermediate tables
-4. **Repositories**: `{Parent}{Child}Repository.java` in parent's `infrastructure/repository/`
-5. **Request DTOs**: Two options depending on complexity:
-   - **Simple**: Just `List<Long> {child}Ids` in parent request (e.g., `authorIds`, `fineIds`)
-   - **Complex**: Separate `Create{Parent}{Child}Request.java` file (e.g., `CreateLoanItemRequest`)
-6. **Response DTOs**: Always use **nested records** inside parent's response (e.g., `LoanDetailResponse.LoanItem`)
+### Response DTOs
+Child items are **nested records** inside the parent's response
+(`LoanDetailResponse.LoanItem`, `BookDetailResponse.AuthorItem`).
 
 ---
 
@@ -200,29 +155,25 @@ private EntityListResponse toListResponse(Entity entity) { }  // Private helper 
 
 #### Repository
 ```java
-List<EntityListResponse> findList();                    // Full listing
-List<OptionResponse> findForOptions();                   // For selects/filters
-Optional<EntityDetailResponse> findDetailById(Long id);  // Detail by ID
-Optional<Entity> findById(Long id);                      // Inherited from JpaRepository
-Entity save(Entity entity);                              // Inherited from JpaRepository
+List<EntityListResponse> findList();                       // Full listing
+Optional<EntityListResponse> findListItemById(Long id);     // Same projection, one row (after writes)
+List<OptionResponse> findForOptions();                      // For selects/filters
+Optional<EntityDetailResponse> findDetailById(Long id);     // Detail by ID
+Optional<Entity> findById(Long id);                         // Inherited from JpaRepository
+Entity save(Entity entity);                                 // Inherited from JpaRepository
 
-// For Many-to-Many relations (in intermediate table repository)
+// Items of a many-to-many or child relation
 List<EntityDetailResponse.ItemType> find{Items}By{Entity}Id(Long id);
-void deleteAllBy{Entity}(Entity entity);
 ```
 
 ### Real Examples
 
-#### BookAuthorRepository (Intermediate Table)
 ```java
+// BookRepository: items of the book_authors element collection
 List<BookDetailResponse.AuthorItem> findAuthorItemsByBookId(Long id);
-void deleteAllByBook(Book book);
-```
 
-#### LoanItemRepository (Intermediate Table)
-```java
+// LoanItemRepository: child entities of the same aggregate
 List<LoanDetailResponse.LoanItem> findLoanItemsByLoanId(Long id);
-void deleteAllByLoan(Loan loan);
 ```
 
 ---
@@ -369,17 +320,19 @@ public record EntityDetailResponse(
 }
 ```
 
-### Query for Items in Intermediate Table
+### Query for Items of an Element Collection
 
 ```java
-// In intermediate table repository (e.g.: BookAuthorRepository)
+// In the owning repository (e.g.: BookRepository)
 @Query("""
-    SELECT 
+    SELECT
         a.id AS id,
         a.name AS name
-    FROM BookAuthor ba
-    JOIN ba.author a
-    WHERE ba.book.id = :id
+    FROM Book b
+    JOIN b.authorIds authorId
+    JOIN Author a ON a.id = authorId
+    WHERE b.id = :id
+    ORDER BY a.id
 """)
 List<BookDetailResponse.AuthorItem> findAuthorItemsByBookId(Long id);
 ```
@@ -400,8 +353,8 @@ public BookDetailResponse getDetailById(Long id) {
             .orElseThrow(() -> new ResourceNotFoundException("Book not found with ID: " + id));
 
     return base.withAuthorsAndGenres(
-            bookAuthorRepository.findAuthorItemsByBookId(id),
-            bookGenreRepository.findGenreItemsByBookId(id));
+            bookRepository.findAuthorItemsByBookId(id),
+            bookRepository.findGenreItemsByBookId(id));
 }
 ```
 
@@ -427,11 +380,39 @@ Never load the full entity and then map to DTO.
 
         e.status AS status
     FROM Entity e
-    JOIN e.related r
+    JOIN Related r ON r.id = e.relatedId
     WHERE e.id = :id
     ORDER BY e.id DESC
 """)
 ```
+
+Join other modules' entities by id (`JOIN Related r ON r.id = e.relatedId`);
+navigate associations (`JOIN e.items i`) only inside the same aggregate.
+
+### Sharing the List Projection
+
+The list query is declared once as a constant and reused for the single-row
+variant that services use after a write:
+
+```java
+String LIST_SELECT = """
+    SELECT
+        a.id AS id,
+        a.name AS name,
+        n.name AS nationalityName
+    FROM Author a
+    JOIN Nationality n ON n.id = a.nationalityId
+    """;
+
+@Query(LIST_SELECT + "ORDER BY a.id DESC")
+List<AuthorListResponse> findList();
+
+@Query(LIST_SELECT + "WHERE a.id = :id")
+Optional<AuthorListResponse> findListItemById(Long id);
+```
+
+Queries with `GROUP BY` add a `LIST_GROUP_BY` constant and put the `WHERE`
+before it.
 
 ### Query Conventions
 
@@ -495,7 +476,7 @@ public interface EntityRepository extends JpaRepository<Entity, Long> {
 
         b.status AS status
     FROM Book b
-    LEFT JOIN b.copies c
+    LEFT JOIN Copy c ON c.bookId = b.id
     GROUP BY b.id, b.title, b.status
     ORDER BY b.id DESC
 """)
@@ -515,7 +496,7 @@ List<BookListResponse> findList();
 @Validated
 public class EntityService {
     private final EntityRepository entityRepository;
-    private final RelatedRepository relatedRepository;
+    private final RelatedApi relatedApi;          // another module: its API, never its repository
 ```
 
 ### Standard Methods
@@ -529,7 +510,7 @@ public List<EntityListResponse> getList() {
 // GET FILTER OPTIONS - Uses OptionResponse
 public EntityFilterOptionsResponse getFilterOptions() {
     return new EntityFilterOptionsResponse(
-            relatedRepository.findForOptions());
+            relatedApi.getOptions());
 }
 
 // GET DETAIL BY ID - Uses orElseThrow for 404
@@ -541,7 +522,10 @@ public EntityDetailResponse getDetailById(Long id) {
 // CREATE - Mark @Transactional for write
 @Transactional
 public EntityListResponse create(CreateEntityRequest request) {
+    relatedApi.requireExists(request.relatedId());
+
     Entity entity = new Entity();
+    entity.setRelatedId(request.relatedId());
     // ... set fields
     Entity saved = entityRepository.save(entity);
     return toListResponse(saved);
@@ -560,18 +544,12 @@ public EntityListResponse update(Long id, UpdateEntityRequest request) {
 
 ### Private `toListResponse` Method
 
-For create/update, use a private method that converts entity to DTO:
+After create/update, re-read the same projection the list endpoint uses, so
+each response has a single source of truth (JPQL auto-flushes pending writes):
 
 ```java
 private EntityListResponse toListResponse(Entity entity) {
-    return new EntityListResponse(
-            entity.getId(),
-            entity.getName(),
-
-            entity.getRelated().getId(),
-            entity.getRelated().getName(),
-
-            entity.getStatus());
+    return entityRepository.findListItemById(entity.getId()).orElseThrow();
 }
 ```
 
@@ -749,49 +727,31 @@ public class Entity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    @Column(name = "category_id", nullable = false)   // another module: id only
+    private Long categoryId;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
     @OneToMany(mappedBy = "entity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();     // child entities of the same aggregate
 }
 ```
 
-### Intermediate Table (Many-to-Many)
+### Business Codes
+
+Entities with a human-readable code declare their series and get the code from
+`CodeGenerator` before saving ([ADR 0002](adr/0002-business-codes.md)):
 
 ```java
-@Entity
-@Table(name = "entity_items")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class EntityItem {
-    @EmbeddedId
-    private EntityItemId id;
+public static final CodeSeries CODE_SERIES = new CodeSeries("PRE");   // PRE-2026-00001
 
-    @ManyToOne
-    @MapsId("entityId")
-    @JoinColumn(name = "entity_id")
-    private Entity entity;
+@Column(nullable = false, unique = true, updatable = false)
+private String code;
+```
 
-    @ManyToOne
-    @MapsId("itemId")
-    @JoinColumn(name = "item_id")
-    private Item item;
-}
-
-@Embeddable
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class EntityItemId implements Serializable {
-    private Long entityId;
-    private Long itemId;
-}
+```java
+loan.setCode(codeGenerator.next(Loan.CODE_SERIES, loan.getLoanDate()));
 ```
 
 ---
@@ -855,7 +815,9 @@ public class ApiError {
 | **Indentation** | 4 spaces |
 | **Queries** | Always with `@Query` and `AS` projections |
 | **Listings** | Never load full entity |
-| **Many-to-Many** | Use `withItems()` pattern |
+| **Module boundaries** | Other modules only through `{Module}Api`; references by id |
+| **Many-to-Many** | `@ElementCollection` of ids + `withItems()` pattern |
+| **After writes** | Re-read with `findListItemById` |
 | **Nested objects** | `@JsonIgnore` + `@JsonGetter` + inner record |
 | **Options** | Use shared `OptionResponse(value, label)` |
 | **Transactions** | `@Transactional(readOnly = true)` on class, `@Transactional` on write methods |
@@ -897,6 +859,9 @@ com.bookstudio.shared/
 ├── exception/
 │   ├── ResourceNotFoundException.java
 │   └── GlobalExceptionHandler.java
+├── code/
+│   ├── CodeSeries.java
+│   └── CodeGenerator.java
 ├── response/
 │   └── OptionResponse.java
 ├── type/
@@ -911,5 +876,5 @@ com.bookstudio.shared/
 
 ---
 
-**Version**: 1.0  
-**Last updated**: February 2026
+**Version**: 2.0  
+**Last updated**: October 2026
