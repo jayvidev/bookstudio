@@ -95,7 +95,7 @@ public class LoanService {
                     null,
                     LoanItemStatus.PRESTADO);
 
-            loanItemRepository.save(item);
+            saved.getLoanItems().add(loanItemRepository.save(item));
         }
 
         return toListResponse(saved);

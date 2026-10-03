@@ -77,6 +77,19 @@ class LoanApiIntegrationTest {
     }
 
     @Test
+    void createResponseCountsCreatedItems() {
+        assertThat(mvc.post().uri("/loans")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(createLoanJson(anyReaderId(), anyAvailableCopyId(0))))
+                .hasStatus(HttpStatus.CREATED)
+                .bodyJson()
+                .satisfies(json -> {
+                    json.assertThat().extractingPath("$.data.itemCount").isEqualTo(1);
+                    json.assertThat().extractingPath("$.data.statusCounts.borrowed").isEqualTo(1);
+                });
+    }
+
+    @Test
     void rejectsLoanWithoutItems() {
         assertThat(mvc.post().uri("/loans")
                 .contentType(MediaType.APPLICATION_JSON)
